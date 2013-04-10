@@ -1,0 +1,1 @@
+[29-Jan-2013 06:29:18 UTC] PHP Warning:  imagejpeg() [<a href='function.imagejpeg'>function.imagejpeg</a>]: Unable to open 'http://mnt.mta.cl/cle/wp/wp-content/uploads/2013/01/admin_avatar-32x32.jpg' for writing: No such file or directory in /home/clelcubc/public_html/wp-includes/class-wp-image-editor.php on line 334
