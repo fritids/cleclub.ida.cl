@@ -1,5 +1,23 @@
 <?php
 
+function parseFeed($url) {
+    $rss = fetch_feed($url);
+    $maxitems = $rss->get_item_quantity(3);
+    $rss_items = $rss->get_items(0, $maxitems);
+    $out = '';
+
+    if ($maxitems == 0) :
+        _e('No items', 'my-text-domain');
+    else :
+        foreach ($rss_items as $item) :
+            $clase = $i % 2 ? ' odd' : '';
+            $out .= '<div class="wNota"><div class="bajadaNota' . $clase . '"><div class="tituloNotaW">' .esc_html($item->get_title()). '</div><span class="exp"><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())). '&amp;titulo='. urldecode(esc_html($item->get_title())).'"> ' . esc_html($item->get_title()) . '</a></span></div></div>';
+            $i++;
+        endforeach;
+        return $out;
+    endif;
+}
+
 function traduceMes($mes) {
     if ($mes == 1) {
         $mes = 'Enero';
