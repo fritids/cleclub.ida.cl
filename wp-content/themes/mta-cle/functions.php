@@ -1,5 +1,4 @@
 <?php
-
 /**
 
  * Twenty Twelve functions and definitions.
@@ -43,20 +42,13 @@
  * @since Twenty Twelve 1.0
 
  */
-
-
-
 /**
 
  * Sets up the content width value based on the theme's design and stylesheet.
 
  */
-
-if ( ! isset( $content_width ) )
-
-	$content_width = 625;
-
-
+if (!isset($content_width))
+    $content_width = 625;
 
 /**
 
@@ -83,78 +75,74 @@ if ( ! isset( $content_width ) )
  * @since Twenty Twelve 1.0
 
  */
-
 function twentytwelve_setup() {
 
-	/*
+    /*
 
-	 * Makes Twenty Twelve available for translation.
+     * Makes Twenty Twelve available for translation.
 
-	 *
+     *
 
-	 * Translations can be added to the /languages/ directory.
+     * Translations can be added to the /languages/ directory.
 
-	 * If you're building a theme based on Twenty Twelve, use a find and replace
+     * If you're building a theme based on Twenty Twelve, use a find and replace
 
-	 * to change 'twentytwelve' to the name of your theme in all the template files.
+     * to change 'twentytwelve' to the name of your theme in all the template files.
 
-	 */
+     */
 
-	load_theme_textdomain( 'twentytwelve', get_template_directory() . '/languages' );
-
-
-
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-
-	add_editor_style();
+    load_theme_textdomain('twentytwelve', get_template_directory() . '/languages');
 
 
 
-	// Adds RSS feed links to <head> for posts and comments.
+    // This theme styles the visual editor with editor-style.css to match the theme style.
 
-	add_theme_support( 'automatic-feed-links' );
-
-
-
-	// This theme supports a variety of post formats.
-
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
+    add_editor_style();
 
 
 
-	// This theme uses wp_nav_menu() in one location.
+    // Adds RSS feed links to <head> for posts and comments.
 
-	register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
-
-	register_nav_menu( 'public', __( 'Public Menu', 'twentytwelve' ) );	
+    add_theme_support('automatic-feed-links');
 
 
 
-	/*
+    // This theme supports a variety of post formats.
 
-	 * This theme supports custom background color and image, and here
-
-	 * we also set up the default background color.
-
-	 */
-
-	add_theme_support( 'custom-background', array(
-
-		'default-color' => 'e6e6e6',
-
-	) );
+    add_theme_support('post-formats', array('aside', 'image', 'link', 'quote', 'status'));
 
 
 
-	// This theme uses a custom image size for featured images, displayed on "standard" posts.
+    // This theme uses wp_nav_menu() in one location.
 
-	add_theme_support( 'post-thumbnails' );
+    register_nav_menu('primary', __('Primary Menu', 'twentytwelve'));
 
-	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
+    register_nav_menu('public', __('Public Menu', 'twentytwelve'));
 
+
+
+    /*
+
+     * This theme supports custom background color and image, and here
+
+     * we also set up the default background color.
+
+     */
+
+    add_theme_support('custom-background', array(
+        'default-color' => 'e6e6e6',
+    ));
+
+
+
+    // This theme uses a custom image size for featured images, displayed on "standard" posts.
+
+    add_theme_support('post-thumbnails');
+
+    set_post_thumbnail_size(624, 9999); // Unlimited height, soft crop
 }
 
-add_action( 'after_setup_theme', 'twentytwelve_setup' );
+add_action('after_setup_theme', 'twentytwelve_setup');
 
 
 
@@ -163,10 +151,7 @@ add_action( 'after_setup_theme', 'twentytwelve_setup' );
  * Adds support for a custom header image.
 
  */
-
 require( get_template_directory() . '/inc/custom-header.php' );
-
-
 
 /**
 
@@ -177,136 +162,124 @@ require( get_template_directory() . '/inc/custom-header.php' );
  * @since Twenty Twelve 1.0
 
  */
-
 function twentytwelve_scripts_styles() {
 
-	global $wp_styles;
+    global $wp_styles;
 
 
 
-	/*
+    /*
 
-	 * Adds JavaScript to pages with the comment form to support
+     * Adds JavaScript to pages with the comment form to support
 
-	 * sites with threaded comments (when in use).
+     * sites with threaded comments (when in use).
 
-	 */
+     */
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+    if (is_singular() && comments_open() && get_option('thread_comments'))
+        wp_enqueue_script('comment-reply');
 
-		wp_enqueue_script( 'comment-reply' );
 
 
+    /*
 
-	/*
+     * Adds JavaScript for handling the navigation menu hide-and-show behavior.
 
-	 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
+     */
 
-	 */
+    wp_enqueue_script('twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true);
 
-	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 
 
+    /*
 
-	/*
+     * Loads our special font CSS file.
 
-	 * Loads our special font CSS file.
+     *
 
-	 *
+     * The use of Open Sans by default is localized. For languages that use
 
-	 * The use of Open Sans by default is localized. For languages that use
+     * characters not supported by the font, the font can be disabled.
 
-	 * characters not supported by the font, the font can be disabled.
+     *
 
-	 *
+     * To disable in a child theme, use wp_dequeue_style()
 
-	 * To disable in a child theme, use wp_dequeue_style()
+     * function mytheme_dequeue_fonts() {
 
-	 * function mytheme_dequeue_fonts() {
+     *     wp_dequeue_style( 'twentytwelve-fonts' );
 
-	 *     wp_dequeue_style( 'twentytwelve-fonts' );
+     * }
 
-	 * }
+     * add_action( 'wp_enqueue_scripts', 'mytheme_dequeue_fonts', 11 );
 
-	 * add_action( 'wp_enqueue_scripts', 'mytheme_dequeue_fonts', 11 );
+     */
 
-	 */
 
 
+    /* translators: If there are characters in your language that are not supported
 
-	/* translators: If there are characters in your language that are not supported
+      by Open Sans, translate this to 'off'. Do not translate into your own language. */
 
-	   by Open Sans, translate this to 'off'. Do not translate into your own language. */
+    if ('off' !== _x('on', 'Open Sans font: on or off', 'twentytwelve')) {
 
-	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'twentytwelve' ) ) {
+        $subsets = 'latin,latin-ext';
 
-		$subsets = 'latin,latin-ext';
 
 
+        /* translators: To add an additional Open Sans character subset specific to your language, translate
 
-		/* translators: To add an additional Open Sans character subset specific to your language, translate
+          this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your own language. */
 
-		   this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your own language. */
+        $subset = _x('no-subset', 'Open Sans font: add new subset (greek, cyrillic, vietnamese)', 'twentytwelve');
 
-		$subset = _x( 'no-subset', 'Open Sans font: add new subset (greek, cyrillic, vietnamese)', 'twentytwelve' );
 
 
+        if ('cyrillic' == $subset)
+            $subsets .= ',cyrillic,cyrillic-ext';
 
-		if ( 'cyrillic' == $subset )
+        elseif ('greek' == $subset)
+            $subsets .= ',greek,greek-ext';
 
-			$subsets .= ',cyrillic,cyrillic-ext';
+        elseif ('vietnamese' == $subset)
+            $subsets .= ',vietnamese';
 
-		elseif ( 'greek' == $subset )
 
-			$subsets .= ',greek,greek-ext';
 
-		elseif ( 'vietnamese' == $subset )
+        $protocol = is_ssl() ? 'https' : 'http';
 
-			$subsets .= ',vietnamese';
+        $query_args = array(
+            'family' => 'Open+Sans:400italic,700italic,400,700',
+            'subset' => $subsets,
+        );
 
+        wp_enqueue_style('twentytwelve-fonts', add_query_arg($query_args, "$protocol://fonts.googleapis.com/css"), array(), null);
+    }
 
 
-		$protocol = is_ssl() ? 'https' : 'http';
 
-		$query_args = array(
+    /*
 
-			'family' => 'Open+Sans:400italic,700italic,400,700',
+     * Loads our main stylesheet.
 
-			'subset' => $subsets,
+     */
 
-		);
+    wp_enqueue_style('twentytwelve-style', get_stylesheet_uri());
 
-		wp_enqueue_style( 'twentytwelve-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
 
-	}
 
+    /*
 
+     * Loads the Internet Explorer specific stylesheet.
 
-	/*
+     */
 
-	 * Loads our main stylesheet.
+    wp_enqueue_style('twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array('twentytwelve-style'), '20121010');
 
-	 */
-
-	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
-
-
-
-	/*
-
-	 * Loads the Internet Explorer specific stylesheet.
-
-	 */
-
-	wp_enqueue_style( 'twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentytwelve-style' ), '20121010' );
-
-	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
-
+    $wp_styles->add_data('twentytwelve-ie', 'conditional', 'lt IE 9');
 }
 
-add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
-
-
+add_action('wp_enqueue_scripts', 'twentytwelve_scripts_styles');
 
 /**
 
@@ -327,50 +300,43 @@ add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
  * @return string Filtered title.
 
  */
+function twentytwelve_wp_title($title, $sep) {
 
-function twentytwelve_wp_title( $title, $sep ) {
-
-	global $paged, $page;
-
-
-
-	if ( is_feed() )
-
-		return $title;
+    global $paged, $page;
 
 
 
-	// Add the site name.
-
-	$title .= get_bloginfo( 'name' );
-
-
-
-	// Add the site description for the home/front page.
-
-	$site_description = get_bloginfo( 'description', 'display' );
-
-	if ( $site_description && ( is_home() || is_front_page() ) )
-
-		$title = "$title $sep $site_description";
+    if (is_feed())
+        return $title;
 
 
 
-	// Add a page number if necessary.
+    // Add the site name.
 
-	if ( $paged >= 2 || $page >= 2 )
-
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'twentytwelve' ), max( $paged, $page ) );
+    $title .= get_bloginfo('name');
 
 
 
-	return $title;
+    // Add the site description for the home/front page.
 
+    $site_description = get_bloginfo('description', 'display');
+
+    if ($site_description && ( is_home() || is_front_page() ))
+        $title = "$title $sep $site_description";
+
+
+
+    // Add a page number if necessary.
+
+    if ($paged >= 2 || $page >= 2)
+        $title = "$title $sep " . sprintf(__('Page %s', 'twentytwelve'), max($paged, $page));
+
+
+
+    return $title;
 }
 
-add_filter( 'wp_title', 'twentytwelve_wp_title', 10, 2 );
-
-
+add_filter('wp_title', 'twentytwelve_wp_title', 10, 2);
 
 /**
 
@@ -381,20 +347,15 @@ add_filter( 'wp_title', 'twentytwelve_wp_title', 10, 2 );
  * @since Twenty Twelve 1.0
 
  */
+function twentytwelve_page_menu_args($args) {
 
-function twentytwelve_page_menu_args( $args ) {
+    if (!isset($args['show_home']))
+        $args['show_home'] = true;
 
-	if ( ! isset( $args['show_home'] ) )
-
-		$args['show_home'] = true;
-
-	return $args;
-
+    return $args;
 }
 
-add_filter( 'wp_page_menu_args', 'twentytwelve_page_menu_args' );
-
-
+add_filter('wp_page_menu_args', 'twentytwelve_page_menu_args');
 
 /**
 
@@ -405,336 +366,256 @@ add_filter( 'wp_page_menu_args', 'twentytwelve_page_menu_args' );
  * @since Twenty Twelve 1.0
 
  */
-
 function twentytwelve_widgets_init() {
 
-	register_sidebar( array(
-
-		'name' => __( 'Main Sidebar', 'twentytwelve' ),
-
-		'id' => 'sidebar-1',
-
-		'description' => __( 'Appears on posts and pages except the optional Front Page template, which has its own widgets', 'twentytwelve' ),
-
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-
-		'after_widget' => '</aside>',
-
-		'before_title' => '<h3 class="widget-title">',
-
-		'after_title' => '</h3>',
-
-	) );
+    register_sidebar(array(
+        'name' => __('Main Sidebar', 'twentytwelve'),
+        'id' => 'sidebar-1',
+        'description' => __('Appears on posts and pages except the optional Front Page template, which has its own widgets', 'twentytwelve'),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ));
 
 
 
-	register_sidebar( array(
-
-		'name' => __( 'First Front Page Widget Area', 'twentytwelve' ),
-
-		'id' => 'sidebar-2',
-
-		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve' ),
-
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-
-		'after_widget' => '</aside>',
-
-		'before_title' => '<h3 class="widget-title">',
-
-		'after_title' => '</h3>',
-
-	) );
+    register_sidebar(array(
+        'name' => __('First Front Page Widget Area', 'twentytwelve'),
+        'id' => 'sidebar-2',
+        'description' => __('Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve'),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ));
 
 
 
-	register_sidebar( array(
-
-		'name' => __( 'Second Front Page Widget Area', 'twentytwelve' ),
-
-		'id' => 'sidebar-3',
-
-		'description' => __( 'Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve' ),
-
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-
-		'after_widget' => '</aside>',
-
-		'before_title' => '<h3 class="widget-title">',
-
-		'after_title' => '</h3>',
-
-	) );
-
+    register_sidebar(array(
+        'name' => __('Second Front Page Widget Area', 'twentytwelve'),
+        'id' => 'sidebar-3',
+        'description' => __('Appears when using the optional Front Page template with a page set as Static Front Page', 'twentytwelve'),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget' => '</aside>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ));
 }
 
-add_action( 'widgets_init', 'twentytwelve_widgets_init' );
+add_action('widgets_init', 'twentytwelve_widgets_init');
 
 
 
-if ( ! function_exists( 'twentytwelve_content_nav' ) ) :
+if (!function_exists('twentytwelve_content_nav')) :
 
-/**
+    /**
 
- * Displays navigation to next/previous pages when applicable.
+     * Displays navigation to next/previous pages when applicable.
 
- *
+     *
 
- * @since Twenty Twelve 1.0
+     * @since Twenty Twelve 1.0
 
- */
+     */
+    function twentytwelve_content_nav($html_id) {
 
-function twentytwelve_content_nav( $html_id ) {
-
-	global $wp_query;
-
-
-
-	$html_id = esc_attr( $html_id );
+        global $wp_query;
 
 
 
-	if ( $wp_query->max_num_pages > 1 ) : ?>
+        $html_id = esc_attr($html_id);
 
-		<nav id="<?php echo $html_id; ?>" class="navigation" role="navigation">
 
-			<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
 
-			<div class="nav-previous alignleft"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentytwelve' ) ); ?></div>
+        if ($wp_query->max_num_pages > 1) :
+            ?>
 
-			<div class="nav-next alignright"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?></div>
+            <nav id="<?php echo $html_id; ?>" class="navigation" role="navigation">
 
-		</nav><!-- #<?php echo $html_id; ?> .navigation -->
+                <h3 class="assistive-text"><?php _e('Post navigation', 'twentytwelve'); ?></h3>
 
-	<?php endif;
+                <div class="nav-previous alignleft"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'twentytwelve')); ?></div>
 
-}
+                <div class="nav-next alignright"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'twentytwelve')); ?></div>
+
+                            </nav><!-- #<?php echo $html_id; ?> .navigation -->
+
+        <?php
+        endif;
+    }
 
 endif;
 
 
 
-if ( ! function_exists( 'twentytwelve_comment' ) ) :
+if (!function_exists('twentytwelve_comment')) :
 
-/**
+    /**
 
- * Template for comments and pingbacks.
+     * Template for comments and pingbacks.
 
- *
+     *
 
- * To override this walker in a child theme without modifying the comments template
+     * To override this walker in a child theme without modifying the comments template
 
- * simply create your own twentytwelve_comment(), and that function will be used instead.
+     * simply create your own twentytwelve_comment(), and that function will be used instead.
 
- *
+     *
 
- * Used as a callback by wp_list_comments() for displaying the comments.
+     * Used as a callback by wp_list_comments() for displaying the comments.
 
- *
+     *
 
- * @since Twenty Twelve 1.0
+     * @since Twenty Twelve 1.0
 
- */
+     */
+    function twentytwelve_comment($comment, $args, $depth) {
 
-function twentytwelve_comment( $comment, $args, $depth ) {
+        $GLOBALS['comment'] = $comment;
 
-	$GLOBALS['comment'] = $comment;
+        switch ($comment->comment_type) :
 
-	switch ( $comment->comment_type ) :
+            case 'pingback' :
 
-		case 'pingback' :
+            case 'trackback' :
 
-		case 'trackback' :
+                // Display trackbacks differently than normal comments.
+                ?>
 
-		// Display trackbacks differently than normal comments.
+                <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 
-	?>
+                    <p><?php _e('Pingback:', 'twentytwelve'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(__('(Edit)', 'twentytwelve'), '<span class="edit-link">', '</span>'); ?></p>
 
-	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+                <?php
+                break;
 
-		<p><?php _e( 'Pingback:', 'twentytwelve' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?></p>
+            default :
 
-	<?php
+                // Proceed with normal comments.
 
-			break;
+                global $post;
+                ?>
 
-		default :
+                <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
-		// Proceed with normal comments.
+                    <article id="comment-<?php comment_ID(); ?>" class="comment">
 
-		global $post;
+                        <header class="comment-meta comment-author vcard">
 
-	?>
+                <?php
+                echo get_avatar($comment, 44);
 
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+                printf('<cite class="fn">%1$s %2$s</cite>', get_comment_author_link(),
+                        // If current post author is also comment author, make it known visually.
+                        ( $comment->user_id === $post->post_author ) ? '<span> ' . __('Post author', 'twentytwelve') . '</span>' : ''
+                );
 
-		<article id="comment-<?php comment_ID(); ?>" class="comment">
+                printf('<a href="%1$s"><time datetime="%2$s">%3$s</time></a>', esc_url(get_comment_link($comment->comment_ID)), get_comment_time('c'),
+                        /* translators: 1: date, 2: time */ sprintf(__('%1$s at %2$s', 'twentytwelve'), get_comment_date(), get_comment_time())
+                );
+                ?>
 
-			<header class="comment-meta comment-author vcard">
+                        </header><!-- .comment-meta -->
 
-				<?php
 
-					echo get_avatar( $comment, 44 );
 
-					printf( '<cite class="fn">%1$s %2$s</cite>',
+                <?php if ('0' == $comment->comment_approved) : ?>
 
-						get_comment_author_link(),
+                            <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'twentytwelve'); ?></p>
 
-						// If current post author is also comment author, make it known visually.
+                <?php endif; ?>
 
-						( $comment->user_id === $post->post_author ) ? '<span> ' . __( 'Post author', 'twentytwelve' ) . '</span>' : ''
 
-					);
 
-					printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+                        <section class="comment-content comment">
 
-						esc_url( get_comment_link( $comment->comment_ID ) ),
+                <?php comment_text(); ?>
 
-						get_comment_time( 'c' ),
+                <?php edit_comment_link(__('Edit', 'twentytwelve'), '<p class="edit-link">', '</p>'); ?>
 
-						/* translators: 1: date, 2: time */
+                        </section><!-- .comment-content -->
 
-						sprintf( __( '%1$s at %2$s', 'twentytwelve' ), get_comment_date(), get_comment_time() )
 
-					);
 
-				?>
+                        <div class="reply">
 
-			</header><!-- .comment-meta -->
+                <?php comment_reply_link(array_merge($args, array('reply_text' => __('Reply', 'twentytwelve'), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
 
+                        </div><!-- .reply -->
 
+                    </article><!-- #comment-## -->
 
-			<?php if ( '0' == $comment->comment_approved ) : ?>
+                <?php
+                break;
 
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentytwelve' ); ?></p>
-
-			<?php endif; ?>
-
-
-
-			<section class="comment-content comment">
-
-				<?php comment_text(); ?>
-
-				<?php edit_comment_link( __( 'Edit', 'twentytwelve' ), '<p class="edit-link">', '</p>' ); ?>
-
-			</section><!-- .comment-content -->
-
-
-
-			<div class="reply">
-
-				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'twentytwelve' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-
-			</div><!-- .reply -->
-
-		</article><!-- #comment-## -->
-
-	<?php
-
-		break;
-
-	endswitch; // end comment_type check
-
-}
+        endswitch; // end comment_type check
+    }
 
 endif;
 
 
 
-if ( ! function_exists( 'twentytwelve_entry_meta' ) ) :
+if (!function_exists('twentytwelve_entry_meta')) :
 
-/**
+    /**
 
- * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
+     * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
 
- *
+     *
 
- * Create your own twentytwelve_entry_meta() to override in a child theme.
+     * Create your own twentytwelve_entry_meta() to override in a child theme.
 
- *
+     *
 
- * @since Twenty Twelve 1.0
+     * @since Twenty Twelve 1.0
 
- */
+     */
+    function twentytwelve_entry_meta() {
 
-function twentytwelve_entry_meta() {
+        // Translators: used between list items, there is a space after the comma.
 
-	// Translators: used between list items, there is a space after the comma.
-
-	$categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
-
-
-
-	// Translators: used between list items, there is a space after the comma.
-
-	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
+        $categories_list = get_the_category_list(__(', ', 'twentytwelve'));
 
 
 
-	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>',
+        // Translators: used between list items, there is a space after the comma.
 
-		esc_url( get_permalink() ),
-
-		esc_attr( get_the_time() ),
-
-		esc_attr( get_the_date( 'c' ) ),
-
-		esc_html( get_the_date() )
-
-	);
+        $tag_list = get_the_tag_list('', __(', ', 'twentytwelve'));
 
 
 
-	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-
-		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
-
-		get_the_author()
-
-	);
+        $date = sprintf('<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a>', esc_url(get_permalink()), esc_attr(get_the_time()), esc_attr(get_the_date('c')), esc_html(get_the_date())
+        );
 
 
 
-	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
-
-	if ( $tag_list ) {
-
-		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'twentytwelve' );
-
-	} elseif ( $categories_list ) {
-
-		$utility_text = __( 'This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'twentytwelve' );
-
-	} else {
-
-		$utility_text = __( 'This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'twentytwelve' );
-
-	}
+        $author = sprintf('<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url(get_author_posts_url(get_the_author_meta('ID'))), esc_attr(sprintf(__('View all posts by %s', 'twentytwelve'), get_the_author())), get_the_author()
+        );
 
 
 
-	printf(
+        // Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
 
-		$utility_text,
+        if ($tag_list) {
 
-		$categories_list,
+            $utility_text = __('This entry was posted in %1$s and tagged %2$s on %3$s<span class="by-author"> by %4$s</span>.', 'twentytwelve');
+        } elseif ($categories_list) {
 
-		$tag_list,
+            $utility_text = __('This entry was posted in %1$s on %3$s<span class="by-author"> by %4$s</span>.', 'twentytwelve');
+        } else {
 
-		$date,
+            $utility_text = __('This entry was posted on %3$s<span class="by-author"> by %4$s</span>.', 'twentytwelve');
+        }
 
-		$author
 
-	);
 
-}
+        printf(
+                $utility_text, $categories_list, $tag_list, $date, $author
+        );
+    }
 
 endif;
-
-
 
 /**
 
@@ -765,66 +646,54 @@ endif;
  * @return array Filtered class values.
 
  */
+function twentytwelve_body_class($classes) {
 
-function twentytwelve_body_class( $classes ) {
-
-	$background_color = get_background_color();
-
-
-
-	if ( ! is_active_sidebar( 'sidebar-1' ) || is_page_template( 'page-templates/full-width.php' ) )
-
-		$classes[] = 'full-width';
+    $background_color = get_background_color();
 
 
 
-	if ( is_page_template( 'page-templates/front-page.php' ) ) {
-
-		$classes[] = 'template-front-page';
-
-		if ( has_post_thumbnail() )
-
-			$classes[] = 'has-post-thumbnail';
-
-		if ( is_active_sidebar( 'sidebar-2' ) && is_active_sidebar( 'sidebar-3' ) )
-
-			$classes[] = 'two-sidebars';
-
-	}
+    if (!is_active_sidebar('sidebar-1') || is_page_template('page-templates/full-width.php'))
+        $classes[] = 'full-width';
 
 
 
-	if ( empty( $background_color ) )
+    if (is_page_template('page-templates/front-page.php')) {
 
-		$classes[] = 'custom-background-empty';
+        $classes[] = 'template-front-page';
 
-	elseif ( in_array( $background_color, array( 'fff', 'ffffff' ) ) )
+        if (has_post_thumbnail())
+            $classes[] = 'has-post-thumbnail';
 
-		$classes[] = 'custom-background-white';
-
-
-
-	// Enable custom font class only if the font CSS is queued to load.
-
-	if ( wp_style_is( 'twentytwelve-fonts', 'queue' ) )
-
-		$classes[] = 'custom-font-enabled';
+        if (is_active_sidebar('sidebar-2') && is_active_sidebar('sidebar-3'))
+            $classes[] = 'two-sidebars';
+    }
 
 
 
-	if ( ! is_multi_author() )
+    if (empty($background_color))
+        $classes[] = 'custom-background-empty';
 
-		$classes[] = 'single-author';
+    elseif (in_array($background_color, array('fff', 'ffffff')))
+        $classes[] = 'custom-background-white';
 
 
 
-	return $classes;
+    // Enable custom font class only if the font CSS is queued to load.
 
+    if (wp_style_is('twentytwelve-fonts', 'queue'))
+        $classes[] = 'custom-font-enabled';
+
+
+
+    if (!is_multi_author())
+        $classes[] = 'single-author';
+
+
+
+    return $classes;
 }
 
-add_filter( 'body_class', 'twentytwelve_body_class' );
-
-
+add_filter('body_class', 'twentytwelve_body_class');
 
 /**
 
@@ -837,22 +706,17 @@ add_filter( 'body_class', 'twentytwelve_body_class' );
  * @since Twenty Twelve 1.0
 
  */
-
 function twentytwelve_content_width() {
 
-	if ( is_page_template( 'page-templates/full-width.php' ) || is_attachment() || ! is_active_sidebar( 'sidebar-1' ) ) {
+    if (is_page_template('page-templates/full-width.php') || is_attachment() || !is_active_sidebar('sidebar-1')) {
 
-		global $content_width;
+        global $content_width;
 
-		$content_width = 960;
-
-	}
-
+        $content_width = 960;
+    }
 }
 
-add_action( 'template_redirect', 'twentytwelve_content_width' );
-
-
+add_action('template_redirect', 'twentytwelve_content_width');
 
 /**
 
@@ -869,18 +733,14 @@ add_action( 'template_redirect', 'twentytwelve_content_width' );
  * @return void
 
  */
+function twentytwelve_customize_register($wp_customize) {
 
-function twentytwelve_customize_register( $wp_customize ) {
+    $wp_customize->get_setting('blogname')->transport = 'postMessage';
 
-	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
+    $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
 }
 
-add_action( 'customize_register', 'twentytwelve_customize_register' );
-
-
+add_action('customize_register', 'twentytwelve_customize_register');
 
 /**
 
@@ -891,14 +751,12 @@ add_action( 'customize_register', 'twentytwelve_customize_register' );
  * @since Twenty Twelve 1.0
 
  */
-
 function twentytwelve_customize_preview_js() {
 
-	wp_enqueue_script( 'twentytwelve-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20120827', true );
-
+    wp_enqueue_script('twentytwelve-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array('customize-preview'), '20120827', true);
 }
 
-add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );
+add_action('customize_preview_init', 'twentytwelve_customize_preview_js');
 
 
 
@@ -908,86 +766,111 @@ add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );
 
 add_post_type_support('page', 'excerpt');
 
+function get_the_popular_excerpt() {
 
 
 
-
-function get_the_popular_excerpt(){
-
-	
-
-$titulo = get_the_title();
+    $titulo = get_the_title();
 
 
 
-if (strlen($titulo) > 30) {
+    if (strlen($titulo) > 30) {
 
-$limite = 65;	
+        $limite = 65;
+    } else {
 
+        $limite = 100;
+    }
+
+    $excerpt = get_the_excerpt();
+
+    $excerpt = preg_replace(" (\[.*?\])", '', $excerpt);
+
+    $excerpt = strip_shortcodes($excerpt);
+
+    $link = get_permalink();
+
+    $excerpt = strip_tags($excerpt);
+
+    $excerpt = substr($excerpt, 0, $limite);
+
+    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+
+    $excerpt = trim(preg_replace('/\s+/', ' ', $excerpt));
+
+    $excerpt = $excerpt . ' ... <a href="' . $link . '" class="leerMasNota"> Leer Más</a>';
+
+    return $excerpt;
 }
-
-else {
-
-$limite = 100;		
-
-}
-
-$excerpt = get_the_excerpt();
-
-$excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
-
-$excerpt = strip_shortcodes($excerpt);
-
-$link = get_permalink();
-
-$excerpt = strip_tags($excerpt);
-
-$excerpt = substr($excerpt, 0, $limite);
-
-$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-
-$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-
-$excerpt = $excerpt.' ... <a href="'.$link.'" class="leerMasNota"> Leer Más</a>';
-
-return $excerpt;
-
-}
-
-
-
-
 
 function traduceMes($mes) {
+    if ($mes == 1) {
+        $mes = 'Enero';
+    }
 
-	
+    if ($mes == 2) {
+        $mes = 'Febrero';
+    }
 
-				if ($mes == 1) { $mes = 'Enero'; } 
+    if ($mes == 3) {
+        $mes = 'Marzo';
+    }
 
-				if ($mes == 2) { $mes = 'Febrero'; } 
+    if ($mes == 4) {
+        $mes = 'Abril';
+    }
 
-				if ($mes == 3) { $mes = 'Marzo'; } 
+    if ($mes == 5) {
+        $mes = 'Mayo';
+    }
 
-				if ($mes == 4) { $mes = 'Abril'; } 
+    if ($mes == 6) {
+        $mes = 'Junio';
+    }
 
-				if ($mes == 5) { $mes = 'Mayo'; } 
+    if ($mes == 7) {
+        $mes = 'Julio';
+    }
 
-				if ($mes == 6) { $mes = 'Junio'; } 
+    if ($mes == 8) {
+        $mes = 'Agosto';
+    }
 
-				if ($mes == 7) { $mes = 'Julio'; } 
+    if ($mes == 9) {
+        $mes = 'Septiembre';
+    }
 
-				if ($mes == 8) { $mes = 'Agosto'; } 																								
+    if ($mes == 10) {
+        $mes = 'Octubre';
+    }
 
-				if ($mes == 9) { $mes = 'Septiembre'; } 
+    if ($mes == 11) {
+        $mes = 'Noviembre';
+    }
 
-				if ($mes == 10) { $mes = 'Octubre'; } 
+    if ($mes == 11) {
+        $mes = 'Diciembre';
+    }
 
-				if ($mes == 11) { $mes = 'Noviembre'; } 
-
-				if ($mes == 11) { $mes = 'Diciembre'; } 	
-
-				
-
-				return $mes;
-
+    return $mes;
 }
+
+function notas($args) {
+    query_posts($args);
+    $i = 1;
+    $out = "";
+    while (have_posts()) : the_post();
+        $clase = $i % 2 ? ' odd' : '';
+        $out .= '<div class="wNota"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "thumb") . '</div><div class="bajadaNota' . $clase . '"><div class="tituloNotaW">' . get_the_title() . '</div><span class="exp"><a href="' . get_permalink() . '"> ' . get_the_excerpt() . '</a></span></div></div>';
+        $i++;
+    endwhile;
+    return $out;
+}
+
+add_theme_support('post-thumbnails');
+add_image_size("notas", 70, 70, false);
+add_image_size("slideHome", 660, 371, false);
+add_image_size("perfil", 280, 380, false);
+add_image_size("portadaPerfil", 175, 240, false);
+add_image_size("gallery", 200, 110, false);
+?>
