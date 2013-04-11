@@ -554,6 +554,7 @@ margin-top:25px;
 text-align:justify;
 font-size:11px;
 margin-bottom:30px;
+width: 640px;
 }
 
 #pageContent h1 {
@@ -669,6 +670,11 @@ padding-top:10px;
 	text-align:right;
 }
 
+#wNoticias{
+    
+    overflow: hidden;
+}
+
 #wNoticias #picNoticia {
 width:200px;
 height:150px;
@@ -679,7 +685,7 @@ padding:5px;
 }
 
 #wNoticias #bajadaNoticia {
-width:720px;
+width:380px;
 height:150px;
 float:right;
 }
