@@ -506,7 +506,7 @@ margin-right:25px;
 height:40px;
 color:#fff;
 background:#000;
-font-size:14px;
+font-size:20px;
 }
 .tituloNota a:before {
     background: #f90;
@@ -547,7 +547,7 @@ border-bottom:none;
 .tituloNotaW a{
     font-family: "Helvetica";
     font-weight:bold;
-    font-size: 20px;
+    font-size: 14px;
     display: block;
     color: #444;
     line-height: 120%;
