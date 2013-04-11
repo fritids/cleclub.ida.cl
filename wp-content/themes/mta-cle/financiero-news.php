@@ -1,3 +1,10 @@
+<?php
+/**
+  Template Name: dfnews
+ */
+    $titulo=urldecode($_GET["titulo"]);
+    $url= urldecode($_GET["url"]);
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -88,7 +95,7 @@ body#radarExternalLink {
     <body id="dfnewsExternalLink">
         <div id="contextualBarCiper">
             <p>
-                <a href="#" id="cleCorpMark">C Level executive Club</a>
+                <a href="#" id="cleCorpMark">C Level Executive Club</a>
                 <span>
                     <strong id="externalLinkTitle">
                         Noticia Diario Financiero:
@@ -96,11 +103,11 @@ body#radarExternalLink {
 
                 </span>
 
-                <a href="#" title="#">Mensaje del Banco Central en IPoM reflota discusión por dinamismo de la política fiscal</a>
-                <a href="#"id="contextualBarClose">Cerrar</a>
+                <a href="<?php echo $url;?>" title="#"><?php echo $titulo;?></a>
+                <a href="/"id="contextualBarClose">Volver a CLE</a>
             </p>
         </div>
-        <iframe  id="eliframe" src="http://www.df.cl/ine-convoca-a-expertos-internacionales-para-analizar-cambios-y-mejorar-la-canasta-de-ipc/prontus_df/2013-04-10/215346.html" frameborder="0">
+        <iframe  id="eliframe" src="<?php echo $url;?>" frameborder="0">
             <p>Your browser does not support iframes.</p>
         </iframe>
     </body>

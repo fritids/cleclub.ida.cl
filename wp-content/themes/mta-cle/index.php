@@ -15,7 +15,7 @@
         </div>
         <div id="wNotasDF" class="boxNotas middleBox">
             <div class="tituloNota"> <span class="naranjo">|</span> <a href="/category/noticias-diario-financiero/">Diario Financiero</a></div>
-            <?php echo notas(array('category_name' => 'noticias-diario-financiero', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
+            <?php echo parseFeed("http://www.df.cl/prontus_df/site/edic/base/rss/economia.xml"); ?>
         </div>
 
         <div id="wNotasEY" class="boxNotas">
