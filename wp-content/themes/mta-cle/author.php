@@ -18,7 +18,7 @@
                 <p class="subTitulo"><a href="mailto:<?php the_field('mail',"user_$curauth->ID");?>"><?php the_field('mail',"user_$curauth->ID"); ?></a></p>                                
                 <p class="subTitulo primero"><a href="/miembros-del-club/"> <img src="<?php echo get_template_directory_uri(); ?>/_img/volver.gif" style="margin-bottom:-3px;margin-right:10px;" /> volver al listado de miembros</a></p>
             </div>
-            <?
+            <?php
         } else {
 
             echo '<strong>Acceso restringido para miembros del CLE Club</strong>';

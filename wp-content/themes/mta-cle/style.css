@@ -23,6 +23,8 @@ Text Domain: CleClub
 
 */
 
+@import url("style-fco.css");
+
 @font-face {
  font-family: EY;
  src: url("EYInterstate-Regular.eot") /* EOT file for IE */
@@ -551,7 +553,7 @@ color:#F60;
 
 #pageContent {
 margin-top:25px;
-text-align:justify;
+/*text-align:justify;*/
 font-size:11px;
 margin-bottom:30px;
 width: 640px;
@@ -794,23 +796,23 @@ position:relative;
 display:inline;
 float:left;
 margin-right:5%;
-margin-bottom:15px;
+margin-bottom:10px;
 }
-
-#infoMiembro {
-background-color:#FFF;
-height:60px;
-padding-left:30px;
-padding-right:30px;
-padding-top:15px;
-position:relative;
-z-index:4;
+.fotoMiembro{
+    padding:10px 0;
+}
+.fotoMiembro img{
+   height: 237px;
+   width: 175px;
+}
+.infoMiembro {
+    background-color:#FFF;
+    padding:10px 10px 0 5px;
 }
 
 .bio {
 background:url(_img/dark10.png) center center repeat-x;
 box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
-overflow:hidden;
 position:relative;
 }
 
@@ -827,7 +829,6 @@ padding:10px;
 #bioMiembro {
  float:right;
  width:320px;
- text-align:justify;	
 }
 
 .bio img {
@@ -840,12 +841,12 @@ padding-bottom:15px;
 margin-bottom:15px;
 }
 
-.bio h5 {
+.bio h4 {
 margin-bottom:0;
 font-size:12px;
 }
 
-.bio h5 span {
+.bio h4 span {
 display:block;
 font-weight:400;
 font-size:13px;

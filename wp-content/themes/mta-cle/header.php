@@ -33,6 +33,7 @@
         <script src="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine-es.js"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
