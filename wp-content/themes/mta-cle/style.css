@@ -218,6 +218,7 @@ height:39px;
 position:relative;
 z-index:100;
 margin:35px 0 20px;
+float: left;
 }
 
 #menuContainer a {
