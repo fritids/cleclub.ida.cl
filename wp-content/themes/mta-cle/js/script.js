@@ -4,6 +4,7 @@
         //cosas para el init
         this.autoHandle($('.evt'));
         this.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .one_third .bio"));
+        this.equalizeHeights($("#wNotas .boxNotas"));
 
 
     };

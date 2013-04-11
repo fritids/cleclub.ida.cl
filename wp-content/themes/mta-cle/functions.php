@@ -1,4 +1,22 @@
 <?php
+function cortar($str, $n, $cutter = false) {
+    $str = trim($str);
+    $str = strip_tags($str);
+    if (strlen($str) > $n) {
+        $out = substr($str, 0, $n);
+        $out = explode(" ", $out);
+        array_pop($out);
+        if ($cutter) {
+            $out = implode(" ", $out) . $cutter;
+        } else {
+            $out = implode(" ", $out) . "...";
+        }
+    } else {
+        $out = $str;
+    }
+    return $out;
+}
+
 
 function parseFeed($url) {
     $rss = fetch_feed($url);
@@ -11,7 +29,7 @@ function parseFeed($url) {
     else :
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
-            $out .= '<div class="wNota"><div class="bajadaNota' . $clase . '"><div class="tituloNotaW">' .esc_html($item->get_title()). '</div><span class="exp"><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())). '&amp;titulo='. urldecode(esc_html($item->get_title())).'"> ' . esc_html($item->get_title()) . '</a></span></div></div>';
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . get_the_date(esc_url($item->get_date())) . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())). '&amp;titulo='. urldecode(esc_html($item->get_title())).'">' .esc_html($item->get_title()). '</a></div></div>';
             $i++;
         endforeach;
         return $out;
@@ -76,7 +94,7 @@ function notas($args) {
     $out = "";
     while (have_posts()) : the_post();
         $clase = $i % 2 ? ' odd' : '';
-        $out .= '<div class="wNota"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "thumb") . '</div><div class="bajadaNota' . $clase . '"><div class="tituloNotaW">' . get_the_title() . '</div><span class="exp"><a href="' . get_permalink() . '"> ' . get_the_excerpt() . '</a></span></div></div>';
+        $out .= '<div class="wNota clearfix"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "notas") . '</div><div class="tituloNotaW"><small>' . get_the_date() . '</small><a href="' . get_permalink() . '"> ' . cortar(get_the_title(), 70) . '</a></div></div>';
         $i++;
     endwhile;
     return $out;
@@ -93,9 +111,9 @@ function slideHome() {
 }
 
 add_theme_support('post-thumbnails');
-add_image_size("notas", 70, 70, false);
-add_image_size("slideHome", 660, 371, false);
-add_image_size("perfil", 280, 380, false);
-add_image_size("portadaPerfil", 175, 240, false);
-add_image_size("gallery", 200, 110, false);
+add_image_size("notas", 70, 70, true);
+add_image_size("slideHome", 660, 371, true);
+add_image_size("perfil", 280, 380, true);
+add_image_size("portadaPerfil", 175, 240, true);
+add_image_size("gallery", 200, 110, true);
 ?>

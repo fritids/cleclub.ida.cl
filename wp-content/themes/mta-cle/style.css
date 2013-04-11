@@ -87,6 +87,7 @@ transition:color .25s ease-in-out;
 
 img {
 border:0;
+display: block;
 }
 
 html,body {
@@ -457,9 +458,13 @@ color:#fda63d;
 }
 
 .boxNotas {
-width:310px;
-height:280px;
-float:left;
+    width:310px;
+    float:left;
+    background: #EEE;
+}
+#wNotasDF.boxNotas .tituloNotaW{
+    width: 98%;
+    clear: both;
 }
 
 .middleBox {
@@ -469,19 +474,26 @@ margin-right:25px;
 
 .tituloNota {
 height:30px;
-text-align:center;
 color:#fff;
-background-color:#000;
-padding-top:6px;
+background:#000;
 font-size:14px;
 }
-
+.tituloNota a:before {
+    background: #f90;
+    content: " ";
+    width: 5%;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px -10px 0;
+}
 .tituloNota a {
-color:#fff;
+    color:#fff;
+    width: 95%;
+    display: block;
 }
 
 .wNota {
-height:80px;
+padding: 10px 10px 10px 5px;
 border-bottom:1px solid #dcdcdc;
 }
 
@@ -490,15 +502,26 @@ border-bottom:none;
 }
 
 .fotoNota {
-width:80px;
-height:80px;
-float:left;
-background-color:#333;
+    width:23.7777%;
+    float:left;
+/*background-color:#333;*/
 }
-
-.tituloNotaW {
-font-weight:700;
-margin-bottom:5px;
+.tituloNotaW{
+    float: left;
+    width: 74.999%;
+    /*padding: 10px 0;*/
+}
+.tituloNotaW small{
+    padding-left: 10px;
+    }
+.tituloNotaW a{
+    font-family: "Helvetica";
+    font-weight:bold;
+    font-size: 14px;
+    display: block;
+    color: #444;
+    line-height: 120%;
+    padding-left: 10px;    
 }
 
 .bajadaNota {
@@ -651,7 +674,7 @@ padding-top:10px;
 
 .subTitulo {
 	height:12px;
-	font-color:#666;
+	color:#666;
 	margin-bottom:5px !important;	
 }
 
@@ -738,8 +761,8 @@ padding:5px;
 }
 
 .footerBox {
-margin-top:5px;
-padding-top:15px;
+margin-top:10px;
+padding-top:30px;
 border-top:1px dotted #e6e6e6;
 padding-bottom:20px;
 font-size:90%;
