@@ -15,7 +15,6 @@
         <link rel="profile" href="<?php echo get_template_directory_uri(); ?>/http://gmpg.org/xfn/11" />
         <link rel="pingback" href="<?php echo get_template_directory_uri(); ?>/<?php bloginfo('pingback_url'); ?>" />
         <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
-
         <!--jquery core-->
         <script src="<?php echo get_template_directory_uri(); ?>/_js/jquery-1.7.1.min.js"></script>
         <!--end jquery core-->
@@ -24,6 +23,7 @@
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/skins/defaultskin/skin.css" type="text/css" media="screen">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/skins/bar/bar.css" type="text/css" media="screen">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/_js/validationEngine.jquery.css" type="text/css"/>
+        <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"/>
         <!--end layerslider-->
         <link href="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.js"></script>
