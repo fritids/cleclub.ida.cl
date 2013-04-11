@@ -1,111 +1,45 @@
 <?php
-
 /**
-
- Template Name: Miembros
-
-*/
-
-
-
-get_header(); ?>
-
-
+  Template Name: Miembros
+ */
+?>
+<?php
+get_header();
+the_post();
+?>
 
 <div id="contenido">
+    <div id="pageContent" class="clearfix">
+        <h1><?php the_title(); ?></h1>
+        <div id="bajadaContent">
+            <?php the_excerpt(); ?>
+        </div>
+        <div id="contenidoMiembros">
+            <?php the_content(); ?>
+        </div>
 
 
-
-<!--CONTENIDOS -->
-
-<div id="pageContent">
-
-
-
-<h1><?php the_title();?></h1>
-
-
-
-<div id="bajadaContent">
-
-<?php the_excerpt_rss();?>
-
-</div>
-
-
-                <div id="contenidoMiembros">
-                <?php the_post(); the_content();?>
-                </div>
-
-  <?
-
-                $args = array(
-
-					'category_name'      => 'miembros',
-
-					'order'    => 'ASC',
-
-					'posts_per_page' => 16
-
-				)
-
-				?>
-
-
-
-                <?php query_posts( $args ); $i = 1?>   
-
-				<?php while (have_posts()) : the_post(); ?> 
-
-                <? 
-
-				$pic 		= wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-
-				$postID 	= $post->ID; 
-
-				?>
-
-
-                  <div class="one_fourth <?php if ($i %4 == 0) { echo 'last'; } ?>">
-
-	                    <div class="bio">
-
-		    	            <div id="fotoMiembro">
-
-							  <a href="<?php the_permalink();?>"><img class="overPic" src="<?php echo get_template_directory_uri(); ?>/tt.php?src=<?php echo $pic;?>&w=212&h=212"></a>
-
-            	            </div>
-
-                   	      <div id="infoMiembro">
-
-   	                    	  <hgroup class="head">
-
-                                	<h5><?php the_title();?><br /></h5>
-
-                                    <h4><?php the_field('cargo'); ?></h4>
-
-                                    </hgroup>
-
-                             <span class="header_shadow"></span>
-
-	                        </div><!--/infoMiembro-->
-
-        		        </div><!--/bio-->
-
-           		  </div>  <!--/one_fourth_1-->
-
-                  
-
-				<? $i++;endwhile;?>                  
-
-
-
-<div class="clr"></div>
-
-</div><!--pageContent-->
-
-<!--/END OF CONTENIDOS-->
-
-
-
-<?php get_footer(); ?>
+        <?php
+        $i = 1;
+        $blogusers = get_users('orderby=nicename&role=subscriber');
+        foreach ($blogusers as $user) {
+            $last = !$i % 4 ? ' last' : '';
+            echo '<div class="one_fourth'. $last.'">
+                    <div class="bio">
+                        <div id="fotoMiembro">
+                            <a href="'. get_author_posts_url($user->ID).'" title="'.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"medium").'</a>
+                        </div>
+                        <div id="infoMiembro">
+                            <hgroup class="head">
+                                <h4>'.$user->display_name.'</h4>
+                                <h5>'.the_field('cargo').'</h5>
+                            </hgroup>
+                            <span class="header_shadow"></span>
+                        </div>
+                    </div>
+                </div>';
+            $i++;
+        }
+        ?>
+    </div>
+    <?php get_footer(); ?>
