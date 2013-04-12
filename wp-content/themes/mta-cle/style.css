@@ -125,14 +125,13 @@ img {
 html,body {
     height:100%;
     min-height:100%;
-    font-family:EY;
+    font-family:Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 body {
-    font-size:12px;
     color:#000;
     background:url(_img/backbody.png) repeat-x;
-    
     background-color:#fff;
     margin:0 auto;
     padding:0;
@@ -248,9 +247,27 @@ h5 {
     height:10px;
     padding:5px;
     border:1px solid #e6e6e6;
-    font-family: 'EY';	
-    font-size:90%;
-    width:60px;
+    width:140px;
+}
+
+.contactoButton{
+    display: inline-block;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    float: left;
+    margin-top: 5px;
+}
+
+.contactoButton:before{
+    
+    content:"";
+    height: 13px;
+    width: 16px;
+    display: inline-block;
+    background: url(_img/contactIcon.png) 0 0 no-repeat ;
+    margin-bottom: -2px;
+    
 }
 
 #menuContainer {
@@ -359,7 +376,7 @@ h5 {
 }
 
 #sidebar .boxSidebar {
-    width:290px;
+    width:296px;
     border:1px solid #ccc;
     background-color:#efefef;
     float:right;
@@ -369,7 +386,7 @@ h5 {
 
 
 #sidebar .tituloBox {
-    width:304px;
+    width:310px;
     border:1px solid #ccc;
     background-color:#efefef;
     float:right;
@@ -377,11 +394,11 @@ h5 {
 }
 
 #cSlider {
-    width:610px;
+    width:640px;
 }
 
 #layerslider {
-    width:635px;
+    width:640px;
     height:300px;
 }
 
@@ -396,6 +413,7 @@ h5 {
 
 .tituloNM {
     color:#666;
+    font-family:'EY';
 }
 
 .label {
@@ -475,7 +493,7 @@ h5 {
 }
 
 #listadoEventos {
-    width:304px;
+    width:310px;
     border:1px solid #ccc;
     float:right;
     border-top:0;
@@ -527,6 +545,7 @@ h5 {
     display: block;
     font-weight: lighter;
     font-size:19px;
+    font-family: 'EY';
 }
 
 .wNota {
@@ -618,16 +637,17 @@ h5 {
 }
 
 #pageContent {
-    font-size:11px;
     margin-bottom:30px;
     width: 640px;
     float: left;
+    line-height: 130%;
 }
 
 #pageContent h1 {
     padding-left:10px;
     border-left:2px solid #fda63d;
     margin-bottom:20px;
+    font-family: EY;
 }
 
 #bajadaContent {
