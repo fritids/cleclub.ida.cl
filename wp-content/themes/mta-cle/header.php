@@ -37,17 +37,26 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
+        
+        
         <div id="container">
-            <div id="wrapper">
-                <div id="top">
+            
+            <div id="top">
                     <div id="logos">
                         <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
                         <div id="logo2">
-                            <table width="100%" border="0" cellspacing="2" cellpadding="2">
-                                <tr>
-                                    <td valign="middle"><a href="http://www.cdduc.cl"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoUC.png" width="78" height="33"></a><a href="http://www.df.cl"> <img src="<?php echo get_template_directory_uri(); ?>/_img/logoDF.png" width="41" height="34"></a><a href="http://www.eychile.cl"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoEY.png" width="119" height="34"></a></td>
-                                </tr>
-                            </table>
+                            <ul class="members">
+                                <li>
+                                    <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
+                                </li>
+                                <li>
+                                    <a href="http://www.df.cl/" title="Diario Financiero" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoDF.png"/></a>
+                                </li>
+                                <li>
+                                    <a href="http://www.eychile.cl/" title="Ernst & Young" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
+                                </li>
+                            </ul>
+                           
                         </div>
                         <div id="buscador">
                             <?php get_search_form(); ?>
@@ -66,4 +75,6 @@
                     </div>
 
                 </div>
-                <!--/HEADER--> 
+            <div id="wrapper">
+                
+               
