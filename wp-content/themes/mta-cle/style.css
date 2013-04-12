@@ -64,12 +64,13 @@ Text Domain: CleClub
 }*/
 
 #wrapper {
-    width:100%;
+    margin:0 auto;
+    width:980px;
+    overflow: hidden;
 }
 
 #container {
-    width:980px;
-    margin:0 auto;
+    width:100%;    
     padding:0;
 }
 
@@ -200,10 +201,10 @@ h5 {
 }
 
 #top {
-    padding-top:30px;
-    display:table;
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 980px;
 }
-
 #logo {
     width:175px;
     height:70px;
@@ -211,16 +212,19 @@ h5 {
 }
 
 #logo2 {
-    display:table-cell;
-    vertical-align:middle;
-    float:right;
-    height:35px;
-    width:700px;
-    text-align:right;
+    height: 37px;
 }
 
 #logo2 img {
     margin-left:15px;
+}
+.Top {
+    float: right;
+    position: relative;
+}
+
+.Top li {
+    margin: 0;
 }
 
 #buscador {
@@ -241,15 +245,13 @@ h5 {
 }
 
 #menuContainer {
-    font-family:'EY';
-    border-top:1px solid #3b3e41;
-    border-bottom:1px solid #3b3e41;
-    background-color:#000;
-    width:980px;
-    height:39px;
-    position:relative;
-    z-index:100;
-    margin:35px 0 20px;
+    background-color: #000000;
+    font-family: 'EY';
+    height: 40px;
+    margin: 35px 0 20px;
+    position: relative;
+    width: 100%;
+    z-index: 100;
     float: left;
 }
 
@@ -330,7 +332,10 @@ h5 {
     background-color:#525252;
     visibility:visible;
 }
-
+.menu-menu-principal-container {
+    margin: 0 auto;
+    width: 980px;
+}
 #leftSide {
     width:620px;
     min-height:300px;
