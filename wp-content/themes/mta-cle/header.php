@@ -11,7 +11,7 @@
     <head>
         <meta charset="<?php bloginfo('charset'); ?>" />
         <meta name="viewport" content="width=device-width" />
-        <title><?php echo is_home() ? get_bloginfo("name")."&raquo ". get_bloginfo("description") : wp_title('|', false, 'right'); ?></title>
+        <title><?php echo is_home() ? get_bloginfo("name")."&raquo ". get_bloginfo("description") : wp_title('|', false, 'right') .  get_bloginfo("name"); ?></title>
         <link rel="profile" href="<?php echo get_template_directory_uri(); ?>/http://gmpg.org/xfn/11" />
         <link rel="pingback" href="<?php echo get_template_directory_uri(); ?>/<?php bloginfo('pingback_url'); ?>" />
         <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
