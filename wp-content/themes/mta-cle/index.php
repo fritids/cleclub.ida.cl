@@ -16,7 +16,7 @@
             <?php echo notas(array('category_name' => 'estudios-ernst-young', 'order' => 'DESC', 'posts_per_page' => 3)); ?>            
         </div>
         <div id="wNotasUC" class="boxNotas middleBox">
-            <div class="tituloNota"><a href="/category/charlas-cdd-uc/">Charlas CDD – UC Noticias</a></div>
+            <div class="tituloNota"><a href="/category/charlas-cdd-uc/">Centro Desarrollo Directivo UC</a></div>
             <?php echo notas(array('category_name' => 'charlas-cdd-uc', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
         </div> 
         <div id="wNotasDF" class="boxNotas">

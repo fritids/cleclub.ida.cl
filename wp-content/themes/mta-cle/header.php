@@ -21,7 +21,6 @@
         <!--layerslider-->
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/css/layerslider.css" type="text/css" media="screen">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/skins/defaultskin/skin.css" type="text/css" media="screen">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/skins/bar/bar.css" type="text/css" media="screen">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/_js/validationEngine.jquery.css" type="text/css"/>
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"/>
         <!--end layerslider-->

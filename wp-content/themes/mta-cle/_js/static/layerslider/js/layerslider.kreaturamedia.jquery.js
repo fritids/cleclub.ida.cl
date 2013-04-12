@@ -343,7 +343,7 @@
         layersNum: null,
         prevNext: "next",
         slideTimer: null,
-        sliderWidth: null,
+        sliderWidth: 665,
         sliderHeight: null,
         slideDirections: {
             prev: {

@@ -105,7 +105,7 @@ function slideHome() {
     $args = array('category_name' => 'banner', 'order' => 'ASC', 'posts_per_page' => 5);
     query_posts($args);
     while (have_posts()) : the_post();
-        $out .= '<div class="ls-layer" style="slidedelay: 3000">' . get_the_post_thumbnail($post->ID, "slideHome", array('class' => "ls-bg")) . ' </div>';
+        $out .= '<div class="ls-layer" style="slidedelay: 3000">' . get_the_post_thumbnail($post->ID, "slideHome", array('class' => "")) . ' </div>';
     endwhile;
     return $out;
 }
@@ -115,7 +115,7 @@ register_nav_menu( 'public', __( 'Public Menu', 'twentytwelve' ) );
 
 add_theme_support('post-thumbnails');
 add_image_size("notas", 70, 70, true);
-add_image_size("slideHome", 660, 371, true);
+add_image_size("slideHome", 640, 371, true);
 add_image_size("perfil", 280, 380, true);
 add_image_size("portadaPerfil", 175, 240, true);
 add_image_size("gallery", 200, 110, true);

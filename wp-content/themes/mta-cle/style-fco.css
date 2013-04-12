@@ -78,6 +78,7 @@
     width: 60.9999%;
     margin-left: 10px; 
     font-weight: lighter;
+    font-family: EY;
 }
 
 .userData span{
@@ -130,4 +131,20 @@
     display: inline-block;
     height: 40px;
     margin: 0 10px -15px 0;
+}
+#menu-menu-principal li{
+    border-right: 1px solid #444;
+}
+#menu-menu-principal li:last-child{
+    border-right: none;
+}
+#menu-menu-principal li.current-menu-ancestor, #menu-menu-principal li.current-menu-item{
+    border-right: 1px solid #555;
+    border-left: 1px solid #555;
+}
+
+
+#menu-menu-principal .current-menu-ancestor a, #menu-menu-principal li.current-menu-item a {
+    background: #222;
+    color: rgb(242, 148, 0);
 }

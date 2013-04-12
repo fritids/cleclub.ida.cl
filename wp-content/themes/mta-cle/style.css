@@ -546,7 +546,7 @@ h5 {
 .tituloNotaW{
     float: left;
     width: 74.999%;
-    /*padding: 10px 0;*/
+    font-family: EY;
 }
 .tituloNotaW small{
     padding-left: 10px;
