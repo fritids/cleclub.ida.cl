@@ -16,7 +16,7 @@
             ?>
             <div class="picAvatar"><?php echo get_avatar($current_user->id, 75); ?></div>
             <div class="userData">
-                <span>Bienvenido </span>
+                <span>Bienvenido</span>
                 <?php
                 if ($current_user->user_firstname != '' && $current_user->user_lastname) {
                     $empresa = get_the_author_meta('aim', $current_user->ID);
@@ -29,12 +29,12 @@
             </div>
 
         <?php endif; ?>
-    </div><!--/wRegistro-->
+    </div>
     <div id="wEventoSociales" class="tituloBox">
         <p class="tituloNM"><a href="category/agenda/">CALENDARIO CLE CLUB [+]</a></p> 
-    </div><!--/wEventoSociales-->
+    </div>
     <div id="listadoEventos">
-        <ul class="eventos">
+        <div class="boxNotas">
             <?php
             $args = array(
                 'category_name' => 'agenda',
@@ -51,11 +51,17 @@
                 $mes = traduceMes(date('m', strtotime($fechaEvento)));
                 $ano = date('Y', strtotime($fechaEvento));
                 ?>
-                <li><?php echo $dia . ' ' . $mes . ' ' . $ano ?> <span class="naranjo">|</span> <?php the_field('hora'); ?> hrs. <span class="naranjo">|</span> <?php the_field('lugar'); ?> <br>
-                    <strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?> - Leer más</a></strong></li>
-                <?php $i++;
-            endwhile; ?>
-        </ul>
+                <div class="wNota clearfix">
+                    <div class="tituloNotaW">
+                        <small><?php echo $dia . ' ' . $mes . ' ' . $ano ?>,  <?php the_field('hora'); ?> hrs. <?php the_field('lugar'); ?> </small>
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    </div>
+                </div>
+                <?php 
+                    $i++;
+                    endwhile; 
+                ?>
+        </div>
     </div><!--/listadoEventos-->
 </div><!--/sidebar-->
 <?php wp_reset_query(); ?>

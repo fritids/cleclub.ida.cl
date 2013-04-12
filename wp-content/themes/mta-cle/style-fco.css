@@ -1,5 +1,5 @@
 .left{
-    
+
     float:left;
 }
 
@@ -11,7 +11,7 @@
 .footerBox{
     background: #DDD;
 
-    
+
 }
 .center{
     width: 980px;
@@ -19,21 +19,21 @@
 }
 
 .menuFoot{
-        float: right;
-        list-style: none;
+    float: right;
+    list-style: none;
 }
 
 .menuFoot li{
-   float: left;
-   padding:0 5px;
-   border-left: 1px solid #999;
-   
-   
+    float: left;
+    padding:0 5px;
+    border-left: 1px solid #999;
+
+
 }
 .menuFoot li a{
-    
+
     color: #333;
-/*    text-transform: uppercase;*/
+    /*    text-transform: uppercase;*/
     font-size: 13px;
     font-weight: lighter;
     font-family: Helvetica, sans-serif;
@@ -50,7 +50,7 @@
     font-family: Helvetica, sans-serif;
     font-size: 12px;
     float: right;
-    
+
 }
 
 .members {
@@ -66,6 +66,68 @@
 }
 
 .menuBlock{
-    
+
     position: relative;
+}
+.picAvatar{
+    float:left;
+    width: 24.9999%;
+}
+.userData{
+    float:left;
+    width: 60.9999%;
+    margin-left: 10px; 
+    font-weight: lighter;
+}
+
+.userData span{
+    color: #333;
+    font-size: 16px;
+    display: block;
+
+}
+.userData strong{
+    color: #333;
+    font-size: 20px;
+    display: block;
+    font-weight: lighter;
+
+}
+#wRegistro .btnLogOut{
+    width: 70px;
+    height: 15px;
+    color:#fff;
+    background: #777;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    float: right;
+    margin-top: 30px;
+}
+#sidebar .boxNotas {
+    width: 100%;
+}
+
+#sidebar .tituloNotaW  {
+    width: 100%;
+}
+
+#wNotas .boxNotas{
+    width: 31.5%;
+}
+
+#sidebar .tituloBox{ 
+    height:40px;
+}
+#sidebar .tituloBox a{ 
+    font-size: 19px; 
+}
+
+#sidebar .tituloBox a:before {
+    background: #f90;
+    content: " ";
+    width: 5%;
+    display: inline-block;
+    height: 40px;
+    margin: 0 10px -15px 0;
 }

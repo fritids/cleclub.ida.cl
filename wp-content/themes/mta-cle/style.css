@@ -368,7 +368,7 @@ h5 {
     border:1px solid #ccc;
     background-color:#efefef;
     float:right;
-    padding:10px 7px;
+
 }
 
 #cSlider {
@@ -391,12 +391,6 @@ h5 {
 
 .tituloNM {
     color:#666;
-    padding-left:7px;
-    background:url(_img/bullet-adorno.jpg) no-repeat;
-    background-position:0 3px;
-    font-size:12px;
-    margin-bottom:0!important;
-    font-weight:700;
 }
 
 .label {
