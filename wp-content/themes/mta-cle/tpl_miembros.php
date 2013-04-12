@@ -13,7 +13,7 @@ the_post();
         <h1><?php the_title(); ?></h1>
         <?php
         $i = 1;
-        $blogusers = get_users('orderby=nicename&role=subscriber');
+        $blogusers = get_users('orderby=display_name&role=subscriber');
         foreach ($blogusers as $user) {
             $last = $i % 3 == false ? ' last' : '';
             echo '<div class="one_third'.$last.'">
