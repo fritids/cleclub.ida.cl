@@ -139,8 +139,8 @@ body {
 }
 
 h1 {
-    font-size:18px;
-    font-weight:700;
+    font-size:26px;
+    font-weight:normal;
 }
 
 h2 {
@@ -148,7 +148,7 @@ h2 {
     margin-bottom:20px;
     text-transform:uppercase;
     border-bottom:1px dotted #fda63d;
-    font-size:14px;
+    font-size:14px; 
 }
 
 h3 {
@@ -369,7 +369,7 @@ h5 {
 
 
 #sidebar .tituloBox {
-    width:290px;
+    width:304px;
     border:1px solid #ccc;
     background-color:#efefef;
     float:right;
@@ -875,6 +875,7 @@ h5 {
 .infoMiembro {
     background-color:#FFF;
     padding:10px 10px 0 5px;
+    font-size: 12px;
 }
 
 #leftSide.authorWrap {
@@ -888,6 +889,8 @@ h5 {
     background:url(_img/dark10.png) center center repeat-x;
     box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
     position:relative;
+    font-family: Helvetica, sans-serif;
+    padding-bottom: 10px;
 }
 
 .bioBig {
@@ -925,7 +928,7 @@ h5 {
 
 .bio h4 {
     margin-bottom:0;
-    font-size:12px;
+    font-size:15px;
 }
 
 .bio h4 span {
