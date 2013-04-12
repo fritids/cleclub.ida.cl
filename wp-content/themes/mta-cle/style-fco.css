@@ -1,0 +1,71 @@
+.left{
+    
+    float:left;
+}
+
+.right{
+    float: right
+}
+
+
+.footerBox{
+    background: #DDD;
+
+    
+}
+.center{
+    width: 980px;
+    margin: 0 auto;
+}
+
+.menuFoot{
+        float: right;
+        list-style: none;
+}
+
+.menuFoot li{
+   float: left;
+   padding:0 5px;
+   border-left: 1px solid #999;
+   
+   
+}
+.menuFoot li a{
+    
+    color: #333;
+/*    text-transform: uppercase;*/
+    font-size: 13px;
+    font-weight: lighter;
+    font-family: Helvetica, sans-serif;
+}
+
+.menuFoot li:first-child{border: none;}
+.menuFoot li:last-child{padding-right: 0;}
+.menuFoot .sub-menu{
+    display: none;
+}
+.contactMail{
+    clear: both;
+    display: block;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    float: right;
+    
+}
+
+.members {
+    position: absolute;
+    list-style: none outside none;
+    right: 0;
+    top: 10px;
+}
+
+.members li {
+    float: left;
+    margin: 20px 0 15px 20px;
+}
+
+.menuBlock{
+    
+    position: relative;
+}
