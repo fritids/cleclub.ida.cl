@@ -1,13 +1,15 @@
 <?php get_header(); ?>
 <div id="contenido" class="clearfix">
-    <div id="leftSide">
-        <div id="cSlider">
-            <div id="layerslider">
-                <?php echo slideHome(); ?>
+    <div class="clearfix">
+        <div id="leftSide">
+            <div id="cSlider">
+                <div id="layerslider">
+                    <?php echo slideHome(); ?>
+                </div>
             </div>
         </div>
+        <?php get_sidebar(); ?>
     </div>
-    <?php get_sidebar(); ?>
     <div id="wNotas" class="clearfix">
         <div id="wNotasEY" class="boxNotas">
             <div class="tituloNota"><a hreF="/category/estudios-ernst-young/"> Estudios Ernst &amp; Young </a> </div>
