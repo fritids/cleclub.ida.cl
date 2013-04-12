@@ -40,41 +40,40 @@
         
         
         <div id="container">
-            
+
             <div id="top">
-                    <div id="logos">
-                        <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
-                        <div id="logo2">
-                            <ul class="members">
-                                <li>
-                                    <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.df.cl/" title="Diario Financiero" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoDF.png"/></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.eychile.cl/" title="Ernst & Young" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
-                                </li>
-                            </ul>
-                           
-                        </div>
-                        <div id="buscador">
-                            <?php get_search_form(); ?>
-                        </div>
+                <div id="logos">
+                    <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
+                    <div id="logo2">
+                        <ul class="members Top">
+                            <li>
+                                <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
+                            </li>
+                            <li>
+                                <a href="http://www.df.cl/" title="Diario Financiero" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoDF.png"/></a>
+                            </li>
+                            <li>
+                                <a href="http://www.eychile.cl/" title="Ernst & Young" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
+                            </li>
+                        </ul>
+
                     </div>
-                    <div id="menuContainer" class="round5">
-                        <?php
-                        if (is_user_logged_in()) {
-
-                            wp_nav_menu(array('theme_location' => 'primary'));
-                        } else {
-
-                            wp_nav_menu(array('theme_location' => 'public'));
-                        };
-                        ?>
+                    <div id="buscador">
+                        <?php get_search_form(); ?>
                     </div>
-
                 </div>
+            </div>
+            <div id="menuContainer">
+                <?php
+                if (is_user_logged_in()) {
+
+                    wp_nav_menu(array('theme_location' => 'primary'));
+                } else {
+
+                    wp_nav_menu(array('theme_location' => 'public'));
+                };
+                ?>
+            </div>
             <div id="wrapper">
                 
                
