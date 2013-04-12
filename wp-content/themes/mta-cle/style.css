@@ -67,7 +67,7 @@ Text Domain: CleClub
     margin:0 auto;
     width:980px;
     overflow: hidden;
-}
+    }
 
 #container {
     width:100%;    
@@ -204,6 +204,7 @@ h5 {
     margin: 0 auto;
     padding-top: 30px;
     width: 980px;
+    overflow: hidden;
 }
 #logo {
     width:175px;
@@ -618,11 +619,10 @@ h5 {
 }
 
 #pageContent {
-    margin-top:25px;
-    /*text-align:justify;*/
     font-size:11px;
     margin-bottom:30px;
     width: 640px;
+    float: left;
 }
 
 #pageContent h1 {
@@ -761,7 +761,6 @@ h5 {
 #wNoticias ul {
     list-style:none;
 }
-
 #wNoticias ul li {
     border-bottom:1px dotted #e6e6e6;
     padding:15px;
@@ -786,6 +785,7 @@ h5 {
     height:300px;
     width:630px;
     padding:5px;
+    margin-bottom: 25px;
 }
 
 .smallFont {
