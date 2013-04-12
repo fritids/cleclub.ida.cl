@@ -64,12 +64,12 @@ Text Domain: CleClub
 }*/
 
 #wrapper {
-    width:100%;
+    margin:0 auto;
+    width:980px;
 }
 
 #container {
-    width:980px;
-    margin:0 auto;
+    width:100%;    
     padding:0;
 }
 
