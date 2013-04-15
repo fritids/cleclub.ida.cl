@@ -120,4 +120,11 @@ add_image_size("slideHome", 640, 371, true);
 add_image_size("perfil", 280, 380, true);
 add_image_size("portadaPerfil", 175, 240, true);
 add_image_size("gallery", 200, 110, true);
+
+add_action('acf/register_fields', 'my_register_fields');
+
+function my_register_fields()
+{
+	include_once('acf-repeater/repeater.php');
+}
 ?>
