@@ -31,21 +31,27 @@
         <?php endif; ?>
     </div>
     <div id="wEventoSociales" class="tituloBox">
-        <p class="tituloNM"><a href="category/agenda/">CALENDARIO CLE CLUB [+]</a></p> 
+        <p class="tituloNM"><a href="/eventos-cle/agenda/">CALENDARIO CLE CLUB [+]</a></p> 
     </div>
     <div id="listadoEventos">
         <div class="boxNotas">
             <?php
             $args = array(
-                'category_name' => 'agenda',
+                'post_type' => 'eventos_sociales',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'taxeventos',
+                        'field' => 'slug',
+                        'terms' => 'agenda'
+                    )
+                ),
                 'order' => 'desc',
                 'posts_per_page' => 2
             );
-            query_posts($args);
+            $queryEventos = new WP_Query($args);
             $i = 1;
-            while (have_posts()) : the_post();
+            while ($queryEventos->have_posts()) : $queryEventos->the_post();
                 $pic = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
-                $postID = $post->ID;
                 $fechaEvento = get_field('fecha');
                 $dia = date('d', strtotime($fechaEvento));
                 $mes = traduceMes(date('m', strtotime($fechaEvento)));
@@ -54,13 +60,13 @@
                 <div class="wNota clearfix">
                     <div class="tituloNotaW">
                         <small><?php echo $dia . ' ' . $mes . ' ' . $ano ?>,  <?php the_field('hora'); ?> hrs. <?php the_field('lugar'); ?> </small>
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </div>
                 </div>
-                <?php 
-                    $i++;
-                    endwhile; 
-                ?>
+                <?php
+                $i++;
+            endwhile;
+            ?>
         </div>
     </div><!--/listadoEventos-->
 </div><!--/sidebar-->

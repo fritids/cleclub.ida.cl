@@ -18,9 +18,9 @@ function cortar($str, $n, $cutter = false) {
 }
 
 
-function parseFeed($url) {
+function parseFeed($url, $cuantos=3, $descripcion= false) {
     $rss = fetch_feed($url);
-    $maxitems = $rss->get_item_quantity(3);
+    $maxitems = $rss->get_item_quantity($cuantos);
     $rss_items = $rss->get_items(0, $maxitems);
     $out = '';
 
@@ -29,7 +29,8 @@ function parseFeed($url) {
     else :
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
-            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . get_the_date(esc_url($item->get_date())) . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())). '&amp;titulo='. urldecode(esc_html($item->get_title())).'">' .esc_html($item->get_title()). '</a></div></div>';
+            $desc = $descripcion ? '<p class="desc">' .$item->get_content().'</p>':"";
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . get_the_date(esc_url($item->get_date())) . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())). '&amp;titulo='. urldecode(esc_html($item->get_title())).'">' .esc_html($item->get_title()). '</a></div>'.$desc.'</div>';
             $i++;
         endforeach;
         return $out;
