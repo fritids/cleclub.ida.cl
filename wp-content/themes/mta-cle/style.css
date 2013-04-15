@@ -250,6 +250,10 @@ h5 {
     width:140px;
 }
 
+.submit{
+    margin: 0 0 0 5px;
+}
+
 .contactoButton{
     display: inline-block;
     color: #fff;
