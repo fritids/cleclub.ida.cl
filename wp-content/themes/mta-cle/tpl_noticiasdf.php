@@ -10,7 +10,7 @@ get_header(); ?>
 <div id="pageContent">
 <h1><?php the_title();?></h1>
 <div id="wNoticias">
-    <?php echo parseFeed("http://www.df.cl/prontus_df/site/edic/base/rss/economia.xml");?>
+    <?php echo parseFeed("http://www.df.cl/prontus_df/site/edic/base/rss/inicio.xml");?>
 </div><!--/wNoticias-->
 </div><!--pageContent-->
 <?php get_sidebar(); ?>

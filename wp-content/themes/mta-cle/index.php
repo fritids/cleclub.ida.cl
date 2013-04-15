@@ -20,7 +20,7 @@
             <?php echo notas(array('category_name' => 'charlas-cdd-uc', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
         </div> 
         <div id="wNotasDF" class="boxNotas">
-            <div class="tituloNota"><a href="/category/noticias-diario-financiero/">Diario Financiero</a></div>
+            <div class="tituloNota"><a href="/diario-financiero/">Diario Financiero</a></div>
             <?php echo parseFeed("http://www.df.cl/prontus_df/site/edic/base/rss/economia.xml"); ?>
         </div>
     </div>
