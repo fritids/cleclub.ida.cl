@@ -5,5 +5,5 @@
                 </a>
             </span>
                 <input type="text" class="field searchInput" name="s" id="s" placeholder="Buscar" />
-		<input type="image" style="margin-bottom:-3px" value="buscar" id="searchsubmit" name="submit" class="submit" src="<?php bloginfo('template_directory');?>/_img/lupa.gif">
+		<input type="image" style="margin-bottom:-3px" value="buscar" id="searchsubmit" name="submit" class="submit" src="<?php bloginfo('template_directory');?>/_img/buscarIcon.png">
 	</form>
