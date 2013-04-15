@@ -127,4 +127,10 @@ function my_register_fields()
 {
 	include_once(ABSPATH .'/wp-content/plugins/acf-repeater/repeater.php');
 }
+
+function printMe( $toPrint ) {
+    echo '<pre>';
+    print_r($toPrint);
+    echo '</pre>';
+}
 ?>

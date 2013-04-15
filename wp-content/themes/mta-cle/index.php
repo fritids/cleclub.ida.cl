@@ -12,11 +12,11 @@
     </div>
     <div id="wNotas" class="clearfix">
         <div id="wNotasEY" class="boxNotas">
-            <div class="tituloNota"><a href="/category/estudios-ernst-young/"> Estudios Ernst &amp; Young </a> </div>
+            <div class="tituloNota"><a href="/categoria/estudios-ernst-young/"> Estudios Ernst &amp; Young </a> </div>
             <?php echo notas(array('category_name' => 'estudios-ernst-young', 'order' => 'DESC', 'posts_per_page' => 3)); ?>            
         </div>
         <div id="wNotasUC" class="boxNotas middleBox">
-            <div class="tituloNota"><a href="/category/charlas-cdd-uc/">Centro Desarrollo Directivo UC</a></div>
+            <div class="tituloNota"><a href="/categoria/charlas-cdd-uc/">Centro Desarrollo Directivo UC</a></div>
             <?php echo notas(array('category_name' => 'charlas-cdd-uc', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
         </div> 
         <div id="wNotasDF" class="boxNotas">

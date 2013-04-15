@@ -38,11 +38,11 @@ get_header(); ?>
 
 
 
-<div id="bajadaContent">
+<!--<div id="bajadaContent">
 
-<?php echo category_description(); ?>
+<?php // echo category_description(); ?>
 
-</div>
+</div>-->
 
 
 

@@ -56,7 +56,7 @@ get_header(); ?>
                 <p class="subTitulo primero"><a href="/miembros-del-club/"> <img src="<?php echo get_template_directory_uri(); ?>/_img/volver.gif" style="margin-bottom:-3px;margin-right:10px;" /> volver al listado de miembros</a></p>
                 </div>
 
-                <? 
+                <?php
 
 			} else {
 
@@ -94,9 +94,9 @@ else { ?>
 
 	<div id="cSlider">
 
-				<div id="fixedPic" class="picPost">
+				<div id="fixedPic">
 
-					<img class="ls-bg" src="<?php echo get_template_directory_uri(); ?>/tt.php?src=<?php echo $pic;?>&w=630&h=300" alt="layer">
+					<?php echo get_the_post_thumbnail($post->ID, "slideHome", array('class' => "")); ?>
 
 				</div>
 
@@ -122,11 +122,11 @@ else { ?>
 
 
 
-<div id="bajadaContent">
+<!--<div id="bajadaContent">
 
-<?php the_excerpt_rss();?>
+<?php //the_excerpt_rss();?>
 
-</div>
+</div>-->
 
 
 
