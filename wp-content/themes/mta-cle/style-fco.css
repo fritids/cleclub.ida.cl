@@ -148,3 +148,6 @@
     background: #222;
     color: rgb(242, 148, 0);
 }
+.page-template-tpl_noticiasdf-php .wNota .desc {
+    clear: both;
+}
