@@ -125,6 +125,6 @@ add_action('acf/register_fields', 'my_register_fields');
 
 function my_register_fields()
 {
-	include_once('acf-repeater/repeater.php');
+	include_once(ABSPATH .'/wp-content/plugins/acf-repeater/repeater.php');
 }
 ?>
