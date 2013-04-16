@@ -1,4 +1,5 @@
 <?php
+
 function cortar($str, $n, $cutter = false) {
     $str = trim($str);
     $str = strip_tags($str);
@@ -17,8 +18,7 @@ function cortar($str, $n, $cutter = false) {
     return $out;
 }
 
-
-function parseFeed($url, $cuantos=3, $descripcion= false) {
+function parseFeed($url, $cuantos = 3, $descripcion = false) {
     $rss = fetch_feed($url);
     $maxitems = $rss->get_item_quantity($cuantos);
     $rss_items = $rss->get_items(0, $maxitems);
@@ -29,8 +29,8 @@ function parseFeed($url, $cuantos=3, $descripcion= false) {
     else :
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
-            $desc = $descripcion ? '<p class="desc">' .$item->get_content().'</p>':"";
-            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . get_the_date(esc_url($item->get_date())) . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())). '&amp;titulo='. urldecode(esc_html($item->get_title())).'">' .esc_html($item->get_title()). '</a></div>'.$desc.'</div>';
+            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . get_the_date(esc_url($item->get_date())) . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
             $i++;
         endforeach;
         return $out;
@@ -103,16 +103,25 @@ function notas($args) {
 
 function slideHome() {
     $out = '';
-    $args = array('category_name' => 'banner', 'order' => 'ASC', 'posts_per_page' => 5);
-    query_posts($args);
-    while (have_posts()) : the_post();
-        $out .= '<div class="ls-layer" style="slidedelay: 3000">' . get_the_post_thumbnail($post->ID, "slideHome", array('class' => "")) . ' </div>';
+    $args = array('page_id' => 392);
+    $querySlide = new WP_Query($args);
+    
+    while ($querySlide->have_posts()) : $querySlide->the_post();
+
+        $rows = get_field('slider_imagen'); 
+        if ($rows):
+            foreach  ($rows as $imagen):
+                $imgID = $imagen['imagen'];
+                $out .= '<div class="ls-layer" style="slidedelay: 3000">' . wp_get_attachment_image($imgID, "slideHome") . ' </div>';
+            endforeach;
+        endif;
     endwhile;
     return $out;
 }
+
 add_theme_support('menus');
-register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
-register_nav_menu( 'public', __( 'Public Menu', 'twentytwelve' ) );
+register_nav_menu('primary', __('Primary Menu', 'twentytwelve'));
+register_nav_menu('public', __('Public Menu', 'twentytwelve'));
 
 add_theme_support('post-thumbnails');
 add_image_size("notas", 70, 70, true);
