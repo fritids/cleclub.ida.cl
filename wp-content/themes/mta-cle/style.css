@@ -377,12 +377,11 @@ h5 {
 }
 
 #sidebar .boxSidebar {
-    width:296px;
+    width:310px;
     border:1px solid #ccc;
     background-color:#efefef;
     float:right;
     margin-bottom:20px;
-    padding:10px 7px;
 }
 
 
@@ -417,9 +416,46 @@ h5 {
     font-family:'EY';
 }
 
+#wRegistro .tituloNM {
+    font-size: 19px;
+}
+
+#wRegistro .tituloNM:before {
+      background: none repeat scroll 0 0 #FF9900;
+    content: " ";
+    display: inline-block;
+    height: 40px;
+    margin: 0 10px -15px 0;
+    width: 5%;
+}
+
 .label {
-    height:30px;
-    margin-bottom:10px;
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: right;
+    width: 23%;
+}
+.tituloLog{
+    float: left;
+    border-bottom: solid 1px #ccc;
+}
+.itLoginFront {
+    display: inline-block;
+    width: 72%;
+}
+
+.loginWrap {
+    overflow: hidden;
+    padding: 10px;
+}
+
+.forgot {
+    color: #666666;
+    float: left;
+    font-size: 11px;
+    margin: 7px 0 0 119px;
+    text-decoration: underline;
 }
 
 .labelTitle {
@@ -1087,6 +1123,7 @@ p,#pageContent p {
 .not-found {
     min-height:350px;	
 }
+
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
