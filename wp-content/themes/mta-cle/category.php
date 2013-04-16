@@ -1,4 +1,5 @@
 <?php
+
 /**
 
  * The Template for displaying all single posts.
@@ -73,4 +74,4 @@ get_header();
     </div><!--pageContent-->
     <!--/END OF CONTENIDOS-->
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php get_footer();?>

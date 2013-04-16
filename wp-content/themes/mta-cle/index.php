@@ -21,7 +21,7 @@
         </div> 
         <div id="wNotasDF" class="boxNotas">
             <div class="tituloNota"><a href="/diario-financiero/">Diario Financiero</a></div>
-            <?php echo parseFeedHome("http://www.df.cl/prontus_df/site/tax/port/all/rss_3___1.xml"); ?>
+            <?php echo parseFeedHome("http://www.df.cl/prontus_df/site/tax/port/all/rss_5___1.xml"); ?>
         </div>
     </div>
     <?php get_footer(); ?>
