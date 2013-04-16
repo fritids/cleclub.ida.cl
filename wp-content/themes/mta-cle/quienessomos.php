@@ -3,11 +3,12 @@
 Template Name: Quienes Somos
 */
 ?>
-<?php get_header(); ?>
+<?php get_header();the_post(); ?>
 
 <div id="contenido">
 <div id="pageContent" class="clearfix">    
 <h1><?php the_title(); ?></h1>
+<?php the_content();?>
 <?php $childPages=$wp_query->post->ID; ?>
     	<?php query_posts(array('showposts' => 4, 'post_parent' => $childPages, 'post_type' => 'page','post__not_in'=>array(304))); 
         if(have_posts()){
@@ -15,6 +16,7 @@ Template Name: Quienes Somos
         while (have_posts()) { the_post();
         $last = $i % 3 == false ? 'last':'';
         ?>
+
         <div class="one_third <?php echo $last;?>">
             <div class="bio">
                 <div class="fotoMiembro">

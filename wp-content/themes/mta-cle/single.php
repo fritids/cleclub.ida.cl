@@ -161,55 +161,49 @@ else { ?>
 				?>
 
 
+    <div class="eventInfo">
+                    <h2>Datos del Evento - <?php echo the_title(); ?> </h2>
 
-    <h2>Datos del Evento - <?php echo the_title();?> </h2>
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
 
-	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tr>
 
-  <tr>
+                            <td width="7%"><strong>Fecha:</strong></td>
 
-    <td width="7%"><strong>Fecha:</strong></td>
+                            <td width="93%"><?php echo $fechaEvento; ?></td>
 
-    <td width="93%"><?php echo $fechaEvento;?></td>
+                        </tr>
 
-  </tr>
+                        <tr>
 
-  <tr>
+                            <td><strong>Hora:</strong></td>
 
-    <td><strong>Hora:</strong></td>
+                            <td><?php the_field('hora'); ?> hrs.</td>
 
-    <td><?php the_field('hora');?> hrs.</td>
+                        </tr>
 
-  </tr>
+                        <tr>
 
-  <tr>
+                            <td><strong>Lugar:</strong></td>
 
-    <td><strong>Lugar:</strong></td>
+                            <td><?php the_field('lugar'); ?></td>
 
-    <td><?php the_field('lugar');?></td>
+                        </tr>
 
-  </tr>
+                        <tr>
 
-  <tr>
+                            <td><strong>Contacto:</strong></td>
 
-    <td><strong>Contacto:</strong></td>
+                            <td><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></td>
 
-    <td><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></td>
+                        </tr>
 
-  </tr>
+                      
 
-  <tr>
-
-    <td>&nbsp;</td>
-
-    <td>&nbsp;</td>
-
-  </tr>
-
-</table>
+                    </table>
 
 
-
+                </div>
                 <? }
 
 			} else {
