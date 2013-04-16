@@ -1,21 +1,4 @@
-<?php
-/**
-
- * The Template for displaying all single posts.
-
- *
-
- * @package WordPress
-
- * @subpackage Twenty_Twelve
-
- * @since Twenty Twelve 1.0
-
-  Template Name: Noticias
-
- */
-get_header();
-?>
+<?php get_header(); ?>
 <div id="contenido">
     <div id="pageContent">
         <h1><?php echo single_cat_title('', false) ?></h1>

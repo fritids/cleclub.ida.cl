@@ -1055,15 +1055,3 @@ p,#pageContent p {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
-
-/*PERFIL*/
-
-.datosEvent {
-    float: left;
-    width: 65%;
-}
-
-
-
-
-
