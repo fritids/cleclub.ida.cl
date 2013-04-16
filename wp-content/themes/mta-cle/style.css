@@ -359,7 +359,7 @@ h5 {
     background-color:#525252;
     visibility:visible;
 }
-.menu-menu-principal-container {
+.menu-menu-principal-container, .menu-menu-publico-container {
     margin: 0 auto;
     width: 980px;
 }

@@ -138,16 +138,20 @@
 #menu-menu-principal li:last-child{
     border-right: none;
 }
-#menu-menu-principal li.current-menu-ancestor, #menu-menu-principal li.current-menu-item{
+#menu-menu-principal li.current-menu-ancestor, #menu-menu-principal li.current-menu-item,#menu-menu-publico li.current-menu-ancestor, #menu-menu-publico li.current-menu-item{
     border-right: 1px solid #555;
     border-left: 1px solid #555;
 }
 
 
-#menu-menu-principal .current-menu-ancestor a, #menu-menu-principal li.current-menu-item a {
+#menu-menu-publico .current-menu-ancestor a, #menu-menu-publico li.current-menu-item a {
     background: #222;
     color: rgb(242, 148, 0);
 }
 .page-template-tpl_noticiasdf-php .wNota .desc {
     clear: both;
+}
+
+#cSlider #layerslider{
+    height: 333px;
 }
