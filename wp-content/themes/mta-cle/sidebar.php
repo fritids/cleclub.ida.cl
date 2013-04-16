@@ -45,7 +45,8 @@
                         'terms' => 'agenda'
                     )
                 ),
-                'order' => 'desc',
+                'order' => 'ASC',
+                'orderby'=> 'date',
                 'posts_per_page' => 2
             );
             $queryEventos = new WP_Query($args);
