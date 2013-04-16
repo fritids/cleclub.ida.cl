@@ -105,9 +105,7 @@ function slideHome() {
     $out = '';
     $args = array('page_id' => 392);
     $querySlide = new WP_Query($args);
-    
     while ($querySlide->have_posts()) : $querySlide->the_post();
-
         $rows = get_field('slider_imagen'); 
         if ($rows):
             foreach  ($rows as $imagen):
