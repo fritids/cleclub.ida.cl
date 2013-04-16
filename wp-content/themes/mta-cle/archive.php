@@ -22,7 +22,7 @@ get_header(); ?>
 <div id="wNoticias">
     <ul>
          <?php
-            query_posts(array("orderby" => "meta_value", "meta_key" => "fecha"));
+                if(is_tax("taxeventos", "agenda")) query_posts(array("post_type"=>"eventos_sociales", "tax_query"=>array("taxonomy"=>"taxeventos", "terms"=>"agenda","field"=>"slug"), "orderby" => "meta_value_num", "meta_key" => "fecha", 'order' => 'ASC'));
           ?> 
         <?php while (have_posts()) : the_post(); ?> 
             <li>
