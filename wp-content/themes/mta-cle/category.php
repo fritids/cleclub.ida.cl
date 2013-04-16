@@ -4,11 +4,7 @@
         <h1><?php echo single_cat_title('', false) ?></h1>
         <div id="wNoticias">
             <ul>
-                <?php
-                if (is_category("agenda")) {
-                    query_posts(array("orderby" => "date", "order" => "ASC"));
-                }
-                ?> 
+               
 
                 <?php while (have_posts()) : the_post(); ?> 
                     <li>

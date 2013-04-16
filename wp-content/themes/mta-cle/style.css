@@ -435,24 +435,43 @@ h5 {
 }
 
 .itLogin {
-    height:22px;
-    width:190px;
-    border:none;
+    width:100%;
+    border:1px solid #ccc;
     background-color:#fff;
-    font-family:EY;
-    font-size:10px;
-    padding:4px 10px;
+    font-size:14px;
+    padding:5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .itLoginML {
-    width:190px;
-    border:none;
+    width:100%;
+    border:1px solid #ccc;
     background-color:#fff;
-    font-family:EY;
-    font-size:10px;
-    padding:4px 10px;
+    font-size:14px;
+    padding:5;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 200px;
+    resize: none;
+    margin-bottom: 20px;
 }
 
+.btnCont {
+    background-color: #ff9900;
+    border: 0 none;
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+    padding: 5px 15px;
+    transition: background-color 0.25s ease-in-out 0s;
+    color: #fff;
+    font-family: 
+}
 .inputField {
     height:30px;
 }
@@ -704,12 +723,12 @@ h5 {
 }
 
 #contacto {
-    width:468px;
-    height:300px;
+    width:100%;
     background-color:#EFEFEF;
     border:1px solid #CCC;
     float:left;
-    padding:10px;
+    padding:40px 0;
+    overflow: hidden;
 }
 
 .formContacto th {
@@ -721,25 +740,21 @@ h5 {
     padding-bottom:20px;
 }
 
-.formContacto .itLogin {
-    height:22px;
-    width:350px;
-    border:none;
-    background-color:#fff;
-    font-family:EY;
-    font-size:10px;
-    padding:4px 10px;
+
+
+
+
+#contactoCle{
+    width: 70%;
+    margin: 0 auto;
 }
 
-.formContacto .itLoginML {
-    width:350px;
-    border:none;
-    background-color:#fff;
-    font-family:EY;
-    font-size:10px;
-    padding:4px 10px;
+#contactoCle label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
-
 #picPage {
     width:460px;
     height:300px;

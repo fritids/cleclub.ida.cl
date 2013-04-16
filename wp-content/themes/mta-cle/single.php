@@ -85,11 +85,12 @@ get_header();
                                 <dd><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></dd>
                             </dl>
                     </div>
-            <?php the_post();the_content(); ?>
+            
         <?php }
     } else {
         echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
     }; ?>
+            <?php the_post();the_content(); ?>
         </div>
         </div>    
     </div><!--pageContent-->

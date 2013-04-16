@@ -21,6 +21,9 @@ get_header(); ?>
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
     <ul>
+         <?php
+            query_posts(array("orderby" => "meta_value", "meta_key" => "fecha"));
+          ?> 
         <?php while (have_posts()) : the_post(); ?> 
             <li>
                 <div id="picNoticia">
