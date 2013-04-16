@@ -138,12 +138,13 @@ else { ?>
 
 			if ( is_user_logged_in() ) {
 
-   				the_post(); the_content();
+   				
 
 				?>
-
-				
-
+                               
+    <div class="datosEvent">      
+				<?php the_post(); the_content();?>
+    </div>    
                 <?php if (get_field('fecha')) {
 
 					
@@ -164,7 +165,7 @@ else { ?>
     <div class="eventInfo">
                     <h2>Datos del Evento</h2>
 
-                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <dl class="eventDates">
 
                         <tr>
 
@@ -203,7 +204,7 @@ else { ?>
                     </table>
 
 
-                </div>
+    </div>
                 <? }
 
 			} else {
