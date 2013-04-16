@@ -511,8 +511,9 @@ h5 {
     background: none repeat scroll 0 0 #EDEDED;
     border-left: 5px solid #FF9900;
     color: #666666;
+    float: right;
     padding: 10px;
-    margin-top: 30px;
+    width: 30%;
 }
 
 .eventInfo h2{
@@ -1023,7 +1024,10 @@ p,#pageContent p {
     font-weight: bold;
     text-decoration: underline;
 }
-
+#pageContent p a:hover{
+    
+    color:#ff9900;
+}
 #menuContainer ul,.eventos {
     list-style-type:none;
     margin:0;
@@ -1053,6 +1057,13 @@ p,#pageContent p {
 .clearfix { *zoom: 1; }
 
 /*PERFIL*/
+
+.datosEvent {
+    float: left;
+    width: 65%;
+}
+
+
 
 
 
