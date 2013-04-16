@@ -12,16 +12,16 @@
     </div>
     <div id="wNotas" class="clearfix">
         <div id="wNotasEY" class="boxNotas">
-            <div class="tituloNota"><a href="/categoria/estudios-ernst-young/"> Estudios Ernst &amp; Young </a> </div>
-            <?php echo notas(array('category_name' => 'estudios-ernst-young', 'order' => 'DESC', 'posts_per_page' => 3)); ?>            
+            <div class="tituloNota"><a href="/categoria/ernst-young/"> Estudios Ernst &amp; Young </a> </div>
+            <?php echo notas(array('category_name' => 'ernst-young', 'order' => 'DESC', 'posts_per_page' => 3)); ?>            
         </div>
         <div id="wNotasUC" class="boxNotas middleBox">
-            <div class="tituloNota"><a href="/categoria/charlas-cdd-uc/">Centro Desarrollo Directivo UC</a></div>
-            <?php echo notas(array('category_name' => 'charlas-cdd-uc', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
+            <div class="tituloNota"><a href="/categoria/cdd-uc/">Centro Desarrollo Directivo UC</a></div>
+            <?php echo notas(array('category_name' => 'cdd-uc', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
         </div> 
         <div id="wNotasDF" class="boxNotas">
             <div class="tituloNota"><a href="/diario-financiero/">Diario Financiero</a></div>
-            <?php echo parseFeed("http://www.df.cl/prontus_df/site/edic/base/rss/economia.xml"); ?>
+            <?php echo parseFeedHome("http://www.df.cl/prontus_df/site/tax/port/all/rss_3___1.xml"); ?>
         </div>
     </div>
     <?php get_footer(); ?>
