@@ -520,6 +520,27 @@ h5 {
     margin-bottom: 10px;
 }
 
+.eventoInfo{
+     font-size: 12px;
+}
+
+.eventoInfo dt{
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+    vertical-align: top;
+}
+
+.eventoInfo dd{
+    display: inline-block;
+    width: 65%;
+}
+
+.eventoInfo dd a{
+    
+    text-decoration: underline;
+}
+
 .naranjo {
     color:#fda63d;
 }
