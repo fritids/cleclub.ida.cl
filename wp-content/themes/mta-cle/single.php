@@ -162,7 +162,7 @@ else { ?>
 
 
     <div class="eventInfo">
-                    <h2>Datos del Evento - <?php echo the_title(); ?> </h2>
+                    <h2>Datos del Evento</h2>
 
                     <table width="100%" border="0" cellspacing="2" cellpadding="2">
 
