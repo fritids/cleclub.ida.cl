@@ -1036,7 +1036,8 @@ h5 {
     display: block;
     float: right;
     margin-top: 10px;
-    padding-left: 25px;}
+    padding-left: 25px;
+}
 .bioBig {
     
     border-right: 3px solid #FF9900;
@@ -1050,7 +1051,20 @@ h5 {
     width: 270px;
     padding-left: 10px;
 }
+.user_36{
+    display: block;
+    background: url("_img/eyy_logo_perfil.png") no-repeat bottom center;
+}
+.user_37{
+    display: block;
+    background: url("_img/uc_logo_perfil.png") no-repeat bottom center;
+}
 
+.user_38{
+    display: block;
+    background: url("_img/df_logo_perfil.png") no-repeat bottom center;
+    
+}
 #bioMiembro h1{
     
     font-size: 26px;    
