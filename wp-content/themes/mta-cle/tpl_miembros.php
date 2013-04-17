@@ -19,12 +19,13 @@ the_post();
             echo '<div class="one_third'.$last.'">
                     <div class="bio">
                         <div class="fotoMiembro">
-                            <a href="'. get_author_posts_url($user->ID).'" title="'.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'</a>
+                            <a href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'</a>
                         </div>
                         <div class="infoMiembro">
-                                <h4><a href="'. get_author_posts_url($user->ID).'" title="'.$user->display_name.'">'.$user->display_name.'</a></h4>
+                                <h4><a title="ir a perfil de '.$user->display_name.'"  href="'. get_author_posts_url($user->ID).'" title="'.$user->display_name.'">'.$user->display_name.'</a></h4>
                                 <p class="cargo">'.get_field('cargo', "user_$user->ID").'</p>                            
                                 <p class="empresa">'.get_field('empresa', "user_$user->ID").'</p>                            
+                                <a class="perfil_ico" title="ir a perfil de '.$user->display_name.'" href="'. get_author_posts_url($user->ID).'" title="'.$user->display_name.'">Ver Perfil</a>                            
                         </div>
                     </div>
                 </div>';
