@@ -1037,9 +1037,9 @@ h5 {
 }
 .bioBig {
     
+    border-right: 3px solid #FF9900;
     float: left;
-    margin-top: 10px;
-    padding: 0 20px 10px 10px;
+    padding: 5px 20px 10px 10px;
 }
 
 
@@ -1047,12 +1047,11 @@ h5 {
     float: left;
     width: 270px;
     padding-left: 10px;
-    border-left: 3px solid #FF9900;
 }
 
 #bioMiembro h1{
     
-    font-size: 26px;
+    font-size: 26px;    
     font-weight: normal;
     color: #333;
     margin-bottom: 20px;

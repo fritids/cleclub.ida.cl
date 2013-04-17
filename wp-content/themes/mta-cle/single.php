@@ -51,6 +51,9 @@
                 the_content();
             endwhile;
             ?>
+           <?php if(get_field('archivo_adjunto')){
+               echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) .' " rel="nofollow" title="Descargar Estudio">Descargar Estudio</a>';
+            }?>
         </div>
     </div>    
 </div><!--pageContent-->
