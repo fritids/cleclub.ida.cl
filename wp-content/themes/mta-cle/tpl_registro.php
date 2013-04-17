@@ -66,7 +66,8 @@ $cuerpo = utf8_decode($cuerpo);
 //mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 if(!empty($_FILES['curriculum'])){
     
-    if ( ! function_exists( 'wp_handle_upload' ) ) { require_once( ABSPATH . 'wp-admin/includes/file.php' ); }
+ 
+   if ( ! function_exists( 'wp_handle_upload' ) ) { require_once( ABSPATH . 'wp-admin/includes/file.php' ); }
     
     $upload = wp_handle_upload( $_FILES['curriculum'], array( 'test_form' => false ) );
     $filename = $upload['file'];
