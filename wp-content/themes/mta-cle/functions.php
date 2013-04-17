@@ -30,7 +30,7 @@ function parseFeed($url, $cuantos = 3, $descripcion = false) {
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
             $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __($item->get_date('j F Y '), "cleclub") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
+            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e F, Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
             $i++;
         endforeach;
         return $out;
@@ -49,7 +49,7 @@ function parseFeedHome($url, $cuantos = 3, $descripcion = false) {
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
             $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __($item->get_date('j F Y '), "cleclub") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __(strtolower($item->get_date('j \d\e F, Y ')), "es_ES") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
             $i++;
         endforeach;
         return $out;
@@ -116,7 +116,7 @@ function notas($args) {
     $out = "";
     while (have_posts()) : the_post();
         $clase = $i % 2 ? ' odd' : '';
-        $out .= '<div class="wNota clearfix"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "notas") . '</div><div class="tituloNotaW"><small>' . get_the_date() . '</small><a href="' . get_permalink() . '"> ' . cortar(get_the_title(), 70) . '</a></div></div>';
+        $out .= '<div class="wNota clearfix"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "notas") . '</div><div class="tituloNotaW"><small>' . get_the_date("j \d\e F, Y") . '</small><a href="' . get_permalink() . '"> ' . cortar(get_the_title(), 70) . '</a></div></div>';
         $i++;
     endwhile;
     return $out;

@@ -14,7 +14,7 @@
 
             <div id="postContent">
                 <?php
-                if (is_user_logged_in()) {
+                if (is_user_logged_in() && has_term( "agenda", "taxeventos")) {
 
                     if (get_field('fecha')) :
                         $fechaEvento = get_field('fecha');
@@ -23,6 +23,7 @@
                         $ano = date('Y', strtotime($fechaEvento));
                         $fechaEvento = $dia . ' ' . $mes . ' ' . $ano;
                         ?>
+                
                         <div class="eventInfo">
                             <h3>Datos del Evento</h3>
                             <dl class="eventoInfo">
