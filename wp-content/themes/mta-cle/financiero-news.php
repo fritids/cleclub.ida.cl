@@ -83,7 +83,9 @@ body#radarExternalLink {
 	 }
 
 #contextualBarClose:hover {
-	background:  rgb(255,255,255); }
+	background:  #FF9900;
+        color: #fff;
+}
 
 #dfnewsExternalLink iframe {
 	width: 100%;
@@ -104,7 +106,7 @@ body#radarExternalLink {
                 </span>
 
                 <a href="<?php echo $url;?>" title="#"><?php echo $titulo;?></a>
-                <a href="/"id="contextualBarClose">Volver a CLE</a>
+                <a href="/"id="contextualBarClose">Volver a CLE CLUB</a>
             </p>
         </div>
         <iframe  id="eliframe" src="<?php echo $url;?>" frameborder="0">

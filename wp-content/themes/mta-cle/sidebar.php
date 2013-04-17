@@ -68,7 +68,7 @@
                 ?>
                 <div class="wNota clearfix">
                     <div class="tituloNotaW">
-                        <small><?php echo $dia . ' ' . $mes . ' ' . $ano ?>,  <?php the_field('hora'); ?> hrs. <?php the_field('lugar'); ?> </small>
+                        <small><?php echo $dia . ' ' . $mes . ' ' . $ano ?>,  <?php the_field('hora'); ?> hrs. <br /><?php the_field('lugar'); ?> </small>
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </div>
                 </div>
