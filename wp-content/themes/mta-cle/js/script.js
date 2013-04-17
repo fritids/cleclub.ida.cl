@@ -6,6 +6,7 @@
         this.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .one_third .bio"));
         this.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .one_third .bio"));
         this.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
+        this.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio .infoMiembro .cargo"));
         this.equalizeHeights($("#wNotas .boxNotas"));
 
 

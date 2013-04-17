@@ -23,8 +23,8 @@ the_post();
                         </div>
                         <div class="infoMiembro">
                                 <h4><a href="'. get_author_posts_url($user->ID).'" title="'.$user->display_name.'">'.$user->display_name.'</a></h4>
-                                <p>'.get_field('cargo', "user_$user->ID").'</p>                            
-                                <p>'.get_field('empresa', "user_$user->ID").'</p>                            
+                                <p class="cargo">'.get_field('cargo', "user_$user->ID").'</p>                            
+                                <p class="empresa">'.get_field('empresa', "user_$user->ID").'</p>                            
                         </div>
                     </div>
                 </div>';
