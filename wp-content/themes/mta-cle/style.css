@@ -43,7 +43,7 @@ Text Domain: CleClub
 
 @font-face {
     font-family: 'EY';
-    src: url('css/fonts/EYInterstate-Light.svg#EY') format('svg');
+    src: url('css/fonts/EYInterstate-Light.svg') format('svg');
     src: url('css/fonts/EYInterstate-Light.eot');
     src: url('css/fonts/EYInterstate-Light.eot?#iefix') format('embedded-opentype'),
         url('css/fonts/EYInterstate-Light.woff') format('woff'),
@@ -52,6 +52,13 @@ Text Domain: CleClub
     font-weight: lighter;
     font-style: normal;
 
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+@font-face {
+font-family: 'EY';
+src: url('css/fonts/EYInterstate-Light.svg') format('svg');
+
+}
 }
 
 /*@font-face {
