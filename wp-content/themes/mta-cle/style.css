@@ -1001,7 +1001,6 @@ h5 {
     width: 175px;
 }
 .infoMiembro {
-    background-color:#FFF;
     padding:10px 10px 0 10px;
     font-size: 12px;
 }
@@ -1017,7 +1016,7 @@ h5 {
 }
 
 .bio {
-    background:url(_img/dark10.png) center center repeat-x;
+    background: #F0F0F0 url(_img/dark10.png) center center repeat-x;
     -moz-box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
     -webkit-box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
     box-shadow:0 0 3px 1px rgba(0,0,0,0.1);

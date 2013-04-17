@@ -11,6 +11,7 @@ the_post();
 <div id="contenido">
     <div id="pageContent" class="clearfix">
         <h1><?php the_title(); ?></h1>
+        <?php the_content();?>
         <?php
         $i = 1;
         $blogusers = get_users('orderby=nicename&role=representante');
