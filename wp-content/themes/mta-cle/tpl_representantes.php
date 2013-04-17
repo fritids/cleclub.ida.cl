@@ -14,7 +14,13 @@ the_post();
         <?php
         $i = 1;
         $blogusers = get_users('orderby=nicename&role=representante');
-        foreach ($blogusers as $user) {
+        
+        foreach ($blogusers as $user){
+            $orden = get_user_meta($user->ID ,'orden', true);
+            $usuarios[$orden] = $user;
+        }
+        ksort($usuarios);
+        foreach ($usuarios as $user) {
             $last = $i % 3 == false ? ' last' : '';
             echo '<div class="one_third'.$last.'">
                     <div class="bio">

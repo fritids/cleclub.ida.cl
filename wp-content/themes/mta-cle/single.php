@@ -38,6 +38,7 @@
 
                                 <dd><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></dd>
                             </dl>
+                            
                         </div>
                 <?php
                 endif;
