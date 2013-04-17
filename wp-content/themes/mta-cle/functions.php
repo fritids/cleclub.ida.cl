@@ -30,7 +30,7 @@ function parseFeed($url, $cuantos = 3, $descripcion = false) {
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
             $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . $item->get_date('j F Y ') . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
+            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __($item->get_date('j F Y '), "cleclub") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
             $i++;
         endforeach;
         return $out;
@@ -49,7 +49,7 @@ function parseFeedHome($url, $cuantos = 3, $descripcion = false) {
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
             $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . $item->get_date('j F Y ') . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __($item->get_date('j F Y '), "cleclub") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
             $i++;
         endforeach;
         return $out;
@@ -155,6 +155,14 @@ function my_register_fields()
 {
 	include_once(ABSPATH .'/wp-content/plugins/acf-repeater/repeater.php');
 }
+
+
+load_theme_textdomain( 'cleclub', TEMPLATEPATH.'/languages' );
+
+$locale = get_locale();
+$locale_file = TEMPLATEPATH."/languages/$locale.php";
+if ( is_readable($locale_file) )
+	require_once($locale_file);
 
 function printMe( $toPrint ) {
     echo '<pre>';
