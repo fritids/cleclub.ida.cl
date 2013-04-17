@@ -1006,7 +1006,7 @@ h5 {
     font-size: 12px;
 }
 
-.bio .infoMiembro p{
+#pageContent .bio .infoMiembro p{
     margin : 5px 0;
 }
 #leftSide.authorWrap {
@@ -1023,7 +1023,7 @@ h5 {
     box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
     position:relative;
     font-family: Helvetica, sans-serif;
-    /*padding-bottom: 10px;*/
+    padding-bottom: 5px;
 }
 
 .bioBig {
