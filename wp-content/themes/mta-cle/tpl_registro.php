@@ -29,12 +29,10 @@ get_header(); ?>
                     $d5 = 'comunicaciones.eychile@cl.ey.com';
                     //vars
                     $nombre = $_POST['nombre'];
-                    $cargo = $_POST['cargo'];
-                    $empresa = $_POST['empresa'];
-                    $telefono = $_POST['telefono'];
                     $mail = $_POST['mail'];
-                    $mensaje = $_POST['mensaje'];
-                    $asunto = "Contacto - CLE CLUB";
+                    $empresa = $_POST['empresa'];
+                    $cargo = $_POST['cargo'];
+                    $asunto = "Solicitud de Membresia - CLE CLUB";
                     $cuerpo = ' 
 <html> 
 <head> 
@@ -42,11 +40,9 @@ get_header(); ?>
 </head> 
     <body style="font-family:Tahoma;font-size:11px"> 
         <p> Nombre      : '.$nombre.'</p>
-        <p> Cargo       : '.$cargo.'</p>
-        <p> Empresa     : '.$empresa.'</p>
-        <p> Teléfono    : '.$telefono.'</p>
         <p> E-Mail      : '.$mail.'</p>
-        <p> Mensaje     : '.$mensaje.'</p>
+        <p> Empresa     : '.$empresa.'</p>
+        <p> Cargo       : '.$cargo.'</p>
         <p> Fecha Recepción : '.date('d-m-Y').'</p>
     </body> 
 </html> 
@@ -75,7 +71,7 @@ if(!empty($_FILES['curriculum'])){
     $wp_filetype = wp_check_filetype(basename($filename), null );
     
     $attachment = array(
-        'guid' => $wp_upload_dir['baseurl'] . _wp_relative_upload_path( $filename ),
+        'guid' => $wp_upload_dir['baseurl'] . _wp_relative_upload_path($filename),
         'post_mime_type' => $wp_filetype['type'],
         'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
         'post_content' => '',
@@ -84,7 +80,7 @@ if(!empty($_FILES['curriculum'])){
     
     $attach_id = wp_insert_attachment( $attachment, $filename, $postid );
     $archivo = $filename;
-    wp_mail('francisco@ida.cl', 'subject', 'message', $headers, $filename);
+    wp_mail('francisco@ida.cl, jorge@ida.cl', $asunto, $cuerpo, $headers, $filename);
 } else {
     
     $archivo = null;
