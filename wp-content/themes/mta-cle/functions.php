@@ -18,46 +18,6 @@ function cortar($str, $n, $cutter = false) {
     return $out;
 }
 
-function parseFeed($url, $cuantos = 3, $descripcion = false) {
-    $rss = fetch_feed($url);
-    $maxitems = $rss->get_item_quantity($cuantos);
-    $rss_items = $rss->get_items(0, $maxitems);
-    $out = '';
-
-    if ($maxitems == 0) :
-        _e('No items', 'my-text-domain');
-    else :
-        foreach ($rss_items as $item) :
-            $clase = $i % 2 ? ' odd' : '';
-            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e F, Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
-            $i++;
-        endforeach;
-        return $out;
-    endif;
-}
-
-function parseFeedHome($url, $cuantos = 3, $descripcion = false) {
-    $rss = fetch_feed($url);
-    $maxitems = $rss->get_item_quantity($cuantos);
-    $rss_items = $rss->get_items(0, $maxitems);
-    $out = '';
-
-    if ($maxitems == 0) :
-        _e('No items', 'my-text-domain');
-    else :
-        foreach ($rss_items as $item) :
-            $clase = $i % 2 ? ' odd' : '';
-            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __(strtolower($item->get_date('j \d\e F, Y ')), "es_ES") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
-            $i++;
-        endforeach;
-        return $out;
-    endif;
-}
-
-
-
 function traduceMes($mes) {
     if ($mes == 1) {
         $mes = 'Enero';
@@ -108,6 +68,44 @@ function traduceMes($mes) {
     }
 
     return $mes;
+}
+
+function parseFeed($url, $cuantos = 3, $descripcion = false) {
+    $rss = fetch_feed($url);
+    $maxitems = $rss->get_item_quantity($cuantos);
+    $rss_items = $rss->get_items(0, $maxitems);
+    $out = '';
+
+    if ($maxitems == 0) :
+        _e('No items', 'my-text-domain');
+    else :
+        foreach ($rss_items as $item) :
+            $clase = $i % 2 ? ' odd' : '';
+            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
+            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e F, Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
+            $i++;
+        endforeach;
+        return $out;
+    endif;
+}
+
+function parseFeedHome($url, $cuantos = 3, $descripcion = false) {
+    $rss = fetch_feed($url);
+    $maxitems = $rss->get_item_quantity($cuantos);
+    $rss_items = $rss->get_items(0, $maxitems);
+    $out = '';
+
+    if ($maxitems == 0) :
+        _e('No items', 'my-text-domain');
+    else :
+        foreach ($rss_items as $item) :
+            $clase = $i % 2 ? ' odd' : '';
+            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __(strtolower($item->get_date('j \d\e F, Y ')), "es_ES") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
+            $i++;
+        endforeach;
+        return $out;
+    endif;
 }
 
 function notas($args) {
