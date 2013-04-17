@@ -58,12 +58,37 @@ $headers .= "From: CLE CLUB - Contacto <no-reply@cleclub.cl>\r\n";
 $cuerpo = utf8_decode($cuerpo);
 
 //mail($destinatario,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d2,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d2,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//
+//mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+if(!empty($_FILES['curriculum'])){
+    
+    if ( ! function_exists( 'wp_handle_upload' ) ) { require_once( ABSPATH . 'wp-admin/includes/file.php' ); }
+    
+    $upload = wp_handle_upload( $_FILES['curriculum'], array( 'test_form' => false ) );
+    $filename = $upload['file'];
+    $wp_upload_dir = wp_upload_dir();
+    $wp_filetype = wp_check_filetype(basename($filename), null );
+    
+    $attachment = array(
+        'guid' => $wp_upload_dir['baseurl'] . _wp_relative_upload_path( $filename ),
+        'post_mime_type' => $wp_filetype['type'],
+        'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
+        'post_content' => '',
+        'post_status' => 'inherit'
+    );
+    
+    $attach_id = wp_insert_attachment( $attachment, $filename, $postid );
+    $archivo = $filename;
+    wp_mail('francisco@ida.cl', 'subject', 'message', $headers, $filename);
+} else {
+    
+    $archivo = null;
+}
 
-mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 ?>
 <div id="ok">
@@ -78,25 +103,25 @@ mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 ?> 
 <div id="contacto">
 
-    <form name="contactoCle" id="contactoCle" method="post" action="#">
+    <form name="contactoCle" id="contactoCle" method="post" action="#" enctype="multipart/form-data">
             <label>
                 Nombre
             </label>
             <input name="nombre" type="text" class="itLogin validate[required]" id="nombre">
-            <label>
-                Cargo
-            </label>
-            <input name="cargo" type="text" class="itLogin validate[required]" id="cargo" />
+            <label>Mail</label>
+            <input name="mail" type="text" class="itLogin validate[required,custom[email]]" id="mail">
             <label>
                 Empresa
             </label>
             <input name="empresa" type="text" class="itLogin validate[required]" id="empresa" />
-            <label>Teléfono </label>
-            <input name="telefono" type="text" class="itLogin validate[required,custom[phone]]" id="telefono">
-            <label>Mail</label>
-            <input name="mail" type="text" class="itLogin validate[required,custom[email]]" id="mail">
-            <label>Mensaje</label>
-            <textarea name="mensaje" rows="5" class="itLoginML validate[required]" id="mensaje"></textarea>
+            <label>
+                Cargo
+            </label>
+            <input name="cargo" type="text" class="itLogin validate[required]" id="cargo" />
+            
+            <label>Adjuntar Curriculum </label>
+            <input name="curriculum" type="file" class="itLogin">
+            
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
 </div><!--/contacto-->

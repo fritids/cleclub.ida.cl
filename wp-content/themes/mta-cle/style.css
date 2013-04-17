@@ -436,9 +436,17 @@ h5 {
     text-align: right;
     width: 23%;
 }
-.tituloLog{
-    float: left;
-    border-bottom: solid 1px #ccc;
+.tituloLog {
+    border-bottom: 1px solid #CCCCCC;
+    height: 40px;
+}
+
+.tituloLog p a {
+    float: right;
+    font-family: helvetica;
+    font-size: 11px;
+    margin: 17px 15px 0 0;
+    text-decoration: underline;
 }
 .itLoginFront {
     display: inline-block;
@@ -450,12 +458,22 @@ h5 {
     padding: 10px;
 }
 
+.loginWrap .btn{
+    
+    margin-right: 6px;
+}
+
 .forgot {
     color: #666666;
     float: left;
     font-size: 11px;
-    margin: 7px 0 0 119px;
+    margin: 7px 0 0 110px;
     text-decoration: underline;
+}
+
+.logIn {
+    overflow: hidden;
+    padding: 16px 10px;
 }
 
 .labelTitle {
@@ -634,7 +652,7 @@ h5 {
     width: 95%;
     display: block;
     font-weight: lighter;
-    font-size:19px;
+    font-size:18px;
     font-family: 'EY';
 }
 

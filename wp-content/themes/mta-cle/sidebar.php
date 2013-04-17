@@ -2,7 +2,7 @@
     <div id="wRegistro" class="boxSidebar wRegistro">
         <?php if (!is_user_logged_in()) : ?>
         <div class="tituloLog">
-            <p class="tituloNM">INGRESO <a href="/solicitar-mebresia/">solicitar mebresía</a></p>
+            <p class="tituloNM">INGRESO <a href="/solicitud-de-membresia/">Solicitar Membresía</a></p>
         </div>    
             <div class="loginWrap">
             <form name="login" method="post" action="<?php echo get_option('home'); ?>/wp-login.php">
@@ -21,6 +21,7 @@
             global $current_user;
             get_currentuserinfo();
             ?>
+        <div class="logIn">
             <div class="picAvatar"><?php echo get_avatar($current_user->id, 75); ?></div>
             <div class="userData">
                 <span>Bienvenido</span>
@@ -34,7 +35,7 @@
                 echo "<a class='btnLogOut' href='" . wp_logout_url('/') . "'>Salir</a>";
                 ?>
             </div>
-
+        </div>   
         <?php endif; ?>
     </div>
     <div id="wEventoSociales" class="tituloBox">

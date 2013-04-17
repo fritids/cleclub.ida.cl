@@ -78,7 +78,7 @@ mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 ?> 
 <div id="contacto">
 
-    <form name="contactoCle" id="contactoCle" method="post" action="#">
+    <form name="contactoCle" id="contactoCle" method="post" action="#" enctype="multipart/form-data">
             <label>
                 Nombre
             </label>
