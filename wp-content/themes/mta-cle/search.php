@@ -21,7 +21,7 @@ get_header(); ?>
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
     <ul>
-        <?php while (have_posts()) : the_post(); ?> 
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?> 
             <li>
                 <div id="picNoticia">
                      <?php the_post_thumbnail('notas'); ?>
@@ -38,7 +38,11 @@ get_header(); ?>
                             <?php echo cortar($post->post_content, 150); ?>
                 </div>
             </li>
-<?php endwhile; ?>
+<?php endwhile; else: ?>
+            
+            <p>No se ha encontrado ning&uacute;n registro para su b&uacute;squeda. <br>
+            Intent&aacute;lo de nuevo bajo otro criterio.</p>
+<?php endif; ?>
     </ul>
 </div><!--/wNoticias-->
 </div><!--pageContent-->
