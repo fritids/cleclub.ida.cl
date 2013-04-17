@@ -14,9 +14,9 @@
 
             <div id="postContent">
                 <?php
-                if (is_user_logged_in() && has_term( "agenda", "taxeventos")) {
-
-                    if (get_field('fecha')) :
+                if (is_user_logged_in()) {
+                    
+                    if (get_field('fecha') && has_term( "agenda", "taxeventos")) :
                         $fechaEvento = get_field('fecha');
                         $dia = date('d', strtotime($fechaEvento));
                         $mes = traduceMes(date('m', strtotime($fechaEvento)));
