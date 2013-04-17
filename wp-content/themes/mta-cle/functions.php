@@ -84,7 +84,7 @@ function parseFeed($url, $cuantos = 3, $descripcion = false) {
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
             $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e ')), "cleclub") . __(strtolower($item->get_date('F')), "cleclub") .", ". __(strtolower($item->get_date('Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
+            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e ')), "cleclub") . __(strtolower($item->get_date('n')), "cleclub") .", ". __(strtolower($item->get_date('Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
             $i++;
         endforeach;
         return $out;
