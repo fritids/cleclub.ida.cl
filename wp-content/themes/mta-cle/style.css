@@ -1154,6 +1154,12 @@ p,#pageContent p {
     min-height:350px;	
 }
 
+.btnDown{
+    
+    display: block;
+    background: #ff9900;
+    padding: 10px 20px;
+}
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
