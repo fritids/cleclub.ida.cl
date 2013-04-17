@@ -144,7 +144,7 @@
 }
 
 
-#menu-menu-publico .current-menu-ancestor a, #menu-menu-publico li.current-menu-item a {
+#menu-menu-principal .current-menu-ancestor a, #menu-menu-principal li.current-menu-item a, #menu-menu-publico .current-menu-ancestor a, #menu-menu-publico li.current-menu-item a {
     background: #222;
     color: rgb(242, 148, 0);
 }
@@ -153,5 +153,5 @@
 }
 
 #cSlider #layerslider{
-    height: 333px;
+    height: 345px;
 }
