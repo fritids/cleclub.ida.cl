@@ -22,7 +22,6 @@ get_header(); ?>
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //vars
-                    $d2 = 'coke@mta.cl'; 
                     $d1 = 'jghattas@uc.cl';
                     $d3 = 'despinosa@df.cl';
                     $d4 = 'francesca.canziani@cl.ey.com'; 
@@ -58,7 +57,6 @@ $headers .= "From: CLE CLUB - Contacto <no-reply@cleclub.cl>\r\n";
 $cuerpo = utf8_decode($cuerpo);
 
 //mail($destinatario,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d2,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
