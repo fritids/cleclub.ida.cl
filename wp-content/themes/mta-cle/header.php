@@ -14,6 +14,10 @@
         <title><?php echo is_home() ? get_bloginfo("name")." &raquo ". get_bloginfo("description") : wp_title(" &raquo; ", false, 'right') .  get_bloginfo("name"); ?></title>
         <link rel="profile" href="<?php echo get_template_directory_uri(); ?>/http://gmpg.org/xfn/11" />
         <link rel="pingback" href="<?php echo get_template_directory_uri(); ?>/<?php bloginfo('pingback_url'); ?>" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php bloginfo('template_directory'); ?>/_img/icons/touch-icon-114.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php bloginfo('template_directory'); ?>/_img/icons/touch-icon-72.png">
+        <link rel="apple-touch-icon-precomposed" href="<?php bloginfo('template_directory'); ?>/_img/icons/touch-icon-57.png">
+        <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/_img/icons/favicon.ico">
         <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
         <!--jquery core-->
         <script src="<?php echo get_template_directory_uri(); ?>/_js/jquery-1.7.1.min.js"></script>
