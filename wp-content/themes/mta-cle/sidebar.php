@@ -39,7 +39,7 @@
         <?php endif; ?>
     </div>
     <div id="wEventoSociales" class="tituloBox">
-        <p class="tituloNM"><a href="/eventos-cle/agenda/">CALENDARIO CLE CLUB [+]</a></p> 
+        <p class="tituloNM"><a href="/eventos-cle/agenda/">CALENDARIO CLE CLUB</a></p> 
     </div>
     <div id="listadoEventos">
         <div class="boxNotas">
