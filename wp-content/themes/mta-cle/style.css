@@ -1032,9 +1032,11 @@ h5 {
 }
 
 .bio .perfil_ico{
-    padding-left: 20px;
-    background: url(_img/verperfil_ico.png) no-repeat;
-}
+    background: url("_img/verperfil_ico.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: right;
+    margin-top: 10px;
+    padding-left: 25px;}
 .bioBig {
     
     border-right: 3px solid #FF9900;
