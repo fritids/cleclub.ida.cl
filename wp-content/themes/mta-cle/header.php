@@ -20,7 +20,7 @@
         <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/_img/icons/favicon.ico">
         <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
         <!--jquery core-->
-        <script src="<?php echo get_template_directory_uri(); ?>/_js/jquery-1.7.1.min.js"></script>
+        
         <!--end jquery core-->
         <!--layerslider-->
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/css/layerslider.css" type="text/css" media="screen">
@@ -29,6 +29,9 @@
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"/>
         <!--end layerslider-->
         <link href="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.css" rel="stylesheet" type="text/css" />
+        <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/_js/jquery-1.7.1.min.js"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/selectivizr.js"></script>
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.js"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/_js/static/js/jqueryui.js" type="text/javascript"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/_js/static/js/plugins.js" type="text/javascript"></script>
