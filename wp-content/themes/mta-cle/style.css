@@ -524,7 +524,6 @@ h5 {
     padding: 5px 15px;
     transition: background-color 0.25s ease-in-out 0s;
     color: #fff;
-    font-family: 
 }
 .inputField {
     height:30px;
@@ -1007,6 +1006,9 @@ h5 {
     font-size: 12px;
 }
 
+.bio .infoMiembro p{
+    margin : 5px 0;
+}
 #leftSide.authorWrap {
     background: none repeat scroll 0 0 #EEEEEE;
     padding: 15px;
