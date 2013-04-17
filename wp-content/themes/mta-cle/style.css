@@ -1021,7 +1021,7 @@ h5 {
     box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
     position:relative;
     font-family: Helvetica, sans-serif;
-    padding-bottom: 10px;
+    /*padding-bottom: 10px;*/
 }
 
 .bioBig {
