@@ -17,7 +17,6 @@
                              wp_nav_menu(array('theme_location' => 'public','items_wrap'=> '<ul class="menuFoot">%3$s</ul>'));
                          };
                          ?>
-                     </nav>
                      <ul class="members clearfix">
                          <li>
                              <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
@@ -30,6 +29,7 @@
                          </li>
                      </ul>
                   <a class="contactMail clearfix" href="mailto: <?php echo get_bloginfo('admin_email'); ?>" title="E-mail de contacto"><?php echo get_bloginfo('admin_email'); ?></a>   
+                     </nav>
                  </div>
                 
                  
