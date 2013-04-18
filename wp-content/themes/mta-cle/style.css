@@ -1261,3 +1261,6 @@ p,#pageContent p {
 #wNotasDF.boxNotas .tituloNotaW small {
     padding: 0;
 }
+.page-template-default #fixedPic{
+    margin-bottom: 20px;
+}
