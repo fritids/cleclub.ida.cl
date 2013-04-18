@@ -264,18 +264,8 @@ h5 {
     text-transform: uppercase;
     float: left;
     margin-top: 5px;
+    padding-left: 22px;
 }
-
-/*.contactoButton:before{
-    
-    content:"";
-    height: 13px;
-    width: 16px;
-    display: inline-block;
-    
-    margin-bottom: -2px;
-    
-}*/
 
 #menuContainer {
     background-color: #000000;
