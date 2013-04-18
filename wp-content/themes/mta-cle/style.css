@@ -359,6 +359,9 @@ h5 {
     margin: 0 auto;
     width: 980px;
 }
+footer .menu-menu-principal-container{
+    width: auto;
+}
 #leftSide {
     width:620px;
     min-height:300px;
