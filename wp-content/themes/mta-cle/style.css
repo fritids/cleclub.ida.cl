@@ -418,23 +418,25 @@ h5 {
 }
 
 .tituloNM {
-    border-left: 1.1em #f90 solid;
+    border-left: .1em #f90 solid;
     color:#666;
+    height: 100%;
     font-family:'EY';
+    margin:0;
 }
 
 #wRegistro .tituloNM {
     font-size: 19px;
 }
 
-/*#wRegistro .tituloNM:before {
+#wRegistro .tituloNM:before {
       background: none repeat scroll 0 0 #FF9900;
     content: " ";
     display: inline-block;
     height: 40px;
     margin: 0 10px -15px 0;
     width: 5%;
-}*/
+}
 
 .label {
     display: inline-block;
