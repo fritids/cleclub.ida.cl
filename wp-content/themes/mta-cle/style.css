@@ -667,7 +667,7 @@ h5 {
     border-bottom:1px solid #dcdcdc;
 }
 #wNotasDF.boxNotas .wNota{
-       padding: 10px 0;
+       padding: 10px 0 5px 0;
 }
 
 .wNota:last-child {
