@@ -1,13 +1,13 @@
             </div><!--contenido-->
         </div><!--/wrapper-->
     </div><!--/container-->
-    <footer class="footerBox clearfix">
-             <div class="center">
+    <footer class="footerBox">
+             <div class="center clearfix">
                  <div class="left logo">
                      <img src="<?php bloginfo('template_directory'); ?>/_img/logoFooter.png" alt="Logotipo de CLE">
                  </div>
-                 <div class="menuBlock">
-                     <nav id="menuFooter">
+                 <div class="menuBlock clearfix">
+                     <nav id="menuFooter" class="clearfix">
                          <?php
                          if (is_user_logged_in()) {
 
@@ -18,7 +18,7 @@
                          };
                          ?>
                      </nav>
-                     <ul class="members">
+                     <ul class="members clearfix">
                          <li>
                              <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
                          </li>

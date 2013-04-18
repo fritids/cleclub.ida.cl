@@ -17,7 +17,7 @@ the_post();
         foreach ($blogusers as $user) {
             $last = $i % 3 == false ? ' last' : '';
             echo '<div class="one_third'.$last.'">
-                    <div class="bio">
+                    <div class="bio clearfix">
                         <div class="fotoMiembro">
                             <a href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'</a>
                         </div>

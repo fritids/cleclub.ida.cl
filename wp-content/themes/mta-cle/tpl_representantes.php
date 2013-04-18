@@ -24,9 +24,10 @@ the_post();
         foreach ($usuarios as $user) {
             $last = $i % 3 == false ? ' last' : '';
             echo '<div class="one_third'.$last.'">
-                    <div class="bio">
+                    <div class="bio clearfix">
                         <div class="fotoMiembro">
-                            <a class="user_'.$user->ID.'" href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'</a>
+                            <a href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'  <span class="user_'.$user->ID.'">logo '.get_field('empresa', "user_$user->ID").'</span></a>
+                              
                         </div>
                         <div class="infoMiembro">
                                 <h4><a href="'. get_author_posts_url($user->ID).'" title="Ir a perfil de '.$user->display_name.'">'.$user->display_name.'</a></h4>

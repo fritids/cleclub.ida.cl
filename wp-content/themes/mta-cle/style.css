@@ -80,7 +80,7 @@ src: url('css/fonts/EYInterstate-Light.svg') format('svg');
     width:100%;    
     padding:0;
     margin-bottom: 10px;
-    border-top: 5px solid #000;
+    border-top: 5px solid #222;
 }
 
 .alignright {
@@ -236,7 +236,7 @@ h5 {
 }
 
 #buscador {
-    background: none repeat scroll 0 0 #000000;
+    background: none repeat scroll 0 0 #222;
     float: right;
     padding: 10px;
     position: absolute;
@@ -248,7 +248,6 @@ h5 {
 
 
 .searchInput {
-    height:10px;
     padding:5px;
     border:1px solid #e6e6e6;
     width:140px;
@@ -941,10 +940,14 @@ h5 {
 
 .footerBox {
     margin-top:10px;
-    padding-top:30px;
-    border-top:1px dotted #e6e6e6;
+    padding-top:15px;
     padding-bottom:20px;
     font-size:90%;
+    border-top: 2px solid #999999;
+}
+
+.footerBox .logo img{
+/*    width: 70%;*/
 }
 
 .exp {
@@ -1058,19 +1061,24 @@ h5 {
     width: 270px;
     padding-left: 10px;
 }
-.user_36{
+.user_36,.user_37,.user_38{
     display: block;
+    width: 175px;
+    text-indent: -100000px;
+    height: 39px;
+    position: relative;
+    margin-top: -39px;
+    margin-left: 8px;
     background: url("_img/eyy_logo_perfil.png") no-repeat bottom center;
 }
 .user_37{
-    display: block;
-    background: url("_img/uc_logo_perfil.png") no-repeat bottom center;
+    background: url("_img/uc_logo_perfil.png") no-repeat bottom center;    
+    
 }
 
 .user_38{
-    display: block;
+  
     background: url("_img/df_logo_perfil.png") no-repeat bottom center;
-    
 }
 #bioMiembro h1{
     
