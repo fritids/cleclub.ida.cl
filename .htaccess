@@ -7,11 +7,6 @@ RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
-#set max upload file size
-php_value upload_max_filesize 40M
-
-#set max post size
-php_value post_max_size 40M
 </IfModule>
 
 # END WordPress
