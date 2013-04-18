@@ -80,6 +80,11 @@
     font-family: EY;
 }
 
+.chromebrowser .userData{
+    
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 .userData span{
     color: #333;
     font-size: 16px;

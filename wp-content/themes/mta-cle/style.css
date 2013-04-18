@@ -41,6 +41,8 @@ Text Domain: CleClub
 
 }
 
+
+
 @font-face {
     font-family: 'EY';
     src: url('css/fonts/EYInterstate-Light.svg#EY') format('svg');
@@ -53,13 +55,7 @@ Text Domain: CleClub
     font-style: normal;
 
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-@font-face {
-font-family: 'EY-light';
-src: url('css/fonts/EYInterstate-Light.svg') format('svg');
 
-}
-}
 
 /*@font-face {
  font-family: EY;
@@ -69,6 +65,7 @@ src: url('css/fonts/EYInterstate-Light.svg') format('svg');
  font-family: EY;
  src: url("EYInterstate-Regular.ttf")  TTF file for CSS3 browsers 
 }*/
+
 
 #wrapper {
     margin:0 auto;
@@ -273,7 +270,7 @@ h5 {
 
 #menuContainer {
     background-color: #000000;
-    font-family: 'EY';
+    font-family: 'EY', Helvetica, Arial, sans-serif;
     height: 40px;
     margin: 0 0 20px;
     position: relative;
@@ -282,10 +279,13 @@ h5 {
     float: left;
 }
 
+.chromebrowser #menuContainer{
+    
+    font-family: Helvetica, Arial, sans-serif;
+}
+
 #menuContainer a {
     text-shadow:-1px -1px 1px rgba(255,255,255,0.1), 1px 1px 1px rgba(0,0,0,0.5);
-    font-family:EY;
-    font-size:16px;
     display:block;
     text-decoration:none;
     line-height:39px;
@@ -425,6 +425,9 @@ footer .menu-menu-principal-container{
     *padding-left: 2%;
 }
 
+.chromebrowser .tituloNM{
+    font-family: Helvetica, Arial, sans-serif;
+}
 #wRegistro .tituloNM {
     font-size: 19px;
 }
@@ -682,6 +685,8 @@ footer .menu-menu-principal-container{
     margin-left: 5%;
 }
 
+.chromebrowser .tituloNota a{ font-family: Helvetica, Arial, sans-serif;}
+
 .wNota {
     padding: 10px;
     border-bottom:1px solid #dcdcdc;
@@ -704,6 +709,8 @@ footer .menu-menu-principal-container{
     width: 74.999%;
     font-family: EY;
 }
+
+.chromebrowser .tituloNotaW {font-family: Helvetica, Arial, sans-serif;}
 .tituloNotaW small{
     padding-left: 10px;
     font-size: 12px;
@@ -787,6 +794,11 @@ footer .menu-menu-principal-container{
     margin-bottom:20px;
     font-family: EY;
     line-height: 130%;
+}
+
+.chromebrowser #pageContent h1 {
+    
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 #bajadaContent {
