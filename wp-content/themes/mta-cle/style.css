@@ -711,7 +711,7 @@ footer .menu-menu-principal-container{
     font-family: "Helvetica";
     display: block;
     line-height: 120%;
-    margin-bottom: 3px;
+    margin: 3px 0;
 }
 .tituloNotaW a{
     font-family: "Helvetica";
@@ -1236,7 +1236,7 @@ p,#pageContent p {
 .clearfix { *zoom: 1; }
 
 #sidebar .tituloNotaW {
-    padding: 10px;
+    padding: 10px 0;
     width: 100%;
 }
 
@@ -1245,8 +1245,5 @@ p,#pageContent p {
 }
 
 #listadoEventos small {
-    padding: 0;
-}
-#listadoEventos .tituloNotaW a{
     padding: 0;
 }
