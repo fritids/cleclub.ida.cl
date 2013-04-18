@@ -126,7 +126,7 @@
 #sidebar .tituloBox a:before {
     background: #f90;
     content: " ";
-    width: 5%;
+    width: 13px;
     display: inline-block;
     height: 40px;
     margin: 0 10px -15px 0;
