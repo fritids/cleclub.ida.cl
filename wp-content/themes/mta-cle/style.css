@@ -1237,3 +1237,7 @@ p,#pageContent p {
     padding: 10px 0;
     width: 100%;
 }
+
+#listadoEventos .wNota {
+    padding: 0;
+}
