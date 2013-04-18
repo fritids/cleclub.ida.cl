@@ -629,7 +629,7 @@ h5 {
     background: #EEE;
 }
 #wNotasDF.boxNotas .tituloNotaW{
-    width: 98%;
+    width: 100%;
     clear: both;
 }
 
@@ -665,6 +665,9 @@ h5 {
 .wNota {
     padding: 10px;
     border-bottom:1px solid #dcdcdc;
+}
+#wNotasDF.boxNotas .wNota{
+       padding: 10px 0;
 }
 
 .wNota:last-child {

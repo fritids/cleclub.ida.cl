@@ -72,7 +72,7 @@ function traduceMes($mes) {
 }
 
 
-function parseFeed($url, $cuantos = 3, $descripcion = false) {
+function parseFeed($url, $cuantos = 3, $descripcion = true) {
     $rss = fetch_feed($url);
     $maxitems = $rss->get_item_quantity($cuantos);
     $rss_items = $rss->get_items(0, $maxitems);
@@ -83,15 +83,14 @@ function parseFeed($url, $cuantos = 3, $descripcion = false) {
     else :
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
-            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e ')), "cleclub") . __(strtolower(traduceMes($item->get_date('n'))), "cleclub") .", ". __(strtolower($item->get_date('Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div>' . $desc . '</li>';
+            $out .= '<li><div class="bajadaNoticia"><span class="dateEvent">' . __(strtolower($item->get_date('j \d\e ')), "cleclub") . __(strtolower(traduceMes($item->get_date('n'))), "cleclub") .", ". __(strtolower($item->get_date('Y')), "es_ES") . '</span><h2><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a><h2></div><p class="desc">' . $item->get_content() . '</p></li>';
             $i++;
         endforeach;
         return $out;
     endif;
 }
 
-function parseFeedHome($url, $cuantos = 3, $descripcion = false) {
+function parseFeedHome($url, $cuantos = 3, $descripcion = true) {
     $rss = fetch_feed($url);
     $maxitems = $rss->get_item_quantity($cuantos);
     $rss_items = $rss->get_items(0, $maxitems);
@@ -102,8 +101,8 @@ function parseFeedHome($url, $cuantos = 3, $descripcion = false) {
     else :
         foreach ($rss_items as $item) :
             $clase = $i % 2 ? ' odd' : '';
-            $desc = $descripcion ? '<p class="desc">' . $item->get_content() . '</p>' : "";
-            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __(strtolower($item->get_date('j \d\e ')), "cleclub") . __(strtolower(traduceMes($item->get_date('n'))), "cleclub") .", ". __(strtolower(traduceMes($item->get_date('Y'))), "es_ES") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a></div>' . $desc . '</div>';
+            $desc = $descripcion ? '<small>' . cortar($item->get_content(), 60) . '</small>' : "";
+            $out .= '<div class="wNota clearfix"><div class="tituloNotaW"><small>' . __(strtolower($item->get_date('j \d\e ')), "cleclub") . __(strtolower(traduceMes($item->get_date('n'))), "cleclub") .", ". __(strtolower(traduceMes($item->get_date('Y'))), "es_ES") . '</small><a href="/noticias-df/?url=' . urldecode(esc_url($item->get_permalink())) . '&amp;titulo=' . urldecode(esc_html($item->get_title())) . '">' . esc_html($item->get_title()) . '</a>' . $desc . '</div></div>';
             $i++;
         endforeach;
         return $out;
@@ -118,7 +117,7 @@ function notas($args) {
     $out = "";
     while (have_posts()) : the_post();
         $clase = $i % 2 ? ' odd' : '';
-        $out .= '<div class="wNota clearfix"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "notas") . '</div><div class="tituloNotaW"><small>' . get_the_date("j \d\e F, Y") . '</small><a href="' . get_permalink() . '"> ' . cortar(get_the_title(), 70) . '</a></div></div>';
+        $out .= '<div class="wNota clearfix"><div class="fotoNota">' . get_the_post_thumbnail($post->ID, "notas") . '</div><div class="tituloNotaW"><a href="' . get_permalink() . '"> ' . cortar(get_the_title(), 60) . '</a><small>' . cortar(get_the_content(), 65) . '</small></div></div>';
         $i++;
     endwhile;
     return $out;
