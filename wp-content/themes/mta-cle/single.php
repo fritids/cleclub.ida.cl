@@ -26,19 +26,12 @@
                 
                         <div class="eventInfo">
                             <h3>Datos del Evento</h3>
-                            <dl class="eventoInfo">
-                                <dt><strong>Fecha:</strong></dt>
-                                <dd><?php echo $fechaEvento; ?></dd>
-                                <dt><strong>Hora:</strong></dt>
-
-                                <dd><?php the_field('hora'); ?> hrs.</dd>
-                                <dt><strong>Lugar:</strong></dt>
-
-                                <dd><?php the_field('lugar'); ?></dd>
-                                <dt><strong>Contacto:</strong></dt>
-
-                                <dd><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></dd>
-                            </dl>
+                            <ul class="eventoInfo">
+                                <li><strong>Fecha</strong><span>: <?php echo $fechaEvento; ?></span></li>
+                                <li><strong>Hora</strong><span>: <?php the_field('hora'); ?> hrs.</span></li>
+                                <li><strong>Lugar</strong><span>: <?php the_field('lugar'); ?></span></li>
+                                <li><strong>Contacto</strong><span><a href="mailto:contacto@cleclub.cl">: contacto@cleclub.cl</a></span></li>
+                            </ul>
                             
                         </div>
                 <?php

@@ -583,38 +583,61 @@ h5 {
 
 .eventInfo {
     background: none repeat scroll 0 0 #EDEDED;
-    border-left: 5px solid #FF9900;
     color: #666666;
     float: right;
-    padding: 10px;
-    width: 30%;
+    width: 40%;
+    margin-left: 15px;
 }
 
 .eventInfo h2{
     margin-bottom: 10px;
 }
 
-.eventoInfo{
-     font-size: 12px;
+.eventoInfo {
+    font-size: 12px;
+    width: 100%;
 }
 
-.eventoInfo dt{
-    display: inline-block;
-    width: 30%;
-    text-align: right;
-    vertical-align: top;
+.eventInfo h3 {
+    background: none repeat scroll 0 0 #999999;
+    border-bottom: 1px solid #555555;
+    color: #FFFFFF;
+    margin-bottom: 0;
+    padding: 10px;
 }
 
-.eventoInfo dd{
-    display: inline-block;
-    width: 65%;
+.eventoInfo {
+    font-size: 12px;
+    list-style: none outside none;
 }
 
-.eventoInfo dd a{
+
+.eventoInfo li {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px;
+}
+
+.eventoInfo li:nth-child(2n) {
+    background: none repeat scroll 0 0 #F6F6F6;
+}
+
+.slvzr-nth-child402n41{
     
-    text-decoration: underline;
+    background: none repeat scroll 0 0 #F6F6F6;
 }
 
+.eventoInfo strong {
+    display: inline-block;
+    vertical-align: top;
+    width: 55px;
+}
+
+
+.eventoInfo span {
+    display: inline-block;
+    width: 180px;
+}
 .naranjo {
     color:#fda63d;
 }
@@ -1145,6 +1168,7 @@ a:hover,.tituloNota a:hover {
 
 p,#pageContent p {
     margin-bottom:20px;
+    line-height: 130%;
 }
 #pageContent p a {
     color: #666666;
