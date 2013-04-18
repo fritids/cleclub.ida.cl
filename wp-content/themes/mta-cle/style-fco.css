@@ -54,10 +54,8 @@
 }
 
 .members {
-    position: absolute;
+    float:right;
     list-style: none outside none;
-    right: 0;
-    top: 10px;
 }
 
 .members li {
