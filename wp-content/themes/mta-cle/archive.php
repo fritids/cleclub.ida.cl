@@ -21,7 +21,7 @@
                 <div id="bajadaNoticia">
                     <?php   if(is_tax("taxeventos", "agenda")): ?><span class="dateEvent"><?php echo $dia . ' de ' . $mes . ' de ' . $ano ?> , <?php the_field('hora'); ?> hrs., <?php the_field('lugar'); ?></span><?php endif;?>
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                            <?php echo cortar($post->post_content, 200); ?>
+                            <?php echo cortar($post->post_content, 150); ?>
                 </div>
             </li>
 <?php endwhile; ?>
