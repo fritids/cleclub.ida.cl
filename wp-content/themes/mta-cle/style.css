@@ -418,6 +418,7 @@ h5 {
 }
 
 .tituloNM {
+    border-left: 1.1em #f90 solid;
     color:#666;
     font-family:'EY';
 }
@@ -426,14 +427,14 @@ h5 {
     font-size: 19px;
 }
 
-#wRegistro .tituloNM:before {
+/*#wRegistro .tituloNM:before {
       background: none repeat scroll 0 0 #FF9900;
     content: " ";
     display: inline-block;
     height: 40px;
     margin: 0 10px -15px 0;
     width: 5%;
-}
+}*/
 
 .label {
     display: inline-block;
@@ -645,14 +646,6 @@ h5 {
     border-left: 1.1em #f90 solid;
 
 }
-/*.tituloNota a:before {
-    background: #f90;
-    content: " ";
-    width: 5%;
-    display: inline-block;
-    height: 40px;
-    margin: 0 10px -15px 0;
-}*/
 .tituloNota a {
     color:#fff;
     width: 95%;
@@ -660,6 +653,8 @@ h5 {
     font-weight: lighter;
     font-size:18px;
     font-family: 'EY';
+    line-height: 40px;
+    margin-left: 5%;
 }
 
 .wNota {
