@@ -748,7 +748,7 @@ h5 {
     width: 640px;
     float: left;
     line-height: 130%;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 
 #pageContent h1 {
