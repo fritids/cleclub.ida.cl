@@ -687,7 +687,7 @@ footer .menu-menu-principal-container{
     border-bottom:1px solid #dcdcdc;
 }
 #wNotasDF.boxNotas .wNota{
-       padding: 10px 0 5px 0;
+       padding: 10px
 }
 
 .wNota:last-child {
@@ -711,7 +711,7 @@ footer .menu-menu-principal-container{
     font-family: "Helvetica";
     display: block;
     line-height: 120%;
-    margin: 3px 0;
+    margin-bottom: 3px;
 }
 .tituloNotaW a{
     font-family: "Helvetica";
@@ -1236,14 +1236,28 @@ p,#pageContent p {
 .clearfix { *zoom: 1; }
 
 #sidebar .tituloNotaW {
-    padding: 10px 0;
+    
     width: 100%;
 }
 
 #listadoEventos .wNota {
-    padding: 0;
+    padding: 10px;
 }
 
 #listadoEventos small {
+    padding: 0;
+}
+
+#listadoEventos .tituloNotaW a{
+    
+    padding: 0;
+}
+
+#wNotasDF.boxNotas .tituloNotaW a {
+    padding: 0;
+   
+}
+
+#wNotasDF.boxNotas .tituloNotaW small {
     padding: 0;
 }
