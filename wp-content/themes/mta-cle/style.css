@@ -1241,3 +1241,7 @@ p,#pageContent p {
 #listadoEventos .wNota {
     padding: 0;
 }
+
+#listadoEventos small {
+    padding: 0;
+}
