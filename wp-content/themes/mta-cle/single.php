@@ -47,6 +47,26 @@
            <?php if(get_field('archivo_adjunto')){
                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) .' " rel="nofollow" title="Descargar Estudio">Descargar Estudio</a>';
             }?>
+                
+             <div class="gallery">
+            <ul>
+                <li>
+                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
+                </li>
+                <li>
+                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
+                </li>
+                <li class="last_gal">
+                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
+                </li>
+                <li>
+                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
+                </li>
+                <li>
+                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
+                </li>
+            </ul>
+        </div>   
         </div>
     </div>    
 </div><!--pageContent-->

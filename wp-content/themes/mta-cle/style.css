@@ -1273,6 +1273,32 @@ p,#pageContent p {
 #wNotasDF.boxNotas .tituloNotaW small {
     padding: 0;
 }
-.page-template-default #fixedPic{
+.page-template-default #fixedPic, .single-eventos_sociales #fixedPic{
     margin-bottom: 20px;
+}
+
+.gallery ul {
+    list-style: none outside none;
+}
+
+.gallery li {
+    border: 5px solid #DDDDDD;
+    box-shadow: 0 4px 2px -1px rgba(0, 0, 0, 0.5);
+    display: block;
+    float: left;
+    margin: 0 2% 2% 0;
+    width: 30%;
+}
+
+.gallery a {
+    display: block;
+}
+
+.gallery li img {
+    display: block;
+    width: 100%;
+}
+
+li.last_gal {
+    margin-right: 0;
 }
