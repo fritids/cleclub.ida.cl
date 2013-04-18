@@ -42,22 +42,23 @@ Text Domain: CleClub
 }
 
 @font-face {
-    font-family: 'EY-light';
+    font-family: 'EY';
+    src: url('css/fonts/EYInterstate-Light.svg#EY') format('svg');
     src: url('css/fonts/EYInterstate-Light.eot');
-    src: url('css/fonts/EYInterstate-Light.eot?#iefix') format('eot'),
+    src: url('css/fonts/EYInterstate-Light.eot?#iefix') format('embedded-opentype'),
         url('css/fonts/EYInterstate-Light.woff') format('woff'),
         url('css/fonts/EYInterstate-Light.ttf') format('truetype');
-    src: url('css/fonts/EYInterstate-Light.svg') format('svg');
+
     font-weight: normal;
     font-style: normal;
 
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
-    font-family: 'EY-light';
-    src: url('css/fonts/EYInterstate-Light.svg') format('svg');
+@font-face {
+font-family: 'EY-light';
+src: url('css/fonts/EYInterstate-Light.svg') format('svg');
 
-    }
+}
 }
 
 /*@font-face {
@@ -279,7 +280,7 @@ h5 {
 
 #menuContainer {
     background-color: #000000;
-    font-family: 'EY-light';
+    font-family: 'EY';
     height: 40px;
     margin: 0 0 20px;
     position: relative;
@@ -419,7 +420,7 @@ h5 {
 
 .tituloNM {
     color:#666;
-    font-family:'EY-light';
+    font-family:'EY';
 }
 
 #wRegistro .tituloNM {
@@ -658,7 +659,7 @@ h5 {
     display: block;
     font-weight: lighter;
     font-size:18px;
-    font-family: 'EY-light';
+    font-family: 'EY';
 }
 
 .wNota {
@@ -678,7 +679,7 @@ h5 {
 .tituloNotaW{
     float: left;
     width: 74.999%;
-    font-family: 'EY-light';
+    font-family: EY;
 }
 .tituloNotaW small{
     padding-left: 10px;
@@ -761,7 +762,7 @@ h5 {
     padding-left:10px;
     border-left:5px solid #fda63d;
     margin-bottom:20px;
-    font-family: 'EY-light';
+    font-family: EY;
     line-height: 130%;
 }
 
