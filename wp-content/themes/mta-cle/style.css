@@ -257,6 +257,7 @@ h5 {
 }
 
 .contactoButton{
+    background: url(_img/contactIcon.png) 0 0 no-repeat ;
     display: inline-block;
     color: #fff;
     font-size: 12px;
@@ -265,16 +266,16 @@ h5 {
     margin-top: 5px;
 }
 
-.contactoButton:before{
+/*.contactoButton:before{
     
     content:"";
     height: 13px;
     width: 16px;
     display: inline-block;
-    background: url(_img/contactIcon.png) 0 0 no-repeat ;
+    
     margin-bottom: -2px;
     
-}
+}*/
 
 #menuContainer {
     background-color: #000000;
