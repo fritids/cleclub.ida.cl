@@ -1232,3 +1232,16 @@ p,#pageContent p {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
+
+#sidebar .tituloNotaW {
+    padding: 10px 0;
+    width: 100%;
+}
+
+#listadoEventos .wNota {
+    padding: 0;
+}
+
+#listadoEventos small {
+    padding: 0;
+}
