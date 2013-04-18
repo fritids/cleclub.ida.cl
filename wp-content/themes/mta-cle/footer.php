@@ -17,6 +17,7 @@
                              wp_nav_menu(array('theme_location' => 'public','items_wrap'=> '<ul class="menuFoot">%3$s</ul>'));
                          };
                          ?>
+                         <br>
                      <ul class="members clearfix">
                          <li>
                              <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
