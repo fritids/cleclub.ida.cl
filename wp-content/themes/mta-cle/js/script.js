@@ -1,4 +1,8 @@
 (function(window, $, undefined) {
+Modernizr.addTest('chromebrowser',function(){
+    return navigator.userAgent.toLowerCase().match('chrome');
+    
+});
 
     window.SiteHandler = function() {
         //cosas para el init
