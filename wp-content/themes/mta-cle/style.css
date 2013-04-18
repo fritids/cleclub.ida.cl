@@ -642,16 +642,17 @@ h5 {
     height:40px;
     color:#fff;
     background:#000;
+    border-left: 1.1em #f90 solid;
 
 }
-.tituloNota a:before {
+/*.tituloNota a:before {
     background: #f90;
     content: " ";
     width: 5%;
     display: inline-block;
     height: 40px;
     margin: 0 10px -15px 0;
-}
+}*/
 .tituloNota a {
     color:#fff;
     width: 95%;
