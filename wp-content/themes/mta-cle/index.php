@@ -16,7 +16,7 @@
             <?php echo notas(array('category_name' => 'ernst-young', 'order' => 'DESC', 'posts_per_page' => 3)); ?>            
         </div>
         <div id="wNotasUC" class="boxNotas middleBox">
-            <div class="tituloNota"><a href="/categoria/cdd-uc/">CDD UC</a></div>
+            <div class="tituloNota"><a href="/categoria/cdd-uc/">CDD-UC</a></div>
             <?php echo notas(array('category_name' => 'cdd-uc', 'order' => 'DESC', 'posts_per_page' => 3)); ?>
         </div> 
         <div id="wNotasDF" class="boxNotas">
