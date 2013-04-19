@@ -385,6 +385,7 @@ footer .menu-menu-principal-container{
     background-color:#efefef;
     float:right;
     margin-bottom:20px;
+    *height: 145px;
 }
 
 
@@ -475,20 +476,28 @@ footer .menu-menu-principal-container{
     width: 290px;
 }
 
-.loginWrap .btn{
 
+.loginWrap .btn {
+    display: block;
+    float: left;
     margin-right: 3px;
+    margin-top: 10px;
 }
 
+.chromebrowser .loginWrap .btn {
+    margin-left: 3px;
+}
 .boxLog {
     margin-bottom: 5px;
 }
 
 .forgot {
     color: #666666;
+    display: block;
     float: left;
     font-size: 11px;
-    margin: 7px 0 0 110px;
+    margin: 22px 10px 0 110px;
+    *margin-left: 92px;
     text-decoration: underline;
 }
 

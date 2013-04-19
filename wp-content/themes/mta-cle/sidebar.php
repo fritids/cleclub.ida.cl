@@ -15,9 +15,11 @@
                 <div class="clearfix">
                     <label class="label boxLog" for="pwd">Contraseña:</label>
                     <input type="password" name="pwd" id="pwd" class="itLoginFront"/>
-                </div>    
+                </div>  
+                <div class="clearfix">
                     <a class="forgot" href="/passowrd/" title="Olvidé la contraseña">Olvidé la contraseña</a>
-                <input name="input" type="submit" value="Ingresar" class="btn"/>
+                    <input name="input" type="submit" value="Ingresar" class="btn"/>
+                </div>    
             </form>
             </div>    
             <?php

@@ -29,7 +29,7 @@ body#radarExternalLink {
 	border-bottom: 10px solid rgb(0,0,0);
 	color: rgb(51,51,51);
 	font-family: Arial, Helvetica, sans-serif;
-	height: 70px;
+	height: 80px;
 	left: 0;
 	position: fixed;
 	top:0;
@@ -37,16 +37,16 @@ body#radarExternalLink {
 	z-index: 200; }
 
 #dfnewsExternalLink #contextualBarCiper p {
-	height: 50px;
 	font-size: 14px;
 	position: relative;
         margin-top: 24px;
 }
 
-#contextualBarCiper p a{
+.dfWrap a{
     
     color: rgb(51,51,51);
     text-decoration: none;
+    text-decoration: underline;
 }
 
 #dfnewsExternalLink #contextualBarCiper span {
@@ -69,17 +69,23 @@ body#radarExternalLink {
         height: 54px;
 }
 
+.dfWrap{
+    float: left;
+    width:70%;
+}
 #contextualBarClose {
 	background:  rgb(192,197,200);
 	color: rgb(0,0,0);
 	font-size: 10px;
 	line-height: 1.5em;
 	padding: 0.5em 2em;
-	position: absolute;
-	right: 30px;
 	text-decoration: none;
 	text-transform: uppercase;
 	top: 0;
+        float: right;
+        display: block;
+        width: 145px;
+        margin-right: 30px;
 	 }
 
 #contextualBarClose:hover {
@@ -95,18 +101,18 @@ body#radarExternalLink {
 </style>
 </head>
     <body id="dfnewsExternalLink">
-        <div id="contextualBarCiper">
+        <div id="contextualBarCiper" class="clearfix">
             <p>
                 <a href="#" id="cleCorpMark">C Level Executive Club</a>
-                <span>
-                    <strong id="externalLinkTitle">
-                        Noticia Diario Financiero:
-                    </strong>
-
-                </span>
-
-                <a href="<?php echo $url;?>" title="#"><?php echo $titulo;?></a>
-                <a href="/"id="contextualBarClose">Volver a CLE CLUB</a>
+                    <div class="clearfix dfWrap">
+                        <span>
+                            <strong id="externalLinkTitle">
+                                Noticia Diario Financiero:
+                            </strong>
+                        </span>
+                        <a href="<?php echo $url; ?>" title="#"><?php echo $titulo; ?></a>
+                    </div>
+                <a href="/" id="contextualBarClose">Volver a CLE CLUB</a>
             </p>
         </div>
         <iframe  id="eliframe" src="<?php echo $url;?>" frameborder="0">
