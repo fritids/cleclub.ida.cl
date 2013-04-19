@@ -61,20 +61,21 @@
         getImage: function(e) {
             e.preventDefault();
 
-            var sWidth = window.innerWidth / 2;
-            var sHeight = window.innerHeight / 2;
+            var t = this;
+            var sWidth = $(window).width() / 2;
+            var sHeight = $(window).height() / 2;
             var sTop = $(window).scrollTop();
             var alto = $(e.currentTarget).attr("data-alto") / 2;
             var ancho = $(e.currentTarget).attr("data-ancho") / 2;
             var item = $(e.currentTarget).attr("data-item");
-            lightbox = this.getLightBox();
-            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('left', (sWidth - ancho)).css('top', (sTop + alto)),
+            var lightbox = t.getLightBox();
+            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('left', (sWidth - ancho)).css('margin-top', (alto * -1) + 'px'),
                     $closeBtn = $('<button />').attr({'class': 'lb-close-btn', 'data-func': 'closeLightBox', 'title': 'Cerrar'}),
                     $arrowR = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowR', 'data-func': 'nextPic', 'title': 'Siguiente'}).text("Siguiente"),
                     $arrowL = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowL', 'data-func': 'prevPic', 'title': 'Anterior'}).text("Anterior");
             $("body").append($lightBox_img);
             $("#lightboxImg").prepend('<img class="imgLigthbox central" src="' + $(e.currentTarget).attr("href") + '">');
-            t = this;
+            
             $(".imgLigthbox").load(function(){
                 $lightBox_img.append($closeBtn);   
                 $lightBox_img.append($arrowR);   

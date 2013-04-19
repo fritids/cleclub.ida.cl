@@ -1325,11 +1325,12 @@ img.central {
 }
 
 #lightboxImg{
-    position: absolute;
+    position: fixed;
     display: block; 
     margin: 0 auto;
     z-index: 100000;
     border: 10px solid #fff;
+    top:50%;
 }
 .lb-close-btn{ 
     background: #FFFFFF url(_img/closebutton.jpg) center center no-repeat;
