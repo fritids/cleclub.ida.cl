@@ -74,12 +74,16 @@
                     $arrowL = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowL', 'data-func': 'prevPic', 'title': 'Anterior'}).text("Anterior");
             $("body").append($lightBox_img);
             $("#lightboxImg").prepend('<img class="imgLigthbox central" src="' + $(e.currentTarget).attr("href") + '">');
-            $lightBox_img.append($closeBtn);   
-            $lightBox_img.append($arrowR);   
-            $lightBox_img.append($arrowL);   
-            this.autoHandle($('.lb-close-btn'));
-            this.autoHandle($('.arrowR'));
-            this.autoHandle($('.arrowL'));
+            t = this;
+            $(".imgLigthbox").load(function(){
+                $lightBox_img.append($closeBtn);   
+                $lightBox_img.append($arrowR);   
+                $lightBox_img.append($arrowL);   
+                t.autoHandle($('.lb-close-btn'));
+                t.autoHandle($('.arrowR'));
+                t.autoHandle($('.arrowL'));
+                
+            })
 
         },
         closeLightBox: function() {
@@ -91,26 +95,25 @@
 
             var item = parseInt($(e.currentTarget).attr("data-item")) + 1;
             var fotos = $(".gallery li").length;
-            if(item >= fotos){return false;}
-            
+            if(item >= fotos){item=0}
             var $img = $('<img />').attr({'src': '/wp-content/themes/mta-cle/_img/ajax-loader.gif', 'id':"loading"});
             $("#lightboxImg").prepend($img)
             var img = $(".gallery").find('a[data-item="'+item+'"]').attr("href");
             $(".imgLigthbox").attr("src", img);
             $(".arrowL,.arrowR").attr("data-item", item);
-            setTimeout(function(){$("#loading").remove()}, 1500)
+            $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
         }
         ,
         prevPic: function(e) {
             e.preventDefault();
             var item = parseInt($(e.currentTarget).attr("data-item")) - 1;            
-            if(item <= 0){return false;}            
+            if(item < 0){item = parseInt($(".gallery li").length)-1;}            
             var $img = $('<img />').attr({'src': '/wp-content/themes/mta-cle/_img/ajax-loader.gif', 'id':"loading"});
             $("#lightboxImg").prepend($img)
             var img = $(".gallery").find('a[data-item="'+item+'"]').attr("href");
             $(".imgLigthbox").attr("src", img);
             $(".arrowL,.arrowR").attr("data-item", item);
-            setTimeout(function(){$("#loading").remove()}, 1500)            
+            $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
         }
     };
 
