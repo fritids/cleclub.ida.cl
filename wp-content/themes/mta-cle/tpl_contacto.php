@@ -65,12 +65,14 @@ mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 ?>
 <div id="ok">
-	Gracias por ponerte en contacto con nosotros, te responderemos a la brevedad<br />
-    <br />
-    CLE CLUB.
+Gracias por contactarse con<br /> 
+C LEVEL EXECUTIVE CLUB<br />
+Te responderemos a la brevedad
+
+<a class="btn" href="/" style="float:none;display:block; width:100px; margin:20px auto 0; color:#fff; font-size:12px">Volver al Inicio</a>
 </div>
-<div class="clr"></div>
-<?php
+
+    <?php
  }
  else {
 ?> 

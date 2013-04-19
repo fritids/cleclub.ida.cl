@@ -91,7 +91,7 @@ Gracias por contactarse con<br />
 C LEVEL EXECUTIVE CLUB<br />
 Te responderemos a la brevedad
 
-<a href="/" class="btn">Volver al Inicio</a>
+<a class="btn" href="/" style="float:none;display:block; width:100px; margin:20px auto 0; color:#fff; font-size:12px">Volver al Inicio</a>
 </div>
 <?php
  }
