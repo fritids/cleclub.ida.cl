@@ -90,8 +90,9 @@ if(!empty($_FILES['curriculum'])){
 Gracias por contactarse con<br /> 
 C LEVEL EXECUTIVE CLUB<br />
 Te responderemos a la brevedad
+
+<a href="/" class="btn">Volver al Inicio</a>
 </div>
-<div class="clr"></div>
 <?php
  }
  else {
