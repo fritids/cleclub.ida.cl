@@ -457,7 +457,7 @@ footer .menu-menu-principal-container{
     float: right;
     font-family: helvetica;
     font-size: 11px;
-    margin: 17px 15px 0 0;
+    margin: 1px 16px 20px 0;
     text-decoration: underline;
 }
 .itLoginFront {
@@ -466,8 +466,9 @@ footer .menu-menu-principal-container{
 }
 
 .loginWrap {
-    overflow: hidden;
-    padding: 10px;
+    float: left;
+    margin: 0 10px 10px;
+    width: 290px;
 }
 
 .loginWrap .btn{
