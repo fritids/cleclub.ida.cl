@@ -15,15 +15,15 @@
             <div id="postContent">
                 <?php
                 if (is_user_logged_in()) {
-                    
-                    if (get_field('fecha') && has_term( "agenda", "taxeventos")) :
+
+                    if (get_field('fecha') && has_term("agenda", "taxeventos")) :
                         $fechaEvento = get_field('fecha');
                         $dia = date('d', strtotime($fechaEvento));
                         $mes = traduceMes(date('m', strtotime($fechaEvento)));
                         $ano = date('Y', strtotime($fechaEvento));
                         $fechaEvento = $dia . ' ' . $mes . ' ' . $ano;
                         ?>
-                
+
                         <div class="eventInfo">
                             <h3>Datos del Evento</h3>
                             <ul class="eventoInfo">
@@ -32,10 +32,10 @@
                                 <li><strong>Lugar:</strong><span><?php the_field('lugar'); ?></span></li>
                                 <li><strong>Contacto:</strong><span><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></span></li>
                             </ul>
-                            
+
                         </div>
-                <?php
-                endif;
+                        <?php
+                    endif;
                 } else {
                     echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
                 };
@@ -44,29 +44,27 @@
                 the_content();
             endwhile;
             ?>
-           <?php if(get_field('archivo_adjunto')){
-               echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) .' " rel="nofollow" title="Descargar Estudio">Descargar Estudio</a>';
-            }?>
-                
-             <div class="gallery">
-            <ul>
-                <li>
-                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
-                </li>
-                <li>
-                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
-                </li>
-                <li class="last_gal">
-                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
-                </li>
-                <li>
-                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
-                </li>
-                <li>
-                    <a href="#"><img src="<?php bloginfo('template_directory'); ?>/_img/pruebagallery.jpg"/></a>   
-                </li>
-            </ul>
-        </div>   
+            <?php
+            if (get_field('archivo_adjunto')) {
+                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">Descargar Estudio</a>';
+            }
+            ?>
+            <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>
+                <div class="gallery">
+                    <ul>
+                            <?php
+                            $r = get_field('imagenes');
+                            if ($r):
+                                foreach ($r as $img):
+                                    $imgID = $img['imagen_galeria'];
+                                    $ruta =  wp_get_attachment_image_src($imgID, "full");
+                                    echo '<li><a href="' . $ruta[0] . '" class="evt" data-ancho="' . $ruta[1] . '"  data-alto="' . $ruta[2] . '" data-func="getImage">' . wp_get_attachment_image($imgID, "gallery") . ' </a></li>';
+                                endforeach;
+                            endif;
+                            ?>                        
+                    </ul>
+                </div> 
+            <?php endif; ?>
         </div>
     </div>    
 </div><!--pageContent-->

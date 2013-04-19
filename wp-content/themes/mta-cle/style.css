@@ -1287,7 +1287,7 @@ p,#pageContent p {
     display: block;
     float: left;
     margin: 0 2% 2% 0;
-    width: 30%;
+    width: 29%;
 }
 
 .gallery a {
@@ -1301,4 +1301,29 @@ p,#pageContent p {
 
 li.last_gal {
     margin-right: 0;
+}
+
+#lightbox {
+	position: absolute;
+	z-index: 8020;
+        display: block; 
+        top: 0; 
+        opacity: 1;
+        background: #000;
+}
+
+img.central {
+        position: absolute;
+        display: block; 
+        margin: 0 auto;
+        top: 30%;
+        z-index: 100000;
+        border: 10px solid #fff;
+}
+
+.lb-close-btn{ 
+        background: #fff;
+        height: 15px;
+        width: 15px;
+        border: 1px solid #fff;
 }
