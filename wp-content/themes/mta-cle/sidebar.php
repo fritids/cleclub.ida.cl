@@ -8,11 +8,15 @@
             <form name="login" method="post" action="<?php echo get_option('home'); ?>/wp-login.php">
                 <input type="hidden" name="action" value="login" />
                 <input type="hidden" name="redirect_to" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
-                <label class="label" for="log">Usuario:</label>
-                <input type="text" name="log" id="log" value="" class="itLoginFront" />
-                <label class="label" for="pwd">Contraseña:</label>
-                <input type="password" name="pwd" id="pwd" class="itLoginFront"/>
-                <a class="forgot" href="/passowrd/" title="Olvidé la contraseña">Olvidé la contraseña</a>
+                <div class="clearfix boxLog">
+                    <label class="label" for="log">Usuario:</label>
+                    <input type="text" name="log" id="log" value="" class="itLoginFront" />
+                </div>
+                <div class="clearfix">
+                    <label class="label boxLog" for="pwd">Contraseña:</label>
+                    <input type="password" name="pwd" id="pwd" class="itLoginFront"/>
+                </div>    
+                    <a class="forgot" href="/passowrd/" title="Olvidé la contraseña">Olvidé la contraseña</a>
                 <input name="input" type="submit" value="Ingresar" class="btn"/>
             </form>
             </div>    

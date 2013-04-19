@@ -416,7 +416,7 @@ footer .menu-menu-principal-container{
 
 .tituloNM {
     border-left: .1em #f90 solid;
-    *border-left: 1.4em #f90 solid;
+    *border-left: 13px #f90 solid;
     color:#666;
     height: 100%;
     font-family:'EY';
@@ -438,13 +438,15 @@ footer .menu-menu-principal-container{
     display: inline-block;
     height: 40px;
     margin: 0 10px -15px 0;
-    width: 5%;
+    width:13px;
 }
 
 .label {
-    display: inline-block;
+    display: block;
+    float: left;
     font-size: 12px;
-    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-top: 4px;
     text-align: right;
     width: 23%;
 }
@@ -454,26 +456,32 @@ footer .menu-menu-principal-container{
 }
 
 .tituloLog p a {
-    float: right;
+    display: inline-block;
     font-family: helvetica;
     font-size: 11px;
-    margin: 1px 16px 20px 0;
+    margin-left: 87px;
     text-decoration: underline;
 }
 .itLoginFront {
-    display: inline-block;
+    display: block;
     width: 72%;
+    *width: 206px;
+ 
 }
 
 .loginWrap {
     float: left;
-    margin: 0 10px 10px;
+    margin: 10px;
     width: 290px;
 }
 
 .loginWrap .btn{
 
-    margin-right: 6px;
+    margin-right: 3px;
+}
+
+.boxLog {
+    margin-bottom: 5px;
 }
 
 .forgot {
@@ -1368,4 +1376,9 @@ img.central {
     right: 0;
     margin: 0 auto;
         
+}
+
+#menuFooter .menu-menu-publico-container{
+    
+    width: 100%;
 }
