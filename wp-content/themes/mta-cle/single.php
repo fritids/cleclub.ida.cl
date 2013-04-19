@@ -55,10 +55,12 @@
                             <?php
                             $r = get_field('imagenes');
                             if ($r):
+                                $i=0;
                                 foreach ($r as $img):
                                     $imgID = $img['imagen_galeria'];
                                     $ruta =  wp_get_attachment_image_src($imgID, "full");
-                                    echo '<li><a href="' . $ruta[0] . '" class="evt" data-ancho="' . $ruta[1] . '"  data-alto="' . $ruta[2] . '" data-func="getImage">' . wp_get_attachment_image($imgID, "gallery") . ' </a></li>';
+                                    echo '<li><a href="' . $ruta[0] . '" class="evt" data-ancho="' . $ruta[1] . '"  data-alto="' . $ruta[2] . '" data-func="getImage"  data-item="'.$i.'">' . wp_get_attachment_image($imgID, "gallery") . ' </a></li>';
+                                    $i++;
                                 endforeach;
                             endif;
                             ?>                        

@@ -45,51 +45,72 @@
                        }
                },
         getLightBox: function() {
-                       var $lightBox_bg = $('<div />').attr({'id': 'lightbox', 'class': 'lightbox-holder'}).css({'opacity': '0.7'}),
-                           $lightBox_content = $('<div />').attr({'id': 'lightbox-content', 'class': 'lightbox_content_box'}).css({'opacity': '0.7'}),
-                           $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}),
-                           $closeBtn = $('<button />').attr({
-                                   'class': 'lb-close-btn',
-                                   'data-func': 'closeLightBox',
-                                   'title': 'Cerrar'
-                           });
-             
+                       var $lightBox_bg = $('<div />').attr({'id': 'lightbox', 'class': 'lightbox-holder'}).css({'opacity': '0.7'});
                        $lightBox_bg.css({
                                'width': '100%',
                                'height': $(window.document).height()
                        });
-            
                        $('body').append($lightBox_bg);
-                       $lightBox_bg.append($lightBox_content);
-                       $lightBox_img.append($closeBtn);   
-            
                        this.prevScrollTop = $(window).scrollTop();
-            
-                       this.autoHandle($closeBtn);
-            
                        // setTimeout con 1ms, es un hack para ejecutar el código de forma asincronica con el thread principal. sirve para gatillar animaciones de css mas facilmente
                        setTimeout(function() {
                                $lightBox_bg.css('opacity', '0.7');
                        }, 0);
-            
-                       return $lightBox_content;
+                       return $lightBox_bg;
                },
         getImage: function(e) {
             e.preventDefault();
 
-            var sWidth = window.innerWidth /2;
-            var sHeight = window.innerHeight /2;
+            var sWidth = window.innerWidth / 2;
+            var sHeight = window.innerHeight / 2;
             var sTop = $(window).scrollTop();
             var alto = $(e.currentTarget).attr("data-alto") / 2;
             var ancho = $(e.currentTarget).attr("data-ancho") / 2;
+            var item = $(e.currentTarget).attr("data-item");
             lightbox = this.getLightBox();
-            $("#lightbox").after('<img style="left:' + (sWidth - ancho) + 'px;top:' + (sTop + alto) + 'px" class="imgLigthbox central" src="' + $(e.currentTarget).attr("href") + '">');
-            $(lightbox).show("0.7")
+            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('left', (sWidth - ancho)).css('top', (sTop + alto)),
+                    $closeBtn = $('<button />').attr({'class': 'lb-close-btn', 'data-func': 'closeLightBox', 'title': 'Cerrar'}),
+                    $arrowR = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowR', 'data-func': 'nextPic', 'title': 'Siguiente'}).text("Siguiente"),
+                    $arrowL = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowL', 'data-func': 'prevPic', 'title': 'Anterior'}).text("Anterior");
+            $("body").append($lightBox_img);
+            $("#lightboxImg").prepend('<img class="imgLigthbox central" src="' + $(e.currentTarget).attr("href") + '">');
+            $lightBox_img.append($closeBtn);   
+            $lightBox_img.append($arrowR);   
+            $lightBox_img.append($arrowL);   
             this.autoHandle($('.lb-close-btn'));
+            this.autoHandle($('.arrowR'));
+            this.autoHandle($('.arrowL'));
 
         },
-        closeLightBox : function(){
-            $("#lightbox,.imgLigthbox").remove();
+        closeLightBox: function() {
+            $("#lightbox,#lightboxImg").remove();
+        }
+        ,
+        nextPic: function(e) {
+            e.preventDefault();
+
+            var item = parseInt($(e.currentTarget).attr("data-item")) + 1;
+            var fotos = $(".gallery li").length;
+            if(item >= fotos){return false;}
+            
+            var $img = $('<img />').attr({'src': '/wp-content/themes/mta-cle/_img/ajax-loader.gif', 'id':"loading"});
+            $("#lightboxImg").prepend($img)
+            var img = $(".gallery").find('a[data-item="'+item+'"]').attr("href");
+            $(".imgLigthbox").attr("src", img);
+            $(".arrowL,.arrowR").attr("data-item", item);
+            setTimeout(function(){$("#loading").remove()}, 1500)
+        }
+        ,
+        prevPic: function(e) {
+            e.preventDefault();
+            var item = parseInt($(e.currentTarget).attr("data-item")) - 1;            
+            if(item <= 0){return false;}            
+            var $img = $('<img />').attr({'src': '/wp-content/themes/mta-cle/_img/ajax-loader.gif', 'id':"loading"});
+            $("#lightboxImg").prepend($img)
+            var img = $(".gallery").find('a[data-item="'+item+'"]').attr("href");
+            $(".imgLigthbox").attr("src", img);
+            $(".arrowL,.arrowR").attr("data-item", item);
+            setTimeout(function(){$("#loading").remove()}, 1500)            
         }
     };
 
