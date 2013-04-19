@@ -22,8 +22,8 @@ get_header(); ?>
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //vars
-                    $d3 = 'despinosa@df.cl';
-                    $d4 = 'francesca.canziani@cl.ey.com'; 
+//                    $d3 = 'despinosa@df.cl';
+//                    $d4 = 'francesca.canziani@cl.ey.com'; 
                     $d5 = 'comunicaciones.eychile@cl.ey.com';
                     //vars
                     $nombre = $_POST['nombre'];
@@ -56,7 +56,7 @@ $cuerpo = utf8_decode($cuerpo);
 //
 //mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 //mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 //mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 if(!empty($_FILES['curriculum'])){
     
@@ -78,7 +78,7 @@ if(!empty($_FILES['curriculum'])){
     
     $attach_id = wp_insert_attachment( $attachment, $filename, $postid );
     $archivo = $filename;
-    wp_mail('francisco@ida.cl, jorge@ida.cl,'.$d4 , $asunto, $cuerpo, $headers, $filename);
+    wp_mail('francisco@ida.cl,'.$d4 , $asunto, $cuerpo, $headers, $filename);
 } else {
     
     $archivo = null;
@@ -87,9 +87,9 @@ if(!empty($_FILES['curriculum'])){
 
 ?>
 <div id="ok">
-	Gracias por ponerte en contacto con nosotros, te responderemos a la brevedad<br />
-    <br />
-    CLE CLUB.
+Gracias por contactarse con<br /> 
+C LEVEL EXECUTIVE CLUB<br />
+Te responderemos a la brevedad
 </div>
 <div class="clr"></div>
 <?php

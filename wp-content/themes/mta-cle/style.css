@@ -1328,3 +1328,14 @@ img.central {
         width: 15px;
         border: 1px solid #fff;
 }
+
+#ok {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 160%;
+    padding: 40px 0;
+    text-align: center;
+}
