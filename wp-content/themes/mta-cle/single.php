@@ -46,7 +46,7 @@
             ?>
             <?php
             if (get_field('archivo_adjunto')) {
-                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">Descargar Estudio</a>';
+                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
             }
             ?>
             <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>

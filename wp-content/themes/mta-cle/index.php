@@ -12,7 +12,7 @@
     </div>
     <div id="wNotas" class="clearfix">
         <div id="wNotasEY" class="boxNotas">
-            <div class="tituloNota"><a href="/categoria/ernst-young/"> Estudios Ernst &amp; Young </a> </div>
+            <div class="tituloNota"><a href="/categoria/ernst-young/"> Departamento de Estudios de Ernst &amp; Young</a> </div>
             <?php echo notas(array('category_name' => 'ernst-young', 'order' => 'DESC', 'posts_per_page' => 3)); ?>            
         </div>
         <div id="wNotasUC" class="boxNotas middleBox">

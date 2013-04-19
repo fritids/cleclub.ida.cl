@@ -491,6 +491,7 @@ footer .menu-menu-principal-container{
     margin-bottom: 5px;
 }
 
+
 .forgot {
     color: #666666;
     display: block;
@@ -686,21 +687,22 @@ footer .menu-menu-principal-container{
 }
 
 .tituloNota {
-    height:40px;
-    color:#fff;
-    background:#000;
-    border-left: 1.1em #f90 solid;
-
+    background: none repeat scroll 0 0 #000000;
+    border-left: 1.1em solid #FF9900;
+    color: #FFFFFF;
+    height: 50px;
 }
+
 .tituloNota a {
-    color:#fff;
-    width: 95%;
+    color: #FFFFFF;
     display: block;
-    font-weight: lighter;
-    font-size:18px;
     font-family: 'EY';
-    line-height: 40px;
+    font-size: 18px;
+    font-weight: lighter;
+    line-height: 20px;
     margin-left: 5%;
+    padding: 5px 0;
+    width: 95%;
 }
 
 .chromebrowser .tituloNota a{ font-family: Helvetica, Arial, sans-serif;}
@@ -1391,4 +1393,39 @@ img.central {
 #menuFooter .menu-menu-publico-container{
     
     width: 100%;
+}
+.not-found {
+    margin: 30px auto;
+    text-align: left;
+    width: 510px;
+}
+
+.not-found h1{
+    
+       color: #FF9900;
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.not-found p {
+    color: #555555;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.not-found h2 {
+    color: #666666;
+    font-size: 30px;
+}
+.noMenu{
+    
+    list-style: none;
+}
+
+.noMenu .sub-menu{
+    display: none;
+}
+
+#noFound img {
+    margin-top: 20px;
 }
