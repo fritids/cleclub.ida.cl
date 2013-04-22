@@ -32,22 +32,29 @@
                                 <li><strong>Lugar:</strong><span><?php the_field('lugar'); ?></span></li>
                                 <li><strong>Contacto:</strong><span><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></span></li>
                             </ul>
-
+                                
                         </div>
+                
+                        <?php endif;?>
+                        
+                <?php the_content();?>
+                 <?php    if (get_field('archivo_adjunto')) {
+                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
+                }
+                ?>
+                
                         <?php
-                    endif;
+                    
                 } else {
                     echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
                 };
                 ?>
                 <?php
-                the_content();
+                
             endwhile;
             ?>
             <?php
-            if (get_field('archivo_adjunto')) {
-                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
-            }
+           
             ?>
             <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>
                 <div class="gallery">
