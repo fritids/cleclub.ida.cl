@@ -13,6 +13,18 @@
         this.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         this.equalizeHeights($(".bio .infoMiembro .empresa"));
         this.equalizeHeights($("#wNotas .boxNotas"));
+        $('#formPassword').validizr({
+            customValidations : {
+                checkPass : function($input){
+                    var valor = $input.val();
+                    var valor2 = $('#passW').val();
+                    
+                    return valor && valor2 === valor;
+                }
+            }
+        });
+        
+        
 
 
     };

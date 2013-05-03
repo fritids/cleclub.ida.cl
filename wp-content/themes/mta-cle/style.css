@@ -1435,3 +1435,17 @@ img.central {
     float: left;
     width: 100%;
 }
+
+
+/*Password form*/
+
+.formPass{
+    width: 325px;
+    margin: 0 auto;
+}
+
+.inputPass{
+    width: 320px;
+    padding: 3px 0;
+    margin: 0 0 10px 0;
+}
