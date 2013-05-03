@@ -90,8 +90,16 @@ function parseFeed($url, $cuantos = 3, $descripcion = true) {
     endif;
 }
 
+function return_7200( $seconds )
+{
+  // change the default feed cache recreation period to 2 hours
+  return 7200;
+}
+
 function parseFeedHome($url, $cuantos = 3, $descripcion = true) {
+    add_filter( 'wp_feed_cache_transient_lifetime' , 'return_7200' );
     $rss = fetch_feed($url);
+    remove_filter( 'wp_feed_cache_transient_lifetime' , 'return_7200' );
     $maxitems = $rss->get_item_quantity($cuantos);
     $rss_items = $rss->get_items(0, $maxitems);
     $out = '';

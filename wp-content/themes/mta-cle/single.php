@@ -13,6 +13,7 @@
             <h1><?php the_title(); ?></h1>
 
             <div id="postContent">
+            
                 <?php
                 if (is_user_logged_in()) {
 
@@ -38,14 +39,18 @@
                         <?php endif;?>
                         
                 <?php the_content();?>
-                 <?php    if (get_field('archivo_adjunto')) {
-                echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
+                
+                 <?php if (get_field('archivo_adjunto')) {
+                    echo '<h3>Descarga</h3>';                     
+                    echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
                 }
                 ?>
                 
                         <?php
                     
                 } else {
+                	the_content();
+                    echo '<h3>Descarga ...</h3>';                        
                     echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
                 };
                 ?>

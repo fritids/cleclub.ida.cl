@@ -1,4 +1,7 @@
 <?php
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
 /**
  * The base configurations of the WordPress.
  *
@@ -16,23 +19,22 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'cleclub');
+define('DB_NAME', 'clelcubc_www');
 
 /** MySQL database username */
-define('DB_USER', 'ida2011');
+define('DB_USER', 'clelcubc_user');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'ltda2010');
+define('DB_PASSWORD', 'clubcle2013');
 
 /** MySQL hostname */
-define('DB_HOST', 'pma.ida.cl');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
-
+define('DB_COLLATE', '');	
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -61,6 +63,17 @@ define('NONCE_SALT',       'vcXwajC$H3;I#oCSG{QKTEwv84;C1Ok(ygnMsz8l>DeuLXb!* 9;
  */
 $table_prefix  ='wp_';
 
+
+define('WP_ALLOW_REPAIR', true); //mantiene la bbdd optimizada
+
+define('WP_POST_REVISIONS', 1); //limita el nº de revisiones en la bbdd
+
+define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] ); // para usar con varios dominios
+
+define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );// para usar con varios dominios
+
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 /**
  * WordPress Localized Language, defaults to English.
  *
@@ -69,7 +82,7 @@ $table_prefix  ='wp_';
  * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
  * language support.
  */
-	define ('WPLANG', 'es_ES');
+//define ('WPLANG', 'es_ES');
 
 /**
  * For developers: WordPress debugging mode.
