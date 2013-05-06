@@ -178,5 +178,66 @@ function printMe( $toPrint ) {
     print_r($toPrint);
     echo '</pre>';
 }
+function set_html_content_type(){ return 'text/html'; }
+
+function ajaxHandler(){
+    
+    if( $_POST['func'] === 'cambiarContrasena' ){
+        if( $_POST['passW'] !== $_POST['passW2'] ){ die('intenta denuevo'); } // si es que las contrasenas no concuerdan
+        
+        if( is_numeric( $_POST['userId'] ) ){
+            $usid = intval( $_POST['userId'] );
+        } else {
+            $user = get_user_by('email', $_POST['userId']);
+            $usid = $user->ID;
+        }
+        
+        wp_update_user(array(
+            'ID' => $usid,
+            'user_pass' => $_POST['passW']
+        ));
+        
+      
+        $out  = "<div class='exito'>";
+        $out .= "<strong>¡FELICITACIONES!</strong>";
+        $out .= "<p>Tu contraseña ha sido cambiada exitosamente.</p>";
+        $out .= " </div>";
+      
+        
+        die( $out );
+    }
+    elseif( $_POST['func'] === 'recuperarContrasena' ){
+        if( get_user_by('email', $_POST['mailLog']) ){
+            $headers = 'From: cleclub <myname@mydomain.com>' . "\r\n";
+            
+            $message = '<a href="'. home_url() .'/recuperacion-de-contrasena/?userEmail='. $_POST['mailLog'] .'">Recuperar</a>';
+            
+            
+            
+            add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+            wp_mail( $_POST['mailLog'], 'contraseña', $message, $headers );    
+            remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+            $out = "<div class='exito'>";
+            $out .= "<strong>¡FELICITACIONES!</strong>";
+            $out .= "<p>Te hemos enviado un mail para recuperar tu contraseña</p>";
+            $out .= " </div>";
+            die( $out );
+            
+        }
+        else { // usuario no existe
+            die('noUser');
+        }
+    }
+    elseif( $_POST['func'] === 'desloguear' ){
+        wp_logout();
+        die();
+    }
+    
+    else { die('Error!'); }
+}
+
+add_action('wp_ajax_envioAjax', 'ajaxHandler');
+add_action('wp_ajax_nopriv_envioAjax', 'ajaxHandler');
+
 
 ?>

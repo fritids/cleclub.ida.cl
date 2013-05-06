@@ -19,12 +19,74 @@
                     var valor = $input.val();
                     var valor2 = $('#passW').val();
                     
+                    if( $input.next().is('.errorMsn') ){
+                        $input.next().remove();
+                    }
+                    
                     return valor && valor2 === valor;
                 }
+            },
+            customErrorHandlers : {
+                passwordError : function( $input ){
+                    $input.after('<span class="errorMsn">Las contraseñas no coinciden</span>');
+                }
+            },
+            validFormCallback : function( $formulario ){
+                if( ! parseInt( $formulario.find('input[name="userId"]').val() ) ){ return; }
+                
+                $.ajax({
+                    type: "POST",
+                    url: '/wp-admin/admin-ajax.php',
+                    data: 'action=envioAjax&func=cambiarContrasena&' + $formulario.serialize(),
+                    dataType: "html",
+                    beforeSend: function( xhr ) { $formulario.css('opacity', '0.5'); },
+                    success: function( respuesta ) {
+                        $formulario.parent().append(respuesta);
+                        $formulario.remove();
+                    }
+                });
+            
             }
         });
         
         
+        
+        $('#backPass').validizr({
+            customValidations : {
+                checkEmail : function($input){
+                    var valor = $input.val(),
+                    emailRegEx = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+                    if( $input.next().is('.errorMsn') ){
+                        $input.next().remove();
+                    }
+                    return valor && emailRegEx.test( valor );
+                }
+            },
+            customErrorHandlers : {
+                emailError : function( $input ){
+                    $input.after('<span class="errorMsn">Debe ingresar email correcto</span>');
+                }
+            },
+            validFormCallback : function( $formulario ){
+                $.ajax({
+                    type: "POST",
+                    url: '/wp-admin/admin-ajax.php',
+                    data: 'action=envioAjax&func=recuperarContrasena&' + $formulario.serialize(),
+                    dataType: "html",
+                    beforeSend: function( xhr ) { $formulario.css('opacity', '0.5'); },
+                    success: function( respuesta ) {
+                        if( respuesta === 'noUser' ){
+                            
+                        } else {
+                            $formulario.parent().append(respuesta);
+                            $formulario.remove();
+                        }
+                    }
+                });
+            }
+        });
+        console.log( $('#backPass') );
 
 
     };
@@ -127,6 +189,19 @@
             $(".imgLigthbox").attr("src", img);
             $(".arrowL,.arrowR").attr("data-item", item);
             $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
+        }
+        ,
+        salirLog : function( e ){
+            e.preventDefault();
+            
+            $.ajax({
+                    type: "POST",
+                    url: '/wp-admin/admin-ajax.php',
+                    data: 'action=envioAjax&func=desloguear',
+                    dataType: "html",
+                    beforeSend: function( xhr ) {  },
+                    success: function( respuesta ) { window.location.reload(); }
+                });
         }
     };
 

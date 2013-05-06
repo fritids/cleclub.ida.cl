@@ -74,7 +74,7 @@
 }
 .userData{
     float:left;
-    width: 60.9999%;
+    width: 67%;
     margin-left: 10px; 
     font-weight: lighter;
     font-family: EY;
@@ -96,18 +96,14 @@
     font-size: 20px;
     display: block;
     font-weight: lighter;
+    margin-bottom: 15px;
 
 }
 #wRegistro .btnLogOut{
-    width: 70px;
-    height: 15px;
     color:#fff;
     background: #777;
-    display: block;
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
-    float: right;
-    margin-top: 30px;
 }
 #sidebar .boxNotas {
     width: 100%;

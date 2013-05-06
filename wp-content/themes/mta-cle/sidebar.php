@@ -17,7 +17,7 @@
                     <input type="password" name="pwd" id="pwd" class="itLoginFront"/>
                 </div>  
                 <div class="clearfix">
-                    <a class="forgot" href="/cambio-de-contrasena/" title="Olvidé la contraseña">Olvidé la contraseña</a>
+                    <a class="forgot" href="/recuperacion-de-contrasena/" title="Olvidé la contraseña">Olvidé la contraseña</a>
                     <input name="input" type="submit" value="Ingresar" class="btn"/>
                 </div>    
             </form>
@@ -38,7 +38,10 @@
                 } else {
                     echo "<strong>" . $current_user->user_login . "</strong>";
                 }
-                echo "<a class='btnLogOut' href='" . wp_logout_url('/') . "'>Salir</a>";
+                echo "
+                    <a class='btn'href='/cambio-de-contrasena/'>Cambiar Contraseña</a>
+
+                    <a class='btnLogOut evt' data-func='salirLog' href='" . wp_logout_url('/') . "'>Salir</a>";
                 ?>
             </div>
         </div>   

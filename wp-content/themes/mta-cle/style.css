@@ -584,13 +584,12 @@ footer .menu-menu-principal-container{
     transition:background-color .25s ease-in-out;
     -moz-transition:background-color .25s ease-in-out;
     -webkit-transition:background-color .25s ease-in-out;
-    width:100px;
-    padding:5px 10px;
+     margin-left: 3px;
+    padding: 5px 20px;
+    
 }
 
-.btnLogOut a {
-    color:#fff!important;
-}
+
 
 #wEventoSociales {
     font-size:10px;
@@ -840,7 +839,23 @@ footer .menu-menu-principal-container{
 #contacto {
     width:100%;
     background-color:#EFEFEF;
-    border:1px solid #CCC;
+    border:1px solid #CBCBCB;
+    float:left;
+    padding:40px 0;
+    overflow: hidden;
+}
+
+.exito {
+    background: url("_img/exito.png") no-repeat scroll left top transparent;
+    margin-left: 40px;
+    padding: 5px 60px;
+    height: 40px;
+}
+
+.contacto {
+    width:100%;
+    background-color:rgba(238,238,238,0.5);
+    border:1px solid #CBCBCB;
     float:left;
     padding:40px 0;
     overflow: hidden;
@@ -1448,4 +1463,15 @@ img.central {
     width: 320px;
     padding: 3px 0;
     margin: 0 0 10px 0;
+}
+
+.mid {
+    height: 100px;
+}
+
+.userData .btn{
+    
+    float: none;
+    font-size: 11px;
+    color: #fff;
 }
