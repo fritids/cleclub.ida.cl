@@ -1474,4 +1474,26 @@ img.central {
     float: none;
     font-size: 11px;
     color: #fff;
+    
+}
+
+/*FORMULARIOS RECUPERACION CONTRASEÑA*/
+
+.errorMsn{
+    
+    background: url(_img/error.png) #FC7171 no-repeat 5px center ;
+    display: block;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 28px;
+    font-size: 11px;
+    font-weight: bold;
+    
+}
+
+.frontLogg {
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding-top: 6px;
+    width: 252px;
 }

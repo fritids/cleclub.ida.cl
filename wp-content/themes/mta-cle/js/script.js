@@ -74,10 +74,15 @@
                     url: '/wp-admin/admin-ajax.php',
                     data: 'action=envioAjax&func=recuperarContrasena&' + $formulario.serialize(),
                     dataType: "html",
-                    beforeSend: function( xhr ) { $formulario.css('opacity', '0.5'); },
+                    beforeSend: function( xhr ) { 
+                        $formulario.find('.errorMsn').remove();
+                        $formulario.css('opacity', '0.5'); 
+                    },
                     success: function( respuesta ) {
                         if( respuesta === 'noUser' ){
                             
+                            $('#mailLog').after('<span class="errorMsn">Email ingresado no se encuentra en nuestro registro</span>') ;
+                            $formulario.css('opacity','1');
                         } else {
                             $formulario.parent().append(respuesta);
                             $formulario.remove();
@@ -86,7 +91,34 @@
                 });
             }
         });
-        console.log( $('#backPass') );
+        
+         $('#frontLog').validizr({
+             validFormCallback : function( $formulario ){
+                
+                $.ajax({
+                    type: "POST",
+                    url: '/wp-admin/admin-ajax.php',
+                    data: 'action=envioAjax&func=loginFront&' + $formulario.serialize(),
+                    dataType: "html",
+                    beforeSend: function( xhr ) { 
+                        $formulario.find('.errorMsn').remove();
+                        $formulario.css('opacity', '0.5'); 
+                    },
+                    success: function( respuesta ) {
+                        if(respuesta === 'errorcontrasena'){
+                            $('#pwd').after('<span class="errorMsn frontLogg">Nombre de Usuario o Contraseña Incorrectos</span>');
+                            $formulario.css('opacity','1');
+                        }
+                        else{
+                          window.location.reload();
+                        }
+                    }
+                });
+            
+            }
+            
+          
+        });
 
 
     };

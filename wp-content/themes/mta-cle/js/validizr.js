@@ -21,6 +21,7 @@
         // se empieza a delegar, depende de los settings
         if( this.settings.delegateFields ){ this.$fields.on('change.validizr keyup.validizr', $.proxy( this.validateInput, this ) ); }
         if( this.settings.delegateBtn ){ this.$submitBtn.on('click.validizr', $.proxy( this.validateForm, this ) ); }
+        this.$form.addClass('validazred');
     };
     window.Validizr.prototype = {
         validateInput : function( event ){

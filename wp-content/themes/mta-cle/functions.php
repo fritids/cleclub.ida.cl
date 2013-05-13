@@ -207,13 +207,88 @@ function ajaxHandler(){
         die( $out );
     }
     elseif( $_POST['func'] === 'recuperarContrasena' ){
-        if( get_user_by('email', $_POST['mailLog']) ){
+        $usuario= get_user_by('email', $_POST['mailLog']);
+        if($usuario){
             $headers = 'From: cleclub <myname@mydomain.com>' . "\r\n";
             
-            $message = '<a href="'. home_url() .'/recuperacion-de-contrasena/?userEmail='. $_POST['mailLog'] .'">Recuperar</a>';
-            
-            
-            
+            $message = '
+                
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Recuperaci&oacute;n de Contrase&ntilde;a
+                                        </strong>
+                                    </font>
+                                </td>
+                            </tr>
+                           
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Estimado(a) <strong>' . $usuario->first_name . ' ' . $usuario->last_name . '</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 14px; color: #000000;">
+                                        Usted ha solicitado la recuperación de su contraseña, si lo realizo por error, solo ignore este mensaje. De lo contrario, haga click en el botón inferior y siga las instrucciones.
+                                    </font>    
+                               </td>
+                            </tr>
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <a href="'. home_url() .'/recuperacion-de-contrasena/?userEmail='. $_POST['mailLog'] .'"> <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailbutton.jpg"/></a>
+                                </td>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
+                
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
+                    </td>
+                </tr>
+               
+            </table>';
+
+
+
+
             add_filter( 'wp_mail_content_type', 'set_html_content_type' );
             wp_mail( $_POST['mailLog'], 'contraseña', $message, $headers );    
             remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
@@ -232,7 +307,19 @@ function ajaxHandler(){
         wp_logout();
         die();
     }
-    
+    elseif( $_POST['func'] === 'loginFront'){
+        $creds = array();
+        $creds['user_login'] = $_POST['log'];
+        $creds['user_password'] = $_POST['pwd'];
+        $creds['remember'] = true;
+        $user = wp_signon($creds, false);
+        if (is_wp_error($user)){
+            die('errorcontrasena');
+        }
+        else{
+            die('exito');
+        }
+    }
     else { die('Error!'); }
 }
 

@@ -5,16 +5,14 @@
             <p class="tituloNM">INGRESO <a href="/solicitud-de-membresia/">Solicitar Membresía</a></p>
         </div>    
             <div class="loginWrap">
-            <form name="login" method="post" action="<?php echo get_option('home'); ?>/wp-login.php">
-                <input type="hidden" name="action" value="login" />
-                <input type="hidden" name="redirect_to" value="<?php echo $_SERVER['REQUEST_URI']; ?>" />
+            <form id="frontLog" name="login" method="post">
                 <div class="clearfix boxLog">
                     <label class="label" for="log">Usuario:</label>
-                    <input type="text" name="log" id="log" value="" class="itLoginFront" />
+                    <input type="text" name="log" id="log" value="" class="itLoginFront" required />
                 </div>
                 <div class="clearfix">
                     <label class="label boxLog" for="pwd">Contraseña:</label>
-                    <input type="password" name="pwd" id="pwd" class="itLoginFront"/>
+                    <input type="password" name="pwd" id="pwd" class="itLoginFront" required />
                 </div>  
                 <div class="clearfix">
                     <a class="forgot" href="/recuperacion-de-contrasena/" title="Olvidé la contraseña">Olvidé la contraseña</a>
