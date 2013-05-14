@@ -91,7 +91,7 @@
                 });
             }
         });
-        
+            
          $('#frontLog').validizr({
              validFormCallback : function( $formulario ){
                 
