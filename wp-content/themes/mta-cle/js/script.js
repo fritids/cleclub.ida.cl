@@ -13,6 +13,7 @@
         this.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         this.equalizeHeights($(".bio .infoMiembro .empresa"));
         this.equalizeHeights($("#wNotas .boxNotas"));
+        
         $('#formPassword').validizr({
             customValidations : {
                 checkPass : function($input){
@@ -32,7 +33,7 @@
                 }
             },
             validFormCallback : function( $formulario ){
-                if( ! parseInt( $formulario.find('input[name="userId"]').val() ) ){ return; }
+                //if( ! parseInt( $formulario.find('input[name="userId"]').val() ) ){ return; }
                 
                 $.ajax({
                     type: "POST",

@@ -31,13 +31,15 @@
                                 <li><strong>Fecha:</strong><span><?php echo $fechaEvento; ?></span></li>
                                 <li><strong>Hora:</strong><span><?php the_field('hora'); ?> hrs.</span></li>
                                 <li><strong>Lugar:</strong><span><?php the_field('lugar'); ?></span></li>
-                                <li><strong>Contacto:</strong><span><a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a></span></li>
+                                <li><strong>Contacto:</strong><span><a href="mailto:contacto@cleclub.cl"> contacto@cleclub.cl</a></span></li>
                             </ul>
                                 
                         </div>
                 
                         <?php endif;?>
-                        
+                <?php if(get_field('relator')){
+                 echo '<h3>Relator:' . get_field('relator') . '</h3>';
+                 } ?>        
                 <?php the_content();?>
                 
                  <?php if (get_field('archivo_adjunto')) {

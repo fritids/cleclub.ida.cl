@@ -20,9 +20,9 @@ get_header();
             
             <form id="formPassword" action="" method="post" class="formPass">
                 <label for="passW">Nueva contraseña</label>
-                <input type="password" name="passW" id="passW" class="inputPass" value="" size="25" placeholder="*******" required/>
+                <input type="password" name="passW" id="passW" class="inputPass" placeholder="*******" required/>
                 <label for="passW2">Confirma la nueva contraseña</label>
-                <input type="password" name="passW2" id="passW2" class="inputPass" value="" size="25" placeholder="*******" required data-custom-validation="checkPass" data-customError="passwordError"/>
+                <input type="password" name="passW2" id="passW2" class="inputPass" placeholder="*******" required data-custom-validation="checkPass" data-customError="passwordError"/>
                 <input type="hidden" name="userId" value="<?php echo isset( $_GET['userEmail'] ) ? $_GET['userEmail'] : $user_ID; ?>"/>
                 <input type="submit" value="Cambiar Contraseña" class="btnCont"/>
             </form>
