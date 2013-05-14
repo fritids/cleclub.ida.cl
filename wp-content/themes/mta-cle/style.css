@@ -1457,6 +1457,7 @@ img.central {
 .formPass{
     width: 325px;
     margin: 0 auto;
+    -webkit-transform: translate3d(0, 0, 0);
     
 }
 .pasos{
@@ -1512,4 +1513,112 @@ img.central {
     margin-top: 10px;
     padding-top: 6px;
     width: 252px;
+}
+
+
+/*MURO*/
+    
+.formComment {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #DDDDDD;
+    display: block;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#formComment span {
+    color: #999999;
+    display: block;
+    float: left;
+    font-size: 12px;
+    padding-top: 6px;
+    text-align: right;
+    width: 519px;
+}
+.txtComment {
+    -moz-box-sizing: border-box;
+    border: 1px solid #DDDDDD;
+    height: 85px;
+    margin: 0 0 10px 10px;
+    padding: 10px;
+    resize: none;
+    width: 523px;
+    font-family: Arial, helvetica;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.commentList{
+    
+    list-style: none;
+}
+
+.commentList li {
+    -moz-box-sizing: border-box;
+    border-bottom: 1px solid #DDDDDD;
+    margin: 10px 0;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.commmentBody{
+    float: right;
+    width: 520px;
+}
+
+#pageContent .commmentBody > p {
+    color: #444444;
+    font-size: 14px;
+    line-height: 140%;
+    margin-bottom: 10px;
+}
+
+.date {
+    color: #777777;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.date {
+    color: #777777;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.userCom {
+    display: block;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.userCom strong {
+    font-size: 14px;
+    font-style: normal;
+}
+
+.commentInfo {
+    float: left;
+    width: 87px;
+}
+
+.commentInfo .perfil_ico {
+    background: url("_img/verperfil_ico.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: right;
+    margin-top: 10px;
+    padding-left: 25px;
+}
+
+.commentList .commentReply {
+    padding-left: 100px;
+}
+
+.commentReply .commmentBody {
+    float: right;
+    width: 430px;
 }

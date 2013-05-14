@@ -209,7 +209,7 @@ function ajaxHandler(){
     elseif( $_POST['func'] === 'recuperarContrasena' ){
         $usuario= get_user_by('email', $_POST['mailLog']);
         if($usuario){
-            $headers = 'From: cleclub <myname@mydomain.com>' . "\r\n";
+            $headers = 'From: cleclub <contacto@cleclub.cl>' . "\r\n";
             
             $message = '
                 
@@ -249,7 +249,9 @@ function ajaxHandler(){
                             </tr>
                             <tr>
                                 <td>
-                                    Estimado(a) <strong>' . $usuario->first_name . ' ' . $usuario->last_name . '</strong>
+                                    <font face="Helvetica" style="font-size: 14px; color: #000000;">
+                                        Estimado(a) <strong>' . $usuario->first_name . ' ' . $usuario->last_name . '</strong>
+                                    </font>        
                                 </td>
                             </tr>
                             <tr>
@@ -258,6 +260,17 @@ function ajaxHandler(){
                                         Usted ha solicitado la recuperación de su contraseña. Haga click en el siguiente botón y siga las instrucciones.
                                     </font>    
                                </td>
+                            </tr>
+                             <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 12px; color: #999999;">
+                                        Si lo realizó por error, solo ignore este mensaje
+                                    </font>
+                                </td>
                             </tr>
                             <tr>
                                 <td height="10">
@@ -272,13 +285,7 @@ function ajaxHandler(){
                                 <td height="10">
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <font face="Helvetica" style="font-size: 12px; color: #999999;">
-                                        Si lo realizó por error, solo ignore este mensaje
-                                    </font>
-                                </td>
-                            </tr>
+                           
                          </table>
                     </td>
                 </tr>

@@ -75,7 +75,11 @@
                 ?>
                 <div class="wNota clearfix">
                     <div class="tituloNotaW">
-                        <small><?php echo $dia . ' ' . $mes . ' ' . $ano ?>,  <?php the_field('hora'); ?> hrs. <br /><?php the_field('lugar'); ?> </small>
+                        <small><?php echo $dia . ' ' . $mes . ' ' . $ano ?>,  <?php the_field('hora'); ?> hrs. <br /><?php the_field('lugar'); ?> <br />
+                        <?php if(get_field('relator')){
+                 echo '<strong>Relator:' . get_field('relator') . '</strong>';
+                 } ?>        
+                        </small>
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </div>
                 </div>
