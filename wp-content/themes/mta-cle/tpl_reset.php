@@ -13,8 +13,8 @@ get_header();
 <?php if( is_user_logged_in() || isset( $_GET['userEmail'] ) ) { ?>
     <div id="pageContent" class="clearfix">
         <h1><?php the_title();?></h1>
-        <p><strong>Introduce tu nueva contraseña.</strong><br /> 
-            Para que tu contraseña sea segura, usa mayúsculas, minúsculas, números y símbolos como ! “ ? $ % ^ & ).
+        <p class="passReset"><strong>Introduce tu nueva contraseña.</strong><br /> 
+            <small>Consejo: Para que tu contraseña sea segura, usa mayúsculas, minúsculas, números y símbolos como ! “ ? $ % ^ & ).</small>
         </p>
         <div class="contacto">
             
@@ -32,11 +32,14 @@ get_header();
  <?php }  else { ?>
         <div id="pageContent" class="clearfix">
             <h1><?php the_title(); ?></h1>
-                <p><strong>Introduce tu nueva contraseña.</strong><br /> 
-                    Ingrese su correo electrónico para cambiar su contraseña.<br /> 
-                    Recibirá un email con un enlace para crear su contraseña nueva.<br />
-                    <small>* Revisa tu correo electrónico para obtener el enlace de confirmación.</small>
-                </p>
+                <h2>Pasos a seguir.</h2>
+                <ol class="pasos">
+                    <li>Ingrese su correo electrónico para cambiar su contraseña.</li>
+                    <li>Recibirá un email con un enlace para crear una nueva contraseña</li>
+                </ol>    
+                    
+                <p class="passReset"><small>* Revisa tu correo electrónico para obtener el enlace de confirmación.</small></p>
+                
             <div class="contacto">
                 <form id="backPass" action="" method="post" class="formPass">
                     <label for="mailLog">Correo Electrónico</label>

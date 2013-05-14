@@ -1459,6 +1459,21 @@ img.central {
     margin: 0 auto;
     
 }
+.pasos{
+    list-style-position: inside;
+    margin: 10px 0;
+    
+}
+
+.passReset{
+    margin-bottom: 10px !important;
+}
+
+.passReset small{
+    
+    color: #999;
+    font-size: 12px;
+}
 
 .inputPass{
     width: 320px;

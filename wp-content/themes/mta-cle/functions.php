@@ -255,7 +255,7 @@ function ajaxHandler(){
                             <tr>
                                 <td>
                                     <font face="Helvetica" style="font-size: 14px; color: #000000;">
-                                        Usted ha solicitado la recuperación de su contraseña, si lo realizo por error, solo ignore este mensaje. De lo contrario, haga click en el botón inferior y siga las instrucciones.
+                                        Usted ha solicitado la recuperación de su contraseña. Haga click en el siguiente botón y siga las instrucciones.
                                     </font>    
                                </td>
                             </tr>
@@ -268,9 +268,21 @@ function ajaxHandler(){
                                 <a href="'. home_url() .'/recuperacion-de-contrasena/?userEmail='. $_POST['mailLog'] .'"> <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailbutton.jpg"/></a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 12px; color: #999999;">
+                                        Si lo realizó por error, solo ignore este mensaje
+                                    </font>
+                                </td>
+                            </tr>
                          </table>
                     </td>
                 </tr>
+                
                  <tr>
                     <td height="50">
                     </td>
@@ -294,7 +306,7 @@ function ajaxHandler(){
             remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
             $out = "<div class='exito'>";
             $out .= "<strong>¡FELICITACIONES!</strong>";
-            $out .= "<p>Te hemos enviado un mail para recuperar tu contraseña</p>";
+            $out .= "<p>Te hemos enviado un email para recuperar tu contraseña</p>";
             $out .= " </div>";
             die( $out );
             
