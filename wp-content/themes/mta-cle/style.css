@@ -65,7 +65,12 @@ Text Domain: CleClub
  font-family: EY;
  src: url("EYInterstate-Regular.ttf")  TTF file for CSS3 browsers 
 }*/
-
+html{
+    
+    -moz-text-size-adjust:none;
+    -webkit-text-size-adjust:none;
+    text-size-adjust:none;
+}
 
 #wrapper {
     margin:0 auto;
@@ -373,14 +378,12 @@ footer .menu-menu-principal-container{
 }
 #leftSide {
     /*width:620px;*/
-    min-height:300px;
     /*float:left;*/
 }
 
 #sidebar {
-    /*width:340px;*/
+    /*width:340px;*/    
 /*    float:right;*/
-    min-height:300px;
     font-size:10px;
 }
 
@@ -407,7 +410,6 @@ footer .menu-menu-principal-container{
 
 #layerslider {
     /*width:640px;*/
-    height:300px;
 }
 
 .titulo {
@@ -605,9 +607,7 @@ footer .menu-menu-principal-container{
 
 #listadoEventos {
     /*width:310px;*/
-    border:1px solid #ccc;
     /*float:right;*/
-    border-top:0;
 }
 
 .eventos li {
@@ -696,6 +696,7 @@ footer .menu-menu-principal-container{
     background: none repeat scroll 0 0 #000000;
     border-left: 1.1em solid #FF9900;
     color: #FFFFFF;
+    height: 50px;
 }
 
 .tituloNota a {
@@ -807,7 +808,6 @@ footer .menu-menu-principal-container{
 
 #pageContent {
     margin-bottom:30px;
-    width: 640px;
     float: left;
     line-height: 130%;
     /*margin-top: 20px;*/
@@ -1023,8 +1023,18 @@ footer .menu-menu-principal-container{
     border-top: 2px solid #999999;
 }
 
+.footerBox .logo{
+    width: 130px;
+    margin-bottom: 20px;
+}
+
 .footerBox .logo img{
-    /*    width: 70%;*/
+    width: 100%;
+}
+
+.infoFoot p {
+    color: #525252;
+    line-height: 150%;
 }
 
 .exp {
@@ -1418,6 +1428,36 @@ img.central {
     
     width: 100%;
 }
+
+.menuFoot {
+    color: #FFFFFF;
+    float: left;
+    list-style-position: inside;
+    list-style-type: square;
+}
+
+.infoFoot, .menuBlock{
+    box-shadow: -1px 0 0 0 #A3A3A3 inset , 1px 0 0 0 #fff; 
+}
+.infoFoot p{
+    border-bottom: 10px;
+}
+.menuFoot li {
+    line-height: 180%;
+    padding: 0 5px;
+}
+
+.menuFoot li a {
+    color: #333333;
+    font-family: Helvetica,sans-serif;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.menuFoot .sub-menu{
+    display: none;
+}
+
 .not-found {
     margin: 30px auto;
     text-align: left;
@@ -1630,7 +1670,74 @@ img.central {
     float: right;
     width: 430px;
 }
+/*******************************************************************************
+SLIDER HOME*********************************************************************
+********************************************************************************/
 
+.slideContainer{
+    width: 100%;
+    overflow: hidden;
+}
+
+.sliderHome {
+    list-style: none outside none;
+    width: 300%;
+}
+
+.sliderHome li {
+    float: left;
+    width: 33.333%;
+}
+
+.sliderHome figure {
+    position: relative;
+}
+
+.sliderHome figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    width: 40%;
+    height: 100%;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.sliderHome h2 {
+    border-bottom: 1px solid #FF9900;
+    color: #FFFFFF;
+    display: block;
+    font-family: EY;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 150%;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.sliderHome p{
+    color: #fff;
+    font-size: 14px;
+}
+
+.slideBloq {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.pad{
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 /*******************************************************************************
 All mobile general ****************************************************************
 *******************************************************************************/
@@ -1655,7 +1762,18 @@ and (min-width : 641px){
     .only-on-tablets { display: block ; }
     .only-on-desktops { display: none !important; }
     .only-on-phones { display:none !important; }
-    
+   .pad{padding: 0 20px;} 
+   .slideBloq{
+       padding:0 20px;
+   }
+   
+   #sidebar.pad{
+       padding: 0;
+   }
+   
+   #top{
+       padding-left: 20px;
+   }
 }
 
 /*******************************************************************************
@@ -1703,13 +1821,22 @@ and (max-width : 640px) {
     .hide-on-desktop{display:block !important;}
     .hide-only-vertical-tablets{display:block;}
     .divisor{display: inline;}
-
+    .infoFoot{
+        border-bottom: 1px solid #555;
+        box-shadow: 0 1px 0 0 #fff;
+        margin-bottom: 10px;
+    }
+    .infoFoot p{float: left;margin-bottom: 10px;}
+    .footerBox .logo{float: left;width: 80px;margin-right: 10px;}
+    .members{float: left;}
+    .members li{margin-top: 0;}
+    .members li:first-child{margin-left: 0;}
     
 /*header*/
 #top{
     padding-bottom: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding-left: 10px;
+    padding-top: 30px;
 }
 #buscador{
     width: auto;
@@ -1726,22 +1853,41 @@ and (max-width : 640px) {
 /*BoxNotas*/
 
 #wNotas{
-    margin-bottom: 0;
-    padding: 0 20px; 
+    margin: 0;
 }
-.boxNotas{
-    
-    margin-bottom: 20px;
-} 
 
-.boxNotas .wNota:last-child {
+#wNotas .boxNotas{
+    margin-bottom: 20px;
+}
+#wNotas .boxNotas .wNota:last-child {
     display: none;
 }
 
-.boxNotas .wNota:nth-child(3n){
+#wNotas .boxNotas .wNota:nth-child(3n){
     border-bottom: 0 none;
 }
 
+/*sidebar*/
+
+#sidebar{
+    margin: 20px 0;
+}
+.pad{
+    padding: 0 10px;
+}
+
+/*slider home*/
+
+.sliderHome figcaption{
+    
+    width: 50%;
+    padding: 10px;
+    
+}
+
+.slideBloq{
+    padding: 0;
+}
 }
 
 /*******************************************************************************
@@ -1752,6 +1898,7 @@ and (max-width : 640px)
 and (min-width : 480px){
     
     .only-on-h-phones{display:block !important;}
+    .footerBox .logo{float: left;width: 130px;margin-right: 10px;}
 
     
 }

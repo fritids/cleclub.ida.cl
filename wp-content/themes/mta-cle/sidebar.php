@@ -1,4 +1,8 @@
-<div id="sidebar" class="column4 last hide-on-phones down">
+<div id="sidebar" class="column4 last down pad <?php
+if ( !is_home() ) {
+  echo 'hide-on-phones';  // This is a homepage
+} 
+?>">
     <div id="wRegistro" class="boxSidebar wRegistro hide-on-tablets">
         <?php if (!is_user_logged_in()) : ?>
         <div class="tituloLog">

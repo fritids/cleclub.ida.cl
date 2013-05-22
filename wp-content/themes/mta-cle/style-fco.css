@@ -20,32 +20,6 @@
     
 }
 
-.menuFoot{
-    float: right;
-    list-style: none;
-}
-
-.menuFoot li{
-    float: left;
-    padding:0 5px;
-    border-left: 1px solid #999;
-
-
-}
-.menuFoot li a{
-
-    color: #333;
-    /*    text-transform: uppercase;*/
-    font-size: 13px;
-    font-weight: lighter;
-    font-family: Helvetica, sans-serif;
-}
-
-.menuFoot li:first-child{border: none;}
-.menuFoot li:last-child{padding-right: 0;}
-.menuFoot .sub-menu{
-    display: none;
-}
 .contactMail{
     clear: both;
     display: block;
@@ -56,7 +30,7 @@
 }
 
 .members {
-    float:right;
+    float:left;
     list-style: none outside none;
 }
 .members.Top{ margin-top: 5%; }
@@ -64,6 +38,10 @@
 .members li {
     float: left;
     margin: 20px 0 15px 20px;
+}
+
+.members li:first-child{
+    margin-left: 0;
 }
 
 .menuBlock{

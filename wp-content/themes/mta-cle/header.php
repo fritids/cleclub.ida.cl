@@ -80,10 +80,10 @@
                 <?php
                 if (is_user_logged_in()) {
 
-                    wp_nav_menu(array('theme_location' => 'primary','items_wrap'=> '<ul class="hide-on-phones">%3$s</ul>'));
+                    wp_nav_menu(array('theme_location' => 'primary','items_wrap'=> '<ul class="hide-on-phones hide-on-v-tablets">%3$s</ul>'));
                 } else {
 
-                    wp_nav_menu(array('theme_location' => 'public','items_wrap'=> '<ul class=" hide-on-phones">%3$s</ul>'));
+                    wp_nav_menu(array('theme_location' => 'public','items_wrap'=> '<ul class=" hide-on-phones hide-on-v-tablets">%3$s</ul>'));
                 };
                 ?>
             </div>

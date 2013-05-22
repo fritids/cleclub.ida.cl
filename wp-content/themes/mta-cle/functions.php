@@ -150,6 +150,7 @@ function slideHome() {
 add_theme_support('menus');
 register_nav_menu('primary', __('Primary Menu', 'twentytwelve'));
 register_nav_menu('public', __('Public Menu', 'twentytwelve'));
+register_nav_menu('footerPublico', __('Public Footer Menu', 'twentytwelve'));
 
 add_theme_support('post-thumbnails');
 add_image_size("notas", 70, 70, true);
