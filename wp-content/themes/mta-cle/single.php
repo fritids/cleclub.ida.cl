@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div id="contenido">
     <?php while (have_posts()) : the_post(); ?> 
-        <div id="leftSide">
+        <div id="leftSide" class="column8">
             <div id="cSlider">
                 <div id="fixedPic">
                     <?php echo get_the_post_thumbnail($post->ID, "slideHome", array('class' => "")); ?>

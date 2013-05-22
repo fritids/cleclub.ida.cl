@@ -9,7 +9,7 @@ the_post();
 ?>
 
 <div id="contenido">
-    <div id="pageContent" class="clearfix">
+    <div id="pageContent" class="clearfix column8">
         <h1><?php the_title(); ?></h1>
         <?php
         $i = 1;

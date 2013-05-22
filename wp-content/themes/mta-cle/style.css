@@ -69,8 +69,6 @@ Text Domain: CleClub
 
 #wrapper {
     margin:0 auto;
-    width:980px;
-    ;
 }
 
 #container {
@@ -78,6 +76,9 @@ Text Domain: CleClub
     padding:0;
     margin-bottom: 10px;
     border-top: 5px solid #222;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
 }
 
 .alignright {
@@ -207,7 +208,6 @@ h5 {
     padding-bottom: 20px;
     padding-top: 30px;
     position: relative;
-    width: 980px;
 }
 #logo {
     width:175px;
@@ -367,42 +367,42 @@ footer .menu-menu-principal-container{
     width: auto;
 }
 #leftSide {
-    width:620px;
+    /*width:620px;*/
     min-height:300px;
-    float:left;
+    /*float:left;*/
 }
 
 #sidebar {
-    width:340px;
-    float:right;
+    /*width:340px;*/
+/*    float:right;*/
     min-height:300px;
     font-size:10px;
 }
 
 #sidebar .boxSidebar {
-    width:310px;
+    /*width:310px;*/
     border:1px solid #ccc;
     background-color:#efefef;
-    float:right;
+    /*float:right;*/
     margin-bottom:20px;
     *height: 145px;
 }
 
 
 #sidebar .tituloBox {
-    width:310px;
+/*    width:310px;*/
     border:1px solid #ccc;
     background-color:#efefef;
-    float:right;
+    /*float:right;*/
 
 }
 
 #cSlider {
-    width:640px;
+    /*width:640px;*/
 }
 
 #layerslider {
-    width:640px;
+    /*width:640px;*/
     height:300px;
 }
 
@@ -546,7 +546,7 @@ footer .menu-menu-principal-container{
     margin-bottom: 20px;
 }
 
-.btnCont {
+#btnComment, .btnCont, .comment-reply-link {
     background-color: #ff9900;
     border: 0 none;
     cursor: pointer;
@@ -555,6 +555,10 @@ footer .menu-menu-principal-container{
     padding: 5px 15px;
     transition: background-color 0.25s ease-in-out 0s;
     color: #fff;
+}
+.comment-reply-link:hover{
+    color:#FFF;
+    opacity:0.8;
 }
 .inputField {
     height:30px;
@@ -596,9 +600,9 @@ footer .menu-menu-principal-container{
 }
 
 #listadoEventos {
-    width:310px;
+    /*width:310px;*/
     border:1px solid #ccc;
-    float:right;
+    /*float:right;*/
     border-top:0;
 }
 
@@ -1518,7 +1522,7 @@ img.central {
 
 /*MURO*/
     
-.formComment {
+#formComment {
     background: none repeat scroll 0 0 #EEEEEE;
     border: 1px solid #DDDDDD;
     display: block;
@@ -1621,4 +1625,103 @@ img.central {
 .commentReply .commmentBody {
     float: right;
     width: 430px;
+}
+
+/*******************************************************************************
+All mobile general ****************************************************************
+*******************************************************************************/
+
+@media only screen
+and (max-width : 1280px){
+
+}
+
+/*******************************************************************************
+Tablets general ****************************************************************
+*******************************************************************************/
+@media only screen
+and (max-width : 1025px)
+and (min-width : 641px){
+    .hide-on-mobile { display: none !important; }
+    .hide-on-phones { display: block ; }
+    .hide-on-tablets { display: none !important; }
+    .hide-on-desktop{display:block !important;}
+    .only-on-mobile { display: block ; }
+    .only-on-h-phones{ display: none !important; }
+    .only-on-tablets { display: block ; }
+    .only-on-desktops { display: none !important; }
+    .only-on-phones { display:none !important; }
+    
+    #container{padding-left:20px; padding-right:20px;}
+}
+
+/*******************************************************************************
+Tablets Horizontal ***************************************************************
+*******************************************************************************/
+@media only screen
+and (max-width : 1025px)
+and (min-width : 801px) {
+    .hide-on-h-tablets {display:none !important;}
+    .hidde-on-vertical-tablets{display:none !important;}
+    .hide-only-vertical-tablets{display:none !important;}
+    .only-on-phones { display:none }
+}
+
+
+/*******************************************************************************
+Tablets Vertical ***************************************************************
+*******************************************************************************/
+@media only screen
+and (max-width : 990px) {
+    .row [class*="column"].downSlide {width: 100%;float: none;margin-right: 0px; overflow:hidden;}
+}
+
+
+@media only screen
+and (max-width : 800px)
+and (min-width : 641px) {
+    .hidde-on-vertical-tablets{display:none !important;}
+    .hide-only-vertical-tablets{display:none !important;}
+    .hide-on-h-tablets {display:block;}
+    .hide-on-v-tablets{display:none !important;}
+    .only-on-phones { display:none}
+}
+
+
+/*******************************************************************************
+Smartphones ********************************************************************
+*******************************************************************************/
+@media only screen
+and (max-width : 640px) {
+    .row [class*="column"].down {width: 100%;float: none;margin-right: 0px; overflow:hidden;}
+    .hide-on-mobile { display: none !important; }
+    .hide-on-phones { display: none !important; }
+    .hide-on-tablets { display: none !important; }
+    .only-on-phones { display: block !important  ; }
+    .only-on-tablets { display: none !important; }
+    .only-on-desktops { display: none !important; }
+    .only-on-mobile { display: block !important ; }
+    .hide-on-desktop{display:block !important;}
+    .hide-only-vertical-tablets{display:block;}
+    .divisor{display: inline;}
+
+    #container{padding-left:10px; padding-right:10px;}
+}
+
+/*******************************************************************************
+Smartphones Horizontal********************************************************************
+*******************************************************************************/
+@media only screen
+and (max-width : 640px)
+and (min-width : 480px){
+    
+    .only-on-h-phones{display:block !important;}
+
+    
+}
+
+@media only screen
+and (max-width : 479px){
+    .only-on-h-phones{display:none !important;}
+
 }

@@ -6,7 +6,7 @@ Template Name: Quienes Somos
 <?php get_header();the_post(); ?>
 
 <div id="contenido">
-<div id="pageContent" class="clearfix">    
+<div id="pageContent" class="clearfix column8">    
 <h1><?php the_title(); ?></h1>
 <?php the_content();?>
 <?php $childPages=$wp_query->post->ID; ?>

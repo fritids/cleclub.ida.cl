@@ -4,64 +4,50 @@
  */
 ?>
 <?php
+    if(!is_user_logged_in()){
+        wp_redirect(home_url());
+        exit;
+    }
+?>
+<?php
 get_header();
 the_post();
+$user = wp_get_current_user();
 ?>
-
+<?php wp_enqueue_script( 'comment-reply' );?>
 <div id="contenido">
-    <div id="pageContent" class="clearfix">
+    <div id="pageContent" class="clearfix column8">
         <h1><?php the_title();?></h1>
         <?php the_content();?>
-        
-        <form id="formComment" action="" method="post" class="formComment">
-            <div class="picAvatar">
-                <img src="<?php bloginfo('template_directory'); ?>/_img/avatar.jpg"/>
-            </div>
-            <textarea class="txtComment" placeholder="Añadir comentario...">
-            
-            </textarea>
-            <span>Estas conectado como Juan Juanet( Salir )</span>
-            <input type="submit" value="Comentar" class="btnCont"/>
-        </form>
-        
-        <ul class="commentList">
-            <li class="comment">
-                <div class="commentInfo">
-                    <div class="picAvatar">
-                        <img src="<?php bloginfo('template_directory'); ?>/_img/avatar.jpg"/>
-                    </div>
-                    <a class="perfil_ico">Ver Perfil</a>
-                </div>
-                <div class="commmentBody">
-                    <span class="date">Lunes 24 de Oct 23:21</span>
-                    <span class="userCom"><strong>Juan Juanet</strong> Comento:</span>
-                    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis. 
-                       Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit 
-                       amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                <a class="btnCont">Responder</a>
-                </div>
-                
-            </li>
-            <li class="commentReply">
-                <div class="commentInfo">
-                    <div class="picAvatar">
-                        <img src="<?php bloginfo('template_directory'); ?>/_img/avatar.jpg"/>
-                    </div>
-                    <a class="perfil_ico">Ver Perfil</a>
-                </div>
-                <div class="commmentBody">
-                    <span class="date">Lunes 24 de Oct 23:21</span>
-                    <span class="userCom"><strong>Juan Juanet</strong> Comento:</span>
-                    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis. 
-                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit 
-                        amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    
-                </div>
+        <?php
+            $args = array(
+                   'id_form' => 'formComment',
+                   'title_reply' => '',
+                   'title_reply_to' => '',
+                   'logged_in_as' => '',
+                   'id_submit' => 'btnComment',
+                   'label_submit'=>'Comentar',
+                   'comment_notes_before' => '',
+                   'comment_notes_after' => '',
+                   'author' => '',
+                   'email' => '',
+                   'url' => '',
+                   'comment_field' => '<div class="picAvatar">
+                                            '.get_wp_user_avatar($user->ID, 72,72).' 
+                                        </div>
+                                        <textarea class="txtComment" placeholder="Añadir comentario..." name="comment">
 
-            </li>
-            
-            
+                                        </textarea>
+                                        <span>Estas conectado como '.$user->user_login .'<a href="'. wp_logout_url( home_url()) .'" title="Salir y volver al Inicio" rel="nofollow"> ( Salir )</a></span>'   
+            );
+       ?>
+
+        <?php comment_form($args) ?>
+        <ul id="all-comments" class="commentList">
+            <?php echo getComentarios() ?> 
         </ul>
+        <button class="evt btnCont" data-func="loadComments">Ver mas comentarios</button>
+
     </div>
     <?php get_sidebar();?>
     <?php get_footer();?>

@@ -13,6 +13,7 @@
 	position: absolute;
 	left: 0px;
 	top: 0px;
+        max-width:none !important;
 }
 
 .ls-layer .ls-bg {

@@ -34,7 +34,7 @@ get_header(); ?>
         </div><!--/leftSide -->
 <?php get_sidebar();?>
 <!--CONTENIDOS -->
-<div id="pageContent">
+<div id="pageContent" class="column8">
     <h1><?php echo the_title();?> </h1>
     <div id="bajadaContent">
         <?php echo the_excerpt(); ?>

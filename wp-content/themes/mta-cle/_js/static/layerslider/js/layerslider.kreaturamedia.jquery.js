@@ -67,7 +67,7 @@
                 a(b).css("position", "relative")
             }
             a(b).find(".ls-inner, .ls-layer").css({
-                width: d.g.sliderWidth,
+                width: '100%',
                 height: d.g.sliderHeight,
                 overflow: "hidden"
             });

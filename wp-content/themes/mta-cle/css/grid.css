@@ -1,0 +1,36 @@
+/*******************************************************************************
+Grilla *************************************************************************
+*******************************************************************************/
+.row { width: 100%; max-width: 1000px; margin: 0 auto; }
+.row:before, .row:after { content: ""; display: table; }
+.row:after { clear: both; }
+.row { *zoom: 1; }
+.row [class*="column"] {
+    display: block;
+    float:left; 
+    margin-right: 1.754%;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -msbox-sizing:border-box;
+    -o-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.row [class*="column"] img{
+    max-width:100%;
+    height:auto;
+}
+
+.column1{width:6.7255%;}
+.column2{width:15.205%}
+.column3{width:23.6845%}
+.column4{width:32.164%}
+.column5{width:40.6435%}
+.column6{width:49.123%}
+.column7{width:57.6025%}
+.column8{width:66.082%}
+.column9{width:74.5615%}
+.column10{width:83.041%}
+.column11{width:91.5205%}
+.column12{width:100%;float:none;}
+
+[class*="column"].last{ margin-right: 0px !important; }

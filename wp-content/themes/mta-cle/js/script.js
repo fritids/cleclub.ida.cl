@@ -191,13 +191,12 @@
                 t.autoHandle($('.arrowR'));
                 t.autoHandle($('.arrowL'));
                 
-            })
+            });
 
         },
         closeLightBox: function() {
             $("#lightbox,#lightboxImg").remove();
-        }
-        ,
+        },
         nextPic: function(e) {
             e.preventDefault();
 
@@ -210,8 +209,7 @@
             $(".imgLigthbox").attr("src", img);
             $(".arrowL,.arrowR").attr("data-item", item);
             $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
-        }
-        ,
+        },
         prevPic: function(e) {
             e.preventDefault();
             var item = parseInt($(e.currentTarget).attr("data-item")) - 1;            
@@ -222,8 +220,7 @@
             $(".imgLigthbox").attr("src", img);
             $(".arrowL,.arrowR").attr("data-item", item);
             $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
-        }
-        ,
+        },
         salirLog : function( e ){
             e.preventDefault();
             
@@ -235,6 +232,20 @@
                     beforeSend: function( xhr ) {  },
                     success: function( respuesta ) { window.location.reload(); }
                 });
+        },
+        loadComments : function( e ){
+            var commentCount = $('.comment').length;
+            $.ajax({
+                type: "POST",
+                url: '/wp-admin/admin-ajax.php',
+                data: 'action=envioAjax&func=loadComments&offset=' + commentCount,
+                dataType: "html",
+                beforeSend: function( xhr ) { $('#pageContent').css('opacity','0.5'); },
+                success: function( respuesta ) {
+                    $('#pageContent').css('opacity','1.0');
+                    $('#all-comments').append(respuesta);
+                }
+            });
         }
     };
 
@@ -250,7 +261,7 @@
 
 
         });
-    }
+    };
 
     $(window.document).ready(function() {
         window.siteHandler = new window.SiteHandler();

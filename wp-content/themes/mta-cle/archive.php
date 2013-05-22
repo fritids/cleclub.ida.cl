@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="contenido">
-<div id="pageContent">
+<div id="pageContent" class="column8">
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
     <ul>

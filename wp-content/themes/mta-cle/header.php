@@ -10,7 +10,9 @@
     <!--<![endif]-->
     <head>
         <meta charset="<?php bloginfo('charset'); ?>" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
         <title><?php echo is_home() ? get_bloginfo("name")." &raquo ". get_bloginfo("description") : wp_title(" &raquo; ", false, 'right') .  get_bloginfo("name"); ?></title>
         <link rel="profile" href="<?php echo get_template_directory_uri(); ?>/http://gmpg.org/xfn/11" />
         <link rel="pingback" href="<?php echo get_template_directory_uri(); ?>/<?php bloginfo('pingback_url'); ?>" />
@@ -27,6 +29,7 @@
         <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/skins/defaultskin/skin.css" type="text/css" media="screen">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/_js/validationEngine.jquery.css" type="text/css"/>
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"/>
+        <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/grid.css" type="text/css"/>
         <!--end layerslider-->
         <link href="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.css" rel="stylesheet" type="text/css" />
         <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
@@ -41,14 +44,17 @@
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine-es.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/validizr.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
+        <script src="http://cleclub.ida.cl/wp-includes/js/comment-reply.js"></script>
+        <?php if(is_page('red-de-contactos-cleclub')){
+            echo '<script src="'.home_url().'/wp-includes/js/comment-reply.js"></script>';
+        } ?>
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
         
         
         <div id="container">
-
-            <div id="top">
+            <div id="top" class="row">
                 <div id="logos">
                     <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
                     <div id="logo2">
@@ -81,6 +87,6 @@
                 };
                 ?>
             </div>
-            <div id="wrapper" class="clearfix">
+            <div id="wrapper" class="clearfix row">
                 
                

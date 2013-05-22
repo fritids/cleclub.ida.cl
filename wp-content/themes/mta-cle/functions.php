@@ -317,8 +317,7 @@ function ajaxHandler(){
             $out .= " </div>";
             die( $out );
             
-        }
-        else { // usuario no existe
+        }else { // usuario no existe
             die('noUser');
         }
     }
@@ -338,8 +337,68 @@ function ajaxHandler(){
         else{
             die('exito');
         }
+    }elseif($_POST['func'] === 'loadComments'){
+        $out = getComentarios($_POST['offset']);
+        die($out);
     }
     else { die('Error!'); }
+}
+
+function getComentarios($offset = 0){
+    $out = "";
+    
+    $args = array(
+                'parent' => 0,
+                'number' => 20,
+                'offset' => $offset
+        );
+        
+    $comments = get_comments($args); 
+
+    foreach($comments as $comment){
+        $out .= '<li id="comment-'.$comment->comment_ID.'" class="comment">';
+        $out .= '<div class="commentInfo">';
+        $out .= '<div class="picAvatar">';
+        $out .= get_wp_user_avatar($comment->user_id, 72,72);
+        $out .= '</div>';
+        $out .= '<a href="'.get_author_posts_url($comment->user_id).'" class="perfil_ico" rel="contents">Ver Perfil</a>';
+        $out .= '</div>';
+        $out .= '<div class="commmentBody">';
+
+        $commentDate = get_comment_date( 'l d \d\e M G:i  ', $comment->comment_ID );
+
+        $out .= '<span class="date">'.$commentDate.'</span>';
+        $out .= '<span class="userCom"><strong>'.$comment->comment_author.'</strong> Comento:</span>';
+        $out .= '<p>'.$comment->comment_content.'</p>';
+        $out .= get_comment_reply_link($args = array('reply_text' => 'Responder', 'depth' => 1, 'max_depth' => 2, 'respond_id' => 'formComment' ), $comment->comment_ID, $post-ID);
+        $out .= '</div>';
+        $out .= '</li>';
+
+        $replyArgs = array(
+                       'parent' => $comment->comment_ID,
+                       'order' => 'ASC'
+        );
+        $replyComments = get_comments($replyArgs);
+        foreach($replyComments as $reply){
+            $out .= '<li id="comment-'.$reply->comment_ID.'" class="commentReply">';
+            $out .= '<div class="commentInfo">';
+            $out .= '<div class="picAvatar">';
+            $out .= get_wp_user_avatar($reply->user_id, 72,72);
+            $out .= '</div>';
+            $out .= '<a href="/perfil/" class="perfil_ico">Ver Perfil</a>';
+            $out .= '</div>';
+            $out .= '<div class="commmentBody">';
+
+            $commentDate = get_comment_date( 'l d \d\e M G:i  ', $reply->comment_ID );
+
+            $out .= '<span class="date">'.$commentDate.'</span>';
+            $out .= '<span class="userCom"><strong>'.$reply->comment_author.'</strong> Comento:</span>';
+            $out .= '<p>'.$reply->comment_content.'</p>';
+            $out .= '</div>';
+            $out .= '</li>';
+        }
+    }
+    return $out;
 }
 
 add_action('wp_ajax_envioAjax', 'ajaxHandler');

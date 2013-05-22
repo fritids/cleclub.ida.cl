@@ -1,5 +1,5 @@
-<div id="sidebar">
-    <div id="wRegistro" class="boxSidebar wRegistro">
+<div id="sidebar" class="column4 last hide-on-phones down">
+    <div id="wRegistro" class="boxSidebar wRegistro hide-on-tablets">
         <?php if (!is_user_logged_in()) : ?>
         <div class="tituloLog">
             <p class="tituloNM">INGRESO <a href="/solicitud-de-membresia/">Solicitar Membresía</a></p>
