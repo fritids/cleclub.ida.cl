@@ -208,6 +208,9 @@ h5 {
     padding-bottom: 20px;
     padding-top: 30px;
     position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 #logo {
     width:175px;
@@ -361,7 +364,9 @@ h5 {
 }
 .menu-menu-principal-container, .menu-menu-publico-container {
     margin: 0 auto;
-    width: 980px;
+    max-width: 1000px;
+    width: 100%;
+    
 }
 footer .menu-menu-principal-container{
     width: auto;
@@ -381,8 +386,7 @@ footer .menu-menu-principal-container{
 
 #sidebar .boxSidebar {
     /*width:310px;*/
-    border:1px solid #ccc;
-    background-color:#efefef;
+    background-color:#FFE5BF;
     /*float:right;*/
     margin-bottom:20px;
     *height: 145px;
@@ -391,7 +395,7 @@ footer .menu-menu-principal-container{
 
 #sidebar .tituloBox {
 /*    width:310px;*/
-    border:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     background-color:#efefef;
     /*float:right;*/
 
@@ -675,7 +679,6 @@ footer .menu-menu-principal-container{
 }
 
 .boxNotas {
-    width:310px;
     float:left;
     background: #EEE;
 }
@@ -693,7 +696,6 @@ footer .menu-menu-principal-container{
     background: none repeat scroll 0 0 #000000;
     border-left: 1.1em solid #FF9900;
     color: #FFFFFF;
-    height: 50px;
 }
 
 .tituloNota a {
@@ -1252,6 +1254,8 @@ p,#pageContent p {
     margin-bottom:20px;
 }
 
+
+
 #detalleEVento {
     margin-bottom:10px;	
 }
@@ -1652,7 +1656,6 @@ and (min-width : 641px){
     .only-on-desktops { display: none !important; }
     .only-on-phones { display:none !important; }
     
-    #container{padding-left:20px; padding-right:20px;}
 }
 
 /*******************************************************************************
@@ -1671,10 +1674,6 @@ and (min-width : 801px) {
 /*******************************************************************************
 Tablets Vertical ***************************************************************
 *******************************************************************************/
-@media only screen
-and (max-width : 990px) {
-    .row [class*="column"].downSlide {width: 100%;float: none;margin-right: 0px; overflow:hidden;}
-}
 
 
 @media only screen
@@ -1705,7 +1704,44 @@ and (max-width : 640px) {
     .hide-only-vertical-tablets{display:block;}
     .divisor{display: inline;}
 
-    #container{padding-left:10px; padding-right:10px;}
+    
+/*header*/
+#top{
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+#buscador{
+    width: auto;
+}
+.contactoButton{
+    
+    width: 0;
+    overflow: hidden;
+    padding-left: 16px;
+    font-size: 0;
+    height: 15px;
+}
+
+/*BoxNotas*/
+
+#wNotas{
+    margin-bottom: 0;
+    padding: 0 20px; 
+}
+.boxNotas{
+    
+    margin-bottom: 20px;
+} 
+
+.boxNotas .wNota:last-child {
+    display: none;
+}
+
+.boxNotas .wNota:nth-child(3n){
+    border-bottom: 0 none;
+}
+
 }
 
 /*******************************************************************************

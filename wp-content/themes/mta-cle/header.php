@@ -58,7 +58,7 @@
                 <div id="logos">
                     <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
                     <div id="logo2">
-                        <ul class="members Top">
+                        <ul class="members Top hide-on-mobile">
                             <li>
                                 <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
                             </li>
@@ -80,10 +80,10 @@
                 <?php
                 if (is_user_logged_in()) {
 
-                    wp_nav_menu(array('theme_location' => 'primary'));
+                    wp_nav_menu(array('theme_location' => 'primary','items_wrap'=> '<ul class="hide-on-phones">%3$s</ul>'));
                 } else {
 
-                    wp_nav_menu(array('theme_location' => 'public'));
+                    wp_nav_menu(array('theme_location' => 'public','items_wrap'=> '<ul class=" hide-on-phones">%3$s</ul>'));
                 };
                 ?>
             </div>

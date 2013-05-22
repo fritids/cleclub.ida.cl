@@ -14,8 +14,10 @@
 
 }
 .center{
-    width: 980px;
+    width:100%;
+    max-width: 1000px;
     margin: 0 auto;
+    
 }
 
 .menuFoot{
@@ -82,7 +84,7 @@
 
 .chromebrowser .userData{
     
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Arial, Helvetica,  sans-serif;
 }
 
 .userData span{
@@ -113,15 +115,11 @@
     width: 100%;
 }
 
-#wNotas .boxNotas{
-    width: 31.5%;
-}
-
 #sidebar .tituloBox{ 
     height:40px;
 }
 #sidebar .tituloBox a{ 
-    font-size: 19px; 
+    font-size: 16px; 
 }
 
 #sidebar .tituloBox a:before {
