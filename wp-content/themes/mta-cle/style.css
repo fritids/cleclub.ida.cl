@@ -1634,6 +1634,7 @@ img.central {
 
 .commmentBody{
     float: right;
+    width: 84%;
 }
 
 #pageContent .commmentBody > p {
@@ -1671,7 +1672,7 @@ img.central {
 
 .commentInfo {
     float: left;
-    width: 87px;
+    width: 13%;
 }
 
 .commentInfo .perfil_ico {
