@@ -262,9 +262,10 @@
             });
         },
         goToSlide : function( evento ){
+            evento.preventDefault();
             var $bulletSlide = $(evento.currentTarget).attr('data-slide');
             
-            console.log($('#slide').data('Swipe'));
+            console.log($('#slide'));
         }
     };
 
