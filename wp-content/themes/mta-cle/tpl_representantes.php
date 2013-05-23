@@ -9,7 +9,7 @@ the_post();
 ?>
 
 <div id="contenido">
-    <div id="pageContent" class="clearfix column8">
+    <div id="pageContent" class="clearfix column8 downV pad down">
         <h1><?php the_title(); ?></h1>
         <?php the_content();?>
         <?php
@@ -23,7 +23,7 @@ the_post();
         ksort($usuarios);
         foreach ($usuarios as $user) {
             $last = $i % 3 == false ? ' last' : '';
-            echo '<div class="one_third'.$last.'">
+            echo '<div class="column4 down'.$last.'">
                     <div class="bio clearfix">
                         <div class="fotoMiembro">
                             <a href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'  <span class="user_'.$user->ID.'">logo '.get_field('empresa', "user_$user->ID").'</span></a>

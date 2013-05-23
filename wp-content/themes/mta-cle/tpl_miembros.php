@@ -16,7 +16,7 @@ the_post();
         $blogusers = get_users('orderby=display_name&role=subscriber');
         foreach ($blogusers as $user) {
             $last = $i % 3 == false ? ' last' : '';
-            echo '<div class="one_third'.$last.'">
+            echo '<div class="column4 down'.$last.'">
                     <div class="bio clearfix">
                         <div class="fotoMiembro">
                             <a href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'</a>

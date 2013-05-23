@@ -1,5 +1,5 @@
-<div id="sidebar" class="column4 last down pad <?php if (is_home()){}else{ echo 'hide-on-phones';}?>">
-    <div id="wRegistro" class="boxSidebar wRegistro hide-on-v-tablets hide-on-phones hide-on-v-tablets">
+<div id="sidebar" class="column4 last down pad <?php if (is_home()){}else{ echo 'hide-on-phones hide-on-v-tablets';}?>">
+    <div id="wRegistro" class="boxSidebar wRegistro hide-on-v-tablets hide-on-phones">
         <?php if (!is_user_logged_in()) : ?>
         <div class="tituloLog">
             <p class="tituloNM">INGRESO <a href="/solicitud-de-membresia/">Solicitar Membresía</a></p>

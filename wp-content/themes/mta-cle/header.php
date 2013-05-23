@@ -41,6 +41,7 @@
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine-es.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/validizr.js"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/swipe.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
         <script src="http://cleclub.ida.cl/wp-includes/js/comment-reply.js"></script>
         <?php if(is_page('red-de-contactos-cleclub')){
