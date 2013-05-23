@@ -6,14 +6,34 @@
 
     window.SiteHandler = function() {
         //cosas para el init
-        this.autoHandle($('.evt'));
-        this.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
-        this.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
-        this.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
-        this.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
-        this.equalizeHeights($(".bio .infoMiembro .empresa"));
-        this.equalizeHeights($("#wNotas .boxNotas"));
-        this.equalizeHeights($("#wNotas .tituloNota"));
+        var esto = this;
+        
+        esto.autoHandle($('.evt'));
+        esto.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
+        esto.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
+        esto.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
+        esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
+        esto.equalizeHeights($(".bio .infoMiembro .empresa"));
+        esto.equalizeHeights($("#wNotas .boxNotas"));
+        esto.equalizeHeights($("#wNotas .tituloNota"));
+        if(Modernizr.mq('only screen and (max-width : 800px)')){
+            esto.deployMobilMenu();
+        }
+        
+        
+        $(window).on('resize',function(){
+            esto.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
+            esto.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
+            esto.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
+            esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
+            esto.equalizeHeights($(".bio .infoMiembro .empresa"));
+            esto.equalizeHeights($("#wNotas .boxNotas"));
+            esto.equalizeHeights($("#wNotas .tituloNota"));
+            $('#menuSelect').remove();
+            if(Modernizr.mq('only screen and (max-width : 800px)')){
+                esto.deployMobilMenu();
+            }
+        });
         
         
         $('#formPassword').validizr({
@@ -134,6 +154,8 @@
                         
             }});
         }
+        
+        
 
 
     };
@@ -152,6 +174,24 @@
                     $item.on(event, $.proxy(esto[ func ], esto));
                 }
             });
+        },
+        deployMobilMenu : function (){
+            var $menuContainer = $('#menuContainer');
+            var $listMenu = $menuContainer.find('.menu-item');
+            var options = '<option value="">Seleccione una sección</option>';
+
+            $.each($listMenu,function(i,item) {
+                var aLink = $(item).children('a');
+                console.log($(item));
+                console.log(aLink);
+                console.log(aLink.attr('href'));
+                console.log(aLink.text());
+                options += '<option class="evt" data-func="redirectMenu" data-event="change" value="'+aLink.attr('href')+'">'+aLink.text()+'</option>';
+            });
+            
+            $menuContainer.prepend('<select id="menuSelect" name="menu-principal"></select>');
+            var $select = $('#menuSelect');
+            $select.prepend(options);
         },
         equalizeHeights: function($elements) {
                        if ($elements.length) {
