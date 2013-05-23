@@ -41,10 +41,11 @@
                  echo '<h3>Relator:' . get_field('relator') . '</h3>';
                  } ?>        
                 <?php the_content();?>
-                
+                <div class="share">
                  <?php if (get_field('archivo_adjunto')) {
-                    echo '<h3>Descarga</h3>';                     
-                    echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
+                    echo '
+
+                        <a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
                 }
                 ?>
                 
@@ -52,17 +53,15 @@
                     
                 } else {
                 	the_content();
-                    echo '<h3>Descarga ...</h3>';                        
-                    echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
+                    echo '<div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
                 };
                 ?>
+            </div>
                 <?php
                 
             endwhile;
             ?>
-            <?php
-           
-            ?>
+                
             <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>
                 <div class="gallery">
                     <ul>
