@@ -23,7 +23,7 @@ the_post();
         ksort($usuarios);
         foreach ($usuarios as $user) {
             $last = $i % 3 == false ? ' last' : '';
-            echo '<div class="column4 down'.$last.'">
+            echo '<div class="miembros column4 down'.$last.'">
                     <div class="bio clearfix">
                         <div class="fotoMiembro">
                             <a href="'. get_author_posts_url($user->ID).'" title="ir a perfil de '.$user->display_name.'">'.  get_wp_user_avatar($user->ID,"portadaPerfil").'  <span class="user_'.$user->ID.'">logo '.get_field('empresa', "user_$user->ID").'</span></a>

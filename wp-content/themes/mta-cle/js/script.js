@@ -7,8 +7,8 @@
     window.SiteHandler = function() {
         //cosas para el init
         this.autoHandle($('.evt'));
-        this.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .one_third .bio"));
-        this.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .one_third .bio"));
+        this.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
+        this.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
         this.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
         this.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         this.equalizeHeights($(".bio .infoMiembro .empresa"));

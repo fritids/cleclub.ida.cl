@@ -359,10 +359,10 @@ function getComentarios($offset = 0){
     foreach($comments as $comment){
         $out .= '<li id="comment-'.$comment->comment_ID.'" class="comment">';
         $out .= '<div class="commentInfo">';
-        $out .= '<div class="picAvatar">';
+        $out .= '<div class="picAvatar hide-on-phones">';
         $out .= get_wp_user_avatar($comment->user_id, 72,72);
         $out .= '</div>';
-        $out .= '<a href="'.get_author_posts_url($comment->user_id).'" class="perfil_ico" rel="contents">Ver Perfil</a>';
+        $out .= '<a href="'.get_author_posts_url($comment->user_id).'" class="perfil_ico hide-on-phones" rel="contents">Ver Perfil</a>';
         $out .= '</div>';
         $out .= '<div class="commmentBody">';
 
@@ -383,10 +383,10 @@ function getComentarios($offset = 0){
         foreach($replyComments as $reply){
             $out .= '<li id="comment-'.$reply->comment_ID.'" class="commentReply">';
             $out .= '<div class="commentInfo">';
-            $out .= '<div class="picAvatar">';
+            $out .= '<div class="picAvatar hide-on-phones">';
             $out .= get_wp_user_avatar($reply->user_id, 72,72);
             $out .= '</div>';
-            $out .= '<a href="/perfil/" class="perfil_ico">Ver Perfil</a>';
+            $out .= '<a href="'.get_author_posts_url($comment->user_id).'" class="perfil_ico hide-on-phones">Ver Perfil</a>';
             $out .= '</div>';
             $out .= '<div class="commmentBody">';
 

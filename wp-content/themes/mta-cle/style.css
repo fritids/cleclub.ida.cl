@@ -1147,6 +1147,7 @@ footer .menu-menu-principal-container{
     float: right;
     margin-top: 10px;
     padding-left: 25px;
+    margin-bottom: 10px;
 }
 .bioBig {
 
@@ -1245,6 +1246,11 @@ footer .menu-menu-principal-container{
 #contenidoMiembros {
     padding-top:10px;
     padding-bottom:20px;
+}
+
+.miembros{
+    margin-bottom: 15px;
+    
 }
 
 a:hover,.tituloNota a:hover {
@@ -1628,7 +1634,6 @@ img.central {
 
 .commmentBody{
     float: right;
-    width: 520px;
 }
 
 #pageContent .commmentBody > p {
@@ -1683,7 +1688,6 @@ img.central {
 
 .commentReply .commmentBody {
     float: right;
-    width: 430px;
 }
 /*******************************************************************************
 SLIDER HOME*********************************************************************
@@ -1945,7 +1949,6 @@ and (max-width : 640px) {
 /*MIEMBROS*/
 
 .bio{
-    margin-bottom: 20px;
 }
 .fotoMiembro {
     float: left;
