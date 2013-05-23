@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-<div id="contenido">
+<div id="contenido" class="row">
     <?php while (have_posts()) : the_post(); ?> 
-        <div id="leftSide" class="column8">
+        <div id="leftSide" class="column8 downV">
             <div id="cSlider">
                 <div id="fixedPic">
                     <?php echo get_the_post_thumbnail($post->ID, "slideHome", array('class' => "")); ?>
@@ -9,7 +9,7 @@
             </div><!--/cSlider-->
         </div><!--/leftSide -->
         <?php get_sidebar(); ?>
-        <div id="pageContent">
+        <div id="pageContent" class="column8 down downV pad">
             <h1><?php the_title(); ?></h1>
 
             <div id="postContent">

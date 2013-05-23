@@ -1855,6 +1855,10 @@ and (min-width : 801px) {
     .hidde-on-vertical-tablets{display:none !important;}
     .hide-only-vertical-tablets{display:none !important;}
     .only-on-phones { display:none }
+    #wrapper{
+        padding: 0 10px;
+        -moz-box-sizing: border-box;
+    }
 }
 
 
@@ -1873,8 +1877,9 @@ and (min-width : 641px) {
     .only-on-phones { display:none}
     .page-template #sidebar{display: none;}
     .row [class*="column"].downV {width: 100%;float: none;margin-right: 0px; overflow:hidden;}
-    #leftSide{padding: 0 20px;}
-    
+    #cSlider{
+        padding: 0 20px;
+    }
 }
 
 
@@ -2007,6 +2012,13 @@ and (max-width : 640px) {
     
 }
 
+/*Eventos*/
+
+.single-eventos_sociales #leftSide{display: none;}
+.eventInfo{
+    width: 100%;
+    margin-bottom: 20px;
+}
 }
 
 /*******************************************************************************
