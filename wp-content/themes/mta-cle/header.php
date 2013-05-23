@@ -38,8 +38,6 @@
         <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.js"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/_js/static/js/jqueryui.js" type="text/javascript"></script>
         <script src="<?php echo get_template_directory_uri(); ?>/_js/static/js/plugins.js" type="text/javascript"></script>
-        <script src="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/js/page.js" type="text/javascript"></script>
-        <script src="<?php echo get_template_directory_uri(); ?>/_js/static/layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/_js/jquery.validationEngine-es.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/validizr.js"></script>
@@ -77,6 +75,7 @@
                 </div>
             </div>
             <div id="menuContainer">
+                <button class="menuDrop hide-on-h-tablets hide-on-desktop">Menu</button>
                 <?php
                 if (is_user_logged_in()) {
 

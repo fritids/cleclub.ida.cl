@@ -373,6 +373,20 @@ h5 {
     width: 100%;
     
 }
+
+.menuDrop {
+    background: url(_img/menuButton.svg) center center no-repeat;
+    border: 0 none;
+    box-shadow: 1px 0 0 0 #777777;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    text-indent: -9999px;
+}
+
 footer .menu-menu-principal-container{
     width: auto;
 }
@@ -1768,6 +1782,8 @@ clase padding****************************************************************
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+.hide-on-desktop{display: none !important;}
 /*******************************************************************************
 All mobile general ****************************************************************
 *******************************************************************************/
@@ -1832,6 +1848,7 @@ and (min-width : 641px) {
     .hide-on-h-tablets {display:block;}
     .hide-on-v-tablets{display:none !important;}
     .only-on-phones { display:none}
+    .page-template #sidebar{display: none;}
 }
 
 
