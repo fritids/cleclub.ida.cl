@@ -3,7 +3,7 @@
 function sliderHome(){
     $out = "";
     
-    $out .= '<div id="slider">';
+    $out .='<div id="slider" class="swipe">';
     $out .='<ul class="sliderHome swipe-wrap">';
     $args = array(
                'post_type' => array( 'post', 'eventos_sociales' ),
@@ -23,7 +23,7 @@ function sliderHome(){
                 $out .='<figcaption>';
                 $out .='<div class="cap">';
                 $out .='<h2>'.get_the_title().'</h2>';
-                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),50).'</p>';
+                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),150).'</p>';
                 $out .='</div>';
                 $out .='</figcaption>';
                 $out .='</figure>';
@@ -32,10 +32,10 @@ function sliderHome(){
     }
     $out .='</ul>';
     $out .='</div>';
-    $out .='<ul class="slideNav">';
-    $out .='<li><a class="active" href="#" title="Esto es un titulo de dos o mas lineas" rel="contents">1</a></li>';
-    $out .='<li><a href="#">3</a></li>';
-    $out .='<li><a href="#">4</a></li>';
+    $out .='<ul id="bullets-slider" class="slideNav">';
+    $out .='<li><a class="active evt" data-func="goToSlide" data-slide="0" href="#" rel="nofollow">1</a></li>';
+    $out .='<li><a class="evt" data-func="goToSlide" href="#" data-slide="1" rel="nofollow">3</a></li>';
+    $out .='<li><a class="evt" data-func="goToSlide" href="#" data-slide="2" rel="nofollow">4</a></li>';
     $out .='</ul>';
     
     
