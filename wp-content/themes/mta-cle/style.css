@@ -1608,15 +1608,16 @@ img.central {
     -moz-box-sizing: border-box;
     border: 1px solid #DDDDDD;
     height: 85px;
-    margin: 0 0 10px 10px;
     padding: 10px;
+    margin-bottom: 10px;
     resize: none;
-    width: 523px;
+    width: 82%;
     font-family: Arial, helvetica;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 14px;
+    float: right;
 }
 
 .commentList{
@@ -1633,8 +1634,8 @@ img.central {
 }
 
 .commmentBody{
-    float: right;
-    width: 84%;
+    float: left;
+    width: 79%;
 }
 
 #pageContent .commmentBody > p {
@@ -1672,7 +1673,12 @@ img.central {
 
 .commentInfo {
     float: left;
-    width: 13%;
+    margin-right: 4%;
+    width: 14%;
+}
+.commentInfo .picAvatar{
+    width: 100%;
+    height: auto;
 }
 
 .commentInfo .perfil_ico {
@@ -1688,7 +1694,16 @@ img.central {
 }
 
 .commentReply .commmentBody {
-    float: right;
+    float: left;
+}
+
+.commentReply .commentInfo {
+    width: 15%;
+}
+
+#formComment .picAvatar {
+    height: auto;
+    width: 13%;
 }
 /*******************************************************************************
 SLIDER HOME*********************************************************************
@@ -1980,6 +1995,17 @@ and (max-width : 640px) {
         border-top: 6px solid #000;
         border-bottom: 6px solid #ff9900;
     }
+
+/*    COMENTARIOS*/
+
+.commmentBody{
+    width: 100%;
+}
+
+.commentList .commentReply{
+    padding-left: 10px;
+    
+}
 
 }
 
