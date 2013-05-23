@@ -1433,6 +1433,7 @@ img.central {
     float: left;
     list-style-position: inside;
     list-style-type: square;
+    width: 100%;
 }
 
 .infoFoot, .menuBlock{
@@ -1676,6 +1677,7 @@ SLIDER HOME*********************************************************************
 .slideContainer{
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .sliderHome {
@@ -1731,6 +1733,36 @@ SLIDER HOME*********************************************************************
     width: 100%;
 }
 
+.slideNav {
+    bottom: 10px;
+    left: 10px;
+    list-style: none outside none;
+    position: absolute;
+}
+
+.slideNav li {
+    float: left;
+    margin-right: 10px;
+}
+
+.slideNav a {
+    background: none repeat scroll 0 0 #DDDDDD;
+    -webkit-border-radius: 100% 100% 100% 100%;
+    -moz-border-radius: 100% 100% 100% 100%;
+    border-radius: 100% 100% 100% 100%;
+    display: block;
+    height: 12px;
+    text-indent: -9999px;
+    width: 12px;
+}
+
+.slideNav .active{
+    background: #ff9900;
+}
+
+/*******************************************************************************
+clase padding****************************************************************
+*******************************************************************************/
 .pad{
     padding: 0;
     -moz-box-sizing: border-box;

@@ -28,13 +28,18 @@
                         <figure>
                             <img src="<?php bloginfo('template_directory'); ?>/_img/slide3.jpg"/>
                                  <figcaption></figcaption>
-
+                                    
                         </figure>
                     </li>
                 </ul>
                 <!--<div id="layerslider">
                     <?php //echo slideHome(); ?>
                 </div>-->
+                <ul class="slideNav">
+                    <li><a class="active" href="#">1</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                </ul>
             </div>
         </div>
         <?php get_sidebar();?>
