@@ -1,5 +1,47 @@
 <?php
 
+function sliderHome(){
+    $out = "";
+    
+    $out .= '<div id="slider">';
+    $out .='<ul class="sliderHome swipe-wrap">';
+    $args = array(
+               'post_type' => array( 'post', 'eventos_sociales' ),
+               'tax_query' => array(array(
+			'taxonomy' => 'destacado',
+			'field' => 'slug',
+			'terms' => 'destacada'
+		))
+        );
+    $querySlide = new WP_Query($args);
+    if($querySlide->have_posts()){
+        while ($querySlide->have_posts()) { 
+            $querySlide->the_post();
+                $out .='<li>';
+                $out .='<figure>';
+                $out .= get_the_post_thumbnail($post->ID, "slideHome");
+                $out .='<figcaption>';
+                $out .='<div class="cap">';
+                $out .='<h2>'.get_the_title().'</h2>';
+                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),50).'</p>';
+                $out .='</div>';
+                $out .='</figcaption>';
+                $out .='</figure>';
+                $out .='</li>';
+        }
+    }
+    $out .='</ul>';
+    $out .='</div>';
+    $out .='<ul class="slideNav">';
+    $out .='<li><a class="active" href="#" title="Esto es un titulo de dos o mas lineas" rel="contents">1</a></li>';
+    $out .='<li><a href="#">3</a></li>';
+    $out .='<li><a href="#">4</a></li>';
+    $out .='</ul>';
+    
+    
+    return $out;
+}
+
 function cortar($str, $n, $cutter = false) {
     $str = trim($str);
     $str = strip_tags($str);

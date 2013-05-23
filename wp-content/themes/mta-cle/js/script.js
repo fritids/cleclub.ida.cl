@@ -122,6 +122,10 @@
             
           
         });
+        
+        if($('#slider').length > 0){0
+            $('#slider').Swipe({auto: 8000, continuous: true, stopPropagation: true});
+        }
 
 
     };

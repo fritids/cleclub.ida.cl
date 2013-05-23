@@ -3,43 +3,7 @@
     <div class="slideBloq clearfix">
         <div id="leftSide" class="column8 down">
             <div class="slideContainer column12">
-                <ul id="slider" class="sliderHome">
-                    <li>
-                        <figure>
-                            <img src="<?php bloginfo('template_directory'); ?>/_img/slide1.jpg"/>
-                                 <figcaption>
-                                     <div class="cap">
-                                     <h2>Encuesta de Fraude Capítulo Chile</h2>
-                                     <p class="hide-on-phones">Resultados para Chile del Capital Confidence Barometer...</p>
-                                     </div>
-                                </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="<?php bloginfo('template_directory'); ?>/_img/slide2.jpg"/>
-                                 <figcaption>
-                                    Esto es un titulo de dos o mas lineas
-                                 </figcaption>
-
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="<?php bloginfo('template_directory'); ?>/_img/slide3.jpg"/>
-                                 <figcaption></figcaption>
-                                    
-                        </figure>
-                    </li>
-                </ul>
-                <!--<div id="layerslider">
-                    <?php //echo slideHome(); ?>
-                </div>-->
-                <ul class="slideNav">
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                </ul>
+                <?php echo sliderHome() ?>
             </div>
         </div>
         <?php get_sidebar();?>
