@@ -458,7 +458,7 @@ footer .menu-menu-principal-container{
     width: 23%;
 }
 .tituloLog {
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px solid #ff9900;
     height: 40px;
 }
 
@@ -477,9 +477,8 @@ footer .menu-menu-principal-container{
 }
 
 .loginWrap {
-    float: left;
     margin: 10px;
-    width: 290px;
+    padding-bottom: 10px;
 }
 
 
@@ -1091,7 +1090,7 @@ footer .menu-menu-principal-container{
     margin-bottom:10px;
 }
 .fotoMiembro{
-    padding:10px 0;
+    margin-bottom: 10px;
 }
 .fotoMiembro img{
     height: 237px;
@@ -1119,7 +1118,7 @@ footer .menu-menu-principal-container{
     box-shadow:0 0 0 1px rgba(0,0,0,0.1);
     position:relative;
     font-family: Helvetica, sans-serif;
-    padding-bottom: 5px;
+    padding: 10px;
 }
 
 .bio img{
@@ -1831,6 +1830,7 @@ and (max-width : 640px) {
     .members{float: left;}
     .members li{margin-top: 0;}
     .members li:first-child{margin-left: 0;}
+    .page-template #sidebar{display: none;}
     
 /*header*/
 #top{
