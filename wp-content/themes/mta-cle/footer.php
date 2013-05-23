@@ -4,7 +4,7 @@
     <footer class="footerBox">
         <div class="row pad">
             <div class="center clearfix">
-                <div class="infoFoot column4 down">
+                <div class="infoFoot column4 down equal">
                     <div class="logo">
                         <img src="<?php bloginfo('template_directory'); ?>/_img/logoFooter.png" alt="Logotipo de CLE">
                     </div>
@@ -15,7 +15,7 @@
                         <a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a>
                     </p>
                 </div>
-                <div class="menuBlock clearfix column4">
+                <div class="menuBlock clearfix column4 equal">
                     <nav id="menuFooter" class="clearfix">
                         <?php
                         if (is_user_logged_in()) {
@@ -31,7 +31,7 @@
                     </nav>
                        
                 </div>
-                <div class="column4 down last">
+                <div class="column4 down last equal">
                         <ul class="members clearfix">
                             <li>
                                 <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>

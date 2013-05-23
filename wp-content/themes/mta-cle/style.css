@@ -374,7 +374,7 @@ h5 {
     
 }
 
-.menuDrop {
+#menuSelect {
     background: url(_img/menuButton.svg) center center no-repeat;
     border: 0 none;
     box-shadow: 1px 0 0 0 #777777;
@@ -385,7 +385,12 @@ h5 {
     top: 0;
     width: 40px;
     text-indent: -9999px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
+#menuSelect::-ms-expand {
+    display: none;
+} 
 
 footer .menu-menu-principal-container{
     width: auto;
@@ -1865,7 +1870,10 @@ and (min-width : 801px) {
 /*******************************************************************************
 Tablets Vertical ***************************************************************
 *******************************************************************************/
-
+@media only screen
+and (max-width : 920px) {
+    #principal-menu{display:none;}
+}
 
 @media only screen
 and (max-width : 800px)

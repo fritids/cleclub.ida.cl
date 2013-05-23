@@ -16,7 +16,8 @@
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
         esto.equalizeHeights($("#wNotas .boxNotas"));
         esto.equalizeHeights($("#wNotas .tituloNota"));
-        if(Modernizr.mq('only screen and (max-width : 800px)')){
+        esto.equalizeHeights($(".equal"));
+        if(Modernizr.mq('only screen and (max-width : 920px)')){
             esto.deployMobilMenu();
         }
         
@@ -29,8 +30,9 @@
             esto.equalizeHeights($(".bio .infoMiembro .empresa"));
             esto.equalizeHeights($("#wNotas .boxNotas"));
             esto.equalizeHeights($("#wNotas .tituloNota"));
+            esto.equalizeHeights($(".equal"));
             $('#menuSelect').remove();
-            if(Modernizr.mq('only screen and (max-width : 800px)')){
+            if(Modernizr.mq('only screen and (max-width : 920px)')){
                 esto.deployMobilMenu();
             }
         });
