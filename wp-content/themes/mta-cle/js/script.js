@@ -263,9 +263,8 @@
         },
         goToSlide : function( evento ){
             evento.preventDefault();
-            var $bulletSlide = $(evento.currentTarget).attr('data-slide');
-            
-            console.log($('#slide'));
+            var bulletSlide = $(evento.currentTarget).attr('data-slide'); 
+            $('#slider').data('Swipe').slide(bulletSlide);
         }
     };
 
