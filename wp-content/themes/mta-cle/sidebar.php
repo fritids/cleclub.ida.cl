@@ -1,5 +1,5 @@
 <div id="sidebar" class="column4 last down pad <?php if (is_home()){}else{ echo 'hide-on-phones';}?>">
-    <div id="wRegistro" class="boxSidebar wRegistro hide-on-tablets">
+    <div id="wRegistro" class="boxSidebar wRegistro hide-on-v-tablets hide-on-phones">
         <?php if (!is_user_logged_in()) : ?>
         <div class="tituloLog">
             <p class="tituloNM">INGRESO <a href="/solicitud-de-membresia/">Solicitar Membresía</a></p>
@@ -15,8 +15,9 @@
                     <input type="password" name="pwd" id="pwd" class="itLoginFront" required />
                 </div>  
                 <div class="clearfix">
-                    <a class="forgot" href="/recuperacion-de-contrasena/" title="Olvidé la contraseña">Olvidé la contraseña</a>
+                    
                     <input name="input" type="submit" value="Ingresar" class="btn"/>
+                    <a class="forgot" href="/recuperacion-de-contrasena/" title="Olvidé la contraseña">Olvidé la contraseña</a>
                 </div>    
             </form>
             </div>    

@@ -463,15 +463,16 @@ footer .menu-menu-principal-container{
 }
 
 .tituloLog p a {
-    display: inline-block;
     font-family: helvetica;
     font-size: 11px;
-    margin-left: 87px;
+    margin-right:10px;
     text-decoration: underline;
+    float: right;
 }
 .itLoginFront {
     display: block;
-    width: 72%;
+    float: right;
+    width: 70%;
     *width: 206px;
  
 }
@@ -484,8 +485,7 @@ footer .menu-menu-principal-container{
 
 .loginWrap .btn {
     display: block;
-    float: left;
-    margin-right: 3px;
+    float: right;
     margin-top: 10px;
 }
 
@@ -500,10 +500,9 @@ footer .menu-menu-principal-container{
 .forgot {
     color: #666666;
     display: block;
-    float: left;
+    float: right;
     font-size: 11px;
-    margin: 22px 10px 0 110px;
-    *margin-left: 92px;
+    margin: 22px 10px 0;
     text-decoration: underline;
 }
 
