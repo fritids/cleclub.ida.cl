@@ -617,6 +617,19 @@ footer .menu-menu-principal-container{
     
 }
 
+.exclusive {
+    -moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #666666;
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    padding: 10px 10px 10px 50px;
+}
+
+.exclusive a{
+    color: #fff;
+    text-decoration: underline;
+}
 
 
 #wEventoSociales {
