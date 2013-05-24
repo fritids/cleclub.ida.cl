@@ -1943,7 +1943,7 @@ and (max-width : 640px) {
     .page-template #sidebar{display: none;}
     .bajadaNoticia{display: table;}
     
-    .searchInput{width:0;}
+    .searchInput{width:0; padding:0;border:0 none; margin-left:0;}
     
 /*header*/
 #top{

@@ -314,7 +314,10 @@
             var input = $(evento.currentTarget).prev();
             
             input.addClass('transition').css({
-                'width' : '140px'
+                'width' : '140px',
+                'padding' : '5px',
+                'border' : '1px solid #e6e6e6',
+                'margin-left' : '20px'
             });
         }
     };
