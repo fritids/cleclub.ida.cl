@@ -26,6 +26,9 @@
         if(Modernizr.mq('only screen and (max-width : 640px)')){
             esto.textOverflow();
         }
+        if($('#pageContent[data-bkbtn="true"]')){
+            esto.deployBackButton();
+        }
         
         
         $(window).on('resize',function(){
@@ -194,10 +197,17 @@
             var $menuContainer = $('#menuContainer');
             var $listMenu = $menuContainer.find('.menu-item');
             var options = '<option value="">Seleccione una sección</option>';
+            var selectedAttr;
 
             $.each($listMenu,function(i,item) {
                 var aLink = $(item).children('a');
-                options += '<option value="'+aLink.attr('href')+'">'+aLink.text()+'</option>';
+                
+                if(aLink.parent().hasClass('current-menu-item')){
+                    selectedAttr = 'selected';
+                }else{
+                    selectedAttr = '';
+                }
+                options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
             });
             
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
@@ -213,6 +223,12 @@
                 $parrafo.text(textocortado).append('<button class="evt mas-btn" data-func="showText" data-text="'+texto+'" data-type="mas">Más</button>');
                 this.autoHandle($('.evt'));
         },
+        deployBackButton : function(){
+            if($(window).scrollTop() >=  200){
+                
+            }
+            $('body').append('<button class="volver-arriba">Volver Arriba</button>');
+        },        
         showText : function(evento){
             var $boton = $(evento.currentTarget),
                 type = $boton.attr('data-type'),
@@ -365,13 +381,12 @@
                     'border' : '1px solid #e6e6e6',
                     'margin-left' : '20px'
                 });
-                input.focus();
                 deployed = "true";
+                input.parent().focus();
             };
             
             var hideFunc = function(){
                 input.removeAttr('style');
-                input.focus();
                 deployed = "false";
             };
             

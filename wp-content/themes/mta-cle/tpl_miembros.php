@@ -9,7 +9,7 @@ the_post();
 ?>
 
 <div id="contenido">
-    <div id="pageContent" class="clearfix column8 down pad downV">
+    <div id="pageContent" class="clearfix column8 down pad downV" data-bkbtn="true">
         <h1><?php the_title(); ?></h1>
         <?php
         $i = 1;
