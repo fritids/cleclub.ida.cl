@@ -17,7 +17,7 @@ get_header(); ?>
     <div id="pageContent" class="column8 downV down pad">
        
  
-<div id="contacto">
+<div class="loginMobile">
     
     <div id="wRegistro" class="boxSidebar wRegistro">
         <?php if (!is_user_logged_in()) : ?>

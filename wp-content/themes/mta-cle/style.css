@@ -1653,7 +1653,6 @@ img.central {
     margin-bottom: 0;
     margin-top: 10px;
     padding-top: 6px;
-    width: 252px;
 }
 
 
@@ -1779,7 +1778,39 @@ img.central {
 
 /*loginForm*/
 .loginMobile {
+    
+}
+
+.loginMobile .loginWrap {
     background: none repeat scroll 0 0 #FFE5BF;
+    margin: 20px 0 0;
+    padding: 10px;
+}
+
+.loginMobile .tituloLog{
+    border-bottom: 0 none;
+}
+
+.loginMobile .label {
+    float: none;
+    font-weight: bold;
+    text-align: left;
+}
+
+.loginWrap #frontLog {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.loginMobile .itLoginFront{
+    display: block;
+    float: none;
+    width: 100%;
+
+}
+
+.loginMobile .tituloNM a {
+    margin-top: 10px;
 }
 /*******************************************************************************
 SLIDER HOME*********************************************************************
