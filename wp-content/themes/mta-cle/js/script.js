@@ -16,9 +16,11 @@
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
         esto.equalizeHeights($("#wNotas .boxNotas"));
         esto.equalizeHeights($("#wNotas .tituloNota"));
-//        esto.equalizeHeights($(".equal"));
         if(Modernizr.mq('only screen and (max-width : 920px)')){
             esto.deployMobilMenu();
+        }
+        if(Modernizr.mq('only screen and (max-width : 640px)')){
+            esto.textOverflow();
         }
         
         
@@ -30,7 +32,6 @@
             esto.equalizeHeights($(".bio .infoMiembro .empresa"));
             esto.equalizeHeights($("#wNotas .boxNotas"));
             esto.equalizeHeights($("#wNotas .tituloNota"));
-//            esto.equalizeHeights($(".equal"));
             $('#menuSelect').remove();
             if(Modernizr.mq('only screen and (max-width : 920px)')){
                 esto.deployMobilMenu();
@@ -193,6 +194,34 @@
             var $select = $('#menuSelect');
             $select.prepend(options);
         },
+        textOverflow : function(){
+            var $parrafo = $('#overflow-text').find('p'),
+                texto = $parrafo.text(),
+                textocortado = texto.substring(0,150);
+                textocortado += '...';
+                $parrafo.text(textocortado).append('<button class="evt" data-func="showText" data-text="'+texto+'" data-type="mas">Más</button>');
+                this.autoHandle($('.evt'));
+
+        },
+        showText : function(evento){
+            var $boton = $(evento.currentTarget),
+                type = $boton.attr('data-type'),
+                texto = $boton.attr('data-text'),
+                $parrafo = $boton.parent(),
+                textoparrafo = $parrafo.contents().eq(0).text();
+                
+                $parrafo.addClass('transition');
+                $parrafo.text(texto).append($boton);
+
+                if(type === 'mas'){
+                    $boton.attr('data-type','menos').text('Menos');
+                }else{
+                    $boton.attr('data-type','mas').text('Más');
+                }
+                $boton.attr('data-text',textoparrafo);
+                this.autoHandle($('.evt'));
+            
+        },
         equalizeHeights: function($elements) {
                        if ($elements.length) {
                                var heightArray = [],
@@ -311,14 +340,45 @@
             window.location.href = selection; //Redirige a la URL de la seleccón a través de su value
         },
         deploySearch : function ( evento ){
-            var input = $(evento.currentTarget).prev();
+            if(Modernizr.mq('only screen and (max-width : 640px)')){
+                evento.preventDefault();
+            }
+            var button = $(evento.currentTarget);
+            var input = button.prev();
+            var deploy = button.attr('data-deploy');
+            var deployed = "";
             
-            input.addClass('transition').css({
-                'width' : '140px',
-                'padding' : '5px',
-                'border' : '1px solid #e6e6e6',
-                'margin-left' : '20px'
+            var deployFunc = function(){
+                input.css({
+                    'width' : '140px',
+                    'padding' : '5px',
+                    'border' : '1px solid #e6e6e6',
+                    'margin-left' : '20px'
+                });
+                input.focus();
+                deployed = "true";
+            };
+            
+            var hideFunc = function(){
+                input.removeAttr('style');
+                input.focus();
+                deployed = "false";
+            };
+            
+            if(deploy === 'false'){
+                deployFunc();
+            }else{
+                hideFunc();
+            }
+            button.attr('data-deploy', deployed);
+            input.blur(function(){
+                hideFunc();
             });
+            input.on("keypress", function(e) {
+                 if (e.keyCode == 13) {
+                    input.parent().submit(); 
+                }
+             });
         }
     };
 

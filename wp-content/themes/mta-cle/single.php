@@ -37,23 +37,30 @@
                         </div>
                 
                         <?php endif;?>
-                <?php if(get_field('relator')){
-                 echo '<h3>Relator:' . get_field('relator') . '</h3>';
-                 } ?>        
+                <?php if(get_field('relator') && get_field('curriculum_relator')){
+                     echo '<h3>Relator:' . get_field('relator') . '</h3>';
+                     echo '<div id="overflow-text">';
+                     echo '<p>'.get_field('curriculum_relator').'</p>';
+                     echo '</div>';
+                 } ?>
+                <h3>Descripción</h3>
                 <?php the_content();?>
                 <div class="share">
                  <?php if (get_field('archivo_adjunto')) {
-                    echo '
-
-                        <a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
-                }
-                ?>
+                    echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
+                }?>
                 
-                        <?php
-                    
+                <?php
                 } else {
-                	the_content();
-                    echo '<div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
+                     if(get_field('relator') && get_field('curriculum_relator')){
+                         echo '<h3>Relator:' . get_field('relator') . '</h3>';
+                         echo '<div id="overflow-text">';
+                         echo '<p>'.get_field('curriculum_relator').'</p>';
+                         echo '</div>';
+                     }
+                     echo '<h3>Descripción</h3>';
+                     the_content();
+                     echo '<div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
                 };
                 ?>
                     <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&title=<?php the_title();?>&summary=<?php the_title();?>&source={articleSource}">linkedin</a>
