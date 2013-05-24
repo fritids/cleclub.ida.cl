@@ -16,7 +16,7 @@
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
         esto.equalizeHeights($("#wNotas .boxNotas"));
         esto.equalizeHeights($("#wNotas .tituloNota"));
-        esto.equalizeHeights($(".equal"));
+//        esto.equalizeHeights($(".equal"));
         if(Modernizr.mq('only screen and (max-width : 920px)')){
             esto.deployMobilMenu();
         }
@@ -30,7 +30,7 @@
             esto.equalizeHeights($(".bio .infoMiembro .empresa"));
             esto.equalizeHeights($("#wNotas .boxNotas"));
             esto.equalizeHeights($("#wNotas .tituloNota"));
-            esto.equalizeHeights($(".equal"));
+//            esto.equalizeHeights($(".equal"));
             $('#menuSelect').remove();
             if(Modernizr.mq('only screen and (max-width : 920px)')){
                 esto.deployMobilMenu();
@@ -178,20 +178,18 @@
             });
         },
         deployMobilMenu : function (){
+            
             var $menuContainer = $('#menuContainer');
             var $listMenu = $menuContainer.find('.menu-item');
             var options = '<option value="">Seleccione una sección</option>';
 
             $.each($listMenu,function(i,item) {
                 var aLink = $(item).children('a');
-                console.log($(item));
-                console.log(aLink);
-                console.log(aLink.attr('href'));
-                console.log(aLink.text());
-                options += '<option class="evt" data-func="redirectMenu" data-event="change" value="'+aLink.attr('href')+'">'+aLink.text()+'</option>';
+                options += '<option value="'+aLink.attr('href')+'">'+aLink.text()+'</option>';
             });
             
-            $menuContainer.prepend('<select id="menuSelect" name="menu-principal"></select>');
+            $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
+            this.autoHandle($('.evt-new'));
             var $select = $('#menuSelect');
             $select.prepend(options);
         },
@@ -307,6 +305,10 @@
             evento.preventDefault();
             var bulletSlide = $(evento.currentTarget).attr('data-slide'); 
             $('#slider').data('Swipe').slide(bulletSlide);
+        },
+        redirectMenu : function( evento ){
+            var selection = $(evento.currentTarget).find('option:selected').val(); //Selecciona el value del option seleccionado
+            window.location.href = selection; //Redirige a la URL de la seleccón a través de su value
         }
     };
 
