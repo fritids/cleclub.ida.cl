@@ -85,6 +85,20 @@
                     wp_nav_menu(array('theme_location' => 'public','items_wrap'=> '<ul id="principal-menu" class=" hide-on-phones hide-on-v-tablets">%3$s</ul>'));
                 };
                 ?>
+                
+                <?php
+                if (is_user_logged_in()) {
+                    
+                    echo ' <a class="mobilLogOut hide-on-desktop hide-on-h-tablets evt" data-func="salirLog" href="' . wp_logout_url( home_url()) . '">Salir</a>"';
+                   
+                } else {
+                    
+                   echo '<a class="mobilLog hide-on-desktop hide-on-h-tablets" href="/login/">Ingreso</a>';
+                    
+                };
+                ?>
+                
+                
             </div>
             <div id="wrapper" class="clearfix row">
                 

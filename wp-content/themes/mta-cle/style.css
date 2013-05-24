@@ -317,6 +317,35 @@ h5 {
     color:#f29400;
 }
 
+#menuContainer a.mobilLog {
+    background: none repeat scroll 0 0 #FF9900;
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-weight: bold;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    text-shadow: none;
+    text-transform: none;
+}
+
+#menuContainer a.mobilLogOut {
+    background: url("_img/closeMob.svg") no-repeat 90% center #777777;
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-weight: bold;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    text-shadow: none;
+    text-transform: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 30px;
+    padding-top: 2px;
+}
+
 #menuContainer li {
     float:left;
     position:relative;
@@ -1745,6 +1774,12 @@ img.central {
 #formComment .picAvatar {
     height: auto;
     width: 13%;
+}
+
+
+/*loginForm*/
+.loginMobile {
+    background: none repeat scroll 0 0 #FFE5BF;
 }
 /*******************************************************************************
 SLIDER HOME*********************************************************************
