@@ -630,6 +630,12 @@ footer .menu-menu-principal-container{
     padding: 5px 15px;
     transition: background-color 0.25s ease-in-out 0s;
     color: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 }
 .comment-reply-link:hover{
     color:#FFF;
@@ -653,6 +659,13 @@ footer .menu-menu-principal-container{
     -moz-transition:background-color .25s ease-in-out;
     -webkit-transition:background-color .25s ease-in-out;
     padding:5px 10px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    
 }
 
 .btnLogOut {
@@ -664,9 +677,20 @@ footer .menu-menu-principal-container{
     -moz-transition:background-color .25s ease-in-out;
     -webkit-transition:background-color .25s ease-in-out;
     padding: 5px 0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
     
 }
 
+.cambioDatos {
+    display: block;
+    float: left;
+    font-family: helvetica,arial;
+    font-size: 12px;
+    margin-top: 10px;
+    text-decoration: underline;
+}
 .exclusive {
     -moz-box-sizing: border-box;
     background: none repeat scroll 0 0 #666666;
@@ -679,6 +703,18 @@ footer .menu-menu-principal-container{
 .exclusive a{
     color: #fff;
     text-decoration: underline;
+}
+
+.lkd {
+    background: url("_img/lkdn.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 18px;
+    width: 18px;
+}
+
+.svg .lkd{
+    
+    background: url("_img/lkdn.svg") no-repeat scroll 0 0 transparent;
 }
 
 
@@ -1594,7 +1630,7 @@ img.central {
 /*Password form*/
 
 .formPass{
-    width: 325px;
+    width: 60%;
     margin: 0 auto;
     -webkit-transform: translate3d(0, 0, 0);
     
@@ -1615,10 +1651,14 @@ img.central {
     font-size: 12px;
 }
 
-.inputPass{
-    width: 320px;
-    padding: 3px 0;
-    margin: 0 0 10px 0;
+.inputPass {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 0 10px;
+    padding: 5px;
+    width: 100%;
 }
 
 .mid {
@@ -1637,16 +1677,18 @@ img.central {
 }
 /*FORMULARIOS RECUPERACION CONTRASEÑA*/
 
-.errorMsn{
-    
-    background: url(_img/error.png) #FC7171 no-repeat 5px center ;
+.errorMsn {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url("_img/error.png") no-repeat scroll 5px center #FC7171;
+    color: #FFFFFF;
     display: block;
-    color: #fff;
-    margin-bottom: 10px;
-    padding: 5px 5px 5px 28px;
     font-size: 11px;
     font-weight: bold;
-    
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 28px;
+    width: 100%;
 }
 
 .frontLogg {
@@ -1806,6 +1848,11 @@ img.central {
     display: block;
     float: none;
     width: 100%;
+    padding: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
 
 }
 
@@ -2144,6 +2191,10 @@ and (max-width : 640px) {
 
 .gallery li{
     width: 44%;
+}
+
+.formPass{
+    width: 80%;
 }
 }
 

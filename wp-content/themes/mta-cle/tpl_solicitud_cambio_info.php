@@ -13,7 +13,7 @@ get_header(); ?>
        });
     </script>
 <div id="contenido">
-    <div id="pageContent">
+    <div id="pageContent" class="clearfix column8 down downV pad">
         <h1><?php the_title();?></h1>
                 <?php $pic = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?> 
                 

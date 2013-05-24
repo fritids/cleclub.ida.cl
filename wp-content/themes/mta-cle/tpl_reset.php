@@ -11,7 +11,7 @@ get_header();
 ?>
 
 <?php if( is_user_logged_in() || isset( $_GET['userEmail'] ) ) { ?>
-    <div id="pageContent" class="clearfix">
+    <div id="pageContent" class="clearfix column8 downV down pad">
         <h1><?php the_title();?></h1>
         <p class="passReset"><strong>Introduce tu nueva contraseña.</strong><br /> 
             <small>Consejo: Para que tu contraseña sea segura, usa mayúsculas, minúsculas, números y símbolos como ! “ ? $ % ^ & ).</small>
@@ -30,7 +30,7 @@ get_header();
         </div>
     </div>
  <?php }  else { ?>
-        <div id="pageContent" class="clearfix">
+        <div id="pageContent" class="clearfix column8 downV down pad">
             <h1><?php the_title(); ?></h1>
                 <h2>Pasos a seguir.</h2>
                 <ol class="pasos">

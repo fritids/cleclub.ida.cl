@@ -17,8 +17,8 @@
  */
 get_header(); ?>
 <div id="contenido">
-<div id="pageContent">
-<h1><?php echo single_cat_title( '', false ) ?></h1>
+<div id="pageContent" class="column8 down downV pad clearfix">
+<h1>Búsqueda</h1>
 <div id="wNoticias">
     <ul>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?> 
@@ -32,7 +32,7 @@ get_header(); ?>
                     $mes = traduceMes(date('m', strtotime($fechaEvento)));
                     $ano = date('Y', strtotime($fechaEvento));
                  ?>
-                <div id="bajadaNoticia">
+                <div class="bajadaNoticia">
                     <span class="dateEvent"><?php echo $dia . ' de ' . $mes . ' de ' . $ano ?> , <?php the_field('hora'); ?> hrs., <?php the_field('lugar'); ?></span>
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <?php echo cortar($post->post_content, 150); ?>
