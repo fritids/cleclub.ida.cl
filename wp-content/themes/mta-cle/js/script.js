@@ -220,7 +220,9 @@
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
             this.autoHandle($('.evt-new'));
             var $select = $('#menuSelect');
-            $select.after('<h2 class="mobile-title">'+mainTitle+'</h2>');
+            if($('.mobile-title').length == 0){
+               $select.after('<h2 class="mobile-title">'+mainTitle+'</h2>'); 
+            }
             $select.prepend(options);
         },
         textOverflow : function(){
@@ -235,7 +237,7 @@
             var est = this;
             $(window).on('scroll', function(){
                 if(($(window).scrollTop() >=  400) && ($('.volver-arriba').length == 0)){
-                   $('body').append('<button class="evt volver-arriba" data-func="slideUp">Volver Arriba</button>'); 
+                   $('body').append('<button class="evt volver-arriba" data-func="slideUp">Subir</button>'); 
                    est.autoHandle($('.evt'));
                 }else if($(window).scrollTop() <  400){
                    $('.volver-arriba').remove(); 

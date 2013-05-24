@@ -19,10 +19,10 @@ function sliderHome(){
             $querySlide->the_post();
                 $out .='<li>';
                 $out .='<figure>';
-                $out .= get_the_post_thumbnail($post->ID, "slideHome");
+                $out .='<a href="'.get_permalink().'" title="'.get_the_title().'" rel="contents">'. get_the_post_thumbnail($post->ID, "slideHome" .'</a>');
                 $out .='<figcaption>';
                 $out .='<div class="cap">';
-                $out .='<h2>'.get_the_title().'</h2>';
+                $out .='<h2><a href="'.get_permalink().'" title="'.get_the_title().'" rel="contents">'.get_the_title().'</a></h2>';
                 $out .='<p class="hide-on-phones">'.cortar(get_the_content(),150).'</p>';
                 $out .='</div>';
                 $out .='</figcaption>';
