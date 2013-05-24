@@ -203,13 +203,14 @@
             var $menuContainer = $('#menuContainer');
             var $listMenu = $menuContainer.find('.menu-item');
             var options = '<option value="">Seleccione una sección</option>';
-            var selectedAttr;
+            var selectedAttr, mainTitle = "";
 
             $.each($listMenu,function(i,item) {
                 var aLink = $(item).children('a');
                 
                 if(aLink.parent().hasClass('current-menu-item')){
                     selectedAttr = 'selected';
+                    mainTitle = aLink.text();
                 }else{
                     selectedAttr = '';
                 }
@@ -219,6 +220,7 @@
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
             this.autoHandle($('.evt-new'));
             var $select = $('#menuSelect');
+            $select.next('<h2 class="mobile-title">'+mainTitle+'</h2>');
             $select.prepend(options);
         },
         textOverflow : function(){
