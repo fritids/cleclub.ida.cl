@@ -1994,6 +1994,7 @@ and (max-width : 640px) {
     .bajadaNoticia{display: table;}
     
     .searchInput{width:0; padding:0;border:0 none; margin-left:0;}
+    #overflow-text{border-bottom: 1px solid #999999; margin-bottom: 20px;}
     
 /*header*/
 #top{
