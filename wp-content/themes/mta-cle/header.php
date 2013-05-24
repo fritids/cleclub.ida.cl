@@ -78,6 +78,22 @@
                     <div id="buscador">
                         <?php get_search_form(); ?>
                     </div>
+                    
+                    <?php
+                        if (is_user_logged_in()) {
+                           
+                            global $current_user;
+                            get_currentuserinfo();
+                            
+                             if ($current_user->user_firstname != '' && $current_user->user_lastname) {
+                    $empresa = get_the_author_meta('aim', $current_user->ID);
+                    echo "<a class='marker hide-on-desktop hide-on-h-tablets' href='/login/'>" . $current_user->user_firstname . " " . $current_user->user_lastname . "</a>";
+                            
+                        }     
+                         } else {
+
+                         };
+                        ?>
                 </div>
             </div>
             <div id="menuContainer">
