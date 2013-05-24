@@ -1,0 +1,6 @@
+.column4{width:31%;}
+.row [class*="column"] img{max-width:100%; width:auto;}
+.sliderHome figcaption{width:250px;background:#000;}
+#sidebar .boxSidebar{height:190px;}
+.swipe-wrap{position:relative;}
+

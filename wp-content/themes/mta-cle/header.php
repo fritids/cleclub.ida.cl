@@ -30,6 +30,11 @@
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/_js/validationEngine.jquery.css" type="text/css"/>
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"/>
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/grid.css" type="text/css"/>
+        
+        <!--[if IE 7]>
+            <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/ie7.css" type="text/css"/>
+        <![endif]-->
+        
         <!--end layerslider-->
         <link href="<?php echo get_template_directory_uri(); ?>/_js/jquery.qtip.css" rel="stylesheet" type="text/css" />
         <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
