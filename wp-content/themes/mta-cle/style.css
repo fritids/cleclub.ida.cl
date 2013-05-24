@@ -327,6 +327,7 @@ h5 {
     right: 0;
     text-shadow: none;
     text-transform: none;
+    top:0;
 }
 
 #menuContainer a.mobilLogOut {
@@ -344,7 +345,7 @@ h5 {
     box-sizing: border-box;
     padding-right: 30px;
     padding-top: 2px;
-}
+    top: 0;}
 
 #menuContainer li {
     float:left;
@@ -1719,6 +1720,7 @@ img.central {
     margin-bottom: 10px;
     padding: 5px 5px 5px 28px;
     width: 100%;
+    float: left;
 }
 
 .frontLogg {
@@ -2010,6 +2012,10 @@ SLIDER HOME*********************************************************************
     background: #ff9900;
 }
 
+.cap h2 a {
+    color: #FFFFFF;
+}
+
 /*******************************************************************************
 clase padding****************************************************************
 *******************************************************************************/
@@ -2139,6 +2145,13 @@ and (max-width : 640px) {
     
     .lb-close-btn{left:2%; bottom:100%; top:auto; right:auto; width:auto; color:#000; padding-left:33px; padding-right:20px; text-align:left; background:#FFFFFF url(_img/closebutton.jpg) left center no-repeat}
     .arrowL, .arrowR{margin-top:2%;}
+    .mobile-title{display:inline-block;}
+    
+    .quienesSomos{width:60%;margin: 0 auto;}
+    .quienesSomos .fotoMiembro{
+        width: 100%;
+    }
+    
 /*header*/
 #top{
     padding-bottom: 20px;
@@ -2282,6 +2295,7 @@ and (min-width : 480px){
     
     .only-on-h-phones{display:block !important;}
     .footerBox .logo{float: left;width: 130px;margin-right: 10px;}
+    .tituloNotaW small{font-size: 14px;}
 
     
 }

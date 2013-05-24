@@ -168,9 +168,10 @@
 }
 .mobile-title{
     color: white;
-    padding-left: 10%;
+    padding-left:50px;
     display: none;
     padding-top: 10px;
+    font-weight: normal;
 }
 
 .twitter{

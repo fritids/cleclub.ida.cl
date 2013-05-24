@@ -18,7 +18,7 @@ Template Name: Quienes Somos
         ?>
 
         <div class="quien column4 <?php echo $last;?> down">
-            <div class="bio">
+            <div class="bio quienesSomos">
                 <div class="fotoMiembro">
                     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portadaPerfil');?></a>
                 </div>    
