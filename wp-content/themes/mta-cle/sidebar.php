@@ -40,7 +40,9 @@
                 echo "
                     <a class='btn'href='/cambio-de-contrasena/'>Cambiar Contraseña</a>
 
-                    <a class='btnLogOut evt' data-func='salirLog' href='" . wp_logout_url('/') . "'>Salir</a>";
+                    <a class='btnLogOut evt' data-func='salirLog' href='" . wp_logout_url('/') . "'>Salir</a>
+                        
+                     <a class='cambioDatos' href='/solicitud-de-cambio-de-informacion-del-perfil/'>Solicitud cambio de información perfil</a>   ";
                 ?>
             </div>
         </div>   
