@@ -199,9 +199,8 @@
                 texto = $parrafo.text(),
                 textocortado = texto.substring(0,150);
                 textocortado += '...';
-                $parrafo.text(textocortado).append('<button class="evt" data-func="showText" data-text="'+texto+'" data-type="mas">Más</button>');
+                $parrafo.text(textocortado).append('<button class="evt mas-btn" data-func="showText" data-text="'+texto+'" data-type="mas">Más</button>');
                 this.autoHandle($('.evt'));
-
         },
         showText : function(evento){
             var $boton = $(evento.currentTarget),
