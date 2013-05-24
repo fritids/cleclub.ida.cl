@@ -705,6 +705,18 @@ footer .menu-menu-principal-container{
     text-decoration: underline;
 }
 
+.lkd {
+    background: url("_img/lkdn.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 18px;
+    width: 18px;
+}
+
+.svg .lkd{
+    
+    background: url("_img/lkdn.svg") no-repeat scroll 0 0 transparent;
+}
+
 
 #wEventoSociales {
     font-size:10px;
