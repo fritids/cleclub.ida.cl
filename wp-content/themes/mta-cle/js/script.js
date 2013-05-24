@@ -9,9 +9,10 @@
         var esto = this;
         
         esto.autoHandle($('.evt'));
-        esto.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
-        esto.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
-        esto.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
+        
+        setTimeout(function(){
+            esto.equalizeHeights($(".bio"));
+        },1000);
         esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
         if(Modernizr.mq('only screen and (min-width : 640px)')){
@@ -29,10 +30,8 @@
         
         $(window).on('resize',function(){
             $('#menuSelect').remove();
-            
-            esto.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
-            esto.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
-            esto.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
+
+            esto.equalizeHeights($(".bio"));
             esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
             esto.equalizeHeights($(".bio .infoMiembro .empresa"));
             if(Modernizr.mq('only screen and (max-width : 640px)')){
@@ -270,7 +269,7 @@
             var ancho = $(e.currentTarget).attr("data-ancho") / 2;
             var item = $(e.currentTarget).attr("data-item");
             var lightbox = t.getLightBox();
-            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('left', (sWidth - ancho)).css('margin-top', (alto * -1) + 'px'),
+            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('top', '30px'),
                     $closeBtn = $('<button />').attr({'class': 'lb-close-btn', 'data-func': 'closeLightBox', 'title': 'Cerrar'}),
                     $arrowR = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowR', 'data-func': 'nextPic', 'title': 'Siguiente'}).text("Siguiente"),
                     $arrowL = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowL', 'data-func': 'prevPic', 'title': 'Anterior'}).text("Anterior");
