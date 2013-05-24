@@ -7,7 +7,7 @@ get_header(); ?>
 
 
 <div id="contenido">
-<div id="pageContent">
+<div id="pageContent" class="column8 downV pad down">
 <h1><?php the_title();?></h1>
 <div id="wNoticias">
     <ul>

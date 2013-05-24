@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="contenido">
-    <div id="pageContent">
+    <div id="pageContent" class="column8 downV pad down">
         <h1><?php echo single_cat_title('', false) ?></h1>
         <div id="wNoticias">
             <ul>
@@ -17,7 +17,7 @@
                         $mes = traduceMes(date('m', strtotime($fechaEvento)));
                         $ano = date('Y', strtotime($fechaEvento));
                         ?>
-                        <div id="bajadaNoticia">
+                        <div class="bajadaNoticia">
                             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <?php echo cortar($post->post_content, 150); ?>
                         </div>

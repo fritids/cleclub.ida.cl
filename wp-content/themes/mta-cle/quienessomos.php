@@ -6,7 +6,7 @@ Template Name: Quienes Somos
 <?php get_header();the_post(); ?>
 
 <div id="contenido pad">
-<div id="pageContent" class="clearfix column8">    
+<div id="pageContent" class="clearfix column8 downV down pad">    
 <h1><?php the_title(); ?></h1>
 <?php the_content();?>
 <?php $childPages=$wp_query->post->ID; ?>
@@ -17,7 +17,7 @@ Template Name: Quienes Somos
         $last = $i % 3 == false ? 'last':'';
         ?>
 
-        <div class="column4 <?php echo $last;?> down">
+        <div class="quien column4 <?php echo $last;?> down">
             <div class="bio">
                 <div class="fotoMiembro">
                     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portadaPerfil');?></a>

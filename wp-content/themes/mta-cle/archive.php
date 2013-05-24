@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="contenido">
-<div id="pageContent" class="column8">
+<div id="pageContent" class="column8 downV down pad">
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
     <ul>
@@ -18,7 +18,7 @@
                     $mes = traduceMes(date('m', strtotime($fechaEvento)));
                     $ano = date('Y', strtotime($fechaEvento));
                  ?>
-                <div id="bajadaNoticia">
+                <div class="bajadaNoticia">
                     <?php   if(is_tax("taxeventos", "agenda")): ?><span class="dateEvent"><?php echo $dia . ' de ' . $mes . ' de ' . $ano ?> , <?php the_field('hora'); ?> hrs., <?php the_field('lugar'); ?></span><?php endif;?>
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <?php echo cortar($post->post_content, 150); ?>
