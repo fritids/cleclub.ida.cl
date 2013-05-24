@@ -5,5 +5,5 @@
                 </a>
             </span>
                 <input type="text" class="field searchInput hide-on-phones" name="s" id="s" placeholder="Buscar" />
-		<input type="image" style="margin-bottom:-3px" value="buscar" id="searchsubmit" name="submit" class="submit evt" data-func="deploy-search" src="<?php bloginfo('template_directory');?>/_img/buscarIcon.png">
+		<input type="image" style="margin-bottom:-3px" value="buscar" id="searchsubmit" name="submit" class="submit evt" data-func="deploySearch" data-deploy="false" src="<?php bloginfo('template_directory');?>/_img/buscarIcon.png">
 	</form>

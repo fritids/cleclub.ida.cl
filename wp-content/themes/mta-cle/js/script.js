@@ -309,6 +309,13 @@
         redirectMenu : function( evento ){
             var selection = $(evento.currentTarget).find('option:selected').val(); //Selecciona el value del option seleccionado
             window.location.href = selection; //Redirige a la URL de la seleccón a través de su value
+        },
+        deploySearch : function ( evento ){
+            var input = $(evento.currentTarget).prev();
+            
+            input.addClass('transition').css({
+                'width' : '140px'
+            });
         }
     };
 
