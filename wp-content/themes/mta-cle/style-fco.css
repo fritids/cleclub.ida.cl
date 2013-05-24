@@ -159,6 +159,14 @@
 #lightboxImg{width:50%; left:25%; top:30px;}
 #lightboxImg img{width:100%;}
 
+.volver-arriba{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 32px;
+    padding: 0 20px;
+}
+
 .twitter{
     background: url(_img/twitter.png) no-repeat;
     width: 18px;

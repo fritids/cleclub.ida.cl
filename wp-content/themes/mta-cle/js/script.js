@@ -25,10 +25,11 @@
         }
         if(Modernizr.mq('only screen and (max-width : 640px)')){
             esto.textOverflow();
+            if($('#pageContent[data-bkbtn="true"]')){
+                esto.deployBackButton();
+            }
         }
-        if($('#pageContent[data-bkbtn="true"]')){
-            esto.deployBackButton();
-        }
+        
         
         
         $(window).on('resize',function(){
@@ -49,6 +50,11 @@
             }
             if(Modernizr.mq('only screen and (max-width : 920px)')){
                 esto.deployMobilMenu();
+            }
+            if(Modernizr.mq('only screen and (max-width : 640px)')){
+                if($('#pageContent[data-bkbtn="true"]')){
+                    esto.deployBackButton();
+                }
             }
         });
         
@@ -224,10 +230,22 @@
                 this.autoHandle($('.evt'));
         },
         deployBackButton : function(){
-            if($(window).scrollTop() >=  200){
-                
-            }
-            $('body').append('<button class="volver-arriba">Volver Arriba</button>');
+            var est = this;
+            $(window).on('scroll', function(){
+                if(($(window).scrollTop() >=  400) && ($('.volver-arriba').length == 0)){
+                   $('body').append('<button class="evt volver-arriba" data-func="slideUp">Volver Arriba</button>'); 
+                   est.autoHandle($('.evt'));
+                }else if($(window).scrollTop() <  400){
+                   $('.volver-arriba').remove(); 
+                }
+            });
+            
+        }, 
+        slideUp : function (evento){
+            $('body,html').animate({
+				scrollTop: 0
+			}, 800);
+            $(evento.currentTarget).remove(); 
         },        
         showText : function(evento){
             var $boton = $(evento.currentTarget),
