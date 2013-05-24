@@ -1512,7 +1512,7 @@ img.central {
     top: -20px;
     width: 30px;
     z-index: 1100000;
-    
+    color:transparent;
 }
 .arrowL, .arrowR{
     width: 53px;
@@ -1966,8 +1966,9 @@ All mobile general *************************************************************
 *******************************************************************************/
 
 @media only screen
-and (max-width : 1280px){
-
+and (max-width : 1025px){
+   #lightboxImg{width:96%; left:0; padding:2%; border: 0 none;}
+   #lightbox{opacity:1 !important;}
 }
 
 /*******************************************************************************
@@ -1997,6 +1998,7 @@ and (min-width : 641px){
    #top{
        padding-left: 20px;
    }
+   .lb-close-btn{right:2%;top: 0;}
 }
 
 /*******************************************************************************
@@ -2074,6 +2076,8 @@ and (max-width : 640px) {
     .searchInput{width:0; padding:0;border:0 none; margin-left:0;}
     #overflow-text{border-bottom: 1px solid #999999; margin-bottom: 20px;}
     
+    .lb-close-btn{left:2%; bottom:100%; top:auto; right:auto; width:auto; color:#000; padding-left:33px; padding-right:20px; text-align:left; background:#FFFFFF url(_img/closebutton.jpg) left center no-repeat}
+    .arrowL, .arrowR{margin-top:2%;}
 /*header*/
 #top{
     padding-bottom: 20px;

@@ -269,7 +269,7 @@
             var ancho = $(e.currentTarget).attr("data-ancho") / 2;
             var item = $(e.currentTarget).attr("data-item");
             var lightbox = t.getLightBox();
-            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('top', '30px'),
+            var $lightBox_img = $('<div />').attr({'id': 'lightboxImg', 'class': 'lightbox_img_box'}).css('top', '100px'),
                     $closeBtn = $('<button>Cerrar</button>').attr({'class': 'lb-close-btn', 'data-func': 'closeLightBox', 'title': 'Cerrar'}),
                     $arrowR = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowR', 'data-func': 'nextPic', 'title': 'Siguiente'}).text("Siguiente"),
                     $arrowL = $('<a />').attr({'href': '#','data-item': item,'class': 'arrowL', 'data-func': 'prevPic', 'title': 'Anterior'}).text("Anterior");
