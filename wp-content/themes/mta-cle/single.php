@@ -56,6 +56,7 @@
                     echo '<div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
                 };
                 ?>
+                    <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&title=<?php the_title();?>&summary=<?php the_title();?>&source={articleSource}">linkedin</a>
             </div>
                 <?php
                 

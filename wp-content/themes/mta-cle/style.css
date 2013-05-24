@@ -274,7 +274,7 @@ h5 {
 }
 
 .contactoButton{
-    background: url(_img/contactIcon.png) 0 0 no-repeat ;
+    background: url(_img/contactIcon.svg) 0 0 no-repeat ;
     display: inline-block;
     color: #fff;
     font-size: 12px;
@@ -283,6 +283,8 @@ h5 {
     margin-top: 5px;
     padding-left: 22px;
 }
+
+.no-svg .contactoButton{background: url(_img/contactIcon.png) 0 0 no-repeat ;}
 
 #menuContainer {
     background-color: #000000;
@@ -396,6 +398,12 @@ h5 {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+
+.no-svg #menuSelect{
+    background: url(_img/menuButton.png) center center no-repeat;
+
+}
+
 #menuSelect::-ms-expand {
     display: none;
 } 
@@ -517,6 +525,12 @@ footer .menu-menu-principal-container{
     margin-top: 10px;
 }
 
+.logIn .picAvatar {
+    height: auto;
+    margin-right: 10px;
+    width: 20%;
+}
+
 .chromebrowser .loginWrap .btn {
     margin-left: 3px;
 }
@@ -620,8 +634,7 @@ footer .menu-menu-principal-container{
     transition:background-color .25s ease-in-out;
     -moz-transition:background-color .25s ease-in-out;
     -webkit-transition:background-color .25s ease-in-out;
-     margin-left: 3px;
-    padding: 5px 20px;
+    padding: 5px 0;
     
 }
 
@@ -1583,14 +1596,16 @@ img.central {
     height: 100px;
 }
 
-.userData .btn{
-    
-    float: none;
+.userData .btn {
+    color: #FFFFFF;
+    display: block;
+    float: left;
     font-size: 11px;
-    color: #fff;
-    
+    margin-right: 2%;
+    padding: 5px 0;
+    text-align: center;
+    width: 70%;
 }
-
 /*FORMULARIOS RECUPERACION CONTRASEÑA*/
 
 .errorMsn{

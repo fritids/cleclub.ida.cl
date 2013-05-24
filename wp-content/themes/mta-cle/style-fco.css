@@ -53,11 +53,11 @@
     width: 24.9999%;
 }
 .userData{
-    float:left;
-    width: 67%;
     margin-left: 10px; 
     font-weight: lighter;
     font-family: EY;
+    width: 70%;
+    display: table;
 }
 
 .chromebrowser .userData{
@@ -76,14 +76,17 @@
     font-size: 20px;
     display: block;
     font-weight: lighter;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
 }
-#wRegistro .btnLogOut{
-    color:#fff;
-    background: #777;
+#wRegistro .btnLogOut {
+    background: none repeat scroll 0 0 #777777;
+    color: #FFFFFF;
+    display: block;
+    float: left;
     font-size: 11px;
     text-align: center;
+    width: 26%;
 }
 #sidebar .boxNotas {
     width: 100%;
