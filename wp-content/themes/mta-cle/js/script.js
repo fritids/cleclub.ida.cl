@@ -14,8 +14,11 @@
         esto.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
         esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
-        esto.equalizeHeights($("#wNotas .boxNotas"));
-        esto.equalizeHeights($("#wNotas .tituloNota"));
+        if(Modernizr.mq('only screen and (min-width : 640px)')){
+            esto.equalizeHeights($("#wNotas .tituloNota"));
+            esto.equalizeHeights($("#wNotas .boxNotas"));
+            esto.equalizeHeights($(".equal"));
+        }
         if(Modernizr.mq('only screen and (max-width : 920px)')){
             esto.deployMobilMenu();
         }
@@ -25,14 +28,23 @@
         
         
         $(window).on('resize',function(){
+            $('#menuSelect').remove();
+            
             esto.equalizeHeights($(".page-template-tpl_miembros-php #pageContent .column4 .bio"));
             esto.equalizeHeights($(".page-template-tpl_representantes-php #pageContent .column4 .bio"));
             esto.equalizeHeights($(".page-template-quienessomos-php #pageContent .one_third .bio"));
             esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
             esto.equalizeHeights($(".bio .infoMiembro .empresa"));
-            esto.equalizeHeights($("#wNotas .boxNotas"));
-            esto.equalizeHeights($("#wNotas .tituloNota"));
-            $('#menuSelect').remove();
+            if(Modernizr.mq('only screen and (max-width : 640px)')){
+                $("#wNotas .boxNotas").css('height','auto');
+                $("#wNotas .tituloNota").css('height','auto');
+                $(".equal").css('height','auto');
+            }
+            if(Modernizr.mq('only screen and (min-width : 640px)')){
+                esto.equalizeHeights($("#wNotas .tituloNota"));
+                esto.equalizeHeights($("#wNotas .boxNotas"));
+                esto.equalizeHeights($(".equal"));
+            }
             if(Modernizr.mq('only screen and (max-width : 920px)')){
                 esto.deployMobilMenu();
             }
