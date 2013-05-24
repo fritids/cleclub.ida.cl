@@ -46,7 +46,7 @@
                 <h3>Descripción</h3>
                 <?php the_content();?>
                  <?php if (get_field('archivo_adjunto')) {
-                    echo '<a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
+                    echo '<div class="share"><a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
                 }?>
                 
                 <?php
@@ -59,13 +59,15 @@
                      }
                      echo '<h3>Descripción</h3>';
                      the_content();
-                     echo '<div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
+                     echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
                 };
                 ?>
-                <div class="social">
-                    <a class="lkd"target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&title=<?php the_title();?>&summary=<?php the_title();?>&source={articleSource}">linkedin</a>
-                    <a class="twitter" href="" rel="" alt="">twitter</a>
-                </div>
+                <ul class="social">
+                    <li><span>Comparte este articulo:</span></li>
+                    <li><a class="lkd"target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&title=<?php the_title();?>&summary=<?php the_title();?>&source={articleSource}">linkedin</a></li>
+                    <li><a class="twitter" href="" rel="" alt="">twitter</a></li>
+                </ul>
+            </div>
                 <?php
                 
             endwhile;

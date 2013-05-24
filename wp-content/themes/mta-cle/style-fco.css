@@ -143,8 +143,38 @@
     color:#999999;
     padding-right:20px;
 }
+
+.social{list-style: none;padding: 10px; background:#DDD;}
+.social li{
+    float: left;
+    margin-right: 5px;
+}
+.social a{
+    text-indent: -9999px;
+    margin-left: 10px;
+}
+
 .svg .mas-btn{background-image:url(_img/mas-btn.svg);}
 
 #lightboxImg{width:50%; left:25%; top:30px;}
 #lightboxImg img{width:100%;}
 
+.twitter{
+    background: url(_img/twitter.png) no-repeat;
+    width: 18px;
+    height: 18px;
+    display: table-cell;
+    
+    
+}
+
+.share .lkd {
+    background: url("_img/lkdn.png") no-repeat scroll 0 0 transparent;
+    display: table-cell;
+    height: 18px;
+    width: 18px;
+}
+
+.share .btnDown{
+    float: left;
+}
