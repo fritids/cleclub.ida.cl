@@ -43,7 +43,7 @@ function sliderHome(){
 }
    
 function breadcrumb() {
-    global $post;
+    global $post, $wp_query;
     $out = "";
     $separador = ' - ';
     if (!is_front_page()) {
@@ -66,11 +66,22 @@ function breadcrumb() {
         elseif (is_singular('post')) {
             $out .= $separador;
             $out .=  '<a class="bc-item" href="#" title="Entradas">Entradas</a>';
+        }elseif (is_author()){
+            $autor = get_query_var( 'author' );
+            $autor = get_userdata( $autor );
+            
+            $out .= $separador;
+            $out .= $autor->first_name.' '.$autor->last_name;
         }
-        if(!is_single() && !is_category() && !is_search()){
+        elseif(is_tax()){
+            $out .= $separador;
+            $out .= '<span class="bc-item end-item">'. single_cat_title( '', false ) .'</span>';
+        }
+        elseif(!is_single() && !is_category() && !is_search()){
             $out .= $separador;
             $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
         }
+      
         $out .= '</div>';
     }
     return $out;
