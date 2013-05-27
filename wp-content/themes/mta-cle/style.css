@@ -699,6 +699,7 @@ footer .menu-menu-principal-container{
     float: left;
     font-size: 14px;
     padding: 10px 10px 10px 50px;
+    width: 60%
 }
 
 .exclusive a{
@@ -720,15 +721,17 @@ footer .menu-menu-principal-container{
 
 .social {
     background: none repeat scroll 0 0 #DDDDDD;
-    border-radius: 4px 4px 4px 4px;
+    /*border-radius: 4px 4px 4px 4px;*/
     float: left;
     list-style: none outside none;
-    padding: 10px;
-    width: 35%;
+    padding: 20px 10px;
+    width: 33%;
+    margin-left: 2%;
+    
 }
 
 .social span {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -1487,7 +1490,10 @@ p,#pageContent p {
 }
 .page-template-default #fixedPic, .single-eventos_sociales #fixedPic, .single-format-standard #fixedPic{
 }
-
+.gallery{
+    padding-top: 20px;
+    clear: both;
+}
 .gallery ul {
     list-style: none outside none;
 }
@@ -2274,9 +2280,11 @@ and (max-width : 640px) {
 .formPass{
     width: 80%;
 }
-
+.exclusive{
+    margin-left: 7px;
+    width: 76%;
+}
 .social{
-    
     width: 90%;
     margin-top: 10px;
 }

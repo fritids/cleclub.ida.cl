@@ -59,7 +59,7 @@
                      }
                      echo '<h3>Descripción</h3>';
                      the_content();
-                     echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small>';
+                     echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small></div></div>';
                 };
                 ?>
                 <ul class="social">
@@ -75,7 +75,7 @@
             ?>
                 
             <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>
-                <div class="gallery">
+                <div class="gallery clearfix">
                     <ul>
                             <?php
                             $r = get_field('imagenes');

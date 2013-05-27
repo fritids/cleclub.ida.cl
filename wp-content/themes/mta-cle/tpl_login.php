@@ -28,7 +28,7 @@ get_header(); ?>
             <form id="frontLog" name="login" method="post">
                 <div class="clearfix boxLog">
                     <label class="label" for="log">Usuario:</label>
-                    <input type="text" name="log" id="log" value="" class="itLoginFront" required />
+                    <input type="text" name="log" id="log" value="" class="itLoginFront" required  autocapitalize="off" />
                 </div>
                 <div class="clearfix">
                     <label class="label boxLog" for="pwd">Contraseña:</label>
