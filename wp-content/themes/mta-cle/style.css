@@ -2381,7 +2381,21 @@ and (min-width : 480px){
     #lightbox{position: absolute;}
     #lightboxImg{position: absolute;}
     .fotoNota{width: 12%;}
-    .quien{width: 32.164% !important; float: left;}
+    .quien {
+    float: left !important;
+    margin-right: 2% !important;
+    width: 31.164% !important;
+}
+    .quienesSomos{
+        width: 100%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    .fotoMiembro{
+        width: 20%;
+    }
     
 
     
