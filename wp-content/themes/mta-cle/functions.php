@@ -73,7 +73,10 @@ function breadcrumb() {
             $out .= $separador;
             $out .= $autor->first_name.' '.$autor->last_name;
         }
-        
+        elseif(is_tax()){
+            $out .= $separador;
+            $out .= '<span class="bc-item end-item">'. single_cat_title( '', false ) .'</span>';
+        }
         elseif(!is_single() && !is_category() && !is_search()){
             $out .= $separador;
             $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';

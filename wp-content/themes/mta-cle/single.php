@@ -1,8 +1,5 @@
 <?php get_header(); ?>
 <div id="contenido" class="row">
-    
-    
-    
     <?php while (have_posts()) : the_post(); ?> 
         <div id="leftSide" class="column8 downV down">
             <div id="cSlider">

@@ -1,12 +1,8 @@
 <?php get_header(); ?>
 <div id="contenido">
 <div id="pageContent" class="column8 downV down pad">
- <?php
-        if (is_user_logged_in() || is_tax("taxeventos", "agenda")) {
-            the_post();
-            global $wp_query;
-            $curauth = $wp_query->get_queried_object();            
-        ?>
+<?php echo breadcrumb(); ?> 
+ <?php if (is_user_logged_in() || is_tax("taxeventos", "agenda")) { ?>
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
     <ul>
