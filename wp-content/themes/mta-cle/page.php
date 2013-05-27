@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php the_post(); ?>                
 <div id="contenido" class="row">
+    <?php echo breadcrumb(); ?> 
     <?php if (get_post_thumbnail_id()) : ?>
         <div id="leftSide" class="column8 down downV">
             <div id="cSlider">
@@ -12,7 +13,6 @@
     <?php endif; ?>
     <?php get_sidebar(); ?>
     <div id="pageContent" class="column12 pad">
-        <?php echo breadcrumb(); ?> 
         <h1><?php the_title(); ?></h1>
         <div id="postContent" class="column8 down downV">
             <?php the_content(); ?>
