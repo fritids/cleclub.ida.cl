@@ -1551,7 +1551,7 @@ li.last_gal {
 }
 
 #lightbox {
-    position: absolute;
+    position: fixed;
     z-index: 8020;
     display: block; 
     top: 0; 
@@ -2181,7 +2181,17 @@ and (max-width : 640px) {
     .searchInput{width:0; padding:0;border:0 none; margin-left:0;}
     #overflow-text{border-bottom: 1px solid #999999; margin-bottom: 20px;}
     
-    .lb-close-btn{left:2%; bottom:100%; top:auto; right:auto; width:auto; color:#000; padding-left:33px; padding-right:20px; text-align:left; background:#FFFFFF url(_img/closebutton.jpg) left center no-repeat}
+    .lb-close-btn {
+    background: none repeat scroll 0 0 #000000;
+    border-radius: 6px 6px 6px 6px;
+    bottom: 100%;
+    color: #FFFFFF;
+    left: auto;
+    padding: 5px 10px;
+    right: 2%;
+    top: auto;
+    width: auto;
+}
     .arrowL, .arrowR{margin-top:2%;}
     .mobile-title{display:inline-block;}
     
@@ -2368,6 +2378,11 @@ and (min-width : 480px){
     #listadoEventos small{font-size: 14px;}
     .tituloNotaW a{font-size: 16px;}
     .tituloNotaW small{font-size: 14px;}
+    #lightbox{position: absolute;}
+    #lightboxImg{position: absolute;}
+    .fotoNota{width: 12%;}
+    .quien{width: 32.164% !important; float: left;}
+    
 
     
 }
