@@ -27,7 +27,7 @@
             get_currentuserinfo();
             ?>
         <div class="logIn">
-            <div class="picAvatar"><?php echo get_avatar($current_user->id, 75); ?></div>
+            <div class="picAvatar"><?php echo get_avatar($current_user->id, 75, get_bloginfo('template_directory') . "/_img/avatardefault.jpg"); ?></div>
             <div class="userData">
                 <span>Bienvenido</span>
                 <?php
