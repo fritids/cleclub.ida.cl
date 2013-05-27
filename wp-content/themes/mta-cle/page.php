@@ -12,6 +12,7 @@
     <?php endif; ?>
     <?php get_sidebar(); ?>
     <div id="pageContent" class="column12 pad">
+        <?php echo breadcrumb(); ?> 
         <h1><?php the_title(); ?></h1>
         <div id="postContent" class="column8 down downV">
             <?php the_content(); ?>
