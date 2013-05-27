@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 <div id="contenido" class="row">
+    
+    
+    
     <?php while (have_posts()) : the_post(); ?> 
         <div id="leftSide" class="column8 downV down">
             <div id="cSlider">
@@ -59,8 +62,11 @@
                      }
                      echo '<h3>Descripción</h3>';
                      the_content();
+                     if(get_field('archivo_adjunto')){
                      echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o Inicia Sesion</small></div></div>';
-                };
+                     }
+                     
+                     };
                 ?>
                 <ul class="social">
                     <li><span>Comparte este articulo:</span></li>
