@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 <div id="contenido" class="row">
-    
-    <?php if (is_user_logged_in() || is_tax("taxeventos", "agenda")) { ?> 
-    
+    <?php echo breadcrumb(); ?> 
     <?php while (have_posts()) : the_post(); ?> 
         <div id="leftSide" class="column8 downV down">
             <div id="cSlider">
@@ -99,18 +97,6 @@
                 </div> 
             <?php endif; ?>
         </div>
-    </div> 
- <?php
-        } else {
-
-            echo '<div class="authorBio clearfix pad down downV column8">
-                <div class="authorWrap">
-                <strong>Acceso restringido para miembros del CLE CLUB</strong>
-                </div>
-                </div>';
-            get_sidebar();
-            
-        };
-        ?> 
+    </div>    
 </div><!--pageContent-->
 <?php get_footer(); ?>
