@@ -211,3 +211,10 @@
 .share .btnDown{
     float: left;
 }
+
+
+/*----Breadcrumbs-----*/
+.breadcrumb{overflow:hidden;margin-bottom:20px; font-size:13px;}
+.breadcrumb simple-text{color:#333;}
+.breadcrumb a{color: #666666;font-weight: bold;text-decoration: underline;}
+.breadcrumb a:hover{color: #ff9900;}

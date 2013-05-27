@@ -41,6 +41,40 @@ function sliderHome(){
     
     return $out;
 }
+   
+function breadcrumb() {
+    global $post;
+    $out = "";
+    $separador = ' - ';
+    if (!is_front_page()) {
+        $out .= '<div class="breadcrumb">';
+        $out .= '<span class="simple-text">Estás en: </span>';
+        $out .= '<a class="bc-item" href="' . home_url() . '" title="Inicio">Inicio</a>';
+
+        if (is_category()) {
+            $out .= $separador;
+            $out .= get_option( "category_base" ) ? '<span class="bc-item">'. get_option( "category_base" ) .'</span>' : '<span class="bc-item">CategorÃ­as</span>' ;
+            $out .= single_cat_title("", false);
+        } 
+        elseif (is_page()) {
+            if ($post->post_parent && count($post->ancestors) <= 1) {
+                $out .= $separador;
+                $out .= '<a class="bc-item" href="' . get_permalink($post->post_parent) . '" title="' . get_the_title($post->post_parent) . '">' . get_the_title($post->post_parent) . '</a>';
+            }
+        }
+        // repetir modulo por cada post_type
+        elseif (is_singular('post')) {
+            $out .= $separador;
+            $out .=  '<a class="bc-item" href="#" title="Entradas">Entradas</a>';
+        }
+        if(!is_single() && !is_category() && !is_search()){
+            $out .= $separador;
+            $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
+        }
+        $out .= '</div>';
+    }
+    return $out;
+}
 
 function cortar($str, $n, $cutter = false) {
     $str = trim($str);
