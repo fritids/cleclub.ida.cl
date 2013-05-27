@@ -159,13 +159,31 @@
 #lightboxImg{width:50%; left:25%; top:30px;}
 #lightboxImg img{width:100%;}
 
-.volver-arriba{
-    position: fixed;
+.volver-arriba {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -appearance: none;
+    background: url(_img/upButton.png) no-repeat 5px 4px rgba(255,255,255,0.6);
+    border: 2px solid #CCCCCC;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     bottom: 10px;
-    right: 10px;
+    color: #666666;
+    font-family: helvetica, arial;
+    font-weight: bold;
     height: 32px;
-    padding: 0 20px;
+    padding: 0 10px 0 30px;
+    position: fixed;
+    right: 10px;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+    
 }
+
+.svg .volver-arriba{background: url(_img/upButton.svg) no-repeat 5px 4px rgba(255,255,255,0.6);}
+
 .mobile-title{
     color: white;
     padding-left:50px;

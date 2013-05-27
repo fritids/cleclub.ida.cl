@@ -25,7 +25,7 @@ get_header(); ?>
             <p class="tituloNM">INGRESO <a href="/solicitud-de-membresia/">Solicitar Membresía</a></p>
         </div>    
             <div class="loginWrap">
-            <form id="frontLog" name="login" method="post">
+            <form id="frontLogMobile" name="login" method="post">
                 <div class="clearfix boxLog">
                     <label class="label" for="log">Usuario:</label>
                     <input type="text" name="log" id="log" value="" class="itLoginFront" required  autocapitalize="off" />

@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <div id="contenido">
-    <div id="leftSide" class="authorWrap">
+    <div id="leftSide" class="authorBio clearfix pad column8 down downV">
+        <div  class="authorWrap">
         <?php
         if (is_user_logged_in()) {
             the_post();
@@ -30,7 +31,7 @@
             echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
         };
         ?>       
-
+        </div>
     </div>
     <?php get_sidebar(); ?>
 </div><!--pageContent-->

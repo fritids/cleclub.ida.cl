@@ -166,6 +166,34 @@
           
         });
         
+        $('#frontLogMobile').validizr({
+             validFormCallback : function( $formulario ){
+                
+                $.ajax({
+                    type: "POST",
+                    url: '/wp-admin/admin-ajax.php',
+                    data: 'action=envioAjax&func=loginFront&' + $formulario.serialize(),
+                    dataType: "html",
+                    beforeSend: function( xhr ) { 
+                        $formulario.find('.errorMsn').remove();
+                        $formulario.css('opacity', '0.5'); 
+                    },
+                    success: function( respuesta ) {
+                        if(respuesta === 'errorcontrasena'){
+                            $('#pwd').after('<span class="errorMsn frontLogg">Nombre de Usuario o Contraseña Incorrectos</span>');
+                            $formulario.css('opacity','1');
+                        }
+                        else{
+                          window.location.assign(window.location.origin);
+                        }
+                    }
+                });
+            
+            }
+            
+          
+        });
+        
         if($('#slider').length > 0){
             $('#slider').Swipe({auto: 3000, continuous: true, callback: function(index, item){
                     var $bulletsContainer = $('#bullets-slider'),
