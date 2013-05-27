@@ -10,7 +10,7 @@ the_post();
 
 <div id="contenido">
     <div id="pageContent" class="clearfix column8 down pad downV" data-bkbtn="true">
-        
+       <?php echo breadcrumb(); ?>  
       <?php
         if (is_user_logged_in()) {
             the_post();
