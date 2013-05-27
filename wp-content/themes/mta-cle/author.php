@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <div id="contenido">
     <div id="leftSide" class="authorBio clearfix pad column8 down downV">
+        <?php echo breadcrumb(); ?> 
         <div  class="authorWrap">
         <?php
         if (is_user_logged_in()) {
