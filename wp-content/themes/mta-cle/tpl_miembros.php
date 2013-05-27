@@ -10,6 +10,13 @@ the_post();
 
 <div id="contenido">
     <div id="pageContent" class="clearfix column8 down pad downV" data-bkbtn="true">
+        
+      <?php
+        if (is_user_logged_in()) {
+            the_post();
+            global $wp_query;
+            $curauth = $wp_query->get_queried_object();            
+        ?>
         <h1><?php the_title(); ?></h1>
         <?php
         $i = 1;
@@ -32,6 +39,16 @@ the_post();
             $i++;
         }
         ?>
+            <?php
+        } else {
+
+            echo '<div class="authorBio clearfix pad down downV">
+                <div class="authorWrap">
+                <strong>Acceso restringido para miembros del CLE CLUB</strong>
+                </div>
+                </div>';
+        };
+        ?>     
     </div>
     <?php get_sidebar();?>
     <?php get_footer();?>

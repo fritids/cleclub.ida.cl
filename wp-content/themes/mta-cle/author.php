@@ -28,7 +28,7 @@
             <?php
         } else {
 
-            echo '<strong>Acceso restringido para miembros del CLE Club</strong>';
+            echo '<strong>Acceso restringido para miembros del CLE CLUB</strong>';
         };
         ?>       
         </div>
