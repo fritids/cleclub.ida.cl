@@ -10,11 +10,6 @@
 
 */
 get_header(); ?>
-    <script>
-    $(document).ready(function(){
-        $("#contactoCle").validationEngine('attach');
-       });
-    </script>
 <div id="contenido">
     <div id="pageContent" class="column8 downV down pad">
         <h1><?php the_title();?></h1>
@@ -82,21 +77,21 @@ Te responderemos a la brevedad
             <label>
                 Nombre
             </label>
-            <input name="nombre" type="text" class="itLogin validate[required]" id="nombre">
+            <input name="nombre" type="text" class="itLogin" id="nombre" required>
             <label>
                 Cargo
             </label>
-            <input name="cargo" type="text" class="itLogin validate[required]" id="cargo" />
+            <input name="cargo" type="text" class="itLogin" id="cargo" />
             <label>
                 Empresa
             </label>
-            <input name="empresa" type="text" class="itLogin validate[required]" id="empresa" />
+            <input name="empresa" type="text" class="itLogin" id="empresa" />
             <label>Teléfono </label>
-            <input name="telefono" type="text" class="itLogin validate[required,custom[phone]]" id="telefono">
+            <input name="telefono" type="text" class="itLogin" id="telefono">
             <label>Mail</label>
-            <input name="mail" type="text" class="itLogin validate[required,custom[email]]" id="mail">
+            <input name="mail" type="text" class="itLogin validate" id="mail" required>
             <label>Mensaje</label>
-            <textarea name="mensaje" rows="5" class="itLoginML validate[required]" id="mensaje"></textarea>
+            <textarea name="mensaje" rows="5" class="itLoginML" id="mensaje"></textarea>
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
 </div><!--/contacto-->
