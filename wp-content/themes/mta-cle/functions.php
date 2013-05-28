@@ -74,6 +74,8 @@ function breadcrumb() {
             $autor = get_userdata( $autor );
             
             $out .= $separador;
+            $out .= '<a class="bc-item" href="/miembros-del-club/" title="Entradas">Miembros del Club</a>';
+            $out .= $separador;
             $out .= $autor->first_name.' '.$autor->last_name;
         }
         elseif(is_tax()){
