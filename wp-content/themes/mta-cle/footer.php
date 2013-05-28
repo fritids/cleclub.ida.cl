@@ -20,7 +20,7 @@
                         <?php
                         if (is_user_logged_in()) {
 
-                            wp_nav_menu(array('theme_location' => 'primary', 'items_wrap' => '<ul class="menuFoot hide-on-phones">%3$s</ul>'));
+                            wp_nav_menu(array('theme_location' => 'footerPrivate', 'items_wrap' => '<ul class="menuFoot hide-on-phones">%3$s</ul>'));
                         } else {
 
                             wp_nav_menu(array('theme_location' => 'footerPublico', 'items_wrap' => '<ul class="menuFoot hide-on-phones">%3$s</ul>'));

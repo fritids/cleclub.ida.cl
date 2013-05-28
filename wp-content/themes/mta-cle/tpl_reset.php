@@ -32,10 +32,10 @@ get_header();
  <?php }  else { ?>
         <div id="pageContent" class="clearfix column8 downV down pad">
             <h1><?php the_title(); ?></h1>
-                <h2>Pasos a seguir.</h2>
+                <h2>Pasos a seguir:</h2>
                 <ol class="pasos">
-                    <li>Ingrese su correo electrónico para cambiar su contraseña.</li>
-                    <li>Recibirá un email con un enlace para crear una nueva contraseña</li>
+                    <li>Ingrese su Email </li>
+                    <li>Recibirá un email con un enlace para crear una nueva contraseña </li>
                 </ol>    
                     
                 <p class="passReset"><small>* Revisa tu correo electrónico para obtener el enlace de confirmación.</small></p>
