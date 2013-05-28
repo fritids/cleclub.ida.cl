@@ -103,20 +103,20 @@ Te responderemos a la brevedad
             <label>
                 Nombre
             </label>
-            <input name="nombre" type="text" class="itLogin" id="nombre">
+            <input name="nombre" type="text" class="itLogin" id="nombre" required>
             <label>Mail</label>
-            <input name="mail" type="text" class="itLogin" id="mail">
+            <input name="mail" type="text" class="itLogin" id="mail" required>
             <label>
                 Empresa
             </label>
-            <input name="empresa" type="text" class="itLogin" id="empresa" />
+            <input name="empresa" type="text" class="itLogin" id="empresa" required />
             <label>
                 Cargo
             </label>
-            <input name="cargo" type="text" class="itLogin" id="cargo" />
+            <input name="cargo" type="text" class="itLogin" id="cargo" required />
             
             <label class="hide-on-phones">Adjuntar Curriculum </label>
-            <input class="hide-on-phones" name="curriculum" type="file" class="itLogin">
+            <input class="hide-on-phones" name="curriculum" type="file" class="itLogin" required>
             
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
