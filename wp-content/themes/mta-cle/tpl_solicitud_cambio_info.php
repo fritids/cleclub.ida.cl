@@ -9,7 +9,7 @@ the_post();
 get_header();
 $user = wp_get_current_user();
 printMe($user); 
-printMe($user['ID']); 
+printMe($user['']); 
 ?>
     <script>
     $(document).ready(function(){
