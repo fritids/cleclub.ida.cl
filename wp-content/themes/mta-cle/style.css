@@ -2258,6 +2258,12 @@ and (min-width : 641px){
 Tablets Horizontal ***************************************************************
 *******************************************************************************/
 @media only screen
+and (max-device-width : 1285px)
+and (min-device-width : 801px){
+    .realSelect{display:block;}
+    .selectReplace{display:none;}
+}
+@media only screen
 and (max-width : 1025px)
 and (min-width : 801px) {
     .hide-on-h-tablets {display:none !important;}
@@ -2271,7 +2277,7 @@ and (min-width : 801px) {
         box-sizing: border-box;
     }
     .realSelect{display:block;}
-    .selectReplace{display:none !important;}
+    .selectReplace{display:none;}
 }
 
 

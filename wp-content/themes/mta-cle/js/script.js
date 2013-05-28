@@ -30,11 +30,11 @@
             }
         }
         if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px) ')){
-            $('.realSelect').remove();
             esto.deploySelectTablet();
         }
         $(window).on('resize',function(){
             $('#menuSelect').remove();
+            $('.realSelect').remove();
 
             esto.equalizeHeights($(".bio"));
             esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
@@ -293,6 +293,7 @@
             $.each($submenu, function(val, item){
                 options += '<option value="'+$(item).attr('href')+'">'+$(item).text()+'</option>';
             });
+
             $listMenu.after('<select class="evt-new realSelect" data-func="redirectMenu" data-event="change" name="menu-principal">'+options+'</select>');
             this.autoHandle($('.evt-new'));
         },
