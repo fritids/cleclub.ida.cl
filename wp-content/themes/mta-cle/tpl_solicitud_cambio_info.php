@@ -6,7 +6,11 @@
 
 */
 the_post();
-get_header(); ?>
+get_header();
+$user = wp_get_current_user();
+printMe($user); 
+printMe($user['ID']); 
+?>
     <script>
     $(document).ready(function(){
         $("#contactoCle").validationEngine('attach');
@@ -39,18 +43,66 @@ get_header(); ?>
    <title>Contacto - CLE CLUB</title> 
 </head> 
     <body style="font-family:Tahoma;font-size:11px"> 
-        <p> Fecha Recepción : '.date('d-m-Y').'</p>
-        <p> Empresa      : '.$empresa.'</p>
-        <p> Cargo      : '.$cargo.'</p>
-        <p> Telefono     : '.$telefono.'</p>
-        <p> Mail    : '.$mail.'</p>
-        <p> Estado Civil :'. $estadocivil .'</p>
-        <p> Grupos y Asociaciones :'. $grupos .'</p>
-        <p>Actividades y Talentos :' . $actividad . '</p>
-        <p>Familia : '. $familia. '</p>    
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Solicitud cambio de informacion Perfil
+                                        </strong>
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                        <p> Fecha Recepción : '.date('d-m-Y').'</p>
+                        <p> Empresa      : '.$empresa.'</p>
+                        <p> Cargo      : '.$cargo.'</p>
+                        <p> Telefono     : '.$telefono.'</p>
+                        <p> Mail    : '.$mail.'</p>
+                        <p> Estado Civil :'. $estadocivil .'</p>
+                        <p> Grupos y Asociaciones :'. $grupos .'</p>
+                        <p>Actividades y Talentos :' . $actividad . '</p>
+                        <p>Familia : '. $familia. '</p>    
+                    </table>
+                    </td>
+                </tr>
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
+                
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
+                    </td>
+                </tr>
+               
+            </table>
         
     </body> 
 </html> 
+
+ 
 '; 
 //para el envío en formato HTML 
 $headers = "MIME-Version: 1.0\r\n"; 
@@ -104,15 +156,17 @@ Te responderemos a la brevedad
  }
  else {
 ?> 
+        
+        
 <div id="contacto">
 
     <form name="contactoCle" id="contactoCle" method="post" action="#" enctype="multipart/form-data">
-            <label>
+            <label> <?php get_field('empresa',$user->ID);?>
                 Empresa
             </label>
-            <input name="empresa" type="text" id="nombre">
+            <input name="empresa" type="text" class="itLogin" id="nombre" value="">
             <label>Cargo</label>
-            <input name="cargo" type="text" id="mail">
+            <input name="cargo" type="text" class="itLogin" id="mail">
             <label>
                 Teléfono
             </label>
@@ -133,8 +187,8 @@ Te responderemos a la brevedad
             <textarea name="grupos" rows="5" class="itLoginML mid" id="mensaje"></textarea>
             <label>Actividades y talentos:</label>
             <textarea name="actividad" rows="5" class="itLoginML mid" id="mensaje"></textarea>
-            <label class="hide-on-phones">Adjuntar Imagen de Perfil </label>
-            <input name="imagen" type="file" class="hide-on-phones" value="Examinar...">
+            <label>Adjuntar Imagen de Perfil </label>
+            <input name="imagen" type="file" class="itLogin" value="Examinar...">
             
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
