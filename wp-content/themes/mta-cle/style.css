@@ -435,6 +435,7 @@ h5 {
     text-indent: -9999px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    border-radius:0;
 }
 
 .no-svg #menuSelect{
