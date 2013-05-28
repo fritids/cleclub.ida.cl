@@ -441,7 +441,7 @@
             var img = $(".gallery").find('a[data-item="'+item+'"]').attr("href");
             $(".imgLigthbox").attr("src", img);
             $(".arrowL,.arrowR").attr("data-item", item);
-//            $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
+            $(".imgLigthbox").load(function(){$("#loading").fadeOut().promise().done(function(){$("#loading").remove()})})
         },
         prevPic: function(e) {
             e.preventDefault();

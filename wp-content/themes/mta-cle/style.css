@@ -2271,6 +2271,17 @@ and (min-width : 641px){
        padding-left: 20px;
    }
    .lb-close-btn{right:2%;top: 0;}
+   
+   .chromebrowser .forgot {
+margin-top: 15px;
+
+
+}
+
+ #frontLogMobile .btn.mob {
+    font-size: 14px;
+    
+}
 }
 
 /*******************************************************************************
@@ -2324,6 +2335,10 @@ and (min-width : 641px) {
     }
     .breadcrumb{padding:0 20px;}
     .mobile-title{display:inline-block}
+    
+    .chromebrowser .forgot {
+margin-top: 15px;
+}
 }
 
 
