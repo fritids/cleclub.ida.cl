@@ -2577,10 +2577,6 @@ and (max-width : 640px) {
 .arrowR{
     background: url(_img/iconRight.png) center center no-repeat;           
 }
-
-
-
-
     
 }
 
@@ -2605,7 +2601,7 @@ and (min-width : 480px){
     float: left !important;
     margin-right: 2% !important;
     width: 31.164% !important;
-    padding: 5px,
+    padding: 5px;
 }
     .quienesSomos{
         width: 100%;
@@ -2617,10 +2613,6 @@ and (min-width : 480px){
     .fotoMiembro{
         width: 20%;
     }
-    
- 
-
-    
 }
 
 @media only screen
