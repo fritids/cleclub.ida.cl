@@ -255,7 +255,7 @@ h5 {
     right: 0;
     text-align: right;
     top: 0;
-    width: 286px;
+    width: 300px;
 }
 
 
@@ -564,6 +564,17 @@ footer .menu-menu-principal-container{
 .chromebrowser .loginWrap .btn {
     margin-left: 3px;
 }
+
+.chromebrowser .boxLog {
+margin-bottom: 6px;
+margin-top: 0;
+}
+
+.chromebrowser .label {
+
+margin-top: 1px;
+}
+
 .boxLog {
     margin-bottom: 5px;
 }
@@ -577,6 +588,8 @@ footer .menu-menu-principal-container{
     margin: 22px 10px 0;
     text-decoration: underline;
 }
+
+.chromebrowser .forgot{margin-top: 19px;}
 
 .logIn {
     overflow: hidden;
@@ -699,7 +712,9 @@ footer .menu-menu-principal-container{
     float: left;
     font-size: 14px;
     padding: 10px 10px 10px 50px;
-    width: 60%
+    width: 52%;
+    border-radius: 4px;
+    margin-right: 2%;
 }
 
 .exclusive a{
@@ -2362,6 +2377,22 @@ and (max-width : 640px) {
     margin-bottom: 10px;
     padding: 10px;
 }
+
+#cleCorpMark{
+    
+    width: 30%;
+}
+
+#cleCorpMark img {
+    display: block;
+    width:100%;
+    height: auto;
+}
+
+
+
+
+    
 }
 
 /*******************************************************************************

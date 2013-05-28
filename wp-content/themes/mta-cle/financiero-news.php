@@ -8,6 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="http://cleclub.ida.cl/wp-content/themes/mta-cle/style.css" type="text/css"/>
 <title></title>
 <style type="text/css" media="screen">
 * {
@@ -60,7 +61,6 @@ body#radarExternalLink {
 }
 
 #cleCorpMark {
-	background: url(/wp-content/themes/mta-cle/css/imgBarra/logoBarra.jpg) no-repeat;
 	display: block;
 	float: left;
 	margin: -13px 30px 0 30px;
@@ -86,6 +86,7 @@ body#radarExternalLink {
         display: block;
         width: 145px;
         margin-right: 30px;
+        text-align: center;
 	 }
 
 #contextualBarClose:hover {
@@ -103,7 +104,7 @@ body#radarExternalLink {
     <body id="dfnewsExternalLink">
         <div id="contextualBarCiper" class="clearfix">
             <p>
-                <a href="#" id="cleCorpMark">C Level Executive Club</a>
+                <a href="#" id="cleCorpMark"><img src="http://cleclub.ida.cl/wp-content/themes/mta-cle/css/imgBarra/logoBarra.jpg"/></a>
                     <div class="clearfix dfWrap">
                         <span>
                             <strong id="externalLinkTitle">
