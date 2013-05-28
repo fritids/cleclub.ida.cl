@@ -17,6 +17,7 @@ $user = wp_get_current_user();
 <?php wp_enqueue_script( 'comment-reply' );?>
 <div id="contenido">
     <div id="pageContent" class="clearfix column8 down downV pad" data-bkbtn="true">
+        <?php echo breadcrumb() ?>
         <h1><?php the_title();?></h1>
         <?php the_content();?>
         <?php

@@ -60,7 +60,11 @@ function breadcrumb() {
             if ($post->post_parent && count($post->ancestors) <= 1) {
                 $out .= $separador;
                 $out .= '<a class="bc-item" href="' . get_permalink($post->post_parent) . '" title="' . get_the_title($post->post_parent) . '">' . get_the_title($post->post_parent) . '</a>';
+            }else{
+                $out .= $separador;
+                $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
             }
+            
         }
         // repetir modulo por cada post_type
         elseif (is_singular('post')) {
@@ -77,10 +81,11 @@ function breadcrumb() {
             $out .= $separador;
             $out .= '<span class="bc-item end-item">'. single_cat_title( '', false ) .'</span>';
         }
-        elseif(!is_single() && !is_category() && !is_search()){
+        else{
             $out .= $separador;
             $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
         }
+        
       
         $out .= '</div>';
     }
