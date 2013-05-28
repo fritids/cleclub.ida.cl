@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <div id="contenido">
 <div id="pageContent" class="column8 downV down pad">
+    <?php echo breadcrumb() ?>
  <?php 
  $terms = wp_get_post_terms( $post->ID, 'taxeventos');
  $agenda = false;

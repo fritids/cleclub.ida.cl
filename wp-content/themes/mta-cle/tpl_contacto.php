@@ -57,9 +57,6 @@ get_header(); ?>
                                         </strong>
                                     </font>
                                 </td>
-                                <td>
-                                    <p>'.$cargo.'</p>
-                                </td>
                             </tr>
                         </table>
                     </td>
