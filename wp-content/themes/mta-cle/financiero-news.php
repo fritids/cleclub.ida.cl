@@ -12,6 +12,9 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <link rel="stylesheet" href="http://cleclub.ida.cl/wp-content/themes/mta-cle/style.css" type="text/css"/>
+<script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/_js/jquery-1.7.1.min.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
 <title></title>
 <style type="text/css" media="screen">
 * {
@@ -22,7 +25,7 @@
 </head>
     <body id="dfnewsExternalLink">
         <div id="contextualBarCiper" class="clearfix">
-            
+            <div class="wrap">
                 <a href="#" id="cleCorpMark"><img src="http://cleclub.ida.cl/wp-content/themes/mta-cle/css/imgBarra/logoBarra.jpg"/></a>
                     <div class="clearfix dfWrap">
                         <span>
@@ -35,6 +38,7 @@
                 <a href="/" id="contextualBarClose">Volver a CLE CLUB</a>
             
         </div>
+            </div>
         <iframe  id="eliframe" src="<?php echo $url;?>" frameborder="0">
             <p>Your browser does not support iframes.</p>
         </iframe>

@@ -110,9 +110,9 @@ Te responderemos a la brevedad
             <label>
                 Empresa
             </label>
-            <input name="empresa" type="text" class="itLogin" id="nombre">
+            <input name="empresa" type="text" id="nombre">
             <label>Cargo</label>
-            <input name="cargo" type="text" class="itLogin" id="mail">
+            <input name="cargo" type="text" id="mail">
             <label>
                 Teléfono
             </label>
@@ -133,8 +133,8 @@ Te responderemos a la brevedad
             <textarea name="grupos" rows="5" class="itLoginML mid" id="mensaje"></textarea>
             <label>Actividades y talentos:</label>
             <textarea name="actividad" rows="5" class="itLoginML mid" id="mensaje"></textarea>
-            <label>Adjuntar Imagen de Perfil </label>
-            <input name="imagen" type="file" class="itLogin" value="Examinar...">
+            <label class="hide-on-phones">Adjuntar Imagen de Perfil </label>
+            <input name="imagen" type="file" class="hide-on-phones" value="Examinar...">
             
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
