@@ -115,8 +115,8 @@ Te responderemos a la brevedad
             </label>
             <input name="cargo" type="text" class="itLogin validate[required]" id="cargo" />
             
-            <label>Adjuntar Curriculum </label>
-            <input name="curriculum" type="file" class="itLogin">
+            <label class="hide-on-phones">Adjuntar Curriculum </label>
+            <input class="hide-on-phones" name="curriculum" type="file" class="itLogin">
             
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
