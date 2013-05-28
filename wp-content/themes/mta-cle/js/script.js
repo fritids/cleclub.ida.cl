@@ -13,8 +13,10 @@
         setTimeout(function(){
             esto.equalizeHeights($(".bio"));
         },2000);
+        
         esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
+        
         if(Modernizr.mq('only screen and (min-width : 640px)')){
             esto.equalizeHeights($("#wNotas .tituloNota"));
             esto.equalizeHeights($("#wNotas .boxNotas"));
