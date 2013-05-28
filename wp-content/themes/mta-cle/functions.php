@@ -191,6 +191,79 @@ function parseFeed($url, $cuantos = 3, $descripcion = true) {
     endif;
 }
 
+function mailContent($empresa,$cargo,$telefono,$mail,$estadocivil,$grupos,$actividad,$familia,$content){
+    $out = ' 
+<html> 
+<head> 
+   <title>Contacto - CLE CLUB</title> 
+</head> 
+    <body style="font-family:Tahoma;font-size:11px"> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Solicitud cambio de informacion Perfil
+                                        </strong>
+                                    </font>
+                                </td>
+                                <td>
+                                    <p>'.$cargo.'</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                        <p> Fecha Recepción : '.date('d-m-Y').'</p>
+                        <p> Empresa      : '.$empresa.'</p>
+                        <p> Cargo      : '.$cargo.'</p>
+                        <p> Telefono     : '.$telefono.'</p>
+                        <p> Mail    : '.$mail.'</p>
+                        <p> Estado Civil :'. $estadocivil .'</p>
+                        <p> Grupos y Asociaciones :'. $grupos .'</p>
+                        <p>Actividades y Talentos :' . $actividad . '</p>
+                        <p>Familia : '. $familia. '</p>    
+                    </table>
+                    </td>
+                </tr>
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
+                
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
+                    </td>
+                </tr>
+               
+            </table>
+        
+    </body> 
+</html> 
+
+ 
+';
+}
+
 function return_7200( $seconds )
 {
   // change the default feed cache recreation period to 2 hours
@@ -474,8 +547,9 @@ function getComentarios($offset = 0){
         $commentDate = get_comment_date( 'l d \d\e M G:i  ', $comment->comment_ID );
 
         $out .= '<span class="date">'.$commentDate.'</span>';
-        $out .= '<span class="userCom"><strong>'.$comment->comment_author.'</strong> Comento:</span>';
-        $out .= '<p>'.$comment->comment_content.'</p>';
+        $out .= '<span class="userCom"><strong>'.$comment->comment_author.'</strong> Comentó:</span>';
+//        $out .= '<p>'.$comment->comment_content.'</p>';
+        $out .= apply_filters('the_content', $comment->comment_content);
         $out .= get_comment_reply_link($args = array('reply_text' => 'Responder', 'depth' => 1, 'max_depth' => 2, 'respond_id' => 'formComment' ), $comment->comment_ID, $post-ID);
         $out .= '</div>';
         $out .= '</li>';
