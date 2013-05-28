@@ -6,7 +6,7 @@
             <div class="center clearfix">
                 <div class="infoFoot column4 down equal">
                     <div class="logo">
-                        <img src="<?php bloginfo('template_directory'); ?>/_img/logoFooter.png" alt="Logotipo de CLE">
+                        <img src="<?php echo get_template_directory_uri(); ?>/_img/logoFooter.svg" data-fallback="<?php echo get_template_directory_uri(); ?>/_img/logoFooter.png" width="178" height="81" />
                     </div>
                     <p>
                         <strong>C Level Executive Club</strong><br />
