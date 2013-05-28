@@ -22,7 +22,7 @@
 </head>
     <body id="dfnewsExternalLink">
         <div id="contextualBarCiper" class="clearfix">
-            
+            <div class="wrap">
                 <a href="#" id="cleCorpMark"><img src="http://cleclub.ida.cl/wp-content/themes/mta-cle/css/imgBarra/logoBarra.jpg"/></a>
                     <div class="clearfix dfWrap">
                         <span>
@@ -35,6 +35,7 @@
                 <a href="/" id="contextualBarClose">Volver a CLE CLUB</a>
             
         </div>
+            </div>
         <iframe  id="eliframe" src="<?php echo $url;?>" frameborder="0">
             <p>Your browser does not support iframes.</p>
         </iframe>

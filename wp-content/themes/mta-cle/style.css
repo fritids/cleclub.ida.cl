@@ -2111,14 +2111,20 @@ body#radarExternalLink {
 #externalLinkTitle a, #externalLinkFuente{
     text-decoration: none;
     color: rgb(51,51,51);
-}   
+}
+
+.wrap{
+    max-width: 1000px;
+    width: 100%;  
+    margin: 0 auto;
+}
 #dfnewsExternalLink #contextualBarCiper {
 	background: none repeat scroll 0 0 #FEFEFE;
     border-bottom: 10px solid #000000;
     color: #333333;
     font-family: Arial,Helvetica,sans-serif;
     left: 0;
-    padding: 10px 10px 0;
+    padding: 10px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -2151,8 +2157,9 @@ body#radarExternalLink {
 #cleCorpMark {
     display: block;
     float: left;
-    margin-right: 10%;
+    margin-right: 2%;
     text-indent: -99999px;
+    width: 18%
 }
 
 #cleCorpMark img{
@@ -2166,8 +2173,8 @@ body#radarExternalLink {
     width:60%;
 }
 #contextualBarClose {
-	background:  rgb(192,197,200);
-	color: rgb(0,0,0);
+	background: #ff9900;
+	color:#000;
 	font-size: 10px;
 	line-height: 1.5em;
 	padding: 0.5em 2em;
@@ -2176,7 +2183,7 @@ body#radarExternalLink {
 	top: 0;
         float: right;
         display: block;
-        width: 10%;
+        width: 8%;
         margin-right: 30px;
         text-align: center;
 	 }
@@ -2353,7 +2360,7 @@ and (max-width : 640px) {
     width: 100%;
     padding: 0;
     margin-bottom: 30px;
-    
+        
 }
 
 #contextualBarClose{
@@ -2364,7 +2371,13 @@ and (max-width : 640px) {
     font-size: 14px;
     font-weight: bold;
     border-bottom: 3px solid #000;
+    margin-top: 10px;
     
+}
+
+#contextualBarCiper{
+    
+    padding-bottom:0 !important;
 }
 
 #bioMiembro {
@@ -2521,7 +2534,9 @@ and (max-width : 640px) {
     padding: 10px;
 }
 
-
+#cleCorpMark{
+    width: 30%;
+}
 
 #cleCorpMark img {
     display: block;
