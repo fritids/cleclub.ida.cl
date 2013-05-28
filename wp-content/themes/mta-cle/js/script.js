@@ -161,7 +161,7 @@
                             $formulario.css('opacity','1');
                         }
                         else{
-                          window.location.reload();
+                          window.location.assign(window.location.origin);
                         }
                     }
                 });
