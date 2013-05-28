@@ -67,7 +67,7 @@
                      };
                 ?>
                 <ul class="social">
-                    <li><span>Comparte este articulo:</span></li>
+                    <li><span>Comparte este artículo:</span></li>
                     <li><a class="lkd"target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&title=<?php the_title();?>&summary=<?php the_title();?>&source={articleSource}">linkedin</a></li>
                     <li><a class="twitter" href="https://twitter.com/intent/tweet?text=<?php the_title();?> <?php the_permalink();?>&amp;hashtags=#Cleclub;via=CLECLUB" rel="nofollow">twitter</a></li>
                     

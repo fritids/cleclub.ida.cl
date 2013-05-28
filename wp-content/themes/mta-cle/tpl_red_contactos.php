@@ -45,7 +45,7 @@ $user = wp_get_current_user();
         <ul id="all-comments" class="commentList">
             <?php echo getComentarios() ?> 
         </ul>
-        <button class="evt btnCont" data-func="loadComments">Ver mas comentarios</button>
+        <button class="evt btnCont" data-func="loadComments">Ver más comentarios</button>
 
     </div>
     <?php get_sidebar();?>
