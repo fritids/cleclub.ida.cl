@@ -302,9 +302,11 @@ if(!class_exists('wp_user_avatar')){
       $dimensions = is_numeric($size) ? ' width="'.$wp_user_avatar_image[1].'" height="'.$wp_user_avatar_image[2].'"' : '';
       $wp_user_avatar = '<img src="'.$wp_user_avatar_image[0].'"'.$dimensions.' alt="'.$alt.'" class="wp-user-avatar wp-user-avatar-'.$size.$alignclass.' avatar avatar avatar-'.$size.' photo" />';
     } else {
-      if($size == 'original' || $size == 'large' || $size == 'medium' || $size == 'thumbnail' || $size == 'portadaPerfil' ){
+      if($size == 'original' || $size == 'large' || $size == 'medium' || $size == 'thumbnail' ){
         $get_size = ($size == 'original') ? get_option('large_size_w') : get_option($size.'_size_w');
-      } else {
+      }elseif($size == 'portadaPerfil'){
+        return '<img src="'.get_bloginfo('template_directory') . '/_img/avatardefault.jpg" alt="'.$alt.'" />';  
+      }else {
         $get_size = $size;
       }
       $avatar = get_avatar($id_or_email, $get_size, $default='', $alt='');
