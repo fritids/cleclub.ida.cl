@@ -2430,6 +2430,14 @@ and (max-width : 640px) {
     height: auto;
 }
 
+.arrowL{
+    background: url(_img/iconLeft.png) center center no-repeat;           
+}
+
+.arrowR{
+    background: url(_img/iconRight.png) center center no-repeat;           
+}
+
 
 
 
