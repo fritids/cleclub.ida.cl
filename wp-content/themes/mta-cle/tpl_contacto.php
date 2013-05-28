@@ -17,10 +17,10 @@ get_header(); ?>
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //vars
-                    $d1 = 'jghattas@uc.cl';
-                    $d3 = 'despinosa@df.cl';
-                    $d4 = 'francesca.canziani@cl.ey.com'; 
-                    $d5 = 'comunicaciones.eychile@cl.ey.com';
+                    $d1 = 'francisco@ida.cl';
+//                    $d3 = 'despinosa@df.cl';
+//                    $d4 = 'francesca.canziani@cl.ey.com'; 
+//                    $d5 = 'comunicaciones.eychile@cl.ey.com';
                     //vars
                     $nombre = $_POST['nombre'];
                     $cargo = $_POST['cargo'];
@@ -54,9 +54,9 @@ $cuerpo = utf8_decode($cuerpo);
 //mail($destinatario,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 ?>
 <div id="ok">
@@ -89,7 +89,7 @@ Te responderemos a la brevedad
             <label>Teléfono </label>
             <input name="telefono" type="text" class="itLogin" id="telefono">
             <label>Mail</label>
-            <input name="mail" type="text" class="itLogin validate" id="mail" required>
+            <input name="mail" type="text" class="itLogin validate" id="mail" required data-custom-validation="checkEmail" data-customError="emailError">
             <label>Mensaje</label>
             <textarea name="mensaje" rows="5" class="itLoginML" id="mensaje"></textarea>
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
