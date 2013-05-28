@@ -61,7 +61,7 @@
                      echo '<h3>Descripción</h3>';
                      the_content();
                      if(get_field('archivo_adjunto')){
-                     echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o <span class="hide-on-phones hide-on-v-tablets">Inicia Sesion</span></small></div></div>';
+                     echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o <span class="hide-on-phones hide-on-v-tablets">Inicia Sesion</span><span><a href="/login/" class="hide-on-desktop hide-on-h-tablets">Inicia Sesion</a></span></small></div></div>';
                      }
                      
                      };

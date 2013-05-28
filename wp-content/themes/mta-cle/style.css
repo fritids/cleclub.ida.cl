@@ -757,6 +757,10 @@ margin-top: 1px;
     margin-right: 2%;
 }
 
+.exclusive span {
+    display: inline-block;
+}
+
 .exclusive a{
     color: #fff;
     text-decoration: underline;

@@ -142,6 +142,7 @@
     font-weight: bold;
     color:#999999;
     padding-right:20px;
+    height: 15px;
 }
 
 .social{list-style: none;padding: 10px; background:#DDD;}
