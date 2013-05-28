@@ -8,11 +8,11 @@
             <form id="frontLog" name="login" method="post">
                 <div class="clearfix boxLog">
                     <label class="label" for="log">Usuario:</label>
-                    <input type="text" name="log" id="log" value="" class="itLoginFront" required />
+                    <input type="text" name="log" id="log" value="" class="itLoginFront" autocorrect="off" autocapitalize="off" required />
                 </div>
                 <div class="clearfix">
                     <label class="label boxLog" for="pwd">Contraseña:</label>
-                    <input type="password" name="pwd" id="pwd" class="itLoginFront" required />
+                    <input type="password" name="pwd" id="pwd" class="itLoginFront" autocorrect="off" autocapitalize="off" required />
                 </div>  
                 <div class="clearfix">
                     
