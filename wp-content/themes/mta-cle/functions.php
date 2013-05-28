@@ -59,16 +59,17 @@ function breadcrumb() {
             if ($post->post_parent && count($post->ancestors) <= 1) {
                 $out .= $separador;
                 $out .= '<a class="bc-item" href="' . get_permalink($post->post_parent) . '" title="' . get_the_title($post->post_parent) . '">' . get_the_title($post->post_parent) . '</a>';
-            }else{
+            }
                 $out .= $separador;
                 $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
-            }
             
         }
         // repetir modulo por cada post_type
         elseif (is_singular('post')) {
             $out .= $separador;
             $out .=  '<a class="bc-item" href="#" title="Entradas">Entradas</a>';
+            $out .= $separador;
+            $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
         }elseif (is_author()){
             $autor = get_query_var( 'author' );
             $autor = get_userdata( $autor );

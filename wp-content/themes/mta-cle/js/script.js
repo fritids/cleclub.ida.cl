@@ -280,7 +280,10 @@
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
             this.autoHandle($('.evt-new'));
             var $select = $('#menuSelect');
-            if($('.mobile-title').length == 0){ 
+            if($('.mobile-title').length == 0 && mainTitle){ 
+               $select.after('<h2 class="mobile-title">'+mainTitle+'</h2>'); 
+            }else if($('.mobile-title').length == 0 && !mainTitle){
+               mainTitle = $('a.bc-item:last-of-type').text(); 
                $select.after('<h2 class="mobile-title">'+mainTitle+'</h2>'); 
             }
             $select.prepend(options);
