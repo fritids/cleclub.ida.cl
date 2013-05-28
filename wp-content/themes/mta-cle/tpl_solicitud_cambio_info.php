@@ -8,7 +8,6 @@
 the_post();
 get_header();
 $user = wp_get_current_user();
-
 ?>
     <script>
     $(document).ready(function(){
@@ -36,23 +35,79 @@ $user = wp_get_current_user();
                     $grupos = $_POST['grupos'];
                     $actividad = $_POST['actividad'];
                     $familia = $_POST['familia'];
+                    $cuerpo = ' 
+<html> 
+<head> 
+   <title>Contacto - CLE CLUB</title> 
+</head> 
+    <body style="font-family:Tahoma;font-size:11px"> 
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Solicitud cambio de informacion Perfil
+                                        </strong>
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                        <p> Fecha Recepción : '.date('d-m-Y').'</p>
+                        <p> Empresa      : '.$empresa.'</p>
+                        <p> Cargo      : '.$cargo.'</p>
+                        <p> Telefono     : '.$telefono.'</p>
+                        <p> Mail    : '.$mail.'</p>
+                        <p> Estado Civil :'. $estadocivil .'</p>
+                        <p> Grupos y Asociaciones :'. $grupos .'</p>
+                        <p>Actividades y Talentos :' . $actividad . '</p>
+                        <p>Familia : '. $familia. '</p>    
+                    </table>
+                    </td>
+                </tr>
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
                     
-                    $cuerpoAdmin = mailContent($empresa,$cargo,$telefono,$mail,$estadocivil,$grupos,$actividad,$familia,''); 
-                    $cuerpo = mailContent($empresa,$cargo,$telefono,$mail,$estadocivil,$grupos,$actividad,$familia,''); 
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
+                    </td>
+                </tr>
                     
+            </table>
+        
+    </body> 
+</html> 
+
+ 
+'; 
 //para el envío en formato HTML 
 $headers = "MIME-Version: 1.0\r\n"; 
 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
 $headers .= "From: CLE CLUB - Contacto <no-reply@cleclub.cl>\r\n"; 
 $cuerpo = utf8_decode($cuerpo);
 
-//mail($destinatario,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//mail($d2,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//
-//mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 if(!empty($_FILES['imagen'])){
     
  
@@ -73,8 +128,9 @@ if(!empty($_FILES['imagen'])){
     
     $attach_id = wp_insert_attachment( $attachment, $filename, $postid );
     $archivo = $filename;
-    wp_mail('francisco@ida.cl', $asunto, $cuerpoAdmin, $headers, $filename);
-    wp_mail($mail , $asunto, $cuerpo, $headers, $filename);
+    wp_mail('francisco@ida.cl', 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
+    wp_mail('jorge@ida.cl', 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
+    wp_mail($mail , 'Tu solicitud de cambio de perfil ha sido efectiva', $cuerpo, $headers, $filename);
 } else {
     
     $archivo = null;
@@ -115,26 +171,24 @@ Te responderemos a la brevedad
             <label>
                Estado Civil
             </label>
-            <select class="itLogin">
-                <option>Casado</option>
-                <option>Casado</option>
-                <option>Casado</option>
+            <select class="itLogin" name="ecivil">
+                <option value="Casado">Casado(a)</option>
+                <option value="Soltero">Soltero(a)</option>
+                <option value="Divorciado">Divorciado(a)</option>
+                <option value="Viudo">Viudo(a)</option>
             </select>
             <label>Grupos y Asociaciones:</label>
-            <textarea name="grupos" rows="5" class="itLoginML mid" id="mensaje"><?php the_field('grupos_y_asociaciones',"user_$user->ID"); ?></textarea>
+            <textarea name="grupos" rows="5" class="itLoginML mid" id="grupos"><?php the_field('grupos_y_asociaciones',"user_$user->ID"); ?></textarea>
             <label>Actividades y talentos:</label>
-            <textarea name="actividad" rows="5" class="itLoginML mid" id="mensaje"><?php the_field('actividades_y_talentos',"user_$user->ID"); ?></textarea>
+            <textarea name="actividad" rows="5" class="itLoginML mid" id="actividades"><?php the_field('actividades_y_talentos',"user_$user->ID"); ?></textarea>
+            <label>Familia:</label>
+            <textarea name="familia" rows="5" class="itLoginML mid" id="familia"><?php the_field('grupo_familiar',"user_$user->ID"); ?></textarea>
             <label>Adjuntar Imagen de Perfil </label>
             <input name="imagen" type="file" class="itLogin" value="Examinar...">
             
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">
         </form>
-</div><!--/contacto-->
-<!--    <div id="picPage">
-
-	<img src="<?php echo get_template_directory_uri(); ?>/tt.php?src=<?php // echo $pic;?>&w=460&h=300">                
-
-	</div>/picPage-->
+</div>
 
 <?php };?>
 </div><!--pageContent-->

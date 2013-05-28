@@ -486,10 +486,7 @@ function ajaxHandler(){
                 </tr>
                
             </table>';
-
-
-
-
+            
             add_filter( 'wp_mail_content_type', 'set_html_content_type' );
             wp_mail( $_POST['mailLog'], 'contraseña', $message, $headers );    
             remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
