@@ -1111,12 +1111,12 @@ margin-top: 1px;
 
 
 
-#contactoCle{
+#contactoCle, #membresia{
     width: 70%;
     margin: 0 auto;
 }
 
-#contactoCle label {
+#contactoCle label, #membresia label {
     display: block;
     font-size: 16px;
     font-weight: bold;
