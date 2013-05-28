@@ -757,6 +757,8 @@ margin-top: 1px;
     margin-right: 2%;
 }
 
+.svg .exclusive{background:url(_img/restrict.svg) 3% center no-repeat #666;}
+
 .exclusive span {
     display: inline-block;
 }
