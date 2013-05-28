@@ -81,6 +81,14 @@ function breadcrumb() {
             $out .= $separador;
             $out .= '<span class="bc-item end-item">'. single_cat_title( '', false ) .'</span>';
         }
+        elseif(is_singular()){
+            $terms = wp_get_post_terms( $post->ID, 'taxeventos');
+            $term_link = get_term_link( $terms[0], $terms[0]->term_taxonomy_id );
+            $out .= $separador;
+            $out .=  '<a class="bc-item" href="'.$term_link.'" title="'.$terms[0]->name.'">'.$terms[0]->name.'</a>';
+            $out .= $separador;
+            $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
+        }
         else{
             $out .= $separador;
             $out .= '<span class="bc-item end-item">'. get_the_title() .'</span>';
