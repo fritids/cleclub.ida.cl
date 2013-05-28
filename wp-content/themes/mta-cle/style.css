@@ -568,6 +568,14 @@ footer .menu-menu-principal-container{
     float: right;
     width: 70%;
     *width: 206px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance:none;
+    border: 1px solid #999;
+    font-size: 14px;
+    -moz-border-radius: 0;
+    -webkit-border-radius:0;
+    border-radius:0;
  
 }
 
@@ -707,6 +715,7 @@ margin-top: 1px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
+    color: #fff;
     
 }
 
@@ -2367,6 +2376,15 @@ and (max-width : 640px) {
         
 }
 
+  #frontLogMobile .btn.mob {
+    font-size: 14px;
+    
+}
+.itLoginFront{
+        font-size: 16px;
+        
+    }
+    
 #contextualBarClose{
     width: 100%;
     margin:0;
@@ -2496,6 +2514,10 @@ and (max-width : 640px) {
     padding: 0;
 }
 
+.quienInfo {
+    width: 100%;
+}
+
 /*    COMENTARIOS*/
 
 .commmentBody{
@@ -2555,10 +2577,6 @@ and (max-width : 640px) {
 .arrowR{
     background: url(_img/iconRight.png) center center no-repeat;           
 }
-
-
-
-
     
 }
 
@@ -2583,6 +2601,7 @@ and (min-width : 480px){
     float: left !important;
     margin-right: 2% !important;
     width: 31.164% !important;
+    padding: 5px;
 }
     .quienesSomos{
         width: 100%;
@@ -2594,9 +2613,6 @@ and (min-width : 480px){
     .fotoMiembro{
         width: 20%;
     }
-    
-
-    
 }
 
 @media only screen

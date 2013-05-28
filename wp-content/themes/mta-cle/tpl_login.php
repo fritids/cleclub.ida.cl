@@ -36,7 +36,7 @@ get_header(); ?>
                 </div>  
                 <div class="clearfix">
                     
-                    <input name="input" type="submit" value="Ingresar" class="btn"/>
+                    <input name="input" type="submit" value="Ingresar" class="btn mob"/>
                     <a class="forgot" href="/recuperacion-de-contrasena/" title="Olvidé la contraseña">Olvidé la contraseña</a>
                 </div>    
             </form>

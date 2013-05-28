@@ -39,16 +39,16 @@ the_post();
             $i++;
         }
         ?>
-            <?php
-        } else {
+                <?php
+            } else {
 
-            echo '<div class="authorBio clearfix pad down downV">
-                <div class="authorWrap">
-                <strong>Acceso restringido para miembros del CLE CLUB</strong>
-                </div>
-                </div>';
-        };
-        ?>     
+                echo '<div class="authorBio clearfix pad down downV">
+                    <div class="authorWrap">
+                    <strong>Acceso restringido para miembros del CLE CLUB</strong>
+                    </div>
+                    </div>';
+            };
+            ?>     
     </div>
     <?php get_sidebar();?>
     <?php get_footer();?>
