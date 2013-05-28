@@ -9,7 +9,7 @@ the_post();
 get_header();
 $user = wp_get_current_user();
 printMe($user); 
-printMe($user['']); 
+printMe($user->ID); 
 ?>
     <script>
     $(document).ready(function(){
@@ -164,7 +164,7 @@ Te responderemos a la brevedad
             <label> <?php get_field('empresa',$user->ID);?>
                 Empresa
             </label>
-            <input name="empresa" type="text" class="itLogin" id="nombre" value="">
+            <input name="empresa" type="text" class="itLogin" id="nombre" value="<?php the_field('empresa',"user_$user->ID"); ?>">
             <label>Cargo</label>
             <input name="cargo" type="text" class="itLogin" id="mail">
             <label>
