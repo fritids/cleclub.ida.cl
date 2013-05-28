@@ -36,9 +36,7 @@ $user = wp_get_current_user();
                    'comment_field' => '<div class="picAvatar">
                                             '.get_wp_user_avatar($user->ID, 72,72).' 
                                         </div>
-                                        <textarea class="txtComment" placeholder="Añadir comentario..." name="comment">
-
-                                        </textarea>
+                                        <textarea class="txtComment" placeholder="Añadir comentario..." name="comment"></textarea>
                                         <span>Estas conectado como '.$user->user_login .'<a href="'. wp_logout_url( home_url()) .'" title="Salir y volver al Inicio" rel="nofollow"> ( Salir )</a></span>'   
             );
        ?>

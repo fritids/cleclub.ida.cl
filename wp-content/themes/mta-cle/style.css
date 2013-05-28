@@ -735,12 +735,14 @@ margin-top: 1px;
 }
 .exclusive {
     -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     background:url(_img/restrict.png) 3% center no-repeat #666;
     color: #FFFFFF;
     float: left;
     font-size: 14px;
     padding: 10px 10px 10px 50px;
-    width: 52%;
+    width: 50%;
     border-radius: 4px;
     margin-right: 2%;
 }
@@ -763,8 +765,10 @@ margin-top: 1px;
 }
 
 .social {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     background: none repeat scroll 0 0 #DDDDDD;
-    /*border-radius: 4px 4px 4px 4px;*/
     float: left;
     list-style: none outside none;
     padding: 20px 0px 20px 10px;
@@ -2146,7 +2150,7 @@ body#radarExternalLink {
 
 #dfnewsExternalLink #contextualBarCiper span {
 	font-size: 14px;
-	text-transform: uppercase; }
+	 }
 
 #dfnewsExternalLink #contextualBarCiper strong {
 	border-left: 4px solid #FF9A00;
@@ -2174,7 +2178,7 @@ body#radarExternalLink {
 }
 #contextualBarClose {
 	background: #ff9900;
-	color:#000;
+	color:#fff;
 	font-size: 10px;
 	line-height: 1.5em;
 	padding: 0.5em 2em;
@@ -2519,13 +2523,13 @@ and (max-width : 640px) {
     width: 80%;
 }
 .exclusive{
-    margin-left: 7px;
-    width: 76%;
+    width: 95%;
+    margin-bottom: 10px;
 }
 .social {
     margin: 0;
     padding: 10px;
-    width: 90%;
+    width: 95%;
 }
 
 .btnDown{
