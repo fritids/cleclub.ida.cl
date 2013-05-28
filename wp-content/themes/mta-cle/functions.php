@@ -275,6 +275,9 @@ function printMe( $toPrint ) {
 }
 function set_html_content_type(){ return 'text/html'; }
 
+function my_function_admin_bar(){ return false; }
+add_filter( 'show_admin_bar' , 'my_function_admin_bar');
+
 function ajaxHandler(){
     
     if( $_POST['func'] === 'cambiarContrasena' ){

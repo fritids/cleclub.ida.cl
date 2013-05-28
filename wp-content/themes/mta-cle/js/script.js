@@ -29,9 +29,9 @@
                 esto.deployBackButton();
             }
         }
-        
-        
-        
+        if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
+            esto.deploySelectTablet();
+        }
         $(window).on('resize',function(){
             $('#menuSelect').remove();
 
@@ -227,6 +227,8 @@
             });
         },
         deployMobilMenu : function (){
+            var $submenu = $("ul.sub-menu");
+            $submenu.children().removeClass('menu-item');
             
             var $menuContainer = $('#menuContainer');
             var $listMenu = $menuContainer.find('.menu-item');
@@ -234,7 +236,7 @@
             var selectedAttr, mainTitle = "";
 
             $.each($listMenu,function(i,item) {
-                var aLink = $(item).children('a');
+                var aLink = $(item).children('a').not('.children');
                 
                 if(aLink.parent().hasClass('current-menu-item')){
                     selectedAttr = 'selected';
@@ -252,6 +254,18 @@
                $select.after('<h2 class="mobile-title">'+mainTitle+'</h2>'); 
             }
             $select.prepend(options);
+        },
+        deploySelectTablet : function (){
+            var $submenu = $('#menuContainer').find("ul.sub-menu").find('li').find('a');
+            var $listMenu = $('#menuContainer').find('.selectReplace');
+            var classes = $listMenu.attr('class');
+            var options = '<option value="">Quienes Somos</option>';
+            $.each($submenu, function(val, item){
+                options += '<option value="'+$(item).attr('href')+'">'+$(item).text()+'</option>';
+            });
+            $listMenu.after('<select class="evt-new realSelect" data-func="redirectMenu" data-event="change" name="menu-principal">'+options+'</select>');
+            
+            
         },
         textOverflow : function(){
             var $parrafo = $('#overflow-text').find('p'),
