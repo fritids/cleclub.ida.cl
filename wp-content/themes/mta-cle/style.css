@@ -317,6 +317,11 @@ h5 {
     color:#f29400;
 }
 
+#menuContainer .current-menu-item a {
+    color: #FF9900;
+}
+
+
 #menuContainer a.mobilLog {
     background: none repeat scroll 0 0 #FF9900;
     color: #FFFFFF;
@@ -380,7 +385,7 @@ h5 {
     top:0;
     line-height:30px;
     text-transform:capitalize;
-    color:#fff;
+    color:#fff !important;
     border-bottom-width:1px;
     border-bottom-style:solid;
     border-bottom-color:#F79621;
@@ -707,7 +712,7 @@ margin-top: 1px;
 }
 .exclusive {
     -moz-box-sizing: border-box;
-    background: none repeat scroll 0 0 #666666;
+    background:url(_img/restrict.png) 3% center no-repeat #666;
     color: #FFFFFF;
     float: left;
     font-size: 14px;
@@ -985,6 +990,10 @@ margin-top: 1px;
     color:#F60;
 }
 
+.menuFoot .current-menu-item{
+    
+    font-weight: bold;
+}
 #pageContent {
     margin-bottom:30px;
     float: left;
