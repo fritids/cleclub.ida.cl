@@ -359,9 +359,9 @@
                 $parrafo.text(texto).append($boton);
 
                 if(type === 'mas'){
-                    $boton.attr('data-type','menos').text('Menos').addClass('menos');
+                    $boton.attr('data-type','menos').text('Menos');
                 }else{
-                    $boton.attr('data-type','mas').text('Más').addClass('mas');
+                    $boton.attr('data-type','mas').text('Más');
                 }
                 $boton.attr('data-text',textoparrafo);
                 this.autoHandle($('.evt'));
@@ -430,7 +430,7 @@
             var item = parseInt($(e.currentTarget).attr("data-item")) + 1;
             var fotos = $(".gallery li").length;
             if(item >= fotos){item=0}
-            var $img = $('<img />').attr({'src': '/wp-content/themes/mta-cle/_img/ajax-loader.gif', 'id':"loading"});
+            var $img = $('<img />').attr({'src': '/wp-content/themes/mta-cle/_img/ajax-loader.gif', 'id':"loading", 'class':"ajax-loader"});
             $("#lightboxImg").prepend($img)
             var img = $(".gallery").find('a[data-item="'+item+'"]').attr("href");
             $(".imgLigthbox").attr("src", img);
