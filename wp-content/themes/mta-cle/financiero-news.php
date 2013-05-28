@@ -26,7 +26,7 @@
     <body id="dfnewsExternalLink">
         <div id="contextualBarCiper" class="clearfix">
             <div class="wrap">
-                <a href="#" id="cleCorpMark"><img src="http://cleclub.ida.cl/wp-content/themes/mta-cle/css/imgBarra/logoBarra.jpg"/></a>
+                <a href="/" id="cleCorpMark"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.svg" data-fallback="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png"/></a>
                     <div class="clearfix dfWrap">
                         <span>
                             <strong id="externalLinkTitle">
