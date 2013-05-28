@@ -99,21 +99,21 @@ Te responderemos a la brevedad
 ?> 
 <div id="contacto">
 
-    <form name="contactoCle" id="contactoCle" method="post" action="#" enctype="multipart/form-data">
+    <form name="contactoCle" id="membresia" method="post" action="#" enctype="multipart/form-data">
             <label>
                 Nombre
             </label>
-            <input name="nombre" type="text" class="itLogin validate[required]" id="nombre">
+            <input name="nombre" type="text" class="itLogin" id="nombre">
             <label>Mail</label>
-            <input name="mail" type="text" class="itLogin validate[required,custom[email]]" id="mail">
+            <input name="mail" type="text" class="itLogin" id="mail">
             <label>
                 Empresa
             </label>
-            <input name="empresa" type="text" class="itLogin validate[required]" id="empresa" />
+            <input name="empresa" type="text" class="itLogin" id="empresa" />
             <label>
                 Cargo
             </label>
-            <input name="cargo" type="text" class="itLogin validate[required]" id="cargo" />
+            <input name="cargo" type="text" class="itLogin" id="cargo" />
             
             <label class="hide-on-phones">Adjuntar Curriculum </label>
             <input class="hide-on-phones" name="curriculum" type="file" class="itLogin">
