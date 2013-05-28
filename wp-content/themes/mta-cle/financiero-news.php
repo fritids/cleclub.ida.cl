@@ -30,12 +30,13 @@ body#radarExternalLink {
 	border-bottom: 10px solid rgb(0,0,0);
 	color: rgb(51,51,51);
 	font-family: Arial, Helvetica, sans-serif;
-	height: 80px;
 	left: 0;
 	position: fixed;
 	top:0;
 	width: 100%;
-	z-index: 200; }
+	z-index: 200; 
+        padding: 10px;    
+}
 
 #dfnewsExternalLink #contextualBarCiper p {
 	font-size: 14px;
