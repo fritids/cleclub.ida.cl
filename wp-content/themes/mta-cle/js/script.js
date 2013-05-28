@@ -353,7 +353,7 @@
                                            maxValue;
                                $elements.height('auto');
                                $.each($elements, function(index, elm) {
-                                       heightArray.push($(elm).height());
+                                       heightArray.push($(elm).outerHeight());
                                });
                                maxValue = Math.max.apply(Math, heightArray);
                                $elements.height(maxValue);
