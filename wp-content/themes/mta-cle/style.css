@@ -2199,6 +2199,7 @@ and (min-width : 641px) {
     #cSlider{
         padding: 0 20px;
     }
+    .breadcrumb{padding:0 20px;}
 }
 
 
@@ -2235,7 +2236,7 @@ and (max-width : 640px) {
     
     .searchInput{width:0; padding:0;border:0 none; margin-left:0;}
     #overflow-text{border-bottom: 1px solid #999999; margin-bottom: 20px;}
-    
+    .breadcrumb{padding:0 10px;}
     .lb-close-btn {
     background: none repeat scroll 0 0 #000000;
     border-radius: 6px 6px 6px 6px;

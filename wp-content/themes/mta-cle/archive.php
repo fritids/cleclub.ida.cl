@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 <div id="contenido">
 <div id="pageContent" class="column8 downV down pad">
-<?php echo breadcrumb(); ?> 
  <?php if (is_user_logged_in() || is_tax("taxeventos", "agenda")) { ?>
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
