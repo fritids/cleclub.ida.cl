@@ -57,7 +57,7 @@
                          echo '<div id="overflow-text">';
                          echo '<p>'.get_field('curriculum_relator').'</p>';
                          echo '</div>';
-                     }
+                     }  
                      echo '<h3>Descripción</h3>';
                      the_content();
                      if(get_field('archivo_adjunto')){
