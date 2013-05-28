@@ -17,10 +17,10 @@ get_header(); ?>
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //vars
-                    $d1 = 'jghattas@uc.cl';
-                    $d3 = 'despinosa@df.cl';
-                    $d4 = 'francesca.canziani@cl.ey.com'; 
-                    $d5 = 'comunicaciones.eychile@cl.ey.com';
+                    $d1 = 'francisco@ida.cl';
+//                    $d3 = 'despinosa@df.cl';
+//                    $d4 = 'francesca.canziani@cl.ey.com'; 
+//                    $d5 = 'comunicaciones.eychile@cl.ey.com';
                     //vars
                     $nombre = $_POST['nombre'];
                     $cargo = $_POST['cargo'];
@@ -35,13 +35,63 @@ get_header(); ?>
    <title>Contacto - CLE CLUB</title> 
 </head> 
     <body style="font-family:Tahoma;font-size:11px"> 
-        <p> Nombre      : '.$nombre.'</p>
-        <p> Cargo       : '.$cargo.'</p>
-        <p> Empresa     : '.$empresa.'</p>
-        <p> Teléfono    : '.$telefono.'</p>
-        <p> E-Mail      : '.$mail.'</p>
-        <p> Mensaje     : '.$mensaje.'</p>
-        <p> Fecha Recepción : '.date('d-m-Y').'</p>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Contacto CLE-CLUB
+                                        </strong>
+                                    </font>
+                                </td>
+                                <td>
+                                    <p>'.$cargo.'</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                        <p> Nombre      : '.$nombre.'</p>
+                        <p> Cargo       : '.$cargo.'</p>
+                        <p> Empresa     : '.$empresa.'</p>
+                        <p> Teléfono    : '.$telefono.'</p>
+                        <p> E-Mail      : '.$mail.'</p>
+                        <p> Mensaje     : '.$mensaje.'</p>
+                        <p> Fecha Recepción : '.date('d-m-Y').'</p>
+                    </table>
+                    </td>
+                </tr>
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
+                
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
+                    </td>
+                </tr>
+               
+            </table>
+        
     </body> 
 </html> 
 '; 
@@ -53,10 +103,10 @@ $cuerpo = utf8_decode($cuerpo);
 
 //mail($destinatario,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
-mail($d1,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+mail($d1,'Contacto CLE-CLUB',$cuerpo, utf8_decode($headers));
+//mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+//mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 ?>
 <div id="ok">
@@ -89,7 +139,7 @@ Te responderemos a la brevedad
             <label>Teléfono </label>
             <input name="telefono" type="text" class="itLogin" id="telefono">
             <label>Mail</label>
-            <input name="mail" type="text" class="itLogin validate" id="mail" required>
+            <input name="mail" type="text" class="itLogin validate" id="mail" required data-custom-validation="checkEmail" data-customError="emailError">
             <label>Mensaje</label>
             <textarea name="mensaje" rows="5" class="itLoginML" id="mensaje"></textarea>
             <input name="enviar" type="submit" value="Enviar" class="btnCont" id="enviar">

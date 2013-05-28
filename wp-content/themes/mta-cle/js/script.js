@@ -144,6 +144,26 @@
                 });
             }
         });
+        
+        $('#contactoCle').validizr({
+            customValidations : {
+                checkEmail : function($input){
+                    var valor = $input.val(),
+                    emailRegEx = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+                    if( $input.next().is('.errorMsn') ){
+                        $input.next().remove();
+                    }
+                    return valor && emailRegEx.test( valor );
+                }
+            },
+            customErrorHandlers : {
+                emailError : function( $input ){
+                    $input.after('<span class="errorMsn">Debe ingresar email correcto</span>');
+                }
+            }
+            
+        });
             
          $('#frontLog').validizr({
              validFormCallback : function( $formulario ){
