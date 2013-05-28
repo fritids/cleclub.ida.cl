@@ -20,6 +20,10 @@ get_header(); ?>
 <div id="pageContent" class="column8 down downV pad clearfix">
 <h1>Resultados de Búsqueda</h1>
 <div id="wNoticias">
+    <?php if($wp_query->found_posts > 0) {
+          echo '<h2>Resultados de búsqueda</h2>';
+          echo '<span class="description">Se encontraron '. $wp_query->found_posts .' coincidencias con  "<strong>'.$_GET['s'].'</strong>"</span>';
+      } ?>
     <ul>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?> 
             <li>

@@ -280,7 +280,7 @@
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
             this.autoHandle($('.evt-new'));
             var $select = $('#menuSelect');
-            if($('.mobile-title').length == 0){
+            if($('.mobile-title').length == 0){ 
                $select.after('<h2 class="mobile-title">'+mainTitle+'</h2>'); 
             }
             $select.prepend(options);
