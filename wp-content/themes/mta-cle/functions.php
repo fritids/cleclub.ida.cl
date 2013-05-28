@@ -2,7 +2,6 @@
 
 function sliderHome(){
     $out = "";
-    
     $out .='<div id="slider" class="swipe">';
     $out .='<ul class="sliderHome swipe-wrap">';
     $args = array(
@@ -23,7 +22,7 @@ function sliderHome(){
                 $out .='<figcaption>';
                 $out .='<div class="cap">';
                 $out .='<h2><a href="'.get_permalink().'" title="'.get_the_title().'" rel="contents">'.get_the_title().'</a></h2>';
-                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),150).'</p>';
+                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),50).'</p>';
                 $out .='</div>';
                 $out .='</figcaption>';
                 $out .='</figure>';

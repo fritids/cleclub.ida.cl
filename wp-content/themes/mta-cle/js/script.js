@@ -33,10 +33,6 @@
             $('.realSelect').remove();
             esto.deploySelectTablet();
         }
-        if(Modernizr.mq('only screen and (max-device-width : 1285px) and (min-device-width : 801px) ')){
-            $('.realSelect').remove();
-            esto.deploySelectTablet();
-        }
         $(window).on('resize',function(){
             $('#menuSelect').remove();
 
@@ -62,10 +58,6 @@
                 }
             }
             if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
-                $('.realSelect').remove();
-                esto.deploySelectTablet();
-            }
-            if(Modernizr.mq('only screen and (max-device-width : 1285px) and (min-device-width : 801px) ')){
                 $('.realSelect').remove();
                 esto.deploySelectTablet();
             }
@@ -303,7 +295,6 @@
             });
             $listMenu.after('<select class="evt-new realSelect" data-func="redirectMenu" data-event="change" name="menu-principal">'+options+'</select>');
             this.autoHandle($('.evt-new'));
-            
         },
         textOverflow : function(){
             var $parrafo = $('#overflow-text').find('p'),
@@ -460,7 +451,7 @@
         goToSlide : function( evento ){
             evento.preventDefault();
             var bulletSlide = $(evento.currentTarget).attr('data-slide');
-            $('#slider').data('Swipe').slide(bulletSlide);
+            $('#slider').data('Swipe').slide(parseInt(bulletSlide,10));
         },
         redirectMenu : function( evento ){
             var selection = $(evento.currentTarget).find('option:selected').val(); //Selecciona el value del option seleccionado
