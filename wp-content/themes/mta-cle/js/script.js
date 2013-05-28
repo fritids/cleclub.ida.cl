@@ -30,6 +30,7 @@
             }
         }
         if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
+            $('.realSelect').remove();
             esto.deploySelectTablet();
         }
         $(window).on('resize',function(){
@@ -55,6 +56,10 @@
                 if($('#pageContent[data-bkbtn="true"]').length > 0){
                     esto.deployBackButton();
                 }
+            }
+            if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
+                $('.realSelect').remove();
+                esto.deploySelectTablet();
             }
         });
         
@@ -259,12 +264,12 @@
             var $submenu = $('#menuContainer').find("ul.sub-menu").find('li').find('a');
             var $listMenu = $('#menuContainer').find('.selectReplace');
             var classes = $listMenu.attr('class');
-            var options = '<option value="">Quienes Somos</option>';
+            var options = '<option value="'+$listMenu.find('a').attr('href')+'">¿Quienes Somos?</option>';
             $.each($submenu, function(val, item){
                 options += '<option value="'+$(item).attr('href')+'">'+$(item).text()+'</option>';
             });
             $listMenu.after('<select class="evt-new realSelect" data-func="redirectMenu" data-event="change" name="menu-principal">'+options+'</select>');
-            
+            this.autoHandle($('.evt-new'));
             
         },
         textOverflow : function(){

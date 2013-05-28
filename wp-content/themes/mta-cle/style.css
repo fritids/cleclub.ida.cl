@@ -147,6 +147,9 @@ html,body {
     font-size: 14px;
 }
 
+.realSelect{display:none;}
+.selectReplace{display:block}
+
 body {
     color:#000;
     background:url(_img/backbody.png) repeat-x;
@@ -347,7 +350,7 @@ h5 {
     padding-top: 2px;
     top: 0;}
 
-#menuContainer li {
+#menuContainer li, .realSelect {
     float:left;
     position:relative;
     background-color:none;
@@ -433,6 +436,25 @@ h5 {
     background: url(_img/menuButton.png) center center no-repeat;
 
 }
+
+.realSelect{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-shadow: -1px -1px 1px rgba(255,255,255,0.1), 1px 1px 1px rgba(0,0,0,0.5);
+    text-decoration: none;
+    line-height: 38px;
+    color: #e6e5e5;
+    background-color: #000;
+    padding: 0 12px;
+    text-transform: uppercase;
+    background:none;
+    border:0 none;
+    max-width: 165px;
+}
+
+.realSelect::-ms-expand {
+    display: none;
+} 
 
 #menuSelect::-ms-expand {
     display: none;
@@ -2135,6 +2157,8 @@ and (min-width : 801px) {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
+    .realSelect{display:block;}
+    .selectReplace{display:none;}
 }
 
 
