@@ -34,6 +34,9 @@
         if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px) ')){
             esto.deploySelectTablet();
         }
+        if(Modernizr.mq('only screen  and (max-device-width : 1300px) and (min-device-width : 801px)')){
+            esto.deploySelectTablet();
+        }
         $(window).on('resize',function(){
             $('#menuSelect').remove();
             $('.realSelect').remove();
@@ -61,6 +64,9 @@
             }
             if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
                 $('.realSelect').remove();
+                esto.deploySelectTablet();
+            }
+            if(Modernizr.mq('only screen  and (max-device-width : 1300px) and (min-device-width : 801px)')){
                 esto.deploySelectTablet();
             }
         });

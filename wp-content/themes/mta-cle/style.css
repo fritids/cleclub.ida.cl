@@ -2272,7 +2272,7 @@ and (min-width : 641px){
 Tablets Horizontal ***************************************************************
 *******************************************************************************/
 @media only screen
-and (max-device-width : 1285px)
+and (max-device-width : 1300px)
 and (min-device-width : 801px){
     .realSelect{display:block;}
     .selectReplace{display:none;}
