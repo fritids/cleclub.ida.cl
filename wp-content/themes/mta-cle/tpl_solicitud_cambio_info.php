@@ -8,8 +8,7 @@
 the_post();
 get_header();
 $user = wp_get_current_user();
-printMe($user); 
-printMe($user->ID); 
+
 ?>
     <script>
     $(document).ready(function(){
@@ -166,15 +165,15 @@ Te responderemos a la brevedad
             </label>
             <input name="empresa" type="text" class="itLogin" id="nombre" value="<?php the_field('empresa',"user_$user->ID"); ?>">
             <label>Cargo</label>
-            <input name="cargo" type="text" class="itLogin" id="mail">
+            <input name="cargo" type="text" class="itLogin" id="mail" value="<?php the_field('cargo',"user_$user->ID"); ?>">
             <label>
                 Teléfono
             </label>
-            <input name="telefono" type="text" class="itLogin" id="empresa" />
+            <input name="telefono" type="text" class="itLogin" id="empresa" value="<?php the_field('telefono',"user_$user->ID"); ?>"/>
             <label>
                 Mail
             </label>
-            <input name="mail" type="text" class="itLogin" id="cargo" />
+            <input name="mail" type="text" class="itLogin" id="cargo" value="<?php the_field('mail',"user_$user->ID"); ?>" />
             <label>
                Estado Civil
             </label>
@@ -184,9 +183,9 @@ Te responderemos a la brevedad
                 <option>Casado</option>
             </select>
             <label>Grupos y Asociaciones:</label>
-            <textarea name="grupos" rows="5" class="itLoginML mid" id="mensaje"></textarea>
+            <textarea name="grupos" rows="5" class="itLoginML mid" id="mensaje"><?php the_field('grupos_y_asociaciones',"user_$user->ID"); ?></textarea>
             <label>Actividades y talentos:</label>
-            <textarea name="actividad" rows="5" class="itLoginML mid" id="mensaje"></textarea>
+            <textarea name="actividad" rows="5" class="itLoginML mid" id="mensaje"><?php the_field('actividades_y_talentos',"user_$user->ID"); ?></textarea>
             <label>Adjuntar Imagen de Perfil </label>
             <input name="imagen" type="file" class="itLogin" value="Examinar...">
             
