@@ -60,7 +60,7 @@
         <div id="container">
             <div id="top" class="row">
                 <div id="logos">
-                    <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
+                    <div id="logo"> <a href="<?php bloginfo('url'); ?>" class="home"><img src="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.svg" data-fallback="<?php echo get_template_directory_uri(); ?>/_img/logoCLE.png" width="178" height="81" /></a> </div>
                     <div id="logo2">
                         <ul class="members Top hide-on-mobile">
                             <li>

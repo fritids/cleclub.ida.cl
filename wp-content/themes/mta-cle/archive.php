@@ -1,7 +1,14 @@
 <?php get_header(); ?>
 <div id="contenido">
 <div id="pageContent" class="column8 downV down pad">
- <?php if (is_user_logged_in() || is_tax("taxeventos", "agenda")) { ?>
+ <?php 
+ $terms = wp_get_post_terms( $post->ID, 'taxeventos');
+ $agenda = false;
+ if(in_array('agenda', (array)$terms[0])){
+     $agenda = true;
+ }
+ ?>   
+ <?php if (is_user_logged_in() || $agenda) { ?>
 <h1><?php echo single_cat_title( '', false ) ?></h1>
 <div id="wNoticias">
     <ul>

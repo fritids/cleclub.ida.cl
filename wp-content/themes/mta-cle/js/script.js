@@ -9,10 +9,10 @@
         var esto = this;
         
         esto.autoHandle($('.evt'));
-        
+        esto.svgFallBack();
         setTimeout(function(){
             esto.equalizeHeights($(".bio"));
-        },1000);
+        },2000);
         esto.equalizeHeights($("#pageContent .bio .infoMiembro .cargo"));
         esto.equalizeHeights($(".bio .infoMiembro .empresa"));
         if(Modernizr.mq('only screen and (min-width : 640px)')){
@@ -238,6 +238,14 @@
                     $item.on(event, $.proxy(esto[ func ], esto));
                 }
             });
+        },
+        svgFallBack : function() {
+            if( !Modernizr.svg ) { 
+                var svgObjects = $('[data-fallback]');
+                $.each(svgObjects, function(i, elm){
+                    $(elm).attr('src', $(elm).attr('data-fallback'));
+                });
+            }
         },
         deployMobilMenu : function (){
             var $submenu = $("ul.sub-menu");
