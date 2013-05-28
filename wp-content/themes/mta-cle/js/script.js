@@ -359,9 +359,9 @@
                 $parrafo.text(texto).append($boton);
 
                 if(type === 'mas'){
-                    $boton.attr('data-type','menos').text('Menos');
+                    $boton.attr('data-type','menos').text('Menos').addClass('menos-btn').removeClass('mas-btn');
                 }else{
-                    $boton.attr('data-type','mas').text('Más');
+                    $boton.attr('data-type','mas').text('Más').addClass('mas-btn').removeClass('menos-btn');
                 }
                 $boton.attr('data-text',textoparrafo);
                 this.autoHandle($('.evt'));
