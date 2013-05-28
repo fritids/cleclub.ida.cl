@@ -29,7 +29,11 @@
                 esto.deployBackButton();
             }
         }
-        if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
+        if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px) ')){
+            $('.realSelect').remove();
+            esto.deploySelectTablet();
+        }
+        if(Modernizr.mq('only screen and (max-device-width : 1285px) and (min-device-width : 801px) ')){
             $('.realSelect').remove();
             esto.deploySelectTablet();
         }
@@ -58,6 +62,10 @@
                 }
             }
             if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
+                $('.realSelect').remove();
+                esto.deploySelectTablet();
+            }
+            if(Modernizr.mq('only screen and (max-device-width : 1285px) and (min-device-width : 801px) ')){
                 $('.realSelect').remove();
                 esto.deploySelectTablet();
             }
