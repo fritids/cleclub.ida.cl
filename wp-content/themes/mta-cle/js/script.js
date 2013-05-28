@@ -81,7 +81,6 @@
                     if( $input.next().is('.errorMsn') ){
                         $input.next().remove();
                     }
-                    
                     return valor && valor2 === valor;
                 }
             },
@@ -151,7 +150,7 @@
             }
         });
         
-        $('#contactoCle').validizr({
+        $('#contactoCle, #membresia').validizr({
             customValidations : {
                 checkEmail : function($input){
                     var valor = $input.val(),
@@ -167,7 +166,11 @@
                 emailError : function( $input ){
                     $input.after('<span class="errorMsn">Debe ingresar email correcto</span>');
                 }
-            }
+            },
+            notValidInputCallback : function( input ){
+                    if(input.attr('type') !== 'email')
+                        input.after('<span class="errorMsn">Debe ingresar el campo correcto</span>');
+            }        
             
         });
             
@@ -195,8 +198,6 @@
                 });
             
             }
-            
-          
         });
         
         $('#frontLogMobile').validizr({
