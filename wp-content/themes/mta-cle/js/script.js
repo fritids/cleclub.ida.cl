@@ -212,7 +212,6 @@
                     var $bulletsContainer = $('#bullets-slider'),
                         $bullets = $bulletsContainer.find('a'),
                         $actualBullet = $bulletsContainer.find('a[data-slide="'+index+'"]');
-                        
                         $bullets.removeClass('active');
                         $actualBullet.addClass('active');
                         
@@ -248,8 +247,9 @@
             }
         },
         deployMobilMenu : function (){
+            var count = 0;
             var $submenu = $("ul.sub-menu");
-            $submenu.children().removeClass('menu-item');
+            $submenu.children('li').children('a').addClass('group');
             
             var $menuContainer = $('#menuContainer');
             var $listMenu = $menuContainer.find('.menu-item');
@@ -257,7 +257,7 @@
             var selectedAttr, mainTitle = "";
 
             $.each($listMenu,function(i,item) {
-                var aLink = $(item).children('a').not('.children');
+                var aLink = $(item).children('a');
                 
                 if(aLink.parent().hasClass('current-menu-item')){
                     selectedAttr = 'selected';
@@ -265,9 +265,26 @@
                 }else{
                     selectedAttr = '';
                 }
-                options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
+                
+                if(!aLink.hasClass('group')){
+                   options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
+                   
+                }
+//                else if(aLink.hasClass('group')){
+//                   if(count == 0){
+//                      options += '<optgroup>'; 
+//                      options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>'; 
+//                      count++; 
+//                   }else if(count > 0 && count < 3){
+//                      options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
+//                      count++;
+//                   }else if(count == 3){
+//                      options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
+//                      options += '</optgroup>';
+//                      count = 0;
+//                   } 
+//                }
             });
-            
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
             this.autoHandle($('.evt-new'));
             var $select = $('#menuSelect');
@@ -442,7 +459,7 @@
         },
         goToSlide : function( evento ){
             evento.preventDefault();
-            var bulletSlide = $(evento.currentTarget).attr('data-slide'); 
+            var bulletSlide = $(evento.currentTarget).attr('data-slide');
             $('#slider').data('Swipe').slide(bulletSlide);
         },
         redirectMenu : function( evento ){

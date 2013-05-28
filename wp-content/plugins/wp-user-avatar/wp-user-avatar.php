@@ -300,9 +300,9 @@ if(!class_exists('wp_user_avatar')){
       $get_size = is_numeric($size) ? array($size,$size) : $size;
       $wp_user_avatar_image = wp_get_attachment_image_src($wp_user_avatar_meta, $get_size);
       $dimensions = is_numeric($size) ? ' width="'.$wp_user_avatar_image[1].'" height="'.$wp_user_avatar_image[2].'"' : '';
-      $wp_user_avatar = '<img src="'.$wp_user_avatar_image[0].'" alt="'.$alt.'" class="wp-user-avatar wp-user-avatar-'.$size.$alignclass.' avatar avatar avatar-'.$size.' photo" />';
+      $wp_user_avatar = '<img src="'.$wp_user_avatar_image[0].'"'.$dimensions.' alt="'.$alt.'" class="wp-user-avatar wp-user-avatar-'.$size.$alignclass.' avatar avatar avatar-'.$size.' photo" />';
     } else {
-      if($size == 'original' || $size == 'large' || $size == 'medium' || $size == 'thumbnail'){
+      if($size == 'original' || $size == 'large' || $size == 'medium' || $size == 'thumbnail' || $size == 'portadaPerfil' ){
         $get_size = ($size == 'original') ? get_option('large_size_w') : get_option($size.'_size_w');
       } else {
         $get_size = $size;

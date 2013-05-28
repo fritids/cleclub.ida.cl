@@ -132,7 +132,7 @@
                 else if ( options.continuous ) { methods.slide( slides.length-1 ); }
             },
             next : function(){
-
+                
                 if ( index < slides.length - 1 ) { methods.slide( index+1 ); }
                 else if ( options.continuous ) { methods.slide( 0 ); }
             }
