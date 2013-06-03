@@ -336,6 +336,7 @@ add_image_size("slideHome", 640, 371, true);
 add_image_size("perfil", 280, 380, true);
 add_image_size("portadaPerfil", 175, 240, true);
 add_image_size("gallery", 200, 110, true);
+add_image_size("newsThumb", 310, 180, true);
 
 add_action('acf/register_fields', 'my_register_fields');
 
@@ -583,6 +584,209 @@ function getComentarios($offset = 0){
 
 add_action('wp_ajax_envioAjax', 'ajaxHandler');
 add_action('wp_ajax_nopriv_envioAjax', 'ajaxHandler');
+
+function get_destacada(){
+    global $post;
+    $postObject = get_field('noticia_destacada',$post->ID);
+    
+    
+    
+    $out='';
+    $out.='<table cellpading="" cellspacing="10" border="0" width="600" align="center" bgcolor="#EEEEEE" style="margin-bottom: 10px;">';
+        foreach ($postObject as $object){
+            $out.= '<tr>';
+            $out.= '<td width="310">';
+            $out.= '<a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" target="_blank">';
+            $out.= get_the_post_thumbnail($object->ID, 'newsThumb' , array('style' => 'display:block;border: 1px solid #999999;'));
+            $out.= '</a>';
+            $out.= '</td>';
+            $out.= '<td valign="top">';
+            $out.= '<table>';
+            $out.= '<tr>';
+            $out.= '<td>';
+            $out.= '<font face="Helvetica">';
+            $out.= '<a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" style="font-size: 16px; color: #525252;" target="_blank">';
+            $out.= '<strong>';
+            $out.=  get_the_title($object->ID);
+            $out.= '</strong>';
+            $out.= '</a>'  ;  
+            $out.= '</font>';
+            $out.= '</td>';
+            $out.= '</tr>' ; 
+            $out.= '<tr>';
+            $out.= '<td>';
+            $out.= '<p style="margin: 0; font-size: 12px;line-height: 130%;">';
+            $out.= cortar($object->post_content, 180,"");
+            $out.= '</p>';
+            $out.= '</td>';
+            $out.= '</tr>';
+            $out.= '</table>';  
+            $out.= '</td>';
+            $out.= '</tr>';
+    }
+    $out.='</table>';
+
+    echo $out;
+}
+
+function get_ultima_charla(){
+    global $post;
+    $postObject = get_field('ultima_charla',$post->ID);
+    
+    
+    
+    $out='';
+    $out.='<table cellpading="" cellspacing="10" border="0" width="600" align="center" bgcolor="#EEEEEE" style="margin-bottom: 10px;">';
+        foreach ($postObject as $object){
+             $out.='<tr>';
+             $out.='<td width="310">';
+             $out.='<a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" target="_blank">';
+             $out.= get_the_post_thumbnail($object->ID, 'newsThumb' , array('style' => 'display:block;border: 1px solid #999999;'));             
+             $out.='</a>';
+             $out.='</td>';
+             $out.='<td valign="top">';
+             $out.='<table>';
+             $out.='<tr>';
+             $out.='<td style="font-size: 10px;">';
+             $out.= mysql2date('d F Y', $object->post_date);
+             $out.='</td>';
+             $out.='</tr>';
+             $out.='<tr>';
+             $out.='<td>';
+             $out.='<font face="Helvetica">';
+             $out.='<a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" style="font-size: 16px; color: #525252;" target="_blank">';
+             $out.='<strong>';
+             $out.= get_the_title($object->ID);
+             $out.='</strong>';
+             $out.='</a>';    
+             $out.='</font>';
+             $out.='</td>';
+             $out.='</tr> ' ;
+             $out.='<tr>';
+             $out.='<td>';
+             $out.='<p style="margin: 0; font-size: 12px;line-height: 130%;">';
+             $out.=cortar($object->post_content, 180,"");
+             $out.='</p>';
+             $out.='</td>';
+             $out.='</tr>';
+             $out.='</table>';    
+             $out.='</td>';
+             $out.='</tr>';
+    }
+    $out.='</table>';
+
+    echo $out;
+}
+
+function get_proxima_charla(){
+    global $post;
+    $postObject = get_field('proxima_charla',$post->ID);
+    $out='';
+    $out.='<table cellpading="" cellspacing="10" border="0" width="600" align="center" bgcolor="#EEEEEE" style="margin-bottom: 10px;">';
+        foreach ($postObject as $object){
+        $fechaEvento = get_field('fecha',$object->ID);
+        $dia = date('d', strtotime($fechaEvento));
+        $mes = traduceMes(date('m', strtotime($fechaEvento)));
+        $ano = date('Y', strtotime($fechaEvento));
+            $out.='<tr>';
+            $out.='<td valign="top">';
+            $out.='<table>';
+            $out.='<tr>';
+            $out.='<td style="font-size: 10px;">';
+            $out.= $dia .' ' . $mes .' ' . $ano . ' ' .get_field('hora',$object->ID).'hrs '.get_field('lugar',$object->ID); 
+            $out.='</td>';
+            $out.='</tr>';
+            $out.='<tr>';
+            $out.='<td>';
+            $out.='<font face="Helvetica">';
+            $out.='<a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" style="font-size: 16px; color: #525252;" target="_blank">';
+            $out.='<strong>';
+            $out.= get_the_title($object->ID);
+            $out.='</strong>';
+            $out.='</a>' ;   
+            $out.='</font>';
+            $out.='</td>';
+            $out.='</tr>';  
+            $out.='<tr>';
+            $out.='<td style="font-size: 12px;">';
+            $out.='<strong>';
+            $out.='Relator: '. get_field('relator',$object->ID);
+            $out.='</strong>';
+            $out.='</td>';
+            $out.='</tr>';
+            $out.='<tr>';
+            $out.='<td>';
+            $out.='<p style="font-size: 12px;margin:0;">';
+            $out.= cortar($object->post_content, 180,"");
+            $out.='</p>';
+            $out.='</td>';
+            $out.='</tr>';
+            $out.='</table>' ;   
+            $out.='</td>';
+            $out.='</tr>';
+    }
+    $out.='</table>';
+
+    echo $out;
+}
+
+function get_cdduc(){
+    global $post;
+    $postObject = get_field('cdd_uc',$post->ID);
+       
+    
+    
+    $out='';
+    $out.='<table cellpading="" cellspacing="10" border="0" width="600" align="center" bgcolor="#EEEEEE" style="margin-bottom: 10px;">';
+        foreach ($postObject as $object){
+             $out.=  '  <tr>
+                <td width="70" valign="top">
+                <a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" target="_blank">'
+                . get_the_post_thumbnail($object->ID, 'notas' , array('style' => 'display:block;border: 1px solid #999999;')) .
+                '</a>
+                </td>
+                <td valign="top">
+                <table>
+                <tr>
+                <td>
+                <font face="Helvetica">
+                <a href="' .  get_permalink($object->ID) . '" title="Leer artículo en el sitio" style="font-size: 16px; color: #525252;" target="_blank">
+                <strong>
+                '. get_the_title($object->ID).
+                '</strong>
+                </a>    
+                </font>
+                </td>
+                </tr>  
+                <tr>
+                <td>
+                <p style="margin: 0; font-size: 12px;line-height: 130%;">
+                En esta edición podemos encontrar una entrevista a José Miguel Sánchez, director del Instituto de Economía de la Facultad de Ciencias Económicas y Administrativas de la...
+                </p>
+                </td>
+                </tr>
+                </table>    
+                </td>
+                </tr>';
+    }
+    $out.='</table>';
+
+    echo $out;
+}
+
+function callcurl($permalink) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $permalink);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+
+    $page = curl_exec($ch);
+    if (!curl_errno($ch)) {
+         $info = curl_getinfo($ch);
+    }
+    curl_close($ch);
+    return $page;
+}
 
 
 ?>

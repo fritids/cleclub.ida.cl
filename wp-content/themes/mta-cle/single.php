@@ -1,7 +1,16 @@
-<?php get_header(); ?>
+<?php get_header(); the_post();?>
+
+ <?php 
+ $terms = wp_get_post_terms( $post->ID, 'taxeventos');
+ $agenda = false;
+ if(in_array('agenda', (array)$terms[0])){
+     $agenda = true;
+ }
+ ?>   
+
 <div id="contenido" class="row">
-    <?php echo breadcrumb(); ?> 
-    <?php while (have_posts()) : the_post(); ?> 
+    <?php echo breadcrumb(); ?>      
+        <?php if (is_user_logged_in() || $agenda) { ?>
         <div id="leftSide" class="column8 downV down">
             <div id="cSlider">
                 <div id="fixedPic">
@@ -9,8 +18,8 @@
                 </div>
             </div><!--/cSlider-->
         </div><!--/leftSide -->
-        <?php get_sidebar(); ?>
-        <div id="pageContent" class="column8 down downV pad">
+    
+    <?php get_sidebar(); ?>        <div id="pageContent" class="column8 down downV pad">
             <h1><?php the_title(); ?></h1>
 
             <div id="postContent">
@@ -73,10 +82,6 @@
                     
                 </ul>
             </div>
-                <?php
-                
-            endwhile;
-            ?>
                 
             <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>
                 <div class="gallery clearfix">
@@ -97,6 +102,19 @@
                 </div> 
             <?php endif; ?>
         </div>
+        
+        <?php
+        } else {
+
+            echo '<div class="column8 authorBio clearfix pad down downV">
+                <div class="authorWrap">
+                <strong>Acceso restringido para miembros del CLE CLUB</strong>
+                </div>
+                </div>';
+            
+        }
+       get_sidebar();
+        ?>
     </div>    
 </div><!--pageContent-->
 <?php get_footer(); ?>

@@ -92,5 +92,6 @@
             ?>
         </div>
     </div><!--/listadoEventos-->
+    
 </div><!--/sidebar-->
 <?php wp_reset_query(); ?>

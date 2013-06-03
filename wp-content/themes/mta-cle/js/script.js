@@ -20,7 +20,8 @@
         if(Modernizr.mq('only screen and (min-width : 640px)')){
             esto.equalizeHeights($("#wNotas .tituloNota"));
             esto.equalizeHeights($("#wNotas .boxNotas"));
-            esto.equalizeHeights($(".equal"));
+            setTimeout(function(){ esto.equalizeHeights($(".equal")); }, 2000);
+            
         }
         if(Modernizr.mq('only screen and (max-width : 920px)')){
             esto.deployMobilMenu();
