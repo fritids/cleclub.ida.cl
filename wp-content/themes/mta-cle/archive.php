@@ -14,7 +14,7 @@
 <div id="wNoticias">
     <ul>
          <?php
-                if(is_tax("taxeventos", "agenda")) query_posts(array("post_type"=>"eventos_sociales", "tax_query"=>array(array("taxonomy"=>"taxeventos", "terms"=>"agenda","field"=>"slug")), "orderby" => "meta_value_num", "meta_key" => "fecha", 'order' => 'ASC'));
+                if(is_tax("taxeventos", "agenda")) query_posts(array("post_type"=>"eventos_sociales", "tax_query"=>array(array("taxonomy"=>"taxeventos", "terms"=>"agenda","field"=>"slug")), "orderby" => "meta_value_num", "meta_key" => "fecha", 'order' => 'DESC'));
           ?> 
         <?php while (have_posts()) : the_post(); ?> 
             <li>

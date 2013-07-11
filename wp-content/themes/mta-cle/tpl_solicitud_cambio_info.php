@@ -9,11 +9,6 @@ the_post();
 get_header();
 $user = wp_get_current_user();
 ?>
-    <script>
-    $(document).ready(function(){
-        $("#contactoCle").validationEngine('attach');
-       });
-    </script>
 <div id="contenido">
     <div id="pageContent" class="clearfix column8 down downV pad">
         <h1><?php the_title();?></h1>
@@ -157,21 +152,21 @@ Te responderemos a la brevedad
             <label>
                 Empresa
             </label>
-            <input name="empresa" type="text" class="itLogin" id="nombre" value="<?php the_field('empresa',"user_$user->ID"); ?>">
+            <input name="empresa" type="text" class="itLogin" id="nombre" value="<?php the_field('empresa',"user_$user->ID"); ?>" required>
             <label>Cargo</label>
-            <input name="cargo" type="text" class="itLogin" id="mail" value="<?php the_field('cargo',"user_$user->ID"); ?>">
+            <input name="cargo" type="text" class="itLogin" id="mail" value="<?php the_field('cargo',"user_$user->ID"); ?>" required>
             <label>
                 Teléfono
             </label>
-            <input name="telefono" type="text" class="itLogin" id="empresa" value="<?php the_field('telefono',"user_$user->ID"); ?>"/>
+            <input name="telefono" type="text" class="itLogin" id="empresa" value="<?php the_field('telefono',"user_$user->ID"); ?>" required/>
             <label>
                 Mail
             </label>
-            <input name="mail" type="text" class="itLogin" id="cargo" value="<?php the_field('mail',"user_$user->ID"); ?>" />
+            <input name="mail" type="text" class="itLogin" id="cargo" value="<?php the_field('mail',"user_$user->ID"); ?>" required />
             <label>
                Estado Civil
             </label>
-            <select class="itLogin" name="ecivil">
+            <select class="itLogin" name="ecivil" required>
                 <option value="Casado">Casado(a)</option>
                 <option value="Soltero">Soltero(a)</option>
                 <option value="Divorciado">Divorciado(a)</option>

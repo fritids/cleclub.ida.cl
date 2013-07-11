@@ -294,6 +294,39 @@ function parseFeedHome($url, $cuantos = 3, $descripcion = true) {
     endif;
 }
 
+function spanishdate($date){
+    $date = explode(' ', $date);
+    $mes = $date[0];
+    $ano = $date[1];
+    
+    if($mes == 'January'){
+        $finaldate = 'Enero '.$ano;
+    }elseif($mes == 'February'){
+        $finaldate = 'Febrero '.$ano;
+    }elseif($mes == 'March'){
+        $finaldate = 'Marzo '.$ano;
+    }elseif($mes == 'April'){
+        $finaldate = 'Abril '.$ano;
+    }elseif($mes == 'May'){
+        $finaldate = 'Mayo '.$ano;
+    }elseif($mes == 'June'){
+        $finaldate = 'Junio '.$ano;
+    }elseif($mes == 'July'){
+        $finaldate = 'Julio '.$ano;
+    }elseif($mes == 'August'){
+        $finaldate = 'Agosto '.$ano;
+    }elseif($mes == 'September'){
+        $finaldate = 'Septiembre '.$ano;
+    }elseif($mes == 'October'){
+        $finaldate = 'Octubre '.$ano;
+    }elseif($mes == 'November'){
+        $finaldate = 'Noviembre '.$ano;
+    }elseif($mes == 'December'){
+        $finaldate = 'Diciembre '.$ano;
+    }
+    
+    return $finaldate;
+}
 
 
 function notas($args) {

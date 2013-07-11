@@ -22,7 +22,7 @@
                         </tr>
                         <tr>
                             <td style="text-align: right; font-size: 12px; color: #555555;">
-                                Mayo 2013
+                                <?php echo spanishdate(get_field('fecha', $post->ID)) ?>
                             </td>
                         </tr>
                         <tr height="10">
