@@ -4,7 +4,7 @@
         <?php echo breadcrumb(); ?> 
         <div  class="authorWrap">
         <?php
-        if (is_user_logged_in()) {
+        if (is_user_logged_in() || $_GET['representante']) {
             the_post();
             global $wp_query;
             $curauth = $wp_query->get_queried_object();            
@@ -24,8 +24,8 @@
                     <p class="subTitulo"><strong>Estado Civil: </strong><?php the_field('estado_civil',"user_$curauth->ID"); ?></a></p>
                 <?php } ?>
                 <?php if(get_field('grupos_y_asociaciones',"user_$curauth->ID")){?>
-                    <p class="subTitulo"><strong>Grupos y asociaciones:  <br /></strong>
-                <?php get_field('grupos_y_asociaciones',"user_$curauth->ID"); ?></a></p><?php } ?>
+                    <p class="subTitulo"><strong>Estado Civil: </strong><?php the_field('grupos_y_asociaciones',"user_$curauth->ID"); ?></a></p>
+                <?php } ?>
                 <?php if(get_field('actividades_y_talentos',"user_$curauth->ID")){?>
                     <p class="subTitulo"><strong>Actividades y talentos: <br /></strong><?php the_field('actividades_y_talentos',"user_$curauth->ID"); ?></a></p>
                 <?php } ?>

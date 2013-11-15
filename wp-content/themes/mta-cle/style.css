@@ -687,6 +687,7 @@ margin-top: 1px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
+    margin-top:10px;
 }
 .comment-reply-link:hover{
     color:#FFF;
@@ -1362,6 +1363,7 @@ margin-top: 1px;
     position:relative;
     font-family: Helvetica, sans-serif;
     padding: 10px;
+    margin-bottom:10px;
 }
 
 .bio img{
@@ -1403,7 +1405,7 @@ margin-top: 1px;
     position: relative;
     margin-top: -39px;
     background: url("_img/eyy_logo_perfil.png") no-repeat bottom center;
-    background-size: cover;
+    background-size: 100%;
 }
 .user_37{
     background: url("_img/uc_logo_perfil.png") no-repeat bottom center;
@@ -1936,6 +1938,7 @@ img.central {
     float: right;
     margin-top: 10px;
     padding-left: 25px;
+    font-size:13px;
 }
 
 .commentList .commentReply {
@@ -2052,13 +2055,16 @@ SLIDER HOME*********************************************************************
     position: relative;
 }
 
+.sliderHome figure img{
+    width:auto !important;
+}
+
 .sliderHome figcaption {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.5);
-    width: 40%;
-    height: 100%;
+    background: rgb(0,0,0);
+    width: 100%;
     padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -2066,7 +2072,6 @@ SLIDER HOME*********************************************************************
 }
 
 .sliderHome h2 {
-    border-bottom: 1px solid #FF9900;
     color: #FFFFFF;
     display: block;
     font-family: EY;
@@ -2080,6 +2085,7 @@ SLIDER HOME*********************************************************************
 .sliderHome p{
     color: #fff;
     font-size: 14px;
+    margin-bottom:10px;
 }
 
 .slideBloq {
@@ -2093,7 +2099,7 @@ SLIDER HOME*********************************************************************
 
 .slideNav {
     bottom: 10px;
-    left: 10px;
+    right: 10px;
     list-style: none outside none;
     position: absolute;
 }
@@ -2307,7 +2313,7 @@ and (min-width : 801px) {
         box-sizing: border-box;
     }
     .realSelect{display:block;}
-    .selectReplace{display:none;}
+    /*.selectReplace{display:none;}*/
 }
 
 
@@ -2485,10 +2491,12 @@ and (max-width : 640px) {
 /*slider home*/
 
 .sliderHome figcaption{
-    
-    width: 50%;
     padding: 10px;
-    
+    position: static;
+}
+
+.sliderHome h2{
+    border-bottom:0 none;
 }
 
 .slideBloq{

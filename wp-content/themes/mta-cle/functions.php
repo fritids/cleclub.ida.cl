@@ -18,11 +18,11 @@ function sliderHome(){
             $querySlide->the_post();
                 $out .='<li>';
                 $out .='<figure>';
-                $out .='<a href="'.get_permalink().'" title="'.get_the_title().'" rel="contents">'. get_the_post_thumbnail($post->ID, "slideHome" .'</a>');
+                $out .='<a href="'.get_permalink().'" title="'.get_the_title().'" rel="contents">'. get_the_post_thumbnail($post->ID, "slideHome") .'</a>';
                 $out .='<figcaption>';
                 $out .='<div class="cap">';
                 $out .='<h2><a href="'.get_permalink().'" title="'.get_the_title().'" rel="contents">'.get_the_title().'</a></h2>';
-                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),50).'</p>';
+//                $out .='<p class="hide-on-phones">'.cortar(get_the_content(),150).'</p>';
                 $out .='</div>';
                 $out .='</figcaption>';
                 $out .='</figure>';
@@ -75,7 +75,11 @@ function breadcrumb() {
             $autor = get_userdata( $autor );
             
             $out .= $separador;
-            $out .= '<a class="bc-item" href="/miembros-del-club/" title="Entradas">Miembros del Club</a>';
+            if($_GET['representante']){
+                $out .= '<a class="bc-item" href="/quienes-somos/representantes-cle/" title="Representantes">Representantes CLE CLUB</a>';
+            }else{
+                $out .= '<a class="bc-item" href="/miembros-del-club/" title="Miembros">Miembros del Club</a>';
+            }
             $out .= $separador;
             $out .= $autor->first_name.' '.$autor->last_name;
         }
@@ -251,14 +255,6 @@ function mailContent($empresa,$cargo,$telefono,$mail,$estadocivil,$grupos,$activ
                 </tr>
                 
             </table>
-            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
-                <tr>
-                    <td width="600" align="center">
-                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
-                    </td>
-                </tr>
-               
-            </table>
         
     </body> 
 </html> 
@@ -350,7 +346,7 @@ function slideHome() {
         if ($rows):
             foreach  ($rows as $imagen):
                 $imgID = $imagen['imagen'];
-                $out .= '<div class="ls-layer" style="slidedelay: 3000">' . wp_get_attachment_image($imgID, "slideHome") . ' </div>';
+                $out .= '<div class="ls-layer" style="slidedelay: 3000">' . wp_get_attachment_image($imgID, 'slideHome') . ' </div>';
             endforeach;
         endif;
     endwhile;
@@ -365,7 +361,7 @@ register_nav_menu('footerPrivate', __('private Footer Menu', 'twentytwelve'));
 
 add_theme_support('post-thumbnails');
 add_image_size("notas", 70, 70, true);
-add_image_size("slideHome", 640, 371, true);
+add_image_size("slideHome", 660, 371, true);
 add_image_size("perfil", 280, 380, true);
 add_image_size("portadaPerfil", 175, 240, true);
 add_image_size("gallery", 200, 110, true);
@@ -421,8 +417,7 @@ function ajaxHandler(){
       
         
         die( $out );
-    }
-    elseif( $_POST['func'] === 'recuperarContrasena' ){
+    }elseif( $_POST['func'] === 'recuperarContrasena' ){
         $usuario= get_user_by('email', $_POST['mailLog']);
         if($usuario){
             $headers = 'From: cleclub <contacto@cleclub.cl>' . "\r\n";
@@ -484,7 +479,7 @@ function ajaxHandler(){
                             <tr>
                                 <td>
                                     <font face="Helvetica" style="font-size: 12px; color: #999999;">
-                                        Si lo realizó por error, solo ignore este mensaje
+                                        Si lo realizó por error, ignore este mensaje
                                     </font>
                                 </td>
                             </tr>
@@ -511,14 +506,6 @@ function ajaxHandler(){
                     </td>
                 </tr>
                 
-            </table>
-            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="10" bgcolor="#E9E9E9">
-                <tr>
-                    <td width="600" align="center">
-                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/mailfirm.jpg"/>
-                    </td>
-                </tr>
-               
             </table>';
             
             add_filter( 'wp_mail_content_type', 'set_html_content_type' );
@@ -533,12 +520,10 @@ function ajaxHandler(){
         }else { // usuario no existe
             die('noUser');
         }
-    }
-    elseif( $_POST['func'] === 'desloguear' ){
+    }elseif( $_POST['func'] === 'desloguear' ){
         wp_logout();
         die();
-    }
-    elseif( $_POST['func'] === 'loginFront'){
+    }elseif( $_POST['func'] === 'loginFront'){
         $creds = array();
         $creds['user_login'] = $_POST['log'];
         $creds['user_password'] = $_POST['pwd'];
@@ -553,8 +538,186 @@ function ajaxHandler(){
     }elseif($_POST['func'] === 'loadComments'){
         $out = getComentarios($_POST['offset']);
         die($out);
+    }elseif( $_POST['func'] === 'sendCommentMails' ){
+            global $post;
+            $actualComments = get_comment( intval($_POST['commentParentID']) );
+            $parentauthor = $actualComments->comment_author_email;
+            $childComments = get_comments( array('parent' => $_POST['commentParentID']));
+            $current_user = wp_get_current_user();
+            
+            if($parentauthor != $current_user->user_email){
+                $authormails = array($parentauthor);
+            }
+            
+            foreach($childComments as $child){
+                if($child->comment_author_email == $current_user->user_email){
+                    continue;
+                }
+                $authormails[] = $child->comment_author_email; 
+            } 
+            
+            $authormails = array_unique($authormails); 
+
+            $headers = 'From: cleclub <contacto@cleclub.cl>' . "\r\n";
+            
+            $message = '
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Mensaje de CLECLUB
+                                        </strong>
+                                    </font>
+                                </td>
+                            </tr>
+                           
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 14px; color: #000000;">
+                                        Estimado(a), alguien ha respondido a tu comentario en El Muro de CLECLUB
+                                    </font>        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 14px; color: #000000;">
+                                        Puede ver la respuesta en la siguiente URL: '. get_permalink($_POST['pid']) .'
+                                    </font>    
+                               </td>
+                            </tr>
+                             <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                           
+                         </table>
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
+                
+            </table>';
+            
+            add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+            wp_mail( $authormails, 'Tienes una respuesta a tu comentario en El Muro de CLECLUB', $message, $headers );    
+            remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+            
+            die('ok');
+    }elseif($_POST['func'] === 'sendMassiveMails'){
+
+            $blogusers = get_users('orderby=display_name&role=subscriber');
+            foreach($blogusers as $user){
+                $authormails[] = $user->user_email;
+            }
+            $authormails[] = 'Francesca.Canziani@cl.ey.com';
+            $headers = 'From: cleclub <contacto@cleclub.cl>' . "\r\n";
+            $message = '
+                
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000" height="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="600" align="center">
+                        <img style="display:block" src="'.get_bloginfo("template_directory").'/_img/headermail.jpg"/>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#000000">
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 18px; color: #ffffff;">
+                                            Mensaje de CLECLUB
+                                        </strong>
+                                    </font>
+                                </td>
+                            </tr>
+                           
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="600" align="center" border="0" cellpadding="0" cellspacing="10">
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 14px; color: #000000;">
+                                        Estimado(a), Un miembro CLECLUB ha realizado el primer comentario en el muro de CLECLUB
+                                    </font>        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <font face="Helvetica" style="font-size: 14px; color: #000000;">
+                                        Puede ver el comentario en la siguiente URL: '. get_permalink($_POST['pid']) .'
+                                    </font>    
+                               </td>
+                            </tr>
+                             <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="10">
+                                </td>
+                            </tr>
+                           
+                         </table>
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td height="50">
+                    </td>
+                </tr>
+                
+            </table>';
+            add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+            wp_mail( $authormails, 'Nuevo comentario en el muro de CLECLUB', $message, $headers );    
+            remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+            die('mails');
+    }else { 
+        die('Error!'); 
     }
-    else { die('Error!'); }
 }
 
 function getComentarios($offset = 0){
@@ -563,7 +726,8 @@ function getComentarios($offset = 0){
     $args = array(
                 'parent' => 0,
                 'number' => 20,
-                'offset' => $offset
+                'offset' => $offset,
+                'status' => 'approve'
         );
         
     $comments = get_comments($args); 
@@ -599,7 +763,7 @@ function getComentarios($offset = 0){
             $out .= '<div class="picAvatar hide-on-phones">';
             $out .= get_wp_user_avatar($reply->user_id, 72,72);
             $out .= '</div>';
-            $out .= '<a href="'.get_author_posts_url($comment->user_id).'" class="perfil_ico hide-on-phones">Ver Perfil</a>';
+            $out .= '<a href="'.get_author_posts_url($reply->user_id).'" class="perfil_ico hide-on-phones">Ver Perfil</a>';
             $out .= '</div>';
             $out .= '<div class="commmentBody">';
 
@@ -653,6 +817,17 @@ function get_destacada(){
             $out.= '</p>';
             $out.= '</td>';
             $out.= '</tr>';
+            if(get_field('archivo_adjunto',$object->ID)){
+                $out.= '<tr height="10">';
+                $out.= '</tr>';
+                $out.= '<tr>';
+                $out.= '<td>';
+                $out.= '<a href="'. wp_get_attachment_url(get_field('archivo_adjunto',$object->ID)) .'" title="Descargar Estudio">';
+                $out.= '<img style="display:block; border:0 none;" src="http://www.cleclub.cl/boletin/001/img/botondescargaes.jpg">';
+                $out.= '</a>';
+                $out.= '</td>';
+                $out.= '</tr>';
+            }
             $out.= '</table>';  
             $out.= '</td>';
             $out.= '</tr>';
@@ -702,6 +877,22 @@ function get_ultima_charla(){
              $out.='</p>';
              $out.='</td>';
              $out.='</tr>';
+             $out.='<tr>';
+             $out.='<td>';
+             $out.='<a href="'.  get_permalink($object->ID) .'" title="Ver galeria de fotos">';
+             $out.='<img style="display:block; border:0 none;" src="http://www.cleclub.cl/boletin/001/img/botongal.jpg">';
+             $out.='</a>';  
+             $out.='</td>';
+             $out.='</tr>';
+             if(get_field('archivo_adjunto',$object->ID)){
+                 $out.='<tr>';
+                 $out.='<td>';
+                 $out.='<a href="'. wp_get_attachment_url(get_field('archivo_adjunto',$object->ID)) .'" title="Descargar Presentación">';
+                 $out.='<img style="display:block; border:0 none;" src="http://www.cleclub.cl/boletin/001/img/botondescarga.jpg">';
+                 $out.='</a> '; 
+                 $out.='</td>';
+                 $out.='</tr>';
+             }
              $out.='</table>';    
              $out.='</td>';
              $out.='</tr>';

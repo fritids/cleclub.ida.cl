@@ -14,7 +14,7 @@
 <div id="wNoticias">
     <ul>
          <?php
-                if(is_tax("taxeventos", "agenda")) query_posts(array("post_type"=>"eventos_sociales", "tax_query"=>array(array("taxonomy"=>"taxeventos", "terms"=>"agenda","field"=>"slug")), "orderby" => "meta_value_num", "meta_key" => "fecha", 'order' => 'DESC'));
+                if(is_tax("taxeventos", "agenda")) query_posts(array("post_type"=>"eventos_sociales", "tax_query"=>array(array("taxonomy"=>"taxeventos", "terms"=>"agenda","field"=>"slug")), "orderby" => "meta_value_num", "meta_key" => "fecha", 'order' => 'ASC'));
           ?> 
         <?php while (have_posts()) : the_post(); ?> 
             <li>
@@ -28,7 +28,12 @@
                     $ano = date('Y', strtotime($fechaEvento));
                  ?>
                 <div class="bajadaNoticia">
-                    <?php   if(is_tax("taxeventos", "agenda")): ?><span class="dateEvent"><?php echo $dia . ' de ' . $mes . ' de ' . $ano ?> , <?php the_field('hora'); ?> hrs., <?php the_field('lugar'); ?></span><?php endif;?>
+                    <?php   if(is_tax("taxeventos", "agenda")): ?>
+                    <span class="dateEvent">
+                        <?php if($fechaEvento){echo $dia . ' de ' . $mes . ' de ' . $ano; }?>
+                        <?php if(get_field('hora')){echo ', '.get_field('hora') .' hrs.';} ?> 
+                        <?php if(get_field('lugar')){echo ', '. get_field('lugar');} ?>
+                    </span><?php endif;?>
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <?php echo cortar($post->post_content, 150); ?>
                 </div>

@@ -49,7 +49,7 @@
                 </td>
                 <td bgcolor="#000">
                     <font face="Helvetica" style="font-size: 16px; color: #ffffff;">
-                    Departamento de Estudios Ernst &amp; Young
+                    Departamento de Estudios EY
                     </font>
                 </td>
             </tr>

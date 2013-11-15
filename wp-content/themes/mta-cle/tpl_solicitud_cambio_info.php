@@ -18,9 +18,10 @@ $user = wp_get_current_user();
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //varså
-//                    $d3 = 'despinosa@df.cl';
-//                    $d4 = 'francesca.canziani@cl.ey.com'; 
-//                    $d5 = 'comunicaciones.eychile@cl.ey.com';
+                    $d1 = 'despinosa@df.cl';
+                    $d2 = 'francesca.canziani@cl.ey.com'; 
+                    $d3 = 'comunicaciones.eychile@cl.ey.com';
+                    $d4 = 'paolo.bessolo@brandbook.cl';
                     //vars
                     $empresa = $_POST['empresa'];
                     $cargo = $_POST['cargo'];
@@ -123,8 +124,10 @@ if(!empty($_FILES['imagen'])){
     
     $attach_id = wp_insert_attachment( $attachment, $filename, $postid );
     $archivo = $filename;
-    wp_mail('francisco@ida.cl', 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
-    wp_mail('jorge@ida.cl', 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
+    wp_mail($d1, 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
+    wp_mail($d2, 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
+    wp_mail($d3, 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
+    wp_mail($d4, 'Nueva Solicitud de Cambio de Perfil', $cuerpo, $headers, $filename);
     wp_mail($mail , 'Tu solicitud de cambio de perfil ha sido efectiva', $cuerpo, $headers, $filename);
 } else {
     

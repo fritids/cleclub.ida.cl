@@ -11,7 +11,7 @@ Template Name: Quienes Somos
 <h1><?php the_title(); ?></h1>
 <?php the_content();?>
 <?php $childPages=$wp_query->post->ID; ?>
-    	<?php query_posts(array('showposts' => 4, 'post_parent' => $childPages, 'post_type' => 'page','post__not_in'=>array(304))); 
+    	<?php query_posts(array('showposts' => 4, 'post_parent' => $childPages, 'post_type' => 'page')); 
         if(have_posts()){
         $i = 1;    
         while (have_posts()) { the_post();

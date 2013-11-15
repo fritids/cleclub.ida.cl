@@ -10,7 +10,7 @@
                     </div>
                     <p>
                         <strong>C Level Executive Club</strong><br />
-                        Av.Presidente Riesco 5435, piso 4,<br />
+                        Avda.Presidente Riesco 5435, piso 4,<br />
                         Las Condes, Santiago<br />
                         <a href="mailto:contacto@cleclub.cl">contacto@cleclub.cl</a>
                     </p>
@@ -40,7 +40,7 @@
                                 <a href="http://www.df.cl/" title="Diario Financiero" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoDF.png"/></a>
                             </li>
                             <li>
-                                <a href="http://www.eychile.cl/" title="Ernst & Young" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
+                                <a href="http://www.eychile.cl/" title="EY" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
                             </li>
                         </ul>
                     </div> 

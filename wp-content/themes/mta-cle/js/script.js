@@ -32,11 +32,13 @@
                 esto.deployBackButton();
             }
         }
-        if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px) ')){
+        if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)') && Modernizr.touch){
             esto.deploySelectTablet();
+            $('.selectReplace').css('display','none');
         }
-        if(Modernizr.mq('only screen  and (max-device-width : 1300px) and (min-device-width : 801px)')){
+        if(Modernizr.mq('only screen  and (max-device-width : 1300px) and (min-device-width : 801px)' && Modernizr.touch)){
             esto.deploySelectTablet();
+            $('.selectReplace').css('display','none');
         }
         $(window).on('resize',function(){
             $('#menuSelect').remove();
@@ -63,12 +65,14 @@
                     esto.deployBackButton();
                 }
             }
-            if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)')){
+            if(Modernizr.mq('only screen and (max-width : 1025px) and (min-width : 801px)') && Modernizr.touch){
                 $('.realSelect').remove();
                 esto.deploySelectTablet();
+                $('.selectReplace').css('display','none');
             }
-            if(Modernizr.mq('only screen  and (max-device-width : 1300px) and (min-device-width : 801px)')){
+            if(Modernizr.mq('only screen  and (max-device-width : 1300px) and (min-device-width : 801px)') && Modernizr.touch){
                 esto.deploySelectTablet();
+                $('.selectReplace').css('display','none');
             }
         });
         
@@ -173,7 +177,7 @@
                         input.after('<span class="errorMsn">Debe ingresar el campo correcto</span>');
             }          
         });
-        
+            
         $('#membresia').validizr({
             customValidations : {
                 checkEmail : function($input){
@@ -223,7 +227,50 @@
             
             }
         });
-        
+        $('#formComment').validizr({
+             validFormCallback : function( $formulario ){
+                var pid = $('#contenido').attr('data-pid'); 
+                if($('#comment_parent').val() === '0'){
+                    if($('.comment').length === 0){
+                        $.ajax({
+                            type: "POST",
+                            url: '/wp-admin/admin-ajax.php',
+                            data: 'action=envioAjax&func=sendMassiveMails&pid='+pid,
+                            dataType: "html",
+                            beforeSend: function( xhr ) { 
+                                $('#formComment').parent().parent().css('opacity','0.5');
+                            },
+                            success: function( respuesta ) {;
+                                $formulario.submit();
+                            }
+                        });
+                    }else{
+                        $formulario.submit();
+                    }
+                }else{
+                    var commentPostID = $('#comment_post_ID').val();
+                    var commentParentID = $('#comment_parent').val();
+                    $.ajax({
+                        type: "POST",
+                        url: '/wp-admin/admin-ajax.php',
+                        data: 'action=envioAjax&func=sendCommentMails&commentPostID='+commentPostID+'&commentParentID='+commentParentID+'&pid='+pid,
+                        dataType: "html",
+                        beforeSend: function( xhr ) { 
+                            $('#formComment').parent().parent().css('opacity','0.5');
+                        },
+                        success: function( respuesta ) {;
+                            console.log(respuesta);
+                            $formulario.submit();
+                        }
+                    });
+                }
+                
+            
+            },
+            notValidInputCallback : function( input ){
+                        input.after('<span class="errorMsn">Debe ingresar un comentario</span>');
+            } 
+        });
         $('#frontLogMobile').validizr({
              validFormCallback : function( $formulario ){
                 
@@ -251,19 +298,20 @@
             
           
         });
-        
         if($('#slider').length > 0){
-            $('#slider').Swipe({auto: 3000, continuous: true, callback: function(index, item){
-                    var $bulletsContainer = $('#bullets-slider'),
-                        $bullets = $bulletsContainer.find('a'),
-                        $actualBullet = $bulletsContainer.find('a[data-slide="'+index+'"]');
-                        $bullets.removeClass('active');
-                        $actualBullet.addClass('active');
-                        
-            }});
+            this.slider = new NinjaSlider($('#slider').get(0), {
+                    transitionCallback : function(index, item){
+                        var $bulletsContainer = $('#bullets-slider'),
+                            $bullets = $bulletsContainer.find('a'),
+                            $actualBullet = $bulletsContainer.find('a[data-slide="'+index+'"]');
+                            $bullets.removeClass('active');
+                            $actualBullet.addClass('active');
+
+                        },
+                    auto: 5000, continuous: true
+
+            });
         }
-        
-        
 
 
     };
@@ -315,20 +363,6 @@
                    options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
                    
                 }
-//                else if(aLink.hasClass('group')){
-//                   if(count == 0){
-//                      options += '<optgroup>'; 
-//                      options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>'; 
-//                      count++; 
-//                   }else if(count > 0 && count < 3){
-//                      options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
-//                      count++;
-//                   }else if(count == 3){
-//                      options += '<option value="'+aLink.attr('href')+'" '+selectedAttr+'>'+aLink.text()+'</option>';
-//                      options += '</optgroup>';
-//                      count = 0;
-//                   } 
-//                }
             });
             $menuContainer.prepend('<select id="menuSelect" class="evt-new" data-func="redirectMenu" data-event="change" name="menu-principal"></select>');
             this.autoHandle($('.evt-new'));
@@ -507,8 +541,11 @@
         },
         goToSlide : function( evento ){
             evento.preventDefault();
-            var bulletSlide = $(evento.currentTarget).attr('data-slide');
-            $('#slider').data('Swipe').slide(parseInt(bulletSlide,10));
+            var $bullet = $(evento.currentTarget);
+            var bulletSlide = $bullet.attr('data-slide');
+            $('#bullets-slider').find('a').removeClass('active');
+            $bullet.addClass('active');
+            this.slider.slide(parseInt(bulletSlide,10));
         },
         redirectMenu : function( evento ){
             var selection = $(evento.currentTarget).find('option:selected').val(); //Selecciona el value del option seleccionado

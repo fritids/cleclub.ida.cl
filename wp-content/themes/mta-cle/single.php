@@ -1,16 +1,29 @@
 <?php get_header(); the_post();?>
 
  <?php 
- $terms = wp_get_post_terms( $post->ID, 'taxeventos');
+ $terms = wp_get_post_terms( $post->ID, 'category');
+ $termsAgendas = wp_get_post_terms( $post->ID, 'taxeventos');
+ $inornot = false;
  $agenda = false;
- if(in_array('agenda', (array)$terms[0])){
+ $onlyEY = false;
+ $onlyAgenda = false;
+ if(in_array('ernst-young', (array)$terms[0]) || in_array('cdd-uc', (array)$terms[0])){
+     $inornot = true;
+ }
+if(in_array('agenda', (array)$termsAgendas[0]) || in_array('evento', (array)$termsAgendas[0])){
      $agenda = true;
+ }
+ if(in_array('agenda', (array)$termsAgendas[0])){
+     $onlyAgenda = true;
+ }
+ if(in_array('ernst-young', (array)$terms[0])){
+     $onlyEY = true;
  }
  ?>   
 
 <div id="contenido" class="row">
     <?php echo breadcrumb(); ?>      
-        <?php if (is_user_logged_in() || $agenda) { ?>
+        <?php if (is_user_logged_in() || $inornot) { ?>
         <div id="leftSide" class="column8 downV down">
             <div id="cSlider">
                 <div id="fixedPic">
@@ -25,7 +38,7 @@
             <div id="postContent">
             
                 <?php
-                if (is_user_logged_in()) {
+                if (is_user_logged_in() || $onlyEY) {
 
                     if (get_field('fecha') && has_term("agenda", "taxeventos")) :
                         $fechaEvento = get_field('fecha');
@@ -53,11 +66,21 @@
                      echo '<p>'.get_field('curriculum_relator').'</p>';
                      echo '</div>';
                  } ?>
-                <h3>Descripción</h3>
+                <?php if($onlyAgenda == true){ ?>
+                    <h3>Descripción</h3>
+                <?php } ?>
+                
                 <?php the_content();?>
-                 <?php if (get_field('archivo_adjunto')) {
-                    echo '<div class="share"><a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
-                }?>
+                 <?php if($agenda == true){ 
+                     if (get_field('archivo_adjunto')) {
+                        echo '<div class="share"><a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">Descargar Presentación</a>';
+                    } 
+                 }else{
+                    if (get_field('archivo_adjunto')) {
+                        echo '<div class="share"><a class="btnDown" href="' . wp_get_attachment_url(get_field('archivo_adjunto')) . ' " rel="nofollow" title="Descargar Estudio">'. ( in_category('cdd-uc') ? 'Descargar Revista' : 'Descargar Estudio') .'</a>';
+                    }
+                 } ?>
+                
                 
                 <?php
                 } else {
@@ -66,8 +89,10 @@
                          echo '<div id="overflow-text">';
                          echo '<p>'.get_field('curriculum_relator').'</p>';
                          echo '</div>';
-                     }  
-                     echo '<h3>Descripción</h3>';
+                     }
+                     if($onlyAgenda == true){
+                        echo '<h3>Descripción</h3>';
+                     }
                      the_content();
                      if(get_field('archivo_adjunto')){
                      echo '<div class="share"><div class="exclusive"><strong>Descarga exclusiva para miembros de CLE CLUB</strong><br /><small><a href="/solicitud-de-membresia/">Solicita Membresía</a> o <span class="hide-on-phones hide-on-v-tablets">Inicia Sesion</span><span><a href="/login/" class="hide-on-desktop hide-on-h-tablets">Inicia Sesion</a></span></small></div></div>';
@@ -75,12 +100,14 @@
                      
                      };
                 ?>
+                <?php if($onlyAgenda == false){ ?>
                 <ul class="social">
                     <li><span>Comparte este artículo:</span></li>
                     <li><a class="lkd"target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&title=<?php the_title();?>&summary=<?php the_title();?>&source={articleSource}">linkedin</a></li>
                     <li><a class="twitter" href="https://twitter.com/intent/tweet?text=<?php the_title();?> <?php the_permalink();?>&amp;hashtags=#Cleclub;via=CLECLUB" rel="nofollow">twitter</a></li>
                     
                 </ul>
+                <?php } ?>
             </div>
                 
             <?php if (has_term("evento", "taxeventos") && get_field('imagenes')): ?>

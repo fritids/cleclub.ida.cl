@@ -39,7 +39,7 @@
         <script src="<?php bloginfo('template_directory'); ?>/js/validizr.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/swipe.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
-        <?php if(is_page('red-de-contactos-cleclub')){
+        <?php if(is_page('el-muro-cleclub')){
             echo '<script src="'.home_url().'/wp-includes/js/comment-reply.js"></script>';
         } ?>
         <?php wp_head(); ?>
@@ -57,10 +57,10 @@
                                 <a href="http://www.cdduc.cl/" title="Centro de Desarrollo Directivo UC" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoUC.png"/></a>
                             </li>
                             <li>
-                                <a href="http://www.df.cl/" title="Diario Financiero" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoDF.png"/></a>
+                                <a href="http://www.df.cl/" title="Diario Financieroxs" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoDF.png"/></a>
                             </li>
                             <li>
-                                <a href="http://www.eychile.cl/" title="Ernst & Young" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
+                                <a href="http://www.eychile.cl/" title="EY" rel="#"><img src="<?php bloginfo('template_directory'); ?>/_img/logoEY.png"/></a>
                             </li>
                         </ul>
 

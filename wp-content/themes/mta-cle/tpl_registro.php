@@ -22,9 +22,11 @@ get_header(); ?>
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //vars
-//                    $d3 = 'despinosa@df.cl';
-//                    $d4 = 'francesca.canziani@cl.ey.com'; 
-                    $d5 = 'comunicaciones.eychile@cl.ey.com';
+                    $d1 = 'despinosa@df.cl';
+                    $d2 = 'francesca.canziani@cl.ey.com'; 
+                    $d3 = 'comunicaciones.eychile@cl.ey.com';
+                    $d4 = 'paolo.bessolo@brandbook.cl';
+                   
                     //vars
                     $nombre = $_POST['nombre'];
                     $mail = $_POST['mail'];
@@ -78,7 +80,10 @@ if(!empty($_FILES['curriculum'])){
     
     $attach_id = wp_insert_attachment( $attachment, $filename, $postid );
     $archivo = $filename;
-    wp_mail('francisco@ida.cl,'.$d4 , $asunto, $cuerpo, $headers, $filename);
+    wp_mail($d1 , $asunto, $cuerpo, $headers, $filename);
+    wp_mail($d2 , $asunto, $cuerpo, $headers, $filename);
+    wp_mail($d3 , $asunto, $cuerpo, $headers, $filename);
+    wp_mail($d4 , $asunto, $cuerpo, $headers, $filename);
 } else {
     
     $archivo = null;

@@ -63,8 +63,8 @@
                         'terms' => 'agenda'
                     )
                 ),
-                'order' => 'DESC',
-                'orderby' => 'meta_value_num', 
+                'order' => 'ASC',
+                'orderby' => 'meta_value_num',
                 'meta_key' => 'fecha',
                 'posts_per_page' => 2
             );

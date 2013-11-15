@@ -17,10 +17,11 @@ get_header(); ?>
         <p>
             <?php if ($_POST['mail']) { ?>
                 <?php //vars
-                    $d1 = 'francisco@ida.cl';
-//                    $d3 = 'despinosa@df.cl';
-//                    $d4 = 'francesca.canziani@cl.ey.com'; 
-//                    $d5 = 'comunicaciones.eychile@cl.ey.com';
+                    $d1 = 'jorge@ida.cl';
+                    $d3 = 'despinosa@df.cl';
+                    $d4 = 'francesca.canziani@cl.ey.com'; 
+                    $d5 = 'comunicaciones.eychile@cl.ey.com';
+                    $d6 = 'paolo.bessolo@brandbook.cl';
                     //vars
                     $nombre = $_POST['nombre'];
                     $cargo = $_POST['cargo'];
@@ -101,9 +102,10 @@ $cuerpo = utf8_decode($cuerpo);
 //mail($destinatario,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 mail($d1,'Contacto CLE-CLUB',$cuerpo, utf8_decode($headers));
-//mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
-//mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+mail($d3,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+mail($d4,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+mail($d5,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
+mail($d6,utf8_decode($asunto),$cuerpo, utf8_decode($headers));
 
 ?>
 <div id="ok">
